@@ -889,10 +889,10 @@ blockquote>.icon-quote-left{
 	margin-bottom: 0;
 }
 
-.course-content ul.topics li.section .content, .course-content ul.weeks li.section .content {
+.course-content ul.topics li.section .content, 
+.course-content ul.weeks li.section .content {
 	padding: 0;
-	margin-right: 0px;
-	margin-left: 0px;
+	margin: 0 40px;
 }
 
 .course-content .single-section .section-navigation .mdl-left {
@@ -997,7 +997,7 @@ blockquote>.icon-quote-left{
 	padding-bottom: 20px;
 	border: none;
 	border-bottom: 1px dashed rgb(223, 223, 223);
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .section_link{
@@ -1031,11 +1031,11 @@ blockquote>.icon-quote-left{
 /* @group Course Footer */
 
 #section_footer {
-	padding:2em 0;
+	padding:0;
 	color: [[setting:themecolor]];
 	line-height:1.5; 
 	clear:both;
-	margin-top: -60px;
+	margin-top: -10px;
 }
 #section_footer a{
 	font-style:normal;
