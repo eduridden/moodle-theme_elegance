@@ -26,6 +26,7 @@
 
 // Get the HTML for the settings bits.
 $html = theme_elegance_get_html_for_settings($OUTPUT, $PAGE);
+$hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 
 $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-first-column' classes in the layout for LTR.
 echo $OUTPUT->doctype() ?>
@@ -102,19 +103,35 @@ echo $OUTPUT->doctype() ?>
         echo $OUTPUT->blocks('side-pre', 'span4');
         ?>
     </div>
-
-    <footer id="page-footer">
-        <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
-        <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
-        <?php
-        echo $html->footnote;
-        echo $OUTPUT->login_info();
-        echo $OUTPUT->home_link();
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </footer>
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 	</div>
+	<div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
 </div>
+
+<footer id="page-footer">
+	<div class="container-fluid">
+		<div class="span3 desktop-first-column" style="text-align: left;">
+			<?php
+			echo $OUTPUT->home_link();
+			 if ($hascopyright) {
+        	echo '<p class="copy">|&nbsp;&nbsp;&nbsp;&copy; '.date("Y").' '.$hascopyright.'</p>';
+   			} ?>
+   			
+		</div>
+		
+		<div class="span6">
+			<?php 
+				echo $html->footnote;
+			?>
+		</div>
+		
+		<div class="span3 pull-right" style="text-align: right;">
+			<?php 
+				echo $OUTPUT->login_info();
+			?>
+		</div>
+	
+	</div>
+</footer>
 </body>
 </html>

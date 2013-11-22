@@ -294,7 +294,17 @@ a:hover, a:focus{
 
 /* @group Footer */
 
+#page-footer {
+	border-top: 10px solid #d1d1d1;
+	background: #e5e5e5;
+	font-size: .8em;
+}
 
+.sitelink {
+	float: left;
+	margin-right: 15px;
+	margin-top: -10px;
+}
 
 /* @end */
 
@@ -870,7 +880,7 @@ blockquote>.icon-quote-left{
 }
 
 .course-content .section-summary .section-title {
-margin: 0 0 21px 0;
+	margin: 0 0 21px 0;
 }
 
 .course-content .single-section .section-navigation {
