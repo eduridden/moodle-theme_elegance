@@ -38,6 +38,8 @@
 
 $plugins = array(
     'modernizr'     => array('files' => array('modernizr_2.6.2.js')),
+    'unslider'     => array('files' => array('unslider_1.0.js')),
+    'eventswipe'     => array('files' => array('eventswipe_0.5.js')),
     'nprogress'     => array('files' => array('nprogress.js')),
     'backstretch'     => array('files' => array('backstretch_2.0.4.js')),
     'alert'     => array('files' => array('bootstrap_plugins/alert_2.3.2.js')),

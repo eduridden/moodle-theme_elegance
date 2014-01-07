@@ -75,7 +75,7 @@ $THEME->layouts = array(
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'default.php',
+        'file' => 'frontpage.php',
         'regions' => array('side-post'),
         'defaultregion' => 'side-post',
         'options' => array('nonavbar'=>false),
@@ -165,8 +165,3 @@ if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
 }
 
 $THEME->hidefromselector = false;
-
-$THEME->blockrtlmanipulations = array(
-    'side-pre' => 'side-post',
-    'side-post' => 'side-pre'
-);

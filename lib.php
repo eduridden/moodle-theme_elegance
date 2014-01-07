@@ -26,29 +26,11 @@
 
 function bootstrap3_grid() {
     global $PAGE, $OUTPUT;
-    $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-    $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
-    if ($hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-sm-7 col-sm-push-5 col-md-9 col-md-push-4');
-        $regions['pre'] = 'col-sm-5 col-sm-pull-7 col-md-4 col-md-pull-9';
-        $regions['post'] = 'col-sm-5 col-md-4';
-    }
-
-    if ($hassidepre && !$hassidepost) {
-        $regions = array('content' => 'col-sm-12 col-sm-push-5 col-md-13 col-md-push-4');
-        $regions['pre'] = 'col-sm-5 col-sm-pull-12 col-md-4 col-md-pull-13';
-    }
-
-    if (!$hassidepre && $hassidepost) {
         $regions = array('content' => 'col-sm-11 col-md-12');
         $regions['post'] = 'col-sm-6 col-md-5';
-    }
 
-    if (!$hassidepre && !$hassidepost) {
-        $regions = array('content' => 'col-md-17');
-    }
-    return $regions;
+        return $regions;
 }
 
 function theme_elegance_process_css($css, $theme) {
@@ -205,6 +187,8 @@ function elegance_set_customcss() {
 function theme_elegance_page_init(moodle_page $page) {
     $page->requires->jquery();
     $page->requires->jquery_plugin('nprogress', 'theme_elegance');
+    $page->requires->jquery_plugin('unslider', 'theme_elegance');
+    $page->requires->jquery_plugin('eventswipe', 'theme_elegance');
     $page->requires->jquery_plugin('alert', 'theme_elegance');
     $page->requires->jquery_plugin('backstretch', 'theme_elegance');
     $page->requires->jquery_plugin('carousel', 'theme_elegance');
