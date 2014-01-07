@@ -1,85 +1,149 @@
+About this theme
+================
 
-/* How to copy and customise this theme.
-----------------------------------------*/
+This is the Bootstrap theme for Moodle.
 
-This document describes how to copy and customise the Clean (bootstrapbase) theme so that
-you can build on this to create a theme of your own. It assumes you have some
-understanding of how themes work within Moodle 2.5, as well as a basic understanding
-of HTML and CSS.
+* package   Moodle Bootstrap theme
+* copyright 2013 Bas Brands. www.sonsbeekmedia.nl
+* authors   Bas Brands, David Scotson
+* license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
-Getting started
----------------
+This theme has been created with the help of:
+Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans
 
-From your Moodle theme directory right click on clean and then copy and paste back
-into your Moodle theme directory. You should now have a folder called Copy of clean.
-If you right click this folder you are given the option to Rename it. So rename this
-folder to your chosen theme name, using only lower case letters, and if needed,
-underscores. For the purpose of this tutorial we will call the theme 'cleantheme'.
+This theme is based on the Twitter Bootstrap CSS framework version 2.3.
+It contains all unmodified less* CSS sources from the Twitter Bootstrap CSS
+framework in folder /less/bootstrap.
+On top of the Bootstrap less CSS sources Moodle CSS is added to create this
+theme.
 
-On opening 'cleantheme' your you will find several files and sub-directories which have
-files within them.
+HTML5 is tags are used in the /layout/general.php file. The structure of this file
+provides a 2-1-3 layout when looking at your Moodle page source. This improves
+accessibility and Search Engine Optimization (SEO).
 
-These are:
+*less CSS
+Less CSS is a Object Oriented way of writing CSS code. All Less CSS files
+for this theme are stored in the /less folder. A developer can use recess
+to generate the CSS files in the /style folder. For more
+information read /less/README
 
-config.php
-    Where all the theme configurations are made.
-    (Contains some elements that require renaming).
-lib.php
-    Where all the functions for the themes settings are found.
-    (Contains some elements that require renaming).
-settings.php
-    Where all the setting for this theme are created.
-    (Contains some elements that require renaming).
-version.php
-    Where the version number and plugin component information is kept.
-    (Contains some elements that require renaming).
-/lang/
-    This directory contains all language sub-directories for other languages
-    if and when you want to add them.
-/lang/en/
-    This sub-directory contains your language files, in this case English.
-/lang/en/theme_clean.php
-    This file contains all the language strings for your theme.
-    (Contains some elements that require renaming as well as the filename itself).
-/layout/
-    This directory contains all the layout files for this theme.
-/layout/general.php
-    Layout file for front page and general pages combined.
-/style/
-    This directory contains all the CSS files for this theme.
-/style/custom.css
-    This is where all the settings CSS is generated.
-/pix/
-    This directory contains a screen shot of this theme as well as a favicon
-    and any images used in the theme.
+JavaScript Libraries
 
-Renaming elements
+html5shiv.js
+------------
+To provide backwards compatibility for HTML5 for Internet Explorer 7 (IE7) and Internet
+Explorer 8 (IE8) a javascript library call /javascript/html5shiv.js was added. This
+JavaScript converts HTML tags and CSS into Tag that are understood by IE7 and IE8.
+The config.php makes sure these libraries are only loaded for IE7 and IE8.
+
+bootstrapcollapse.js, bootstrapdropdown.js, bootstrapengine.js
+--------------------------------------------------------------
+These are the 3 out of 12 original YUI ports of the Twitter Bootstrap jQuery libraries by
+Jay Shirley. The full list of the ported libraries can be found here:
+https://github.com/jshirley/bootstrap/tree/master/js
+
+moodlebootstrap.js
+------------------
+This file initiates the bootstrap*.js libraries.
+
+headercollapse.js
 -----------------
+Workaround for the collapse button on the Moodle custom menu. Without this
+Submenu items cannot be opened
 
-The problem when copying a theme is that you need to rename all those instances
-where the old theme name occurs, in this case clean. So using the above list as
-a guide, search through and change all the instances of the theme name
-'clean' to 'cleantheme'. This includes the filename of the lang/en/theme_clean.php.
-You need to change this to 'theme_cleantheme.php'.
+Updating Twitter bootstrap and Libraries
+========================================
 
-Installing your theme
----------------------
+Twitter bootstrap
+-----------------
+This theme uses the original unmodified version 2.3.0 Twitter bootstrap less files. These are
+Object Oriented CSS files. The bootstrap repository is available on:
 
-Once all the changes to the name have been made, you can safely install the theme.
-If you are already logged in just refreshing the browser should trigger your Moodle
-site to begin the install 'Plugins Check'.
+https://github.com/twitter/bootstrap.git
 
-If not then navigate to Administration > Notifications.
+To update to the latest release of twitter bootstrap remove all files from less/bootstrap,
+download the new less files and store them in less/bootstrap
+Inclusion of bootstrap files is configured in less/moodle.less. To generate the new
+Moodle CSS read /less/README
 
-Once your theme is successfully installed you can select it and begin to modify
-it using the custom settings page found by navigating to...
-Administration > Site Administration > Appearance > Themes >>
-and then click on (Cleantheme) or whatever you renamed your theme to,
-from the list of theme names that appear at this point in the side block.
+html5shiv.js
+------------
+This theme uses the original unmodified html5shiv.js JavaScript library to enable HTML5 tags in IE7 and IE8.
+This library is available on:
 
-Customisation using custom theme settings
------------------------------------------
+https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js
 
-The settings page for the Clean theme can be located by navigating to:
+To update to the latest release of html5shiv download and replace:
+javascript/html5shiv.js
 
-Administration > Site Administration > Appearance > Themes > Clean
+bootstrapcollapse.js, bootstrapdropdown.js, bootstrapengine.js
+--------------------------------------------------------------
+This them uses YUI ports of the Twitter bootstrap jQuery based libs. These ported files are available on:
+
+https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-collapse/js/bootstrap-collapse.js
+https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-dropdown/js/bootstrap-dropdown.js
+https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-engine/js/bootstrap-engine.js
+
+The content of these files are slightly modified to make sure all required YUI libraries are loaded. To achieve
+that the first and last line of each of these files has been modified.
+
+The YUI port of the Twitter bootstrap libs are now longer maintained. If you need all of the Bootstrap JavaScript
+functionality consider switching to the original jQuery version of these file
+
+If you do want to update use these file locations:
+javascript/bootstrap-collapse.js
+javascript/bootstrap-dropdown.js
+javascript/bootstrap-engine.js
+
+Licenses & Authors
+==================
+
+Twitter Bootstrap Copyright and license
+---------------------------------------
+Authors: Mark Otto, Jacob Thornton
+URL: http://twitter.github.com/bootstrap/
+License:
+
+Copyright 2012 Twitter, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this work except in compliance with the License.
+You may obtain a copy of the License in the LICENSE file, or at:
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Html5shiv.js
+------------
+Author: Sjoerd Visscher
+URL: http://en.wikipedia.org/wiki/HTML5_Shiv, https://github.com/aFarkas/html5shiv
+License: MIT/GPL2 Licensed
+
+bootstrapcollapse.js, bootstrapdropdown.js, bootstrapengine.js
+--------------------------------------------------------------
+Author: Jay Shirley
+URL: http://jshirley.github.com/bootstrap/
+License:
+Copyright 2012 Twitter, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this work except in compliance with the License.
+You may obtain a copy of the License in the LICENSE file, or at:
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+moodlebootstrap.js
+------------------
+Author: 2013 Bas Brands. www.sonsbeekmedia.nl
+license:  http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

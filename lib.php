@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of the custom Moodle elegance theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,25 +14,43 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
 /**
- * elegance theme with the underlying Bootstrap theme.
+ * Renderers to align Moodle's HTML with that expected by elegance
  *
- * @package    theme
- * @subpackage elegance
- * @author     Julian (@moodleman) Ridden
- * @author     Based on code originally written by G J Barnard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @package    theme_elegance
+ * @copyright  2014 Julian Ridden http://moodleman.net
+ * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * Parses CSS before it is cached.
- *
- * This function can make alterations and replace patterns within the CSS.
- *
- * @param string $css The CSS
- * @param theme_config $theme The theme config object.
- * @return string The parsed CSS The parsed CSS.
- */
+function bootstrap3_grid() {
+    global $PAGE, $OUTPUT;
+    $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+    $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
+
+    if ($hassidepre && $hassidepost) {
+        $regions = array('content' => 'col-sm-7 col-sm-push-5 col-md-9 col-md-push-4');
+        $regions['pre'] = 'col-sm-5 col-sm-pull-7 col-md-4 col-md-pull-9';
+        $regions['post'] = 'col-sm-5 col-md-4';
+    }
+
+    if ($hassidepre && !$hassidepost) {
+        $regions = array('content' => 'col-sm-12 col-sm-push-5 col-md-13 col-md-push-4');
+        $regions['pre'] = 'col-sm-5 col-sm-pull-12 col-md-4 col-md-pull-13';
+    }
+
+    if (!$hassidepre && $hassidepost) {
+        $regions = array('content' => 'col-sm-11 col-md-12');
+        $regions['post'] = 'col-sm-6 col-md-5';
+    }
+
+    if (!$hassidepre && !$hassidepost) {
+        $regions = array('content' => 'col-md-17');
+    }
+    return $regions;
+}
+
 function theme_elegance_process_css($css, $theme) {
 
     // Set the background image for the logo.

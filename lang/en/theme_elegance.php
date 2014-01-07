@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of the custom Moodle elegance theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
 /**
- * elegance theme with the underlying Bootstrap theme.
+ * Renderers to align Moodle's HTML with that expected by elegance
  *
- * @package    theme
- * @subpackage elegance
- * @author     Julian (@moodleman) Ridden
- * @author     Based on code originally written by G J Barnard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @package    theme_elegance
+ * @copyright  2014 Julian Ridden http://moodleman.net
+ * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -77,3 +77,24 @@ $string['themecolordesc'] = 'What colour should your theme be.  This will change
 
 $string['copyright'] = 'Copyright';
 $string['copyrightdesc'] = 'The name of your organisation.';
+
+/* General */
+$string['geneicsettings'] = 'General Settings';
+
+/* Category Icons */
+$string['categoryiconheading'] = 'Category Icons';
+$string['categoryiconheadingsub'] = 'Use icons to replresent your categories';
+$string['categoryicondesc'] = 'If enabled this will allow you to set icons for each category of course.';
+
+$string['defaultcategoryicon'] = 'Default Category Icons';
+$string['defaultcategoryicondesc'] = 'Set a default category icon';
+
+$string['categoryiconinfo'] = 'Set Custom Category Icons';
+$string['categoryiconinfodesc'] = 'Each icon is set by "category ID". You get these by looking at the URL or each category.';
+
+$string['categoryicon'] = 'Category';
+$string['categoryicondesc'] = 'categoryid=';
+
+$string['subtitle'] = 'Subtitle';
+$string['subtitle_desc'] = 'Optionally select a subtitle for the Moodle homepage';
+
