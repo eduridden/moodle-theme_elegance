@@ -170,8 +170,11 @@ echo $OUTPUT->doctype() ?>
 				fluid: true,
 				dots: true,
 				speed: 600,
-				keys: true
-	});
-</script>
+				keys: true,
+				arrows: true,
+    			prev: '<',
+    			next: '>'
+	});	
+	</script>
 </body>
 </html>

@@ -81,6 +81,36 @@ $string['copyrightdesc'] = 'The name of your organisation.';
 /* General */
 $string['geneicsettings'] = 'General Settings';
 
+$string['tiles'] = 'Tile Course resources';
+$string['tilesdesc'] = 'Displayes resources and activities as tiles in a course';
+
+/* Banners */
+
+$string['bannersettings'] = 'Slideshow Settings';
+$string['bannersettingssub'] = 'These settings control the slideshow that appears on the Moodle frontpage';
+$string['bannersettingsdesc'] = 'Enable and determine settings for each slide below';
+
+$string['bannerindicator'] = 'Slide Number ';
+$string['bannerindicatordesc'] = 'Set up this slide';
+
+$string['enablebanner'] = 'Enable this Slide';
+$string['enablebannerdesc'] = 'Will you be using this slide';
+
+$string['bannertitle'] = 'Slide Title';
+$string['bannertitledesc'] = 'Name of this slide';
+
+$string['bannertext'] = 'Slide Text';
+$string['bannertextdesc'] = 'Text to display on the slide';
+
+$string['bannerlinktext'] = 'URL Name';
+$string['bannerlinktextdesc'] = 'Text to display when showing link';
+
+$string['bannerlinkurl'] = 'URL Address';
+$string['bannerlinkurldesc'] = 'Address slide links to';
+
+$string['bannerimage'] = 'Slide Image';
+$string['bannerimagedesc'] = 'Large image to go behind the slide text';
+
 /* Category Icons */
 $string['categoryiconheading'] = 'Category Icons';
 $string['categoryiconheadingsub'] = 'Use icons to replresent your categories';

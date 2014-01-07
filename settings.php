@@ -51,14 +51,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Logo file setting.
-    $name = 'theme_elegance/logo';
-    $title = get_string('logo','theme_elegance');
-    $description = get_string('logodesc', 'theme_elegance');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Custom CSS file.
     $name = 'theme_elegance/customcss';
     $title = get_string('customcss', 'theme_elegance');
@@ -95,7 +87,90 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Course Tiles.
+    $name = 'theme_elegance/tiles';
+    $title = get_string('tiles', 'theme_elegance');
+    $description = get_string('tilesdesc', 'theme_elegance');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
     $ADMIN->add('theme_elegance', $temp);
+    
+    /* Banner Settings */
+    $temp = new admin_settingpage('theme_elegance_banner', get_string('bannersettings', 'theme_elegance'));
+    $temp->add(new admin_setting_heading('theme_elegance_banner', get_string('bannersettingssub', 'theme_elegance'),
+            format_text(get_string('bannersettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+
+	$bannertitle = array('Slide One', 'Slide Two', 'Slide Three','Slide Four');
+    $bannertext = array('#a430d1', '#d15430', '#5dd130', '#ffffff');
+    $bannerlinktext = array('Link One', 'Link Two', 'Link Three','Link Four');
+
+    foreach (range(1, 4) as $bannernumber) {
+    	
+    	// This is the descriptor for the Banner Settings.
+    	$name = 'theme_elegance/banner';
+        $title = get_string('bannerindicator', 'theme_elegance');
+    	$information = get_string('bannerindicatordesc', 'theme_elegance');
+    	$setting = new admin_setting_heading($name.$bannernumber, $title.$bannernumber, $information);
+    	$temp->add($setting);
+
+        // Enables the slide.
+        $name = 'theme_elegance/enablebanner' . $bannernumber;
+        $title = get_string('enablebanner', 'theme_elegance', $bannernumber);
+        $description = get_string('enablebannerdesc', 'theme_elegance', $bannernumber);
+        $default = false;
+        $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+  
+        // Slide Title.
+        $name = 'theme_elegance/bannertitle' . $bannernumber;
+        $title = get_string('bannertitle', 'theme_elegance', $bannernumber);
+        $description = get_string('bannertitledesc', 'theme_elegance', $bannernumber);
+        $default = $bannertitle[$bannernumber - 1];
+        $setting = new admin_setting_configtext($name, $title, $description, $default );
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+
+        // Slide text.
+        $name = 'theme_elegance/bannertext' . $bannernumber;
+        $title = get_string('bannertext', 'theme_elegance', $bannernumber);
+        $description = get_string('bannertextdesc', 'theme_elegance', $bannernumber);
+        $default = $bannertext[$bannernumber - 1];
+        $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+        
+        // Text for Slide Link.
+        $name = 'theme_elegance/bannerlinktext' . $bannernumber;
+        $title = get_string('bannerlinktext', 'theme_elegance', $bannernumber);
+        $description = get_string('bannerlinktextdesc', 'theme_elegance', $bannernumber);
+        $default = $bannerlinktext[$bannernumber - 1];
+        $setting = new admin_setting_configtext($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+
+        // Destination URL for Slide Link
+        $name = 'theme_elegance/bannerlinkurl' . $bannernumber;
+        $title = get_string('bannerlinkurl', 'theme_elegance', $bannernumber);
+        $description = get_string('bannerlinkurldesc', 'theme_elegance', $bannernumber);
+        $default = '#';
+        $previewconfig = null;
+        $setting = new admin_setting_configtext($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+        
+        // Image.
+    	$name = 'theme_elegance/bannerimage' . $bannernumber;
+    	$title = get_string('bannerimage', 'theme_elegance', $bannernumber);
+    	$description = get_string('bannerimagedesc', 'theme_elegance', $bannernumber);
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, $bannernumber);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    }
+
+ 	$ADMIN->add('theme_elegance', $temp);
     
     /* Category Settings */
     $temp = new admin_settingpage('theme_elegance_categoryicon', get_string('categoryiconheading', 'theme_elegance'));
@@ -486,6 +561,8 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
     
+    foreach (range(1, 20) as $categorynumber) {
+    
     // Category 1 Icon.
     $name = 'theme_elegance/categoryicon';
     $title = get_string('categoryicon' , 'theme_elegance');
@@ -860,105 +937,9 @@ defined('MOODLE_INTERNAL') || die;
     	'f193'=>'fa-wheelchair',
     	'f194'=>'fa-vimeo-square',
     	'f195'=>'fa-try');
-    $categorynumber = '1';
     $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
-    $categorynumber = '2';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '3';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '4';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '5';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '6';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '7';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '8';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '9';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '10';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '11';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '12';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '13';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '14';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '15';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '16';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '17';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '18';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '19';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    $categorynumber = '20';
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
+    }
             
     $ADMIN->add('theme_elegance', $temp);
