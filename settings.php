@@ -104,7 +104,6 @@ defined('MOODLE_INTERNAL') || die;
 
 	$bannertitle = array('Slide One', 'Slide Two', 'Slide Three','Slide Four');
     $bannertext = array('#a430d1', '#d15430', '#5dd130', '#ffffff');
-    $bannerlinktext = array('Link One', 'Link Two', 'Link Three','Link Four');
 
     foreach (range(1, 4) as $bannernumber) {
     	
@@ -113,6 +112,7 @@ defined('MOODLE_INTERNAL') || die;
         $title = get_string('bannerindicator', 'theme_elegance');
     	$information = get_string('bannerindicatordesc', 'theme_elegance');
     	$setting = new admin_setting_heading($name.$bannernumber, $title.$bannernumber, $information);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
 
         // Enables the slide.
@@ -146,7 +146,7 @@ defined('MOODLE_INTERNAL') || die;
         $name = 'theme_elegance/bannerlinktext' . $bannernumber;
         $title = get_string('bannerlinktext', 'theme_elegance', $bannernumber);
         $description = get_string('bannerlinktextdesc', 'theme_elegance', $bannernumber);
-        $default = $bannerlinktext[$bannernumber - 1];
+        $default = 'Read More';
         $setting = new admin_setting_configtext($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);

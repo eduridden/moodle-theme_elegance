@@ -99,10 +99,25 @@ function theme_elegance_set_themecolor($css, $themecolor) {
  * @param array $options
  * @return bool
  */
+
 function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
-        $theme = theme_config::load('elegance');
-        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    if ($context->contextlevel == CONTEXT_SYSTEM) {
+        $theme = theme_config::load('essential');
+        if ($filearea === 'logo') {
+            return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if ($filearea === 'headerbackground') {
+            return $theme->setting_file_serve('headerbackground', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage1') {
+            return $theme->setting_file_serve('bannerimage1', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage2') {
+            return $theme->setting_file_serve('bannerimage2', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage3') {
+            return $theme->setting_file_serve('bannerimage3', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage4') {
+            return $theme->setting_file_serve('bannerimage4', $args, $forcedownload, $options);
+        } else {
+            send_file_not_found();
+        }
     } else {
         send_file_not_found();
     }

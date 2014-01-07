@@ -428,18 +428,6 @@ class theme_elegance_core_renderer extends core_renderer {
             return html_writer::tag('li', $link);
         }
     }
-
-    /*
-     * This renders a notification message.
-     * Uses bootstrap compatible html.
-     */
-    public function page_heading($tag = 'h1') {
-        $heading = parent::page_heading();
-        if ($this->page->pagelayout == 'frontpage') {
-            $heading .= '<h3>' . $this->page->theme->settings->subtitle . '</h3>';
-        }
-        return $heading;
-    }
 }
 
 include_once($CFG->dirroot . "/course/format/topics/renderer.php");
