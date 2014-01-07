@@ -18,6 +18,7 @@
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
+$hasltiles = (!empty($PAGE->theme->settings->tiles));
 $regions = bootstrap3_grid();
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
@@ -28,6 +29,9 @@ echo $OUTPUT->doctype() ?>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <?php echo $OUTPUT->standard_head_html() ?>
+    <?php if ($hasltiles) { ?>
+    	<link href='<?php echo $CFG->wwwroot;?>/theme/elegance/style/coursetiles.css' ' rel='stylesheet' type='text/css'>
+    <?php } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
