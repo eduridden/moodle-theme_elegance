@@ -18,6 +18,7 @@
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
+
 $regions = bootstrap3_grid();
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
@@ -58,38 +59,9 @@ echo $OUTPUT->doctype() ?>
 </nav>
 
 <div id="page">
-	<div class="banner has-dots" style="overflow: hidden; width: 100%; height: 415px;">
-			<ul style="width: 400%; position: relative; left: -200%; height: 415px;">
-				<li style="background-image: url(http://unslider.com/img/sunset.jpg); background-size: 100%; width: 25%;">
-					<h1>The jQuery slider that just slides.</h1>
-					<p>No fancy effects or unnecessary markup, and it’s less than 3kb.</p>
-					
-					<a class="btn" href="#download">Download</a>
-				</li>
-				
-				<li style="background-image: url(http://unslider.com/img/wood.jpg); background-size: 100%; width: 25%;">
-					<h1>Fluid, flexible, fantastically minimal.</h1>
-					<p>Use any HTML in your slides, extend with CSS. You have full control.</p>
-					
-					<a class="btn" href="#download">Download</a>
-				</li>
-				
-				<li style="background-image: url(http://unslider.com/img/subway.jpg); background-size: 100%; width: 25%;">
-					<h1>Open-source.</h1>
-					<p>Everything to do with Unslider is hosted on GitHub.</p>
-					
-					<a class="btn" href="//github.com/idiot/unslider">Contribute</a>
-				</li>
-				
-				<li style="background-image: url(http://unslider.com/img/shop.jpg); background-size: 100%; width: 25%;">
-					<h1>Uh, that’s about it.</h1>
-					<p>I just wanted to show you another slide.</p>
-					
-					<a class="btn" href="#download">Download</a>
-				</li>
-			</ul>
-		<ol class="dots"><li class="dot">1</li><li class="dot">2</li><li class="dot active">3</li><li class="dot">4</li></ol></div>
-	</div>
+
+	 <!-- Google web fonts -->
+    <?php require_once(dirname(__FILE__).'/includes/slideshow.php'); ?>
 	
     <header id="page-header" class="clearfix">
         <div id="page-navbar" class="container">
