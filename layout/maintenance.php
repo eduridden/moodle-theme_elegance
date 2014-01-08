@@ -73,10 +73,8 @@ echo $OUTPUT->doctype() ?>
     </div>
 
     <footer id="page-footer">
-        <?php
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </footer>
+	<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
+	</footer>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 

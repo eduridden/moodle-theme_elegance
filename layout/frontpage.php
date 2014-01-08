@@ -93,34 +93,9 @@ echo $OUTPUT->doctype() ?>
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 </div>
+
 <footer id="page-footer">
-	<div class="container">
-	<div class="row">
-		<div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
-	</div>
-	<div class="row">
-		<div class="col-lg-3">
-			<?php
-			echo $OUTPUT->home_link();
-			 if ($hascopyright) {
-        	echo '<p class="copy">|&nbsp;&nbsp;&nbsp;&copy; '.date("Y").' '.$hascopyright.'</p>';
-   			} ?>
-		</div>
-       		
-		<div class="col-lg-6">
-       			 <?php
-       			 	if ($hasfootnote) {
-        			echo $hasfootnote;
-   				} ?>
-   				<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
-		</div>
-       		
-		<div class="col-lg-3">
-			<?php echo $OUTPUT->login_info(); ?>
-		</div>
-	</div>
-	<?php echo $OUTPUT->standard_footer_html(); ?>
-	</div>
+	<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
 </footer>
 
 <script>
