@@ -137,6 +137,9 @@ $string['defaultcategoryicondesc'] = 'Set a default category icon';
 $string['categoryiconinfo'] = 'Set Custom Category Icons';
 $string['categoryiconinfodesc'] = 'Each icon is set by "category ID". You get these by looking at the URL or each category.';
 
+$string['enablecategoryicon'] = 'Turn on icons';
+$string['enablecategoryicondesc'] = 'If ticked this will enable the category icon funcionality.';
+
 $string['categoryicon'] = 'Category';
 $string['categoryicondesc'] = 'categoryid=';
 
