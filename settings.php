@@ -187,13 +187,24 @@ defined('MOODLE_INTERNAL') || die;
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
         
-        // Image.
+        // Slide Image.
     	$name = 'theme_elegance/bannerimage' . $bannernumber;
     	$title = get_string('bannerimage', 'theme_elegance', $bannernumber);
     	$description = get_string('bannerimagedesc', 'theme_elegance', $bannernumber);
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bannerimage'.$bannernumber);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
+    	
+    	// Slide Background Color.
+    	$name = 'theme_elegance/bannercolor' . $bannernumber;
+    	$title = get_string('bannercolor', 'theme_elegance', $bannernumber);
+    	$description = get_string('bannercolordesc', 'theme_elegance', $bannernumber);
+    	$default = '#000';
+    	$previewconfig = null;
+    	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+
     }
 
  	$ADMIN->add('theme_elegance', $temp);

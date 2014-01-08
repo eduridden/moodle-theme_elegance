@@ -116,6 +116,9 @@ $string['bannerlinkurldesc'] = 'Address slide links to';
 $string['bannerimage'] = 'Slide Image';
 $string['bannerimagedesc'] = 'Large image to go behind the slide text';
 
+$string['bannercolor'] = 'Slide Color';
+$string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background color instead';
+
 /* Category Icons */
 $string['categoryiconheading'] = 'Category Icons';
 $string['categoryiconheadingsub'] = 'Use icons to represent your categories';

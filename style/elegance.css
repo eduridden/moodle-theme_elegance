@@ -230,6 +230,46 @@ a:hover, a:focus{
 	background: #fff;
 	opacity: 1;
 }
+
+.banner #slide1 {
+	background: [[setting:slide1color]];
+}
+
+.banner #slide2 {
+	background: [[setting:slide2color]];
+}
+
+.banner #slide3 {
+	background: [[setting:slide3color]];
+}
+
+.banner #slide4 {
+	background: [[setting:slide4color]];
+}
+
+.banner #slide5 {
+	background: [[setting:slide5color]];
+}
+
+.banner #slide6 {
+	background: [[setting:slide6color]];
+}
+
+.banner #slide7 {
+	background: [[setting:slide7color]];
+}
+
+.banner #slide8 {
+	background: [[setting:slide8color]];
+}
+
+.banner #slide9 {
+	background: [[setting:slide9color]];
+}
+
+.banner #slide10 {
+	background: [[setting:slide10color]];
+}
 		
 
 
