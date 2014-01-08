@@ -73,7 +73,7 @@ function theme_elegance_process_css($css, $theme) {
         }
         $css = theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber);
     }
-
+    
     return $css;
 }
 
