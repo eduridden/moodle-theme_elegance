@@ -219,7 +219,7 @@ class theme_elegance_core_renderer extends core_renderer {
 
         if ($addusermenu) {
             if (isloggedin()) {
-                $usermenu = $menu->add(fullname($USER), new moodle_url('#'), fullname($USER), 10001);
+                $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
                 
                 $usermenu->add('<i class="fa fa-briefcase"></i>' . get_string('mycourses'), new moodle_url('/my',
                 array('sesskey'=>sesskey(),'alt'=>'mycourses')),
@@ -241,7 +241,7 @@ class theme_elegance_core_renderer extends core_renderer {
                 array('sesskey'=>sesskey(),'alt'=>'logout')),
                 get_string('logout'));
             } else {
-                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
+                $usermenu = $menu->add('<i class="fa fa-key"></i>' .get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
             }
         }
 
