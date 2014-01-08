@@ -54,7 +54,7 @@ function bootstrap3_grid() {
 /**
  * Include the Awesome Font.
  */
-function theme_essential_set_fontwww($css) {
+function theme_elegance_set_fontwww($css) {
     global $CFG, $PAGE;
     if(empty($CFG->themewww)){
         $themewww = $CFG->wwwroot."/theme";
@@ -63,7 +63,7 @@ function theme_essential_set_fontwww($css) {
     }
     $tag = '[[setting:fontwww]]';
     
-    $theme = theme_config::load('essential');
+    $theme = theme_config::load('elegance');
     if (!empty($theme->settings->bootstrapcdn)) {
     	$css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
     } else {
@@ -119,7 +119,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor1 = null;
     }
-    $css = theme_essential_set_bannercolor1($css, $bannercolor1);
+    $css = theme_elegance_set_bannercolor1($css, $bannercolor1);
     
     // Set the Slide 2 color.
     if (!empty($theme->settings->bannercolor2)) {
@@ -127,7 +127,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor2 = null;
     }
-    $css = theme_essential_set_bannercolor2($css, $bannercolor2);
+    $css = theme_elegance_set_bannercolor2($css, $bannercolor2);
     
     // Set the Slide 3 color.
     if (!empty($theme->settings->bannercolor3)) {
@@ -135,7 +135,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor3 = null;
     }
-    $css = theme_essential_set_bannercolor3($css, $bannercolor3);
+    $css = theme_elegance_set_bannercolor3($css, $bannercolor3);
     
     // Set the Slide 4 color.
     if (!empty($theme->settings->bannercolor4)) {
@@ -143,7 +143,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor4 = null;
     }
-    $css = theme_essential_set_bannercolor4($css, $bannercolor4);
+    $css = theme_elegance_set_bannercolor4($css, $bannercolor4);
     
     // Set the Slide 5 color.
     if (!empty($theme->settings->bannercolor5)) {
@@ -151,7 +151,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor5 = null;
     }
-    $css = theme_essential_set_bannercolor5($css, $bannercolor5);
+    $css = theme_elegance_set_bannercolor5($css, $bannercolor5);
     
     // Set the Slide 6 color.
     if (!empty($theme->settings->bannercolor6)) {
@@ -159,7 +159,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor6 = null;
     }
-    $css = theme_essential_set_bannercolor6($css, $bannercolor6);
+    $css = theme_elegance_set_bannercolor6($css, $bannercolor6);
     
     // Set the Slide 7 color.
     if (!empty($theme->settings->bannercolor7)) {
@@ -167,7 +167,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor7 = null;
     }
-    $css = theme_essential_set_bannercolor7($css, $bannercolor7);
+    $css = theme_elegance_set_bannercolor7($css, $bannercolor7);
     
     // Set the Slide 8 color.
     if (!empty($theme->settings->bannercolor8)) {
@@ -175,7 +175,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor8 = null;
     }
-    $css = theme_essential_set_bannercolor8($css, $bannercolor8);
+    $css = theme_elegance_set_bannercolor8($css, $bannercolor8);
     
     // Set the Slide 9 color.
     if (!empty($theme->settings->bannercolor9)) {
@@ -183,7 +183,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor9 = null;
     }
-    $css = theme_essential_set_bannercolor9($css, $bannercolor9);
+    $css = theme_elegance_set_bannercolor9($css, $bannercolor9);
     
     // Set the Slide 10 color.
     if (!empty($theme->settings->bannercolor10)) {
@@ -191,7 +191,7 @@ function theme_elegance_process_css($css, $theme) {
     } else {
         $bannercolor10 = null;
     }
-    $css = theme_essential_set_bannercolor10($css, $bannercolor10);
+    $css = theme_elegance_set_bannercolor10($css, $bannercolor10);
     
     return $css;
 }
@@ -370,7 +370,7 @@ function theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber) {
     return $css;
 }
 
-function theme_essential_set_bannercolor1($css, $bannercolor1) {
+function theme_elegance_set_bannercolor1($css, $bannercolor1) {
     $tag = '[[setting:slide1color]]';
     $replacement = $bannercolor1;
     if (is_null($replacement)) {
@@ -380,7 +380,7 @@ function theme_essential_set_bannercolor1($css, $bannercolor1) {
     return $css;
 }
 
-function theme_essential_set_bannercolor2($css, $bannercolor2) {
+function theme_elegance_set_bannercolor2($css, $bannercolor2) {
     $tag = '[[setting:slide2color]]';
     $replacement = $bannercolor2;
     if (is_null($replacement)) {
@@ -390,7 +390,7 @@ function theme_essential_set_bannercolor2($css, $bannercolor2) {
     return $css;
 }
 
-function theme_essential_set_bannercolor3($css, $bannercolor3) {
+function theme_elegance_set_bannercolor3($css, $bannercolor3) {
     $tag = '[[setting:slide3color]]';
     $replacement = $bannercolor3;
     if (is_null($replacement)) {
@@ -400,7 +400,7 @@ function theme_essential_set_bannercolor3($css, $bannercolor3) {
     return $css;
 }
 
-function theme_essential_set_bannercolor4($css, $bannercolor4) {
+function theme_elegance_set_bannercolor4($css, $bannercolor4) {
     $tag = '[[setting:slide4color]]';
     $replacement = $bannercolor4;
     if (is_null($replacement)) {
@@ -410,7 +410,7 @@ function theme_essential_set_bannercolor4($css, $bannercolor4) {
     return $css;
 }
 
-function theme_essential_set_bannercolor5($css, $bannercolor5) {
+function theme_elegance_set_bannercolor5($css, $bannercolor5) {
     $tag = '[[setting:slide5color]]';
     $replacement = $bannercolor5;
     if (is_null($replacement)) {
@@ -420,7 +420,7 @@ function theme_essential_set_bannercolor5($css, $bannercolor5) {
     return $css;
 }
 
-function theme_essential_set_bannercolor6($css, $bannercolor6) {
+function theme_elegance_set_bannercolor6($css, $bannercolor6) {
     $tag = '[[setting:slide6color]]';
     $replacement = $bannercolor6;
     if (is_null($replacement)) {
@@ -430,7 +430,7 @@ function theme_essential_set_bannercolor6($css, $bannercolor6) {
     return $css;
 }
 
-function theme_essential_set_bannercolor7($css, $bannercolor7) {
+function theme_elegance_set_bannercolor7($css, $bannercolor7) {
     $tag = '[[setting:slide7color]]';
     $replacement = $bannercolor7;
     if (is_null($replacement)) {
@@ -440,7 +440,7 @@ function theme_essential_set_bannercolor7($css, $bannercolor7) {
     return $css;
 }
 
-function theme_essential_set_bannercolor8($css, $bannercolor8) {
+function theme_elegance_set_bannercolor8($css, $bannercolor8) {
     $tag = '[[setting:slide8color]]';
     $replacement = $bannercolor8;
     if (is_null($replacement)) {
@@ -450,7 +450,7 @@ function theme_essential_set_bannercolor8($css, $bannercolor8) {
     return $css;
 }
 
-function theme_essential_set_bannercolor9($css, $bannercolor9) {
+function theme_elegance_set_bannercolor9($css, $bannercolor9) {
     $tag = '[[setting:slide9color]]';
     $replacement = $bannercolor9;
     if (is_null($replacement)) {
@@ -460,7 +460,7 @@ function theme_essential_set_bannercolor9($css, $bannercolor9) {
     return $css;
 }
 
-function theme_essential_set_bannercolor10($css, $bannercolor10) {
+function theme_elegance_set_bannercolor10($css, $bannercolor10) {
     $tag = '[[setting:slide10color]]';
     $replacement = $bannercolor10;
     if (is_null($replacement)) {
