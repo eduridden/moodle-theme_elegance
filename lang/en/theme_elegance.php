@@ -84,6 +84,9 @@ $string['geneicsettings'] = 'General Settings';
 $string['tiles'] = 'Tile Course resources';
 $string['tilesdesc'] = 'Displayes resources and activities as tiles in a course';
 
+$string['bootstrapcdn'] = 'FontAwesome from CDN';
+$string['bootstrapcdndesc'] = 'If enabled this will load FontAwesome from the online Bootstrap CDN source. Enable this if you are having issues getting the Font Awesome icons to display in your site.';
+
 /* Banners */
 
 $string['bannersettings'] = 'Slideshow Settings';

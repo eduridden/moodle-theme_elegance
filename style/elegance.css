@@ -1,5 +1,16 @@
 /* @group Core */
 
+@font-face {
+    font-family: 'FontAwesome'; 
+    font-weight: normal;
+    font-style: normal;
+    src: url('[[setting:fontwww]]fontawesome-webfont.eot?v=4.0.0');
+    src: url('[[setting:fontwww]]fontawesome-webfont.eot?#iefix&v=4.0.0') format('embedded-opentype'), 
+      			url('[[setting:fontwww]]fontawesome-webfont.woff?v=4.0.0') format('woff'), 
+      			url('[[setting:fontwww]]fontawesome-webfont.ttf?v=4.0.0') format('truetype'), 
+      			url('[[setting:fontwww]]fontawesome-webfont.svg#fontawesomeregular?v=4.0.0') format('svg');
+}
+
 body, html {
 	-webkit-font-smoothing: antialiased; /* webkit prefix - edit font-smoothing property */
     -moz-font-smoothing: antialiased; /* moz prefix - edit font-smoothing property */

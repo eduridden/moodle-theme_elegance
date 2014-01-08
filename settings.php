@@ -35,17 +35,18 @@ defined('MOODLE_INTERNAL') || die;
 	// "geneicsettings" settingpage
 	$temp = new admin_settingpage('theme_elegance_generic',  get_string('geneicsettings', 'theme_elegance'));
 	
-	// Custom Subtitle
-	$name = 'theme_elegance/subtitle';
-    $title = get_string('subtitle','theme_elegance');
-    $description = get_string('subtitle_desc', 'theme_elegance');
-    $setting = new admin_setting_configtext($name, $title, $description, '');
-    $temp->add($setting);
-	
     // Invert Navbar to dark background.
     $name = 'theme_elegance/invert';
     $title = get_string('invert', 'theme_elegance');
     $description = get_string('invertdesc', 'theme_elegance');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Include Awesome Font from Bootstrapcdn
+    $name = 'theme_elegance/bootstrapcdn';
+    $title = get_string('bootstrapcdn', 'theme_elegance');
+    $description = get_string('bootstrapcdndesc', 'theme_elegance');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);

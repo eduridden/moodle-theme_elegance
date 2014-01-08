@@ -33,6 +33,27 @@ function bootstrap3_grid() {
         return $regions;
 }
 
+/**
+ * Include the Awesome Font.
+ */
+function theme_essential_set_fontwww($css) {
+    global $CFG, $PAGE;
+    if(empty($CFG->themewww)){
+        $themewww = $CFG->wwwroot."/theme";
+    } else {
+        $themewww = $CFG->themewww;
+    }
+    $tag = '[[setting:fontwww]]';
+    
+    $theme = theme_config::load('essential');
+    if (!empty($theme->settings->bootstrapcdn)) {
+    	$css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
+    } else {
+    	$css = str_replace($tag, $themewww.'/elegance/fonts/', $css);
+    }
+    return $css;
+}
+
 function theme_elegance_process_css($css, $theme) {
 
     // Set the background image for the logo.
