@@ -23,7 +23,6 @@
  * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'elegance';
@@ -165,3 +164,8 @@ if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
 }
 
 $THEME->hidefromselector = false;
+
+$THEME->blockrtlmanipulations = array(
+    'side-pre' => 'side-post',
+    'side-post' => 'side-pre'
+);
