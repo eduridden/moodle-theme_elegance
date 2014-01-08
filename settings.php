@@ -214,6 +214,13 @@ defined('MOODLE_INTERNAL') || die;
     $temp = new admin_settingpage('theme_elegance_categoryicon', get_string('categoryiconheading', 'theme_elegance'));
 	$temp->add(new admin_setting_heading('theme_elegance_categoryicon', get_string('categoryiconheadingsub', 'theme_elegance'),
             format_text(get_string('categoryicondesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+    // Category Icons.
+    $name = 'theme_elegance/enablecategoryicon';
+    $title = get_string('enablecategoryicon', 'theme_elegance');
+    $description = get_string('enablecategoryicondesc', 'theme_elegance');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
     
     // Default Icon Selector.
     $name = 'theme_elegance/defaultcategoryicon';
