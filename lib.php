@@ -214,6 +214,18 @@ function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $fo
             return $theme->setting_file_serve('bannerimage3', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage4') {
             return $theme->setting_file_serve('bannerimage4', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage5') {
+            return $theme->setting_file_serve('bannerimage5', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage6') {
+            return $theme->setting_file_serve('bannerimage6', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage7') {
+            return $theme->setting_file_serve('bannerimage7', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage8') {
+            return $theme->setting_file_serve('bannerimage8', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage9') {
+            return $theme->setting_file_serve('bannerimage9', $args, $forcedownload, $options);
+        } else if ($filearea === 'bannerimage10') {
+            return $theme->setting_file_serve('bannerimage10', $args, $forcedownload, $options);
         } else {
             send_file_not_found();
         }
