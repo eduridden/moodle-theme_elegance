@@ -1032,20 +1032,7 @@ blockquote>.icon-quote-left{
 	-moz-border-radius: 0;
 }
 
-.frontpage-course-list-all .coursebox {
-	width: 28%;
-	float: left;
-	margin-left: 15px;
-	height: 140px;
-}
 
-.frontpage-course-list-all .coursebox .content .teachers, 
-.frontpage-course-list-all .coursebox .content .courseimage, 
-.frontpage-course-list-all .coursebox .content .coursefile {
-	float: none;
-	width: 100%;
-	clear: left;
-}
 
 .coursebox .content .courseimage img {
 	max-width: 162px;
@@ -1053,28 +1040,6 @@ blockquote>.icon-quote-left{
 	min-height: 100px;
 }
 
-.frontpage-course-list-all .coursebox>.info>.coursename {
-	background-image: none;
-	padding-left: 0px;
-}
-
-.frontpage-course-list-all .coursebox>.info>.coursename a {
-	padding-left: 0;
-	background-image: none;
-	overflow:hidden;
-	max-width: 162px;
-	height: 100px;
-	height: 20px;
-}
-
-.frontpage-course-list-all .coursebox .content .summary,
-.frontpage-course-list-all .coursebox .content .teachers {
-	display: none;
-}
-
-.frontpage-course-list-all .coursebox .enrolmenticons {
-	display: none;
-}
 
 .path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li .coursebox>.info>h3.name {
 	margin: 0 0 21px 0;

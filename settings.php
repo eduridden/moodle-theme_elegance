@@ -24,13 +24,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
 $settings = null;
 
 defined('MOODLE_INTERNAL') || die;
 
-
+	global $PAGE;
+	
 	$ADMIN->add('themes', new admin_category('theme_elegance', 'elegance'));
 
 	// "geneicsettings" settingpage
@@ -101,11 +100,38 @@ defined('MOODLE_INTERNAL') || die;
     $temp = new admin_settingpage('theme_elegance_banner', get_string('bannersettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_banner', get_string('bannersettingssub', 'theme_elegance'),
             format_text(get_string('bannersettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+            
+    // Set Number of Slides.
+    $name = 'theme_elegance/slidenumber';
+    $title = get_string('slidenumber' , 'theme_elegance');
+    $description = get_string('slidenumberdesc', 'theme_elegance');
+    $default = '1';
+    $choices = array(
+		'0'=>'0',
+    	'1'=>'1',
+    	'2'=>'2',
+    	'3'=>'3',
+    	'4'=>'4',
+    	'5'=>'5',
+    	'6'=>'6',
+    	'7'=>'7',
+    	'8'=>'8',
+    	'9'=>'9',
+    	'10'=>'10');
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    $hasslidenum = (!empty($PAGE->theme->settings->slidenumber));
+    if ($hasslidenum) {
+    	$slidenum = $PAGE->theme->settings->slidenumber;
+	} else {
+		$slidenum = '1';
+	}
 
-	$bannertitle = array('Slide One', 'Slide Two', 'Slide Three','Slide Four');
-    $bannertext = array('#a430d1', '#d15430', '#5dd130', '#ffffff');
+	$bannertitle = array('Slide One', 'Slide Two', 'Slide Three','Slide Four','Slide Five','Slide Six','Slide Seven', 'Slide Eight', 'Slide Nine', 'Slide Ten');
 
-    foreach (range(1, 4) as $bannernumber) {
+    foreach (range(1, $slidenum) as $bannernumber) {
     	
     	// This is the descriptor for the Banner Settings.
     	$name = 'theme_elegance/banner';
@@ -137,7 +163,7 @@ defined('MOODLE_INTERNAL') || die;
         $name = 'theme_elegance/bannertext' . $bannernumber;
         $title = get_string('bannertext', 'theme_elegance', $bannernumber);
         $description = get_string('bannertextdesc', 'theme_elegance', $bannernumber);
-        $default = $bannertext[$bannernumber - 1];
+        $default = 'Bacon ipsum dolor sit amet turducken jerky beef ribeye boudin t-bone shank fatback pork loin pork short loin jowl flank meatloaf venison. Salami meatball sausage short loin beef ribs';
         $setting = new admin_setting_configtextarea($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
@@ -165,7 +191,7 @@ defined('MOODLE_INTERNAL') || die;
     	$name = 'theme_elegance/bannerimage' . $bannernumber;
     	$title = get_string('bannerimage', 'theme_elegance', $bannernumber);
     	$description = get_string('bannerimagedesc', 'theme_elegance', $bannernumber);
-    	$setting = new admin_setting_configstoredfile($name, $title, $description, $bannernumber);
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bannerimage'.$bannernumber);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
     }
@@ -554,6 +580,38 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Set Number of Categories.
+    $name = 'theme_elegance/categorynumber';
+    $title = get_string('categorynumber' , 'theme_elegance');
+    $description = get_string('categorynumberdesc', 'theme_elegance');
+    $default = '1';
+    $choices = array(
+		'0'=>'0',
+    	'1'=>'1',
+    	'2'=>'2',
+    	'3'=>'3',
+    	'4'=>'4',
+    	'5'=>'5',
+    	'6'=>'6',
+    	'7'=>'7',
+    	'8'=>'8',
+    	'9'=>'9',
+    	'10'=>'10',
+    	'11'=>'11',
+    	'12'=>'12',
+    	'13'=>'13',
+    	'14'=>'14',
+    	'15'=>'15',
+    	'16'=>'16',
+    	'17'=>'17',
+    	'18'=>'18',
+    	'19'=>'19',
+    	'20'=>'20',);
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    
     //This is the descriptor for Category Icons
     $name = 'theme_elegance/categoryiconinfo';
     $heading = get_string('categoryiconinfo', 'theme_elegance');
@@ -561,7 +619,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
     
-    foreach (range(1, 20) as $categorynumber) {
+    $hascatnum = (!empty($PAGE->theme->settings->categorynumber));
+    
+    if ($hascatnum) {
+    	$catnum = $PAGE->theme->settings->categorynumber;
+	} else {
+		$catnum = '1';
+	}
+	    
+    foreach (range(1, $catnum) as $categorynumber) {
     
     // Category 1 Icon.
     $name = 'theme_elegance/categoryicon';
@@ -937,7 +1003,7 @@ defined('MOODLE_INTERNAL') || die;
     	'f193'=>'fa-wheelchair',
     	'f194'=>'fa-vimeo-square',
     	'f195'=>'fa-try');
-    $setting = new admin_setting_configselect($name.$categorynumber, $title.' '.$categorynumber, $description.$categorynumber, $default, $choices);
+    $setting = new admin_setting_configselect($name.$categorynumber, $title.$categorynumber, $description.$categorynumber, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     }

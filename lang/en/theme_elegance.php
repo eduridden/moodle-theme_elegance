@@ -90,8 +90,13 @@ $string['bannersettings'] = 'Slideshow Settings';
 $string['bannersettingssub'] = 'These settings control the slideshow that appears on the Moodle frontpage';
 $string['bannersettingsdesc'] = 'Enable and determine settings for each slide below';
 
+
 $string['bannerindicator'] = 'Slide Number ';
 $string['bannerindicatordesc'] = 'Set up this slide';
+
+
+$string['slidenumber'] = 'Number of slides ';
+$string['slidenumberdesc'] = 'Number of slide options will not change until you hit save after changing this number';
 
 $string['enablebanner'] = 'Enable this Slide';
 $string['enablebannerdesc'] = 'Will you be using this slide';
@@ -113,8 +118,12 @@ $string['bannerimagedesc'] = 'Large image to go behind the slide text';
 
 /* Category Icons */
 $string['categoryiconheading'] = 'Category Icons';
-$string['categoryiconheadingsub'] = 'Use icons to replresent your categories';
+$string['categoryiconheadingsub'] = 'Use icons to represent your categories';
 $string['categoryicondesc'] = 'If enabled this will allow you to set icons for each category of course.';
+
+
+$string['categorynumber'] = 'Number of Categories ';
+$string['categorynumberdesc'] = 'Number of category icons will not change until you hit save after changing this number';
 
 $string['defaultcategoryicon'] = 'Default Category Icons';
 $string['defaultcategoryicondesc'] = 'Set a default category icon';

@@ -28,7 +28,7 @@ $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'elegance';
 $THEME->parents = array();
-$THEME->sheets = array('moodle', 'elegance', 'nprogress');
+$THEME->sheets = array('moodle', 'elegance', 'categories', 'nprogress');
 $THEME->supportscssoptimisation = false;
 
 $THEME->editor_sheets = array('editor');

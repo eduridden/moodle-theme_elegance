@@ -54,6 +54,25 @@ function theme_elegance_process_css($css, $theme) {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
+    
+    // Set the Defaut Category Icon.
+    if (!empty($theme->settings->defaultcategoryicon)) {
+        $defaultcategoryicon = $theme->settings->defaultcategoryicon;
+    } else {
+        $defaultcategoryicon = null;
+    }
+    $css = theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon);
+    
+    // Set Category Icons.
+    foreach (range(1, 20) as $categorynumber) {
+        $categoryicon = $defaultcategoryicon;
+        if (!empty($theme->settings->usecategoryicon)) {
+            if (!empty($theme->settings->{'categoryicon' . $categorynumber})) {
+                $categoryicon = $theme->settings->{'categoryicon' . $categorynumber};
+            }
+        }
+        $css = theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber);
+    }
 
     return $css;
 }
@@ -102,7 +121,7 @@ function theme_elegance_set_themecolor($css, $themecolor) {
 
 function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
-        $theme = theme_config::load('essential');
+        $theme = theme_config::load('elegance');
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'headerbackground') {
@@ -197,6 +216,27 @@ function elegance_set_logo() {
  */
 function elegance_set_customcss() {
     throw new coding_exception('Please call theme_'.__FUNCTION__.' instead of '.__FUNCTION__);
+}
+
+function theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon) {
+    $tag = '[[setting:defaultcategoryicon]]';
+    $replacement = $defaultcategoryicon;
+    if (is_null($replacement)) {
+        $replacement = 'f07c';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber) {
+    $tag = '[[setting:categoryicon' . $categorynumber . ']]';
+    $replacement = $categoryicon;
+    
+    if (is_null($replacement)) {
+        $replacement = 'f07c';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
 }
 
 function theme_elegance_page_init(moodle_page $page) {

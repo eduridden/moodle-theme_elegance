@@ -26,6 +26,7 @@
 
 /* Slide 1 settings */
 $hasslide1 = (!empty($PAGE->theme->settings->enablebanner1));
+$slide1image = (!empty($PAGE->theme->settings->bannerimage1));
 $slide1title = (empty($PAGE->theme->settings->bannertitle1)) ? false : $PAGE->theme->settings->bannertitle1;
 $slide1caption = (empty($PAGE->theme->settings->bannertext1)) ? false : $PAGE->theme->settings->bannertext1;
 $slide1url = (empty($PAGE->theme->settings->bannerlinkurl1)) ? false : $PAGE->theme->settings->bannerlinkurl1;
@@ -33,6 +34,7 @@ $slide1linktext = (empty($PAGE->theme->settings->bannerlinktext1)) ? false : $PA
 
 /* Slide 2 settings */
 $hasslide2 = (!empty($PAGE->theme->settings->enablebanner2));
+$slide2image = (!empty($PAGE->theme->settings->bannerimage2));
 $slide2title = (empty($PAGE->theme->settings->bannertitle2)) ? false : $PAGE->theme->settings->bannertitle2;
 $slide2caption = (empty($PAGE->theme->settings->bannertext2)) ? false : $PAGE->theme->settings->bannertext2;
 $slide2url = (empty($PAGE->theme->settings->bannerlinkurl2)) ? false : $PAGE->theme->settings->bannerlinkurl2;
@@ -40,6 +42,7 @@ $slide2linktext = (empty($PAGE->theme->settings->bannerlinktext2)) ? false : $PA
 
 /* Slide 3 settings */
 $hasslide3 = (!empty($PAGE->theme->settings->enablebanner3));
+$slide3image = (!empty($PAGE->theme->settings->bannerimage3));
 $slide3title = (empty($PAGE->theme->settings->bannertitle3)) ? false : $PAGE->theme->settings->bannertitle3;
 $slide3caption = (empty($PAGE->theme->settings->bannertext3)) ? false : $PAGE->theme->settings->bannertext3;
 $slide3url = (empty($PAGE->theme->settings->bannerlinkurl3)) ? false : $PAGE->theme->settings->bannerlinkurl3;
@@ -47,6 +50,7 @@ $slide3linktext = (empty($PAGE->theme->settings->bannerlinktext3)) ? false : $PA
 
 /* Slide 4 settings */
 $hasslide4 = (!empty($PAGE->theme->settings->enablebanner4));
+$slide4image = (!empty($PAGE->theme->settings->bannerimage4));
 $slide4title = (empty($PAGE->theme->settings->bannertitle4)) ? false : $PAGE->theme->settings->bannertitle4;
 $slide4caption = (empty($PAGE->theme->settings->bannertext4)) ? false : $PAGE->theme->settings->bannertext4;
 $slide4url = (empty($PAGE->theme->settings->bannerlinkurl4)) ? false : $PAGE->theme->settings->bannerlinkurl4;
@@ -61,7 +65,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4 ) ? true :
 	<ul style="width: 400%; position: relative; left: -200%; height: 415px;">
 		
 		<?php if ($hasslide1) { ?>
-		<li style="background-image: url(http://unslider.com/img/sunset.jpg); background-size: 100%; width: 25%;">
+		<li style="background-image: url(<?php echo $slide1image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide1title ?></h1>
 			<p><?php echo $slide1caption ?></p>
 			<a class="btn" href="<?php echo $slide1url ?>"><?php echo $slide1linktext ?></a>
