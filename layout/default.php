@@ -29,9 +29,6 @@ echo $OUTPUT->doctype() ?>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <?php echo $OUTPUT->standard_head_html() ?>
-    <?php if ($hasltiles) { ?>
-    	<link href='<?php echo $CFG->wwwroot;?>/theme/elegance/style/coursetiles.css' ' rel='stylesheet' type='text/css'>
-    <?php } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 

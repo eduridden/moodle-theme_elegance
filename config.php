@@ -23,11 +23,26 @@
  * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+ 
 $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'elegance';
 $THEME->parents = array();
-$THEME->sheets = array('moodle', 'font-awesome.min', 'elegance', 'categories', 'nprogress');
+
+if ($THEME->settings->enablecategoryicon == '1') {
+	$categorysheet='categories';
+} else {
+	$categorysheet='';
+}
+
+if ($THEME->settings->tiles == '1') {
+	$tilessheet ='coursetiles';
+} else {
+	$tilessheet ='';
+}
+	
+$THEME->sheets = array('moodle', 'font-awesome.min', 'elegance', $categorysheet , $tilessheet, ' nprogress');
+
 $THEME->supportscssoptimisation = false;
 
 $THEME->editor_sheets = array('editor');
