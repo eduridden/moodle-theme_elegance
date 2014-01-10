@@ -426,12 +426,107 @@ a:hover, a:focus{
 	border-top: 10px solid #d1d1d1;
 	background: #e5e5e5;
 	font-size: .8em;
+	padding: 30px 0px;
+	font-family: "Roboto" !important;
+	font-size: .9em;
 }
 
-.sitelink {
+.sitelink,
+.homelink a {
 	float: left;
 	margin-right: 15px;
-	margin-top: -10px;
+	margin-top: -8px;
+	width: 100px;
+	height: 30px;
+	background: url([[pix:theme|moodlelogo]]);
+	color: transparent;
+}
+
+#page-footer .copy {
+	float: left;
+}
+
+#page-footer .footnote {
+	float: left;
+	margin-top: -13px;
+	margin-left: 5px;
+	padding-top: 5px;
+	border-top: 1px solid #ccc;
+	width: 100%;
+	text-align: left;
+}
+
+#page-footer .logininfo {
+	float: right;
+}
+
+#page-footer .helplink a {
+	float: right;
+	border: 1px solid #b4b4b7;
+	background: #ecedf0;
+	color: #333537;
+	padding: 9px 12px 9px;
+	line-height: 22px;
+	text-decoration: none;
+	position: relative;
+	font-size: 14px;
+	text-shadow: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	-webkit-backface-visibility: hidden;
+	font-weight: 500;
+	margin-top: 10px;
+}
+
+#page-footer .helplink a:hover {
+	color: white;
+	background: #2fa4e7;
+	font-weight: bold;
+}
+
+#page-footer .purgecaches a:hover  {
+	color: white;
+	background: red;
+	font-weight: bold;
+}
+
+#page-footer .helplink img {
+	display: none;
+}
+
+.purgecaches a {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #b4b4b7;
+	background: #ecedf0;
+	color: #333537;
+	padding: 9px 12px 9px;
+	line-height: 22px;
+	text-decoration: none;
+	position: relative;
+	font-size: 14px;
+	text-shadow: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	-webkit-backface-visibility: hidden;
+	font-weight: 500;
+	align-content: center;
 }
 
 /* @end */

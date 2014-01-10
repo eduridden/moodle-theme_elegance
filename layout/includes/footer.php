@@ -33,25 +33,23 @@ $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme-
 		<div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
 	</div>
 	<div class="row">
-		<div class="col-lg-3">
-			<?php
-			echo $OUTPUT->home_link();
-			 if ($hascopyright) {
-        	echo '<p class="copy">|&nbsp;&nbsp;&nbsp;&copy; '.date("Y").' '.$hascopyright.'</p>';
-   			} ?>
-		</div>
-       		
 		<div class="col-lg-6">
-       			 <?php
-       			 	if ($hasfootnote) {
-        			echo $hasfootnote;
-   				} ?>
-   				<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+			<?php echo $OUTPUT->home_link(); ?>
+   			
+			<?php
+			if ($hascopyright) {
+        	echo '<p class="copy">&copy; Copyright '.date("Y").' by '.$hascopyright.'</p>';
+   			} ?>
+   			
+   			<?php if ($hasfootnote) {
+        			echo  '<div class="footnote">'. $hasfootnote. '</div>';
+   			} ?>
+   			
 		</div>
-       		
-		<div class="col-lg-3">
+		<div class="col-lg-6 pull-right">
 			<?php echo $OUTPUT->login_info(); ?>
+			<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
 		</div>
+	</div>
 	</div>
 	<?php echo $OUTPUT->standard_footer_html(); ?>
-	</div>
