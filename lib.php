@@ -193,6 +193,8 @@ function theme_elegance_process_css($css, $theme) {
     }
     $css = theme_elegance_set_bannercolor10($css, $bannercolor10);
     
+    $css = theme_elegance_set_fontwww($css);
+    
     return $css;
 }
 
