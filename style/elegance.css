@@ -469,12 +469,13 @@ a:hover, a:focus{
 }
 
 #page-footer .helplink a {
-	float: right;
+	margin-left: auto;
+	margin-right: auto;
 	border: 1px solid #b4b4b7;
 	background: #ecedf0;
 	color: #333537;
-	padding: 9px 12px 9px;
-	line-height: 22px;
+	padding: 5px 8px 5px;
+	line-height: 18px;
 	text-decoration: none;
 	position: relative;
 	font-size: 14px;
@@ -491,7 +492,7 @@ a:hover, a:focus{
 	transition: 0.25s;
 	-webkit-backface-visibility: hidden;
 	font-weight: 500;
-	margin-top: 10px;
+	font-size: .85em;
 }
 
 #page-footer .helplink a:hover {
@@ -2304,6 +2305,47 @@ table#user-grades th.userreport.c1 {
 }
 
 /* @end */
+
+/* @group Back to Top */
+
+.back-to-top [class^="icon-"] {
+    font-size: 3em;
+}
+
+.back-to-top{
+    position: fixed;
+    top: 85%;
+    right: 15px;
+    display: none;
+    text-align:center; 
+    font:9px; 
+    text-transform:uppercase; 
+    text-decoration:none;
+    -webkit-transition: all .3s ease 0s;
+    -moz-transition: all .3s ease 0s;
+    -o-transition: all .3s ease 0s;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 1px #fff;
+    -moz-box-shadow: 0 0 1px #fff;
+    box-shadow: 0 0 1px #fff;
+    padding: 5px 12px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.back-to-top:hover{
+    text-decoration: none;
+    color: #000;
+}
+
+.back-to-top a,
+.back-to-top a:visited {
+	color: #fff !important;
+}
+
+/* @end */
+
 
 /* @group Misc */
 

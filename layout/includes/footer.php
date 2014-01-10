@@ -101,8 +101,8 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
                 <?php } ?>
 	    </ul>
         <?php } ?>
-			<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
 		</div>
 	</div>
+	<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
 	</div>
 	<?php echo $OUTPUT->standard_footer_html(); ?>
