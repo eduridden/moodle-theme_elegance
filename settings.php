@@ -209,6 +209,112 @@ defined('MOODLE_INTERNAL') || die;
     }
 
  	$ADMIN->add('theme_elegance', $temp);
+ 	
+ 	/* Social Network Settings */
+	$temp = new admin_settingpage('theme_elegance_social', get_string('socialheading', 'theme_elegance'));
+	$temp->add(new admin_setting_heading('theme_elegance_social', get_string('socialheadingsub', 'theme_elegance'),
+            format_text(get_string('socialdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+	
+    // Website url setting.
+    $name = 'theme_elegance/website';
+    $title = get_string('website', 'theme_elegance');
+    $description = get_string('websitedesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Facebook url setting.
+    $name = 'theme_elegance/facebook';
+    $title = get_string(    	'facebook', 'theme_elegance');
+    $description = get_string(    	'facebookdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Flickr url setting.
+    $name = 'theme_elegance/flickr';
+    $title = get_string('flickr', 'theme_elegance');
+    $description = get_string('flickrdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Twitter url setting.
+    $name = 'theme_elegance/twitter';
+    $title = get_string('twitter', 'theme_elegance');
+    $description = get_string('twitterdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Google+ url setting.
+    $name = 'theme_elegance/googleplus';
+    $title = get_string('googleplus', 'theme_elegance');
+    $description = get_string('googleplusdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // LinkedIn url setting.
+    $name = 'theme_elegance/linkedin';
+    $title = get_string('linkedin', 'theme_elegance');
+    $description = get_string('linkedindesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Pinterest url setting.
+    $name = 'theme_elegance/pinterest';
+    $title = get_string('pinterest', 'theme_elegance');
+    $description = get_string('pinterestdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Instagram url setting.
+    $name = 'theme_elegance/instagram';
+    $title = get_string('instagram', 'theme_elegance');
+    $description = get_string('instagramdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // YouTube url setting.
+    $name = 'theme_elegance/youtube';
+    $title = get_string('youtube', 'theme_elegance');
+    $description = get_string('youtubedesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Skype url setting.
+    $name = 'theme_elegance/skype';
+    $title = get_string('skype', 'theme_elegance');
+    $description = get_string('skypedesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+ 
+    // VKontakte url setting.
+    $name = 'theme_elegance/vk';
+    $title = get_string('vk', 'theme_elegance');
+    $description = get_string('vkdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting); 
+    
+    $ADMIN->add('theme_elegance', $temp);
     
     /* Category Settings */
     $temp = new admin_settingpage('theme_elegance_categoryicon', get_string('categoryiconheading', 'theme_elegance'));

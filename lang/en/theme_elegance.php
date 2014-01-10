@@ -122,6 +122,45 @@ $string['bannerimagedesc'] = 'Large image to go behind the slide text';
 $string['bannercolor'] = 'Slide Color';
 $string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background color instead';
 
+/* Social Networks */
+$string['socialheading'] = 'Social Networking';
+$string['socialheadingsub'] = 'Engage your users with Social Networking';
+$string['socialdesc'] = 'Provide direct links to the core social networks that promote your brand.  These will appear in the header of every page.';
+$string['socialnetworks'] = 'Social Networks';
+$string['facebook'] = 'Facebook URL';
+$string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/mycollege)';
+
+$string['twitter'] = 'Twitter URL';
+$string['twitterdesc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/mycollege)';
+
+$string['googleplus'] = 'Google+ URL';
+$string['googleplusdesc'] = 'Enter the URL of your Google+ profile. (i.e http://plus.google.com/107817105228930159735)';
+
+$string['linkedin'] = 'LinkedIn URL';
+$string['linkedindesc'] = 'Enter the URL of your LinkedIn profile. (i.e http://www.linkedin.com/company/mycollege)';
+
+$string['youtube'] = 'YouTube URL';
+$string['youtubedesc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/mycollege)';
+
+$string['flickr'] = 'Flickr URL';
+$string['flickrdesc'] = 'Enter the URL of your Flickr page. (i.e http://www.flickr.com/mycollege)';
+
+$string['vk'] = 'VKontakte URL';
+$string['vkdesc'] = 'Enter the URL of your Vkontakte page. (i.e http://www.vk.com/mycollege)';
+
+$string['skype'] = 'Skype Account';
+$string['skypedesc'] = 'Enter the Skype username of your organisations Skype account';
+
+$string['pinterest'] = 'Pinterest URL';
+$string['pinterestdesc'] = 'Enter the URL of your Pinterest page. (i.e http://pinterest.com/mycollege)';
+
+$string['instagram'] = 'Instagram URL';
+$string['instagramdesc'] = 'Enter the URL of your Instagram page. (i.e http://instagram.com/mycollege)';
+
+$string['website'] = 'Website URL';
+$string['websitedesc'] = 'Enter the URL of your own website. (i.e http://www.pukunui.com)';
+
+
 /* Category Icons */
 $string['categoryiconheading'] = 'Category Icons';
 $string['categoryiconheadingsub'] = 'Use icons to represent your categories';
