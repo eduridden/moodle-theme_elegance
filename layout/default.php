@@ -19,7 +19,7 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 $hasltiles = (!empty($PAGE->theme->settings->tiles));
-$regions = bootstrap3_grid();
+$regions = bootstrap3_grid($hassidepost);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 echo $OUTPUT->doctype() ?>
