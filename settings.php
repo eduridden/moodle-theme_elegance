@@ -70,6 +70,22 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Logo Image.
+    $name = 'theme_elegance/logo';
+    $title = get_string('logo', 'theme_elegance');
+    $description = get_string('logodesc', 'theme_elegance');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    	
+    // Header Background Image.
+    $name = 'theme_elegance/headerbg';
+    $title = get_string('headerbg', 'theme_elegance');
+    $description = get_string('headerbgdesc', 'theme_elegance');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbg');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
      // Copyright setting.
     $name = 'theme_elegance/copyright';
     $title = get_string('copyright', 'theme_elegance');

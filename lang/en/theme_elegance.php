@@ -27,7 +27,7 @@
 $string['choosereadme'] = '
 <div class="clearfix">
 <div class="well">
-<h2>elegance</h2>
+<h2>Elegance</h2>
 <p><img class=img-polaroid src="elegance/pix/screenshot.jpg" /></p>
 </div>
 <div class="well">
@@ -60,8 +60,12 @@ $string['invertdesc'] = 'Swaps text and background for the navbar at the top of 
 
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
-If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
-a.logo {height: 100px;} or whatever height in pixels the logo is.';
+As space in the navbar is limited, your logo should be no more than 30px high.';
+
+$string['headerbg'] = 'Header Background';
+$string['headerbgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
+Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
+<strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
 
 $string['pluginname'] = 'Elegance';
 

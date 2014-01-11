@@ -297,7 +297,14 @@ a:hover, a:focus{
 	padding-bottom: 10px;
 	margin-bottom: 40px;
 	position: relative;
-	background: [[setting:themecolor]] url([[pix:theme|bg/header]]);
+	background: [[setting:themecolor]] url([[setting:headerbg]]);
+}
+
+#logo {
+	background: url([[setting:logo]]) no-repeat;
+	height: 27px;
+	width: 120px;
+	background-size: contain;
 }
 
 /* @group Navbar */
@@ -2385,6 +2392,18 @@ table#user-grades th.userreport.c1 {
     font-family: FontAwesome;
     content:"\f07c";
     margin-right: 5px;
+}
+
+#page-admin-setting-theme_elegance_generic .form-description {
+	width: 100% !important;
+	color: #333537;
+	padding: 5px 8px 5px;
+	border-bottom: 1px dashed #eee;
+}
+
+#page-admin-setting-theme_elegance_generic .form-description p {
+	font-size: .75em;
+	margin-left: 100px;
 }
 
 /* @end */

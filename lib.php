@@ -58,6 +58,11 @@ function theme_elegance_process_css($css, $theme) {
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
     $css = theme_elegance_set_logo($css, $logo);
+    
+    // Set the background image for the header.
+    $setting = 'headerbg';
+    $headerbg = $theme->setting_file_url($setting, $setting);
+    $css = theme_elegance_set_headerbg($css, $headerbg, $setting);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -74,7 +79,7 @@ function theme_elegance_process_css($css, $theme) {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
-    
+        
     // Set the Defaut Category Icon.
     if (!empty($theme->settings->defaultcategoryicon)) {
         $defaultcategoryicon = $theme->settings->defaultcategoryicon;
@@ -226,8 +231,8 @@ function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $fo
         $theme = theme_config::load('elegance');
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        } else if ($filearea === 'headerbackground') {
-            return $theme->setting_file_serve('headerbackground', $args, $forcedownload, $options);
+        } else if ($filearea === 'headerbg') {
+            return $theme->setting_file_serve('headerbg', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage1') {
             return $theme->setting_file_serve('bannerimage1', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage2') {
@@ -330,6 +335,18 @@ function elegance_set_logo() {
  */
 function elegance_set_customcss() {
     throw new coding_exception('Please call theme_'.__FUNCTION__.' instead of '.__FUNCTION__);
+}
+
+function theme_elegance_set_headerbg($css, $headerbg, $setting) {
+    global $OUTPUT;
+    $tag = '[[setting:headerbg]]';
+    $replacement = $headerbg;
+    if (is_null($replacement)) {
+        // Get default image from themes 'bg' folder of the name in $setting.
+        $replacement = $OUTPUT->pix_url('bg/header', 'theme');
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
 }
 
 function theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon) {

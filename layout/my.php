@@ -18,6 +18,15 @@
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
+
+$haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+
+ if ($haslogo) {
+ 	$logo = '<div id="logo"></div>';
+ } else {
+ 	$logo = $SITE->shortname;
+ }
+ 
 $sidebar = "RIGHT";
 $regions = bootstrap3_grid($hassidepost);
 $PAGE->set_popup_notification_allowed(false);
@@ -45,7 +54,7 @@ echo $OUTPUT->doctype() ?>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
     </div>
 
     <div id="moodle-navbar" class="navbar-collapse collapse">
