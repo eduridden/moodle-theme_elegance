@@ -23,6 +23,10 @@
  * If you are modifying this file please be extremely careful, one wrong API call and you could end up
  * breaking installation or upgrade unwittingly.
  */
+ 
+ // Get the HTML for the settings bits.
+$html = theme_elegance_get_html_for_settings($OUTPUT, $PAGE);
+
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
 
  if ($haslogo) {
@@ -44,7 +48,7 @@ echo $OUTPUT->doctype() ?>
 <body <?php echo $OUTPUT->body_attributes(); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar <?php echo $html->navbarclass ?>">
     <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">

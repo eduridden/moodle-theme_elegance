@@ -13,6 +13,10 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+// Get the HTML for the settings bits.
+$html = theme_elegance_get_html_for_settings($OUTPUT, $PAGE);
+
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
 
  if ($haslogo) {
@@ -34,7 +38,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar <?php echo $html->navbarclass ?>">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
             <span class="sr-only">Toggle navigation</span>
