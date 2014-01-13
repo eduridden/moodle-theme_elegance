@@ -123,11 +123,37 @@ li.activity.label:hover {
 
 .section .activity .commands {
 	position:relative;
-	top: 100px;
+	top: -25px;
 	z-index: 100;
-	left:-175px;
+	left:-50px;
 	color: #000;
-	width: 195px;
+	width: 0px;
+	font-weight: bold;
+}
+
+.section .activity .commands a {
+	color: #000;
+}
+
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
+	display: none;
+}
+
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	transition:all ease-out .5s;
+}
+
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
+	background: [[setting:themecolor]];
+	color: #fff;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
+	right: 18px;
+	top: -5px;
 }
 
 .moodle-actionmenu[data-enhanced].show .menu {
@@ -148,8 +174,31 @@ li.activity.label:hover {
 	width: 175px;
 }
 
-.section .activity .contentafterlink p {
+.section .activity .instancename {
+	font-weight: bold;
+}
+
+.section .activity .contentafterlink {
 	font-size: .85em !important;
+	overflow:hidden;
+	text-overflow: clip ellipsis;
+	height: 70px !important;
+	padding-top: 5px;
+}
+
+.editing .section .activity .contentafterlink {
+	position: relative;
+	top: -45px;
+}
+
+.editing .autocompletion {
+	position: relative;
+	top: -23px;
+	left: 80px;
+}
+
+.availabilityinfo {
+	display: none;
 }
 
 .sectionname {
@@ -183,6 +232,10 @@ li.activity.label:hover {
 
 .section .activity.modtype_label.label:hover {
 	background: none;
+}
+
+.section .activity.modtype_label.label .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
+	top: 0px;
 }
 
 .section .activity.modtype_label .commands {
