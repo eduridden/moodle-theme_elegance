@@ -47,7 +47,10 @@ Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 <p><a href="elegance/README.txt">How to copy and customise this theme.</a></p>
 </div></div>';
 
+$string['pluginname'] = 'Elegance';
 $string['configtitle'] = 'Elegance';
+
+$string['mydashboard'] = 'My Dashboard';
 
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
@@ -66,8 +69,6 @@ $string['headerbg'] = 'Header Background';
 $string['headerbgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
 Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
 <strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
-
-$string['pluginname'] = 'Elegance';
 
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
@@ -125,6 +126,20 @@ $string['bannerimagedesc'] = 'Large image to go behind the slide text';
 
 $string['bannercolor'] = 'Slide Color';
 $string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background color instead';
+
+/* Login Screen */
+$string['loginsettings'] = 'Login Screen';
+$string['loginsettingssub'] = 'Custom Login Screen Settings';
+$string['loginsettingsdesc'] = 'Thhe custom version has a background slideshow you can customise images for as well as a cleaner look.';
+
+$string['enablecustomlogin'] = 'Use Custom Login';
+$string['enablecustomlogindesc'] = 'When enabled this will use the theme augmented version of the login screen. Removing the tick wil revert to the Moodle default version.<br>The augmented version allows you to upload backgrund slides to really add pizzaz to your page design.';
+
+$string['loginbgumber'] = 'Background Number';
+$string['loginbgumberdesc'] = 'How many backgrounds should revolve when the login page loads';
+
+$string['loginimage'] = 'Background Image';
+$string['loginimagedesc'] = 'The ideal size for background images is 1200x800 pixels';
 
 /* Social Networks */
 $string['socialheading'] = 'Social Networking';
