@@ -221,7 +221,7 @@ class theme_elegance_core_renderer extends core_renderer {
             if (isloggedin()) {
                 $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
                 
-                $usermenu->add('<i class="fa fa-briefcase"></i>' . get_string('mycourses'), new moodle_url('/my',
+                $usermenu->add('<i class="fa fa-briefcase"></i>' . get_string('mydashboard','theme_elegance'), new moodle_url('/my',
                 array('sesskey'=>sesskey(),'alt'=>'mycourses')),
                 get_string('mycourses'));
 
