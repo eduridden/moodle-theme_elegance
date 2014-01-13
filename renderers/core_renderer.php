@@ -213,10 +213,6 @@ class theme_elegance_core_renderer extends core_renderer {
             }
         }
 
-        if (!$menu->has_children() && $addlangmenu === false) {
-            return '';
-        }
-
         if ($addusermenu) {
             if (isloggedin() && !isguestuser()) {
                 $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
