@@ -2006,6 +2006,7 @@ table#user-grades th.userreport.c1 {
     display: table-cell;
     vertical-align: top;
     width: 100%;
+    min-width: 250px;
 }
 
 .coursebox .content .teachers,
@@ -2015,6 +2016,10 @@ table#user-grades th.userreport.c1 {
 	float: right;
 	width: 240px;
 	padding: 10px;
+}
+
+.coursebox .info {
+	white-space: nowrap;
 }
 
 .coursebox .content .teachers {
