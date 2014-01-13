@@ -226,6 +226,55 @@ defined('MOODLE_INTERNAL') || die;
 
  	$ADMIN->add('theme_elegance', $temp);
  	
+ 	/* Login Page Settings */
+    $temp = new admin_settingpage('theme_elegance_loginsettings', get_string('loginsettings', 'theme_elegance'));
+    $temp->add(new admin_setting_heading('theme_elegance_loginsettings', get_string('loginsettingssub', 'theme_elegance'),
+            format_text(get_string('loginsettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+            
+    // Enable Custom Login Page.
+    $name = 'theme_elegance/enablecustomlogin';
+    $title = get_string('enablecustomlogin', 'theme_elegance');
+    $description = get_string('enablecustomlogindesc', 'theme_elegance');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+            
+    // Set Number of Slides.
+    $name = 'theme_elegance/loginbgumber';
+    $title = get_string('loginbgumber' , 'theme_elegance');
+    $description = get_string('loginbgumberdesc', 'theme_elegance');
+    $default = '1';
+    $choices = array(
+    	'1'=>'1',
+    	'2'=>'2',
+    	'3'=>'3',
+    	'4'=>'4',
+    	'5'=>'5');
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    $hasloginbgnum = (!empty($PAGE->theme->settings->loginbgumber));
+    if ($hasloginbgnum) {
+    	$loginbgnum = $PAGE->theme->settings->loginbgumber;
+	} else {
+		$loginbgnum = '1';
+	}
+
+    foreach (range(1, $loginbgnum) as $loginbgnumber) {
+        
+        // Login Background Image.
+    	$name = 'theme_elegance/loginimage' . $loginbgnumber;
+    	$title = get_string('loginimage', 'theme_elegance');
+    	$description = get_string('loginimagedesc', 'theme_elegance');
+    	$setting = new admin_setting_configstoredfile($name, $title.$loginbgnumber, $description, 'loginimage'.$loginbgnumber);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+
+    }
+
+ 	$ADMIN->add('theme_elegance', $temp);
+ 	
  	/* Social Network Settings */
 	$temp = new admin_settingpage('theme_elegance_social', get_string('socialheading', 'theme_elegance'));
 	$temp->add(new admin_setting_heading('theme_elegance_social', get_string('socialheadingsub', 'theme_elegance'),

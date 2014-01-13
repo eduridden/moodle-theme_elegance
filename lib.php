@@ -253,6 +253,16 @@ function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $fo
             return $theme->setting_file_serve('bannerimage9', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage10') {
             return $theme->setting_file_serve('bannerimage10', $args, $forcedownload, $options);
+        } else if ($filearea === 'loginimage1') {
+            return $theme->setting_file_serve('loginimage1', $args, $forcedownload, $options);
+        } else if ($filearea === 'loginimage2') {
+            return $theme->setting_file_serve('loginimage2', $args, $forcedownload, $options);
+        } else if ($filearea === 'loginimage3') {
+            return $theme->setting_file_serve('loginimage3', $args, $forcedownload, $options);
+        } else if ($filearea === 'loginimage4') {
+            return $theme->setting_file_serve('loginimage4', $args, $forcedownload, $options);
+        } else if ($filearea === 'loginimage5') {
+            return $theme->setting_file_serve('loginimage5', $args, $forcedownload, $options);
         } else {
             send_file_not_found();
         }
