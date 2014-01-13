@@ -1,0 +1,214 @@
+/* @group Login */
+#page-login-index {
+	background: transparent;
+}
+
+#page-login-index #region-main {
+	background: transparent;
+	border: 0px none;
+}
+
+#page-login-index #page-footer{
+	border-top: 0px none;
+}
+
+html.login-page{
+	height: 100%;
+}
+
+.loginbox,
+.signuppanel {
+    height: auto; 
+    margin: 0 auto;
+    width: 360px;
+    padding: 15px;
+    margin-top: 150px;
+    background: none;
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid #ecedf0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 8px 8px 21px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px 8px 21px -3px rgba(0,0,0,0.75);
+    box-shadow: 8px 8px 21px -3px rgba(0,0,0,0.75);
+    font-family: "Roboto";
+    
+}
+
+.signuppanel {
+	margin-top: 20px;
+}
+.loginbox form{
+    background: [[setting:themecolor]];
+    height: 100px; 
+    width: 300px; 
+    
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.loginbox form#guestlogin  {
+	background: transparent;
+	border: 0px none;
+	text-align: right;
+	height: auto;
+}
+
+.loginbox form#guestlogin input[type="submit"]:hover {
+	background: green;
+}
+
+.loginbox .guestform {
+	border: 0px none;
+}
+
+
+.loginbox div.alert{
+    color: #27282a;
+    letter-spacing: 0px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 0px;
+    margin-bottom: 21px;
+    padding: 5px !important;
+    text-align: left;
+    width: 300px;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0px;
+    background: transparent;
+}
+
+.loginbox div.alert i,
+.signuppanel h2 i {
+	color: #999;
+	margin-right: 2px;
+}
+
+.loginbox .icon-submit{
+    background: #bbb;
+    border: 5px solid #FFFFFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    height: 63px;
+    margin-left: -15px;
+    margin-top: 19px;
+    position: absolute;
+    width: 63px;
+    padding: 0px 0px 0px 5px;
+    text-align: center;
+
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+     -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.loginbox .icon-submit:hover{
+    background-color: [[setting:themecolor]];
+}
+.loginbox form .inputarea{
+    height: 95px;
+}
+.loginbox form .inputarea div{
+    float: left;
+}
+.loginbox form .inputarea div input[type="text"],
+.loginbox form .inputarea div input[type="password"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    background: none;
+    border: 0;
+    color: #FFFFFF;
+    display: block;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    height: 49px;
+    padding: 2px 4px 0 20px;
+    width: 265px;
+}
+.loginbox form .inputarea div input[type="text"]:focus,
+.loginbox form .inputarea div input[type="password"]:focus{
+    outline:none;
+}
+.loginbox form .inputarea div input[type="text"]:-moz-placeholder,
+.loginbox form .inputarea div input[type="password"]:-moz-placeholder,
+.loginbox form .inputarea div input[type="text"]::-moz-placeholder,
+.loginbox form .inputarea div input[type="password"]::-moz-placeholder,
+.loginbox form .inputarea div input[type="text"]::-webkit-input-placeholder,
+.loginbox form .inputarea div input[type="password"]::-webkit-input-placeholder,
+.loginbox form .inputarea div input[type="text"]:-ms-input-placeholder,
+.loginbox form .inputarea div input[type="password"]:-ms-input-placeholder{
+    color: #FFFFFF !important;
+}
+.loginbox form .inputarea div input[type="password"]{
+    border-top: 5px solid #FFFFFF;
+}
+.loginbox form .inputarea div input[type="text"]{
+    margin-right: 15px;
+}
+.loginbox form p{
+    color: [[setting:themecolor]];
+    font-size: 15px;
+    font-weight: bold;
+}
+.loginbox label{
+    color: rgb(105, 105, 109);
+    float: right;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.loginbox a {
+	margin-top: 10px;
+	float: right;
+	font-size: 13px;
+	font-weight: bold;
+}
+.loginbox form div.remember{
+    color: [[setting:themecolor]];
+    float: left;
+    font-size: 13px;
+    margin-top: 10px; 
+}
+.loginbox form div.remember input[type="checkbox"]{
+    cursor: pointer;
+    float: left;
+    margin-top: 6px; 
+}
+.loginbox form div.remember label{
+    float: left;
+}
+
+.loginbox form .inputarea div input[type="text"]::-webkit-input-placeholder,
+.loginbox form .inputarea div input[type="password"]::-webkit-input-placeholder{
+   color: #FFFFFF;
+}
+
+.loginbox form .inputarea div input[type="text"]:-moz-placeholder,
+.loginbox form .inputarea div input[type="password"]:-moz-placeholder{ /* Firefox 18- */
+   color: #FFFFFF;  
+}
+
+.loginbox form .inputarea div input[type="text"]::-moz-placeholder,
+.loginbox form .inputarea div input[type="password"]::-moz-placeholder{  /* Firefox 19+ */
+   color: #FFFFFF;  
+}
+
+.loginbox form .inputarea div input[type="text"]:-ms-input-placeholder,
+.loginbox form .inputarea div input[type="password"]:-ms-input-placeholder{  
+   color: #FFFFFF;  
+}
+
+/* @end */

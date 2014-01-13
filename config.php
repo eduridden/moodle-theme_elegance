@@ -35,13 +35,21 @@ if ($THEME->settings->enablecategoryicon == '1') {
 	$categorysheet='';
 }
 
+if ($THEME->settings->enablecustomlogin == '1') {
+	$loginlayout='login.php';
+	$loginsheet='login1';
+} else {
+	$loginlayout='default.php';
+	$loginsheet='login2';
+}
+
 if ($THEME->settings->tiles == '1') {
 	$tilessheet ='coursetiles';
 } else {
 	$tilessheet ='';
 }
 	
-$THEME->sheets = array('moodle', 'font-awesome.min', 'elegance', $categorysheet , $tilessheet, ' nprogress');
+$THEME->sheets = array('moodle', 'font-awesome.min', 'elegance', $categorysheet , $tilessheet, $loginsheet, ' nprogress');
 
 $THEME->supportscssoptimisation = false;
 
@@ -114,7 +122,7 @@ $THEME->layouts = array(
         'defaultregion' => 'side-post',
     ),
     'login' => array(
-        'file' => 'login.php',
+    	'file' => $loginlayout,
         'regions' => array(),
         'options' => array('langmenu'=>true, 'nonavbar'=>false),
     ),
