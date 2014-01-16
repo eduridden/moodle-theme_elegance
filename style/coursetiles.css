@@ -320,3 +320,10 @@ img.iconlarge {
 #completionprogressid {
 	display: none;
 }
+
+#page-site-index .box.generalbox.sitetopic {
+	overflow:hidden; 
+	width: 100%; 
+	clear:both; 
+	margin-bottom:10px;
+}
