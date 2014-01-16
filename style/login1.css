@@ -1,28 +1,34 @@
+
 /* @group Login */
 #page-login-index {
 	background: transparent;
 }
 
 #page-login-index #region-main {
+	width: Auto;
+	margin-left: Auto;
+	margin-right: Auto;
+}
+
+#page-login-index #region-main {
 	background: transparent;
 	border: 0px none;
+	margin-bottom: 80px;
 }
 
 #page-login-index #page-footer{
 	border-top: 0px none;
+	height: 65px;
+	overflow: hidden;
 }
 
 html.login-page{
 	height: 100%;
 }
 
-.loginbox,
+.loginpanel,
 .signuppanel {
-    height: auto; 
-    margin: 0 auto;
-    width: 360px;
     padding: 15px;
-    margin-top: 150px;
     background: none;
     background: rgba(255, 255, 255, 0.85);
     border: 2px solid #ecedf0;
@@ -33,97 +39,89 @@ html.login-page{
     -moz-box-shadow: 8px 8px 21px -3px rgba(0,0,0,0.75);
     box-shadow: 8px 8px 21px -3px rgba(0,0,0,0.75);
     font-family: "Roboto";
-    
+}
+
+.loginpanel {
+	max-width: 500px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+	clear: b;
 }
 
 .signuppanel {
-	margin-top: 20px;
+	
 }
-.loginbox form{
+
+.loginpanel form{
     background: [[setting:themecolor]];
     height: 100px; 
-    width: 300px; 
-    
+    width: 95%;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
 }
 
-.loginbox form#guestlogin  {
+.loginpanel form#guestlogin  {
 	background: transparent;
 	border: 0px none;
-	text-align: right;
 	height: auto;
 }
 
-.loginbox form#guestlogin input[type="submit"]:hover {
+.loginpanel form#guestlogin input[type="submit"]:hover {
 	background: green;
 }
 
-.loginbox .guestform {
+.guestform {
 	border: 0px none;
+	text-align: right;
+	width: 100%;
+	margin-top: 0px;
 }
 
-
-.loginbox div.alert{
-    color: #27282a;
-    letter-spacing: 0px;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
-    margin-top: 0px;
-    margin-bottom: 21px;
-    padding: 5px !important;
-    text-align: left;
-    width: 300px;
-    border-bottom: 1px solid #bbb;
-    border-radius: 0px;
-    background: transparent;
-}
-
-.loginbox div.alert i,
+.loginpanel h2 i,
 .signuppanel h2 i {
 	color: #999;
 	margin-right: 2px;
 }
 
-.loginbox .icon-submit{
+.signuppanel ol {
+	margin-left: 40px;
+}
+
+.loginpanel .icon-submit{
     background: #bbb;
     border: 5px solid #FFFFFF;
     color: #FFFFFF;
     cursor: pointer;
-    float: right;
     font-size: 50px;
     font-weight: bold;
     height: 63px;
-    margin-left: -15px;
-    margin-top: 19px;
-    position: absolute;
+    position: relative;
+    float: right;
+    right: -30px;
+    top: -75px;
     width: 63px;
     padding: 0px 0px 0px 5px;
     text-align: center;
-
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
-
      -moz-transition: all 0.5s ease-out;
     -webkit-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
 }
-.loginbox .icon-submit:hover{
+.loginpanel .icon-submit:hover{
     background-color: [[setting:themecolor]];
 }
-.loginbox form .inputarea{
+.loginpanel form .inputarea{
     height: 95px;
 }
-.loginbox form .inputarea div{
-    float: left;
-}
-.loginbox form .inputarea div input[type="text"],
-.loginbox form .inputarea div input[type="password"]{
+
+.loginpanel form .inputarea div input[type="text"],
+.loginpanel form .inputarea div input[type="password"]{
     box-sizing: border-box;
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
@@ -136,79 +134,86 @@ html.login-page{
     font-weight: 400;
     height: 49px;
     padding: 2px 4px 0 20px;
-    width: 265px;
+    width: 100%;
 }
-.loginbox form .inputarea div input[type="text"]:focus,
-.loginbox form .inputarea div input[type="password"]:focus{
+.loginpanel form .inputarea div input[type="text"]:focus,
+.loginpanel form .inputarea div input[type="password"]:focus{
     outline:none;
 }
-.loginbox form .inputarea div input[type="text"]:-moz-placeholder,
-.loginbox form .inputarea div input[type="password"]:-moz-placeholder,
-.loginbox form .inputarea div input[type="text"]::-moz-placeholder,
-.loginbox form .inputarea div input[type="password"]::-moz-placeholder,
-.loginbox form .inputarea div input[type="text"]::-webkit-input-placeholder,
-.loginbox form .inputarea div input[type="password"]::-webkit-input-placeholder,
-.loginbox form .inputarea div input[type="text"]:-ms-input-placeholder,
-.loginbox form .inputarea div input[type="password"]:-ms-input-placeholder{
+.loginpanel form .inputarea div input[type="text"]:-moz-placeholder,
+.loginpanel form .inputarea div input[type="password"]:-moz-placeholder,
+.loginpanel form .inputarea div input[type="text"]::-moz-placeholder,
+.loginpanel form .inputarea div input[type="password"]::-moz-placeholder,
+.loginpanel form .inputarea div input[type="text"]::-webkit-input-placeholder,
+.loginpanel form .inputarea div input[type="password"]::-webkit-input-placeholder,
+.loginpanel form .inputarea div input[type="text"]:-ms-input-placeholder,
+.loginpanel form .inputarea div input[type="password"]:-ms-input-placeholder{
     color: #FFFFFF !important;
 }
-.loginbox form .inputarea div input[type="password"]{
+.loginpanel form .inputarea div input[type="password"]{
     border-top: 5px solid #FFFFFF;
 }
-.loginbox form .inputarea div input[type="text"]{
+.loginpanel form .inputarea div input[type="text"]{
     margin-right: 15px;
 }
-.loginbox form p{
+.loginpanel form p{
     color: [[setting:themecolor]];
     font-size: 15px;
     font-weight: bold;
 }
-.loginbox label{
+.loginpanel label{
     color: rgb(105, 105, 109);
     float: right;
     font-size: 13px;
     text-decoration: none;
 }
 
-.loginbox a {
+.loginpanel a {
 	margin-top: 10px;
-	float: right;
 	font-size: 13px;
 	font-weight: bold;
+	float: left;
 }
-.loginbox form div.remember{
+
+
+.loginpanel form div.remember{
     color: [[setting:themecolor]];
     float: left;
     font-size: 13px;
     margin-top: 10px; 
+    margin-right: 30px;
 }
-.loginbox form div.remember input[type="checkbox"]{
+.loginpanel form div.remember input[type="checkbox"]{
     cursor: pointer;
     float: left;
     margin-top: 6px; 
 }
-.loginbox form div.remember label{
+.loginpanel form div.remember label{
     float: left;
 }
 
-.loginbox form .inputarea div input[type="text"]::-webkit-input-placeholder,
-.loginbox form .inputarea div input[type="password"]::-webkit-input-placeholder{
+.loginpanel form .inputarea div input[type="text"]::-webkit-input-placeholder,
+.loginpanel form .inputarea div input[type="password"]::-webkit-input-placeholder{
    color: #FFFFFF;
 }
 
-.loginbox form .inputarea div input[type="text"]:-moz-placeholder,
-.loginbox form .inputarea div input[type="password"]:-moz-placeholder{ /* Firefox 18- */
+.loginpanel form .inputarea div input[type="text"]:-moz-placeholder,
+.loginpanel form .inputarea div input[type="password"]:-moz-placeholder{ /* Firefox 18- */
    color: #FFFFFF;  
 }
 
-.loginbox form .inputarea div input[type="text"]::-moz-placeholder,
-.loginbox form .inputarea div input[type="password"]::-moz-placeholder{  /* Firefox 19+ */
+.loginpanel form .inputarea div input[type="text"]::-moz-placeholder,
+.loginpanel form .inputarea div input[type="password"]::-moz-placeholder{  /* Firefox 19+ */
    color: #FFFFFF;  
 }
 
-.loginbox form .inputarea div input[type="text"]:-ms-input-placeholder,
-.loginbox form .inputarea div input[type="password"]:-ms-input-placeholder{  
+.loginpanel form .inputarea div input[type="text"]:-ms-input-placeholder,
+.loginpanel form .inputarea div input[type="password"]:-ms-input-placeholder{  
    color: #FFFFFF;  
+}
+
+.guestsub .desc {
+	display: none;
 }
 
 /* @end */

@@ -19,13 +19,17 @@ body, html {
     font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 	font: 100%/1.5em 'Roboto', sans-serif;
-	margin: 0px 0 0;
+	margin: 0px;
 	padding: 0px;
 	background: #f1f1f4;
 }
 
 #page {
 	padding-top: 0px;
+}
+
+#theme_switch_link {
+	display: none;
 }
 
 p {
@@ -2322,4 +2326,6 @@ table#user-grades th.userreport.c1 {
 }
 
 /* @end */
+
+[[setting:customcss]]
 

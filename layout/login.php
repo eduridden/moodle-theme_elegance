@@ -262,13 +262,14 @@ echo $OUTPUT->doctype() ?>
 <div id="page">
     
     <div id="page-content" class="container">
-	<div class="loginbox">
-		<div class="alert">
+    <div id="region-main" class="col-sm-11 col-md-12">
+        
+	<div class="loginpanel">
 			<?php 
 				if(isset($_POST['username']) || isset($_POST['password'])){
 					echo get_string("invalidlogin");
 				}else{
-					echo '<i class="fa fa-key"></i> '.get_string("login");
+					echo '<h2><i class="fa fa-key"></i> '.get_string("login").'</h2>';
 				} 
 			?>
 			
@@ -280,8 +281,6 @@ echo $OUTPUT->doctype() ?>
               echo html_writer::end_tag('div');
           }
         ?>
-        
-		</div>
                     
 		<form action="<?php echo $CFG->httpswwwroot; ?>/login/index.php" method="post" id="login" <?php echo $autocomplete; ?> >
 			<div class="inputarea">
@@ -367,13 +366,13 @@ echo $OUTPUT->doctype() ?>
 	
 <?php echo "<div style='display: none;'>".$OUTPUT->main_content()."</div>"; ?>
         
-    </div>
+    </div></div>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 </div>
 
-<footer id="page-footer" class="footer-fixed-bottom">
+<footer id="page-footer" class="footer-fixed-bottom hidden-sm hidden-xs">
 	<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
 </footer>
 
