@@ -1,5 +1,35 @@
 /* @group Core */
 
+/* @group RESET CSS */
+
+.course-content ul.topics li.section .left, 
+.course-content ul.topics li.section .right,
+.section.img-text,
+.boxwidthwide,
+.course-content ul.topics li.section .content,
+.course-content ul.topics li.section .summary,
+.site-topic ul.section,
+.course-content ul.section,
+.path-mod-choice .horizontal,
+.path-mod-choice .vertical,
+.path-mod-choice .anonymous,
+.path-mod-choice .names,
+.path-mod-choice .results.anonymous .graph.horizontal,
+.block_course_overview .content,
+.coursebox .content .coursecat, 
+.coursebox .content .summary, 
+.coursebox .content .courseimage, 
+.coursebox .content .coursefile, 
+.coursebox .content .teachers, 
+.coursebox.remotecoursebox .remotecourseinfo {
+	max-width:100%;
+	width:auto;
+	padding:0;
+	margin:0 auto;
+}
+
+/* @end */
+
 @font-face {
     font-family: 'FontAwesome'; 
     font-weight: normal;
@@ -2272,6 +2302,16 @@ table#user-grades th.userreport.c1 {
 
 /* @end */
 
+/* @group Calendar */
+
+#page-calendar-view #heading h1:before {
+	font-family: FontAwesome;
+	content:"\f073";
+	margin-right: 5px;
+	color: #999;
+}
+
+/* @end */
 
 /* @group Misc */
 
