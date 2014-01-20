@@ -784,24 +784,35 @@ ul.socials {
 
 }
 
+.block .header {
+	padding: 0px 10px;
+}
+
 .block .header .title h2 {
 	color: #27282a;
 	letter-spacing: 0px;
 	font-style: normal;
 	font-weight: 300;
 	font-size: 24px;
-	line-height: 28px;
-	margin-top: 0px;
-	margin-bottom: 21px;
 	text-transform: none;
+	padding-left: 0px;
+	border-bottom: 1px solid #ddd;
+	margin: 0 0 10px 0;
+	line-height: normal;
+}
+
+.block .header .title h2::after {
+	background-color: [[setting:themecolor]];
+	content: "";
+	display: block;
+	height: 1px;
+	width: 100px;
+	position: relative;
+	top: 10px;
 }
 
 .block_section .header .block_action {
 	float: left;
-}
-
-.block_section .title {
-	position: relative;
 }
 
 .block_section .block-hider-hide, .block_section .block-hider-show{
@@ -1342,8 +1353,30 @@ blockquote>.icon-quote-left{
 	font-family: "Roboto";
 }
 
+/* Fix for ordered and unordered list in course topic summary & course weekly summary */
+
+.course-content ul.weeks .content .summary ul,
+.course-content ul.topics .content .summary ul {list-style: disc outside none;}
+
+.course-content ul.weeks .content .summary ol,
+.course-content ul.topics .content .summary ol {list-style: decimal outside none;}
+
 /* @group Course Footer */
 
+div.section-navigation.navigationtitle .mdl-left,
+div.section-navigation.navigationtitle .mdl-right{
+	display: none !important;
+}
+
+.single-section h3.sectionname {
+	text-align: left;
+	font-family: "Roboto";
+	font-weight: 400;
+	color: [[setting:themecolor]];
+	margin-left: 40px;
+	padding-bottom: 8px;
+	border-bottom: 1px dotted #eee;
+}
 #section_footer {
 	padding:0;
 	color: [[setting:themecolor]];
@@ -1351,24 +1384,18 @@ blockquote>.icon-quote-left{
 	clear:both;
 	margin-top: -10px;
 }
+
 #section_footer a{
 	font-style:normal;
 	text-decoration:none;
 }
 
-#previous_section, #next_section {
-	width:48%;
-	display:block; 
-}
-
 #next_section {
 	text-align:right;
-	float:right;
 	font-weight: 300;
 }
 
 #previous_section {
-	float:left;
 	text-align:left;
 	font-weight: 300;
 }
@@ -1411,7 +1438,7 @@ letter-spacing:0.1em;
 
 #previous_section .text{
 	width:74.05%;
-	float:left;
+	float:lef;
 }
 
 /* @end */
@@ -2338,6 +2365,21 @@ table#user-grades th.userreport.c1 {
     font-family: FontAwesome;
     content:"\f0a1";
     margin-right: 5px;
+}
+
+#page-login-index h2::after,
+#site-news-forum h2::after, 
+#frontpage-course-list h2::after, 
+#frontpage-category-names h2::after, 
+#frontpage-category-combo h2::after,
+#heading h1::after {
+	background-color: [[setting:themecolor]];
+	content: "";
+	display: block;
+	height: 1px;
+	width: 100px;
+	position: relative;
+	top: 5px;
 }
 
 #frontpage-course-list h2::before,
