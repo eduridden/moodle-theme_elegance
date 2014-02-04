@@ -662,6 +662,7 @@ class theme_elegance_format_weeks_renderer extends format_weeks_renderer {
     }
 }
 
+// Requires V2.6.1.3+ of Collapsed Topics format.
 if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/topcoll/renderer.php");
     class theme_elegance_format_topcoll_renderer extends format_topcoll_renderer {
@@ -671,7 +672,6 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            $this->courseformat = course_get_format($course); // Needed for collapsed topics settings retrieval.
             global $PAGE;
 
             $modinfo = get_fast_modinfo($course);
@@ -941,6 +941,7 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
     }
 }
 
+// Requires V2.6.1.1+ of Columns format.
 if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/columns/renderer.php");
     class theme_elegance_format_columns_renderer extends format_columns_renderer {
@@ -950,7 +951,6 @@ if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            $this->courseformat = course_get_format($course);
             global $PAGE;
 
             $modinfo = get_fast_modinfo($course);
