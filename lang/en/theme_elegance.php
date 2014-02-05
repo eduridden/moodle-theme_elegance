@@ -73,6 +73,8 @@ Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
+$string['visibleadminonly'] = 'Blocks moved into the area below will only be seen by admins';
+
 $string['backtotop'] = 'Back to top';
 $string['nextsection'] = 'Next Section';
 $string['previoussection'] = 'Previous Section';

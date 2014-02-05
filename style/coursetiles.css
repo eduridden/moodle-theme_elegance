@@ -178,7 +178,7 @@ li.activity.label:hover {
 	font-weight: bold;
 }
 
-.section .activity .contentafterlink {
+.section .activity .contentafterlink p {
 	font-size: .85em !important;
 	overflow:hidden;
 	text-overflow: clip ellipsis;
