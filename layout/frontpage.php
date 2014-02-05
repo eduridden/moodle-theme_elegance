@@ -75,104 +75,9 @@ echo $OUTPUT->doctype() ?>
 
 	 <!-- Google web fonts -->
     <?php require_once(dirname(__FILE__).'/includes/slideshow.php'); ?>
-	
-    <header id="page-header" class="clearfix">
-        <div id="fontpagecontent" class="container">
-            <h3>iMoot 2014 - Global Online Moodle Conference, 15 - 19 May 2014</h3><p>iMoot is the largest online Moodle Conference with international Speakers.</p><a href="http://2014.imoot.org/course/view.php?id=5" class="btn btn-default btn-large">Register Now at EarlyBird Rates</a>
-        </div>
-
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
-        </div>
-    </header>
-    
-    
-    
-    
-    
-    <div id="page-content" class="container">
-	    <div id="page-marketing">
-    <div class="row">
-    	<div id="sp-position1" class="col-md-7">	
-    		<?php echo $OUTPUT->blocks('side-middle'); ?>
-    	</div>
-    	
-    	<div id="sp-position2" class="col-md-10">
-    		<div class="module title1">
-    			<div class="mod-wrapper-flat clearfix">
-    				<h2 class="marketingheader">iMoot at a glance</h2>
-    				<span class="sp-badge title1"></span>
-    				<div class="customtitle1">
-    					<div class="row ">
-    						<div class="col-md-8">
-    							<div>
-    								<div class="marketing-block">
-    									<h3><i class="fa fa-group"></i> 70+ Speakers</h3>
-    									<p>Moodle experts from around the world presenting in their chosen fields</p>
-    								</div>
-    							</div>
-    						</div>
-    						<div class="col-md-8">
-    							<div>
-    								<div class="marketing-block">
-    									<h3><i class="fa fa-calendar"></i> 90+ Sessions</h3>
-    									<p>Sessions covering topics from pedagagoy to technology and beyond!</p>
-    								</div>
-    							</div>
-    						</div>
-    					</div>
-    					<div class="row ">
-    						<div class="col-md-8">
-    							<div>
-    								<div class="marketing-block">
-    									<h3><i class="fa fa-clock-o"></i> 102 Hours</h3>
-    									<p>Multiple streams run 24 hours a day over 5 days of the program</p>
-    								</div>
-    							</div>
-    						</div>
-    						<div class="col-md-8">
-    							<div>
-    								<div class="marketing-block">
-    									<h3><i class="fa fa-film"></i> Recorded Sessions</h3>
-    									<p>Missed a great session? All are recorded and available for playback.</p>
-    								</div>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-    </div>
-    </div>
-    
-    
-    
 
     <div id="page-content" class="container">
         <div id="region-main" class="<?php echo $regions['content']; ?>">
-	        <div id="heading"><h1>iMoot Quick Links</h1></div>
-	        
-	        
-	        <div class="row" id="quicklinks">
-	        	<div class="col-md-4" id="quicklink">
-	        		<a href="http://2014.imoot.org/mod/page/view.php?id=1"><div id="circle-highlight"><i class="fa fa-ticket"></i></div>
-	        		<p class="btn btn-success">Register Now</p></a>
-	        	</div>
-	        	<div class="col-md-4" id="quicklink">
-	        		<a href="http://2014.imoot.org/course/view.php?id=6"><div id="circle-highlight"><i class="fa fa-bullhorn"></i></div>
-	        		<p class="btn btn-default">Submit Presentation</p></a>
-	        	</div>
-	        	<div class="col-md-4" id="quicklink">
-	        		<a href="http://2014.imoot.org/course/view.php?id=3"><div id="circle-highlight"><i class="fa fa-comments"></i></div>
-	        		<p class="btn btn-default">iMoot Forums</p></a>
-	        	</div>
-	        	<div class="col-md-4" id="quicklink">
-	        		<a href="http://2014.imoot.org/mod/page/view.php?id=5"><div id="circle-highlight"><i class="fa fa-money"></i></div>
-	        		<p class="btn btn-default">Sponsorship</p></a>
-	        	</div>
-	        </div>
 	        
 	        
             <?php
@@ -182,18 +87,22 @@ echo $OUTPUT->doctype() ?>
             ?>
         </div>
         
-        <?php if (is_siteadmin()) { ?>
-        <div id="hidden-blocks" class="<?php echo $regions['content']; ?>">
-        		<h4><?php echo get_string('visibleadminonly', 'theme_elegance') ?></h4>
-        		<?php echo $OUTPUT->blocks('hidden-dock', $regions['hidden-dock']); ?>
-        </div>
-        <?php } ?>
+        
 
         <?php
         if ($hassidepost) {
             echo $OUTPUT->blocks('side-post', $regions['post']);
         }?>
+        
+        <?php if (is_siteadmin()) { ?>
+        <div id="hidden-blocks" class="<?php echo $regions['content']; ?>">
+        		<h4><?php echo get_string('visibleadminonly', 'theme_elegance') ?></h4>
+        		<?php echo $OUTPUT->blocks('hidden-dock'); ?>
+        </div>
+        <?php } ?>
     </div>
+    
+    
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
