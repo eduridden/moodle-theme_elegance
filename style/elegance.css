@@ -2218,114 +2218,243 @@ table#user-grades th.userreport.c1 {
 
 /* @group Forums */
 
-.forumheaderlist .picture img {
-    border-radius:250px;
-    margin-right: 10px;
+#page-mod-forum-view .forumheaderlist tr th {
+	padding:10px 5px;
 }
 
-.path-mod-forum .forumheaderlist {
-	border: 2px solid #ecedf0;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	padding: 5px;
+#page-mod-forum-view .forumheaderlist tr td {
+	padding:10px 5px;
 }
 
-.path-mod-forum .forumheaderlist .header {
-	padding-bottom: 10px;
+#page-mod-forum-view .forumheaderlist .replies {
+	text-align:left;
 }
 
-.path-mod-forum .forumheaderlist .discussion {
-	font-size: .9em;
+#page-mod-forum-view .forumheaderlist .lastpost {
+	text-align:left;
+}
+
+#page-mod-forum-view .forumheaderlist .lastpost a:last-child {
+	font-size:11.9px;
+}
+
+#page-mod-forum-view.dir-rtl .forumheaderlist .replies {
+	text-align:right;
+}
+
+#page-mod-forum-view.dir-rtl .forumheaderlist .lastpost {
+	text-align:right;
+}
+
+#page-mod-forum-discuss .discussioncontrols {
+	margin:0;
+}
+
+#page-mod-forum-discuss .discussioncontrols .discussioncontrol {
+	float:right;
+	width:auto;
+}
+
+#page-mod-forum-discuss .indent {
+	margin-left:40px;
+}
+
+#page-mod-forum-discuss .indent .forumthread {
+	display:block;
+	margin-top:20px;
 }
 
 .forumpost {
-    background: #fff;
-    border: 2px solid #ecedf0;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 10px;
+	background: #fafafa;
 }
 
-.forumheaderlist td {
-    padding: 5px;
+.forumpost .header {
+	border-bottom: 1px solid rgb(223, 223, 223);
 }
 
-.forumpost .picture img {
-    border-radius:250px;
-    border:3px solid #fff;
-    margin: 0px !important;
+.forumpost .header::after {
+	background-color: #1fbaeb;
+	content: "";
+	display: block;
+	height: 1px;
+	width: 80px;
+	position: relative;
 }
 
-.forumpost .picture {
-	box-shadow:0px 0px 3px #aaa;
-	border-radius: 100px;
-	padding: 0px !important;
-	margin-right: 10px;
+#page-mod-forum-discuss .forumpost{
+	position:relative;
+	padding:10px;
 }
 
-.forumpost .content .posting {
-    border-top: 1px dotted #ccc;
-    padding-top: 10px;
+#page-mod-forum-discuss .forumpost .row{
+	position:static;
 }
 
-.forumpost .subject {
-    font-weight: 300;
-    font-size: 1.2em;
-    margin-bottom: -5px;
-
+#page-mod-forum-discuss .forumpost .row .left{
+	width:80px;
+	padding:0;
 }
 
-.forumpost .author {
-    font-weight: 300;
-    font-size: .9em;
+#page-mod-forum-discuss .forumpost .row .left.picture img{
+	width:60px;
+	height:60px;
+	padding:1px;
+	vertical-align:middle;
+	border:5px solid #fff;
+	border-radius: 270px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05);
 }
 
-.forumpost .row .options {
-	font-weight: 300;
-	font-size: .85em;
+#page-mod-forum-discuss .forumpost .row .left .grouppictures{
+	position:absolute;
+	top:25px;
+	right:24px;
+	margin-top: 15px;
 }
 
-.forumsearch input[type="text"] {
-    font-size: 12px !important;
-    height: 15px;
-    width: 180px;
-    margin-right: 10px;
-}
-
-.forumsearch input[type="submit"] {
-    font-size: 12px !important;
-    line-height: 15px;
+#page-mod-forum-discuss .forumpost .row .left .grouppictures a{
+	display:inline-block;
+	padding:5px 6px;
+	margin:0 2px 5px;
+	background-color:#fff;
+	border-radius:50px;
+	box-shadow:0 2px 1px rgba(0,0,0,0.05);
 }
 
 .forumpost .row .left .grouppicture {
-	width: 35px;
-	height: 35px;
-	border: 3px solid #fff;
-	border-radius: 250px;
+	width: 25px;
+	height: 25px;
+	border-radius: 270px;
+}
+
+#page-mod-forum-discuss .forumpost .row.side .left{
+	display:none;
+}
+
+#page-mod-forum-discuss .forumpost .row .topic{
+	padding-bottom:55px;
+	padding-bottom:35px;
+	overflow:auto;
+}
+
+#page-mod-forum-discuss .forumpost .row .topic .subject{
+	display:none;
+}
+
+#page-mod-forum-discuss .forumpost .row .topic .author{
+	padding-top:0px;
+	font-size:11.9px;
+	color:#868686;
+}
+
+#page-mod-forum-discuss .forumpost .row .topic .author a{
+	margin-bottom:-2px;
+	font-size:14px;
+	font-weight:bold;
 }
 
 
-#page-mod-forum-discuss .forumpost .row .left .grouppictures {
-	position: absolute;
-	top: -45px;
-	right: 10px;
+#page-mod-forum-discuss .forumpost .row .content{
+	padding:10px;
 }
 
-#page-mod-forum-discuss .forumpost .row .left .grouppictures a {
-	display: inline-block;
-	padding: 0px;
-	margin: 0px;
-	background-color: #fff;
-	border-radius: 50px;
-	box-shadow: 0px 0px 3px #aaa;
+#page-mod-forum-discuss .forumpost .row .forum-post-rating{
+	display:inline-block;
 }
 
-.forumpost .row .left .grouppictures a {
-	text-align: center;
-	display: block;
-	margin: 6px 2px 0 2px;
+#page-mod-forum-discuss .forumpost .row .forum-post-rating .iconhelp{
+	vertical-align:baseline;
+}
+
+#page-mod-forum-discuss .forumpost .row .options{
+	padding:10px;
+	margin-right:0;
+	margin-left:0;
+}
+
+#page-mod-forum-discuss .forumpost .row .options .commands{
+	display:inline-block;
+	float:right;
+	color: #fafafa;
+}
+
+#page-mod-forum-discuss .forumpost .row .options .commands a {
+	font-size:11.9px;
+	border: 1px solid #b4b4b7;
+	background: #ecedf0;
+	color: #333537;
+	padding: 9px 12px 9px;
+	line-height: 22px;
+	text-decoration: none;
+	border-radius: 3px;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+}
+
+#page-mod-forum-discuss .forumpost .row .options .commands a:hover {
+	background: #1990d5;
+	color: #fff;
+	font-weight: 600;
+}
+
+#page-mod-forum-discuss .forumpost.firstpost .row{
+	position:inherit;
+}
+
+#page-mod-forum-discuss .forumpost.firstpost .row .topic{
+	padding-bottom: 20px;
+}
+
+#page-mod-forum-discuss .forumpost.firstpost .row .topic .subject{
+	display:block;
+	padding-top:3px;
+	font-size:24px;
+	font-weight:100;
+	line-height:30px;
+	color:#000;
+}
+
+#page-mod-forum-discuss .forumpost.firstpost .row .topic .author{
+	margin-top:-2px;
+}
+
+#page-mod-forum-discuss .forumpost.firstpost .row .grouppictures{
+	top:-69px;
+	right:4px;
+}
+
+#page-mod-forum-discuss .forumpost.unread .row{
+	border-bottom:0;
+	border-radius:4px;
+}
+
+#page-mod-forum-discuss.dir-rtl .discussioncontrol{
+	float:left;
+}
+
+#page-mod-forum-discuss.dir-rtl .indent{
+	margin-right:80px;
+	margin-left:inherit;
+}
+
+#page-mod-forum-discuss.dir-rtl .forumpost .row .grouppictures{
+	right:inherit;
+	left:24px;
+}
+
+#page-mod-forum-discuss.dir-rtl .forumpost .row .forum-post-rating{
+	float:right;
+}
+
+#page-mod-forum-discuss.dir-rtl .forumpost .row .commands{
+	float:left;
+}
+
+#page-mod-forum-discuss.dir-rtl .forumpost.firstpost .row .grouppictures{
+	right:inherit;
+	left:4px;
 }
 
 /* @end */
