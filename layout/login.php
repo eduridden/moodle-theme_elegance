@@ -73,9 +73,9 @@ $regions = bootstrap3_grid($hassidepost);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 
-if(isloggedin())
+if (isloggedin()) {
 redirect ($CFG->wwwroot);
-
+}
 
 /// Check if the user has actually submitted login data to us
 
@@ -260,116 +260,111 @@ echo $OUTPUT->doctype() ?>
 
 
 <div id="page">
-    
     <div id="page-content" class="container">
-    <div id="region-main" class="col-sm-11 col-md-12">
-        
-	<div class="loginpanel">
-			<?php 
-				if(isset($_POST['username']) || isset($_POST['password'])){
-					echo get_string("invalidlogin");
-				}else{
-					echo '<h2><i class="fa fa-key"></i> '.get_string("login").'</h2>';
-				} 
-			?>
-			
-			<?php
-          if (!empty($errormsg)) {
-              echo html_writer::start_tag('div', array('class' => 'loginerrors'));
-              echo html_writer::link('#', $errormsg, array('id' => 'loginerrormessage', 'class' => 'accesshide'));
-              echo $OUTPUT->error_text($errormsg);
-              echo html_writer::end_tag('div');
-          }
-        ?>
+        <div id="region-main" class="row">
+            <div class="loginpanel col-md-6 col-md-offset-1">
+                <?php
+                if(isset($_POST['username']) || isset($_POST['password'])){
+                    echo get_string("invalidlogin");
+                }else{
+                    echo '<h2><i class="fa fa-key"></i> '.get_string("login").'</h2>';
+                }
+                
+                if (!empty($errormsg)) {
+                    echo html_writer::start_tag('div', array('class' => 'loginerrors'));
+                    echo html_writer::link('#', $errormsg, array('id' => 'loginerrormessage', 'class' => 'accesshide'));
+                    echo $OUTPUT->error_text($errormsg);
+                    echo html_writer::end_tag('div');
+                }
+                ?>
+                
+                <form action="<?php echo $CFG->httpswwwroot; ?>/login/index.php" method="post" id="login" <?php echo $autocomplete; ?> >
+                    <div class="inputarea">
+                        <div>
+                            <input type="text" name="username" placeholder="<?php echo get_string('username'); ?>" autocomplete="off"/>
+                        </div>
+                        <div>
+                            <input type="password" name="password" id="password" placeholder="<?php echo get_string('password'); ?>"  value="" <?php echo $autocomplete; ?> />
+                        </div>
+                        <?php 
+                        if (!right_to_left()) { ?>
+                            <button class="icon-submit fa fa-angle-right"></button>
+                            <?php
+                        } else { ?>
+                            <button class="icon-submit fa fa-angle-left"></button>
+                            <?php 
+                        } ?>
+                    </div>
                     
-		<form action="<?php echo $CFG->httpswwwroot; ?>/login/index.php" method="post" id="login" <?php echo $autocomplete; ?> >
-			<div class="inputarea">
-				<div>
-					<input type="text" name="username" placeholder="<?php echo get_string('username'); ?>" autocomplete="off"/>
-				</div>
-				
-				<div>
-					<input type="password" name="password" id="password" placeholder="<?php echo get_string('password'); ?>"  value="" <?php echo $autocomplete; ?> />
-				</div>
-					<button class="icon-submit fa fa-angle-right"></button>
-			</div>
-			
-			<?php if (isset($CFG->rememberusername) and $CFG->rememberusername == 2) { ?>
-			<div class="remember">
-				<input type="checkbox" name="rememberusername" value="1"/>
-				<label><?php echo get_string('rememberusername', 'admin'); ?></label>
-			</div>
-			<?php } ?>
-			
-			<a href="forgot_password.php"><?php echo get_string('passwordforgotten'); ?></a>
-		</form>
-		
-		<?php if ($CFG->guestloginbutton and !isguestuser()) {  ?>
-      <div class="subcontent guestsub">
-        <div class="desc">
-          <?php print_string("someallowguest") ?>
-        </div>
-        <form action="index.php" method="post" id="guestlogin">
-          <div class="guestform">
-            <input type="hidden" name="username" value="guest" />
-            <input type="hidden" name="password" value="guest" />
-            <input type="submit" value="<?php print_string("loginguest") ?>" />
-          </div>
-        </form>
-      </div>
-<?php } ?>
-		
-	</div>
-	
-	
-	
-
-
-
-
-
-<?php if ($show_instructions) { ?>
-    <div class="signuppanel">
-      <h2><i class="fa fa-question-circle"></i> <?php print_string("firsttime") ?></h2>
-      <div class="subcontent">
-<?php     if (is_enabled_auth('none')) { // instructions override the rest for security reasons
-              print_string("loginstepsnone");
-          } else if ($CFG->registerauth == 'email') {
-              if (!empty($CFG->auth_instructions)) {
-                  echo format_text($CFG->auth_instructions);
-              } else {
-                  print_string("loginsteps", "", "signup.php");
-              } ?>
-                 <div class="signupform">
-                   <form action="signup.php" method="get" id="signup">
-                   <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
-                   </form>
-                 </div>
-<?php     } else if (!empty($CFG->registerauth)) {
-              echo format_text($CFG->auth_instructions); ?>
-              <div class="signupform">
-                <form action="signup.php" method="get" id="signup">
-                <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
+                    <?php if (isset($CFG->rememberusername) and $CFG->rememberusername == 2) { ?>
+                        <div class="remember">
+                            <input type="checkbox" name="rememberusername" value="1"/>
+                            <label><?php echo get_string('rememberusername', 'admin'); ?></label>
+                        </div>
+                    <?php } ?>
+                    
+                    <a href="forgot_password.php"><?php echo get_string('passwordforgotten'); ?></a>
                 </form>
-              </div>
-<?php     } else {
-              echo format_text($CFG->auth_instructions);
-          } ?>
-      </div>
-    </div>
-<?php } ?>	
-	
-	
-	
-	
-	
-	
-<?php echo "<div style='display: none;'>".$OUTPUT->main_content()."</div>"; ?>
+                
+                <?php if ($CFG->guestloginbutton and !isguestuser()) {  ?>
+                    <div class="subcontent guestsub">
+                        <div class="desc">
+                            <?php print_string("someallowguest") ?>
+                        </div>
+                        
+                        <form action="index.php" method="post" id="guestlogin">
+                            <div class="guestform">
+                                <input type="hidden" name="username" value="guest" />
+                                <input type="hidden" name="password" value="guest" />
+                                <input type="submit" value="<?php print_string("loginguest") ?>" />
+                            </div>
+                        </form>
+                    </div>
+                <?php } ?>
+                
+                <?php require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons(); ?>
+            </div>
+            
+            
+            
+            <?php if ($show_instructions) { ?>
+                <div class="signuppanel col-md-7 col-md-offset-1">
+                    <h2><i class="fa fa-question-circle"></i> <?php print_string("firsttime") ?></h2>
+                    <div class="subcontent">
+                        <?php if (is_enabled_auth('none')) { // instructions override the rest for security reasons
+                            print_string("loginstepsnone");
+                        } else if ($CFG->registerauth == 'email') {
+                        
+                            if (!empty($CFG->auth_instructions)) {
+                                echo format_text($CFG->auth_instructions);
+                            } else {
+                                print_string("loginsteps", "", "signup.php");
+                            } ?>
+                        
+                            <div class="signupform">
+                                <form action="signup.php" method="get" id="signup">
+                                    <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
+                                </form>
+                            </div>
+                        <?php } else if (!empty($CFG->registerauth)) {
+                            echo format_text($CFG->auth_instructions); ?>
+                            <div class="signupform">
+                                <form action="signup.php" method="get" id="signup">
+                                    <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
+                                </form>
+                            </div>
+                        <?php } else {
+                            echo format_text($CFG->auth_instructions);
+                        } ?>
+                    </div>
+                </div>
+            <?php } ?>
+            
+            <?php echo "<div style='display: none;'>".$OUTPUT->main_content()."</div>"; ?>
+            <?php echo $OUTPUT->standard_end_of_body_html() ?>
         
-    </div></div>
-
-    <?php echo $OUTPUT->standard_end_of_body_html() ?>
-
+        </div>
+    </div>
 </div>
 
 <footer id="page-footer" class="footer-fixed-bottom hidden-sm hidden-xs">

@@ -214,4 +214,10 @@ html.login-page{
 	display: none;
 }
 
+.dir-rtl .loginpanel .icon-submit {
+    float: left;
+    left: -30px;
+    right: auto;
+}
+
 /* @end */
