@@ -321,8 +321,6 @@ echo $OUTPUT->doctype() ?>
                         </form>
                     </div>
                 <?php } ?>
-                
-                <?php require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons(); ?>
             </div>
             
             
