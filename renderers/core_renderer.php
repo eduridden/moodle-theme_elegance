@@ -26,21 +26,21 @@
  */
 
 class theme_elegance_core_renderer extends core_renderer {
-	
-	protected function mycourses($CFG,$sidebar){
+
+    protected function mycourses($CFG,$sidebar){
         $mycourses = enrol_get_users_courses($_SESSION['USER']->id);
-        
+
         $courselist = array();
         foreach ($mycourses as $key=>$val){
             $courselist[] = $val->id;
         }
-        
+
         $content = '';
-        
+
         for($x=1;$x<=sizeof($courselist);$x++){
             $course = get_course($courselist[$x-1]);
             $title = $course->fullname;
-            
+
             if ($course instanceof stdClass) {
                 require_once($CFG->libdir. '/coursecatlib.php');
                 $course = new course_in_list($course);
@@ -56,7 +56,7 @@ class theme_elegance_core_renderer extends core_renderer {
                     $url = $CFG->wwwroot."/theme/elegance/pix/coursenoimage.jpg";
                 }
             }
-            
+
             $content .= '<div class="view view-second view-mycourse '.(($x%3==0)?'view-nomargin':'').'">
                             <img src="'.$url.'" />
                             <div class="mask">
@@ -217,7 +217,7 @@ class theme_elegance_core_renderer extends core_renderer {
         if ($addusermenu) {
             if (isloggedin() && !isguestuser()) {
                 $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
-                
+
                 $usermenu->add('<i class="fa fa-briefcase"></i>' . get_string('mydashboard','theme_elegance'), new moodle_url('/my',
                 array('sesskey'=>sesskey(),'alt'=>'mycourses')),
                 get_string('mycourses'));
@@ -229,11 +229,11 @@ class theme_elegance_core_renderer extends core_renderer {
                 $usermenu->add('<i class="fa fa-cog"></i>' . get_string('editmyprofile'), new moodle_url('/user/edit.php',
                 array('id'=>$USER->id)),
                 get_string('editmyprofile'));
-                
+
                 $usermenu->add('<i class="fa fa-calendar"></i>' . get_string('calendar','calendar'), new moodle_url('/calendar/view.php?view=month',
                 array('sesskey'=>sesskey(),'alt'=>'calendar')),
                 get_string('calendar','calendar'));
-                
+
                 $usermenu->add('<i class="fa fa-lock"></i>' . get_string('logout'), new moodle_url('/login/logout.php',
                 array('sesskey'=>sesskey(),'alt'=>'logout')),
                 get_string('logout'));
@@ -279,13 +279,13 @@ class theme_elegance_core_renderer extends core_renderer {
         $maxmessages = 5;
 
         $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-        				     FROM {message_read}
-        			        WHERE useridto = :userid
-        			     ORDER BY timecreated DESC
-        			        LIMIT $maxmessages";
+                             FROM {message_read}
+                            WHERE useridto = :userid
+                         ORDER BY timecreated DESC
+                            LIMIT $maxmessages";
         $newmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-        					FROM {message}
-        			       WHERE useridto = :userid";
+                            FROM {message}
+                           WHERE useridto = :userid";
 
         $readmessages = $DB->get_records_sql($readmessagesql, array('userid' => $USER->id));
 
@@ -426,10 +426,6 @@ class theme_elegance_core_renderer extends core_renderer {
     }
 }
 
-function theme_elegance_section_nav_selection() {
-    return html_writer::empty_tag('br', array('style'=>'clear:both'));
-}
-
 function theme_elegance_get_nav_links($course, $sections, $sectionno) {
         // FIXME: This is really evil and should by using the navigation API.
         $courseformat = course_get_format($course);
@@ -490,38 +486,270 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
 
 include_once($CFG->dirroot . "/course/format/topics/renderer.php");
 class theme_elegance_format_topics_renderer extends format_topics_renderer {
-    
+
     protected function get_nav_links($course, $sections, $sectionno) {
         return theme_elegance_get_nav_links($course, $sections, $sectionno);
     }
 
-    protected function section_nav_selection($course, $sections, $displaysection) {
-        return theme_elegance_section_nav_selection();
+    public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+        global $PAGE;
+
+        $modinfo = get_fast_modinfo($course);
+        $course = course_get_format($course)->get_course();
+
+        // Can we view the section in question?
+        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+            // This section doesn't exist
+            print_error('unknowncoursesection', 'error', null, $course->fullname);
+            return;
+        }
+
+        if (!$sectioninfo->uservisible) {
+            if (!$course->hiddensections) {
+                echo $this->start_section_list();
+                echo $this->section_hidden($displaysection);
+                echo $this->end_section_list();
+            }
+            // Can't view this section.
+            return;
+        }
+
+        // Copy activity clipboard..
+        echo $this->course_activity_clipboard($course, $displaysection);
+        $thissection = $modinfo->get_section_info(0);
+        if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+            echo $this->start_section_list();
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+        }
+
+        // Start single-section div
+        echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+        // The requested section page.
+        $thissection = $modinfo->get_section_info($displaysection);
+
+        // Title with section navigation links.
+        $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+        $sectiontitle = '';
+        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+        // Title attributes
+        $titleattr = 'title';
+        if (!$thissection->visible) {
+            $titleattr .= ' dimmed_text';
+        }
+        $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+        $sectiontitle .= html_writer::end_tag('div');
+        echo $sectiontitle;
+
+        // Now the list of sections..
+        echo $this->start_section_list();
+
+        echo $this->section_header($thissection, $course, true, $displaysection);
+        // Show completion help icon.
+        $completioninfo = new completion_info($course);
+        echo $completioninfo->display_help_icon();
+
+        echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+        echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+        echo $this->section_footer();
+        echo $this->end_section_list();
+
+        // Display section bottom navigation.
+        $sectionbottomnav = '';
+        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+        $sectionbottomnav .= $sectionnavlinks['previous']; 
+        $sectionbottomnav .= $sectionnavlinks['next']; 
+        // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+        $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+        $sectionbottomnav .= html_writer::end_tag('nav');
+        echo $sectionbottomnav;
+
+        // Close single-section div.
+        echo html_writer::end_tag('div');
     }
 }
 
 include_once($CFG->dirroot . "/course/format/weeks/renderer.php");
 class theme_elegance_format_weeks_renderer extends format_weeks_renderer {
-    
+
     protected function get_nav_links($course, $sections, $sectionno) {
         return theme_elegance_get_nav_links($course, $sections, $sectionno);
     }
 
-    protected function section_nav_selection($course, $sections, $displaysection) {
-        return theme_elegance_section_nav_selection();
+    public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+        global $PAGE;
+
+        $modinfo = get_fast_modinfo($course);
+        $course = course_get_format($course)->get_course();
+
+        // Can we view the section in question?
+        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+            // This section doesn't exist
+            print_error('unknowncoursesection', 'error', null, $course->fullname);
+            return;
+        }
+
+        if (!$sectioninfo->uservisible) {
+            if (!$course->hiddensections) {
+                echo $this->start_section_list();
+                echo $this->section_hidden($displaysection);
+                echo $this->end_section_list();
+            }
+            // Can't view this section.
+            return;
+        }
+
+        // Copy activity clipboard..
+        echo $this->course_activity_clipboard($course, $displaysection);
+        $thissection = $modinfo->get_section_info(0);
+        if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+            echo $this->start_section_list();
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+        }
+
+        // Start single-section div
+        echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+        // The requested section page.
+        $thissection = $modinfo->get_section_info($displaysection);
+
+        // Title with section navigation links.
+        $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+        $sectiontitle = '';
+        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+        // Title attributes
+        $titleattr = 'title';
+        if (!$thissection->visible) {
+            $titleattr .= ' dimmed_text';
+        }
+        $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+        $sectiontitle .= html_writer::end_tag('div');
+        echo $sectiontitle;
+
+        // Now the list of sections..
+        echo $this->start_section_list();
+
+        echo $this->section_header($thissection, $course, true, $displaysection);
+        // Show completion help icon.
+        $completioninfo = new completion_info($course);
+        echo $completioninfo->display_help_icon();
+
+        echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+        echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+        echo $this->section_footer();
+        echo $this->end_section_list();
+
+        // Display section bottom navigation.
+        $sectionbottomnav = '';
+        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+        $sectionbottomnav .= $sectionnavlinks['previous']; 
+        $sectionbottomnav .= $sectionnavlinks['next']; 
+        // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+        $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+        $sectionbottomnav .= html_writer::end_tag('nav');
+        echo $sectionbottomnav;
+
+        // Close single-section div.
+        echo html_writer::end_tag('div');
     }
 }
 
+// Requires V2.6.1.3+ of Collapsed Topics format.
 if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/topcoll/renderer.php");
     class theme_elegance_format_topcoll_renderer extends format_topcoll_renderer {
-    
+
         protected function get_nav_links($course, $sections, $sectionno) {
             return theme_elegance_get_nav_links($course, $sections, $sectionno);
         }
 
-        protected function section_nav_selection($course, $sections, $displaysection) {
-            return theme_elegance_section_nav_selection();
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            global $PAGE;
+
+            $modinfo = get_fast_modinfo($course);
+            $course = course_get_format($course)->get_course();
+
+            // Can we view the section in question?
+            if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+                // This section doesn't exist
+                print_error('unknowncoursesection', 'error', null, $course->fullname);
+                return;
+            }
+
+            if (!$sectioninfo->uservisible) {
+                if (!$course->hiddensections) {
+                    echo $this->start_section_list();
+                    echo $this->section_hidden($displaysection);
+                    echo $this->end_section_list();
+                }
+                // Can't view this section.
+                return;
+            }
+
+            // Copy activity clipboard..
+            echo $this->course_activity_clipboard($course, $displaysection);
+            $thissection = $modinfo->get_section_info(0);
+            if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+                echo $this->start_section_list();
+                echo $this->section_header($thissection, $course, true, $displaysection);
+                echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+                echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+                echo $this->section_footer();
+                echo $this->end_section_list();
+            }
+
+            // Start single-section div
+            echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+            // The requested section page.
+            $thissection = $modinfo->get_section_info($displaysection);
+
+            // Title with section navigation links.
+            $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+            $sectiontitle = '';
+            $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+            // Title attributes
+            $titleattr = 'title';
+            if (!$thissection->visible) {
+                $titleattr .= ' dimmed_text';
+            }
+            $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+            $sectiontitle .= html_writer::end_tag('div');
+            echo $sectiontitle;
+
+            // Now the list of sections..
+            echo $this->start_section_list();
+
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            // Show completion help icon.
+            $completioninfo = new completion_info($course);
+            echo $completioninfo->display_help_icon();
+
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+
+            // Display section bottom navigation.
+            $sectionbottomnav = '';
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= $sectionnavlinks['previous']; 
+            $sectionbottomnav .= $sectionnavlinks['next']; 
+            // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+            $sectionbottomnav .= html_writer::end_tag('nav');
+            echo $sectionbottomnav;
+
+            // Close single-section div.
+            echo html_writer::end_tag('div');
         }
     }
 }
@@ -529,13 +757,90 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
 if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/grid/renderer.php");
     class theme_elegance_format_grid_renderer extends format_grid_renderer {
-    
+
         protected function get_nav_links($course, $sections, $sectionno) {
             return theme_elegance_get_nav_links($course, $sections, $sectionno);
         }
 
-        protected function section_nav_selection($course, $sections, $displaysection) {
-            return theme_elegance_section_nav_selection();
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            global $PAGE;
+
+            $modinfo = get_fast_modinfo($course);
+            $course = course_get_format($course)->get_course();
+
+            // Can we view the section in question?
+            if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+                // This section doesn't exist
+                print_error('unknowncoursesection', 'error', null, $course->fullname);
+                return;
+            }
+
+            if (!$sectioninfo->uservisible) {
+                if (!$course->hiddensections) {
+                    echo $this->start_section_list();
+                    echo $this->section_hidden($displaysection);
+                    echo $this->end_section_list();
+                }
+                // Can't view this section.
+                return;
+            }
+
+            // Copy activity clipboard..
+            echo $this->course_activity_clipboard($course, $displaysection);
+            $thissection = $modinfo->get_section_info(0);
+            if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+                echo $this->start_section_list();
+                echo $this->section_header($thissection, $course, true, $displaysection);
+                echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+                echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+                echo $this->section_footer();
+                echo $this->end_section_list();
+            }
+
+            // Start single-section div
+            echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+            // The requested section page.
+            $thissection = $modinfo->get_section_info($displaysection);
+
+            // Title with section navigation links.
+            $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+            $sectiontitle = '';
+            $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+            // Title attributes
+            $titleattr = 'title';
+            if (!$thissection->visible) {
+                $titleattr .= ' dimmed_text';
+            }
+            $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+            $sectiontitle .= html_writer::end_tag('div');
+            echo $sectiontitle;
+
+            // Now the list of sections..
+            echo $this->start_section_list();
+
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            // Show completion help icon.
+            $completioninfo = new completion_info($course);
+            echo $completioninfo->display_help_icon();
+
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+
+            // Display section bottom navigation.
+            $sectionbottomnav = '';
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= $sectionnavlinks['previous']; 
+            $sectionbottomnav .= $sectionnavlinks['next']; 
+            // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+            $sectionbottomnav .= html_writer::end_tag('nav');
+            echo $sectionbottomnav;
+
+            // Close single-section div.
+            echo html_writer::end_tag('div');
         }
     }
 }
@@ -543,27 +848,187 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
 if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/noticebd/renderer.php");
     class theme_elegance_format_noticebd_renderer extends format_noticebd_renderer {
-    
+
         protected function get_nav_links($course, $sections, $sectionno) {
             return theme_elegance_get_nav_links($course, $sections, $sectionno);
         }
 
-        protected function section_nav_selection($course, $sections, $displaysection) {
-            return theme_elegance_section_nav_selection();
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            global $PAGE;
+
+            $modinfo = get_fast_modinfo($course);
+            $course = course_get_format($course)->get_course();
+
+            // Can we view the section in question?
+            if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+                // This section doesn't exist
+                print_error('unknowncoursesection', 'error', null, $course->fullname);
+                return;
+            }
+
+            if (!$sectioninfo->uservisible) {
+                if (!$course->hiddensections) {
+                    echo $this->start_section_list();
+                    echo $this->section_hidden($displaysection);
+                    echo $this->end_section_list();
+                }
+                // Can't view this section.
+                return;
+            }
+
+            // Copy activity clipboard..
+            echo $this->course_activity_clipboard($course, $displaysection);
+
+            // General section if non-empty.
+            $thissection = $sections[0];
+            //if ($thissection->summary or $thissection->sequence or $PAGE->user_is_editing()) {
+                echo $this->start_section_list();
+                echo $this->section_header($thissection, $course, true, $displaysection);
+                $this->print_noticeboard($course);
+                if (($PAGE->user_is_editing()) && (is_siteadmin($USER))) {
+                    print_section($course, $thissection, $mods, $modnamesused, true, "100%", false, $displaysection);
+                    print_section_add_menus($course, 0, $modnames, false, false, $displaysection);
+                }
+                echo $this->section_footer();
+                echo $this->end_section_list();
+            //}
+
+            // Start single-section div
+            echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+            // The requested section page.
+            $thissection = $modinfo->get_section_info($displaysection);
+
+            // Title with section navigation links.
+            $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+            $sectiontitle = '';
+            $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+            // Title attributes
+            $titleattr = 'title';
+            if (!$thissection->visible) {
+                $titleattr .= ' dimmed_text';
+            }
+            $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+            $sectiontitle .= html_writer::end_tag('div');
+            echo $sectiontitle;
+
+            // Now the list of sections..
+            echo $this->start_section_list();
+
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            // Show completion help icon.
+            $completioninfo = new completion_info($course);
+            echo $completioninfo->display_help_icon();
+
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+
+            // Display section bottom navigation.
+            $sectionbottomnav = '';
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= $sectionnavlinks['previous']; 
+            $sectionbottomnav .= $sectionnavlinks['next']; 
+            // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+            $sectionbottomnav .= html_writer::end_tag('nav');
+            echo $sectionbottomnav;
+
+            // Close single-section div.
+            echo html_writer::end_tag('div');
         }
     }
 }
 
+// Requires V2.6.1.1+ of Columns format.
 if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/columns/renderer.php");
     class theme_elegance_format_columns_renderer extends format_columns_renderer {
-    
+
         protected function get_nav_links($course, $sections, $sectionno) {
             return theme_elegance_get_nav_links($course, $sections, $sectionno);
         }
 
-        protected function section_nav_selection($course, $sections, $displaysection) {
-            return theme_elegance_section_nav_selection();
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            global $PAGE;
+
+            $modinfo = get_fast_modinfo($course);
+            $course = course_get_format($course)->get_course();
+
+            // Can we view the section in question?
+            if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+                // This section doesn't exist
+                print_error('unknowncoursesection', 'error', null, $course->fullname);
+                return;
+            }
+
+            if (!$sectioninfo->uservisible) {
+                if (!$course->hiddensections) {
+                    echo $this->start_section_list();
+                    echo $this->section_hidden($displaysection);
+                    echo $this->end_section_list();
+                }
+                // Can't view this section.
+                return;
+            }
+
+            // Copy activity clipboard..
+            echo $this->course_activity_clipboard($course, $displaysection);
+            $thissection = $modinfo->get_section_info(0);
+            if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+                echo $this->start_section_list();
+                echo $this->section_header($thissection, $course, true, $displaysection);
+                echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+                echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+                echo $this->section_footer();
+                echo $this->end_section_list();
+            }
+
+            // Start single-section div
+            echo html_writer::start_tag('div', array('class' => 'single-section'));
+
+            // The requested section page.
+            $thissection = $modinfo->get_section_info($displaysection);
+
+            // Title with section navigation links.
+            $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+            $sectiontitle = '';
+            $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+            // Title attributes
+            $titleattr = 'title';
+            if (!$thissection->visible) {
+                $titleattr .= ' dimmed_text';
+            }
+            $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+            $sectiontitle .= html_writer::end_tag('div');
+            echo $sectiontitle;
+
+            // Now the list of sections..
+            echo $this->start_section_list();
+
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            // Show completion help icon.
+            $completioninfo = new completion_info($course);
+            echo $completioninfo->display_help_icon();
+
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+
+            // Display section bottom navigation.
+            $sectionbottomnav = '';
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= $sectionnavlinks['previous']; 
+            $sectionbottomnav .= $sectionnavlinks['next']; 
+            // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
+            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
+            $sectionbottomnav .= html_writer::end_tag('nav');
+            echo $sectionbottomnav;
+
+            // Close single-section div.
+            echo html_writer::end_tag('div');
         }
     }
 }
