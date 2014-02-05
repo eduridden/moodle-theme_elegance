@@ -1640,11 +1640,13 @@ div.section-navigation.navigationtitle .mdl-right{
 #next_section {
 	text-align:right;
 	font-weight: 300;
+	display: inline-block;
+	float: right;
 }
 
 #previous_section {
-	text-align:left;
 	font-weight: 300;
+	float: left;
 }
 
 .nav_guide { 
@@ -1664,16 +1666,15 @@ letter-spacing:0.1em;
 }
 
 #next_section .nav_icon {
-	float:right;
 	margin-left:0.3em;
 	border-left:1px solid #eee;
 	font-size:2em;
 	width: 50px;
+	float: right;
 }
 
 #next_section .text{
 	width:74.05%;
-	float:right;
 }
 
 #previous_section .nav_icon {
