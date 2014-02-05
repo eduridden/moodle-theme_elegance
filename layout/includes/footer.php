@@ -67,37 +67,37 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
         <?php if ($hassocialnetworks) { ?>
             <ul class="socials unstyled">
                 <?php if ($hasgoogleplus) { ?>
-                <li><a href="<?php echo $hasgoogleplus; ?>" class="socialicon googleplus"><i class="fa fa-google-plus fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasgoogleplus; ?>" class="socialicon googleplus"><i class="fa fa-google-plus fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hastwitter) { ?>
-                <li><a href="<?php echo $hastwitter; ?>" class="socialicon twitter"><i class="fa fa-twitter fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hastwitter; ?>" class="socialicon twitter"><i class="fa fa-twitter fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasfacebook) { ?>
-                <li><a href="<?php echo $hasfacebook; ?>" class="socialicon facebook"><i class="fa fa-facebook fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasfacebook; ?>" class="socialicon facebook"><i class="fa fa-facebook fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($haslinkedin) { ?>
-                <li><a href="<?php echo $haslinkedin; ?>" class="socialicon linkedin"><i class="fa fa-linkedin fa-inverse"></i></a></li>
+                <li><a href="<?php echo $haslinkedin; ?>" class="socialicon linkedin"><i class="fa fa-linkedin fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasyoutube) { ?>
-                <li><a href="<?php echo $hasyoutube; ?>" class="socialicon youtube"><i class="fa fa-youtube fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasyoutube; ?>" class="socialicon youtube"><i class="fa fa-youtube fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasflickr) { ?>
-                <li><a href="<?php echo $hasflickr; ?>" class="socialicon flickr"><i class="fa fa-flickr fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasflickr; ?>" class="socialicon flickr"><i class="fa fa-flickr fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($haspinterest) { ?>
-                <li><a href="<?php echo $haspinterest; ?>" class="socialicon pinterest"><i class="fa fa-pinterest fa-inverse"></i></a></li>
+                <li><a href="<?php echo $haspinterest; ?>" class="socialicon pinterest"><i class="fa fa-pinterest fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasinstagram) { ?>
-                <li><a href="<?php echo $hasinstagram; ?>" class="socialicon instagram"><i class="fa fa-instagram fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasinstagram; ?>" class="socialicon instagram"><i class="fa fa-instagram fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasvk) { ?>
-                <li><a href="<?php echo $hasvk; ?>" class="socialicon vk"><i class="fa fa-vk fa-inverse"></i></a></li>
+                <li><a href="<?php echo $hasvk; ?>" class="socialicon vk"><i class="fa fa-vk fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($hasskype) { ?>
-                <li><a href="<?php echo $haskype; ?>" class="socialicon skype"><i class="fa fa-skype fa-inverse"></i></a></li>
+                <li><a href="<?php echo $haskype; ?>" class="socialicon skype"><i class="fa fa-skype fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
                 <?php if ($haswebsite) { ?>
-                		<li><a href="<?php echo $haswebsite; ?>" class="socialicon website"><i class="fa fa-globe fa-inverse"></i></a></li>
+                		<li><a href="<?php echo $haswebsite; ?>" class="socialicon website"><i class="fa fa-globe fa-inverse fa-fw"></i></a></li>
                 <?php } ?>
 	    </ul>
         <?php } ?>
