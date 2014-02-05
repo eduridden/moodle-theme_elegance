@@ -478,7 +478,7 @@ top: 0px;
 
 #logo {
 	background: url([[setting:logo]]) no-repeat;
-	height: 27px;
+	height: 25px;
 	width: 120px;
 	background-size: contain;
 }
