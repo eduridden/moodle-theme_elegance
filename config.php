@@ -24,18 +24,36 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
  
+if (!empty($THEME->settings->enablecategoryicon)) {
+     $enablecategoryicon = $THEME->settings->enablecategoryicon;
+} else {
+     $enablecategoryicon = '0';
+}
+ 
+if (!empty($THEME->settings->enablecustomlogin)) {
+     $enablecustomlogin = $THEME->settings->enablecustomlogin;
+} else {
+     $enablecustomlogin = '0';
+}
+
+if (!empty($THEME->settings->tiles)) {
+     $tiles = $THEME->settings->tiles;
+} else {
+     $tiles = '0';
+}
+ 
 $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'elegance';
 $THEME->parents = array();
 
-if ($THEME->settings->enablecategoryicon == '1') {
+if ($enablecategoryicon == '1') {
 	$categorysheet='categories';
 } else {
 	$categorysheet='';
 }
 
-if ($THEME->settings->enablecustomlogin == '1') {
+if ($enablecustomlogin == '1') {
 	$loginlayout='login.php';
 	$loginsheet='login1';
 } else {
@@ -43,7 +61,7 @@ if ($THEME->settings->enablecustomlogin == '1') {
 	$loginsheet='login2';
 }
 
-if ($THEME->settings->tiles == '1') {
+if ($tiles == '1') {
 	$tilessheet ='coursetiles';
 } else {
 	$tilessheet ='';
