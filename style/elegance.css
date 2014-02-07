@@ -1610,6 +1610,10 @@ blockquote>.icon-quote-left{
 	color: [[setting:themecolor]];
 }
 
+.hide {
+	display: block !important;
+}
+
 /* @group Course Footer */
 
 div.section-navigation.navigationtitle .mdl-left,
