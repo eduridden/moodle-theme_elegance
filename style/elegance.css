@@ -1610,7 +1610,7 @@ blockquote>.icon-quote-left{
 	color: [[setting:themecolor]];
 }
 
-.hide {
+.course-content ul.topics li.section .right .hide {
 	display: block !important;
 }
 
