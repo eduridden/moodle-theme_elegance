@@ -2276,6 +2276,7 @@ table#user-grades th.userreport.c1 {
 
 .forumpost .header {
 	border-bottom: 1px solid rgb(223, 223, 223);
+	margin-bottom: 10px;
 }
 
 .forumpost .header::after {
