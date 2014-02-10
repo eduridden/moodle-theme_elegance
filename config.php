@@ -20,48 +20,32 @@
  *
  * @package    theme_elegance
  * @copyright  2014 Julian Ridden http://moodleman.net
- * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
+ * @authors    Julian Ridden - Bootstrap 3 work by Bas Brands and David Scotson.
+ *                           - Contributions by Gareth J Barnard.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
-if (!empty($THEME->settings->enablecategoryicon)) {
-     $enablecategoryicon = $THEME->settings->enablecategoryicon;
-} else {
-     $enablecategoryicon = '0';
-}
- 
-if (!empty($THEME->settings->enablecustomlogin)) {
-     $enablecustomlogin = $THEME->settings->enablecustomlogin;
-} else {
-     $enablecustomlogin = '0';
-}
-
-if (!empty($THEME->settings->tiles)) {
-     $tiles = $THEME->settings->tiles;
-} else {
-     $tiles = '0';
-}
  
 $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'elegance';
 $THEME->parents = array();
 
-if ($enablecategoryicon == '1') {
+if ((!empty($THEME->settings->enablecategoryicon)) && ($THEME->settings->enablecategoryicon == '1')) {
 	$categorysheet='categories';
 } else {
 	$categorysheet='';
 }
 
-if ($enablecustomlogin == '1') {
-	$loginlayout='login.php';
-	$loginsheet='login1';
-} else {
+if ((!empty($THEME->settings->enablecustomlogin)) && ($THEME->settings->enablecustomlogin == '0')) {
 	$loginlayout='default.php';
 	$loginsheet='login2';
+} else {
+    // Default is custom login so have even when the setting is not known.
+	$loginlayout='login.php';
+	$loginsheet='login1';
 }
 
-if ($tiles == '1') {
+if ((!empty($THEME->settings->tiles)) && ($THEME->settings->tiles == '1')) {
 	$tilessheet ='coursetiles';
 } else {
 	$tilessheet ='';
