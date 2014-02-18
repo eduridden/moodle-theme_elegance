@@ -385,11 +385,7 @@ h2.marketingheader {
 	line-height: normal;
 }
 
-h2.marketingheader:before {
-    content:"\f0ac";
-    font-family: FontAwesome;
-    font-size: 1em;
-    margin-right: .3em;
+h2.marketingheader .fa {
     color: #999;
 }
 
@@ -403,10 +399,8 @@ position: relative;
 top: 0px;
 }
 
-#quicklinks {
-	text-align: center;
-	overflow: hidden;
-	clear: both;
+#quicklink {
+	margin-bottom: 10px;
 }
 
 #quicklink {
@@ -925,6 +919,7 @@ ul.socials {
 
 .block .header {
 	padding: 0px 10px;
+	background: transparent;
 }
 
 .block .header .title h2 {
@@ -1003,6 +998,10 @@ ul.socials {
 .block_calendar_upcoming .header .title h2:before,
 .block_calendar_month .header .title h2:before {
     content:"\f073";
+}
+
+.block_course_overview .coursebox {
+	border: 0px none;
 }
 
 .block_course_list .header .title h2:before {
@@ -1143,6 +1142,7 @@ ul.socials {
 	border: 0px none;
 	margin-top: 0px;
 	padding: 0px;
+	background: transparent;
 }
 
 #block-region-side-middle .block .header {
@@ -1486,8 +1486,9 @@ blockquote>.icon-quote-left{
 	padding: 0;
 	margin-bottom: 0;
 	border: none;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 }
 
 
@@ -2531,7 +2532,6 @@ table#user-grades th.userreport.c1 {
 .mycourseboxes {
 	overflow: auto;
 	clear: both;
-	margin-top: -20px;
 }
 
 #allcourses {
@@ -2813,6 +2813,7 @@ table#user-grades th.userreport.c1 {
     font-family: FontAwesome;
     content:"\f109";
     margin-right: 5px;
+    color: #999;
 }
 
 #frontpage-category-names h2::before {

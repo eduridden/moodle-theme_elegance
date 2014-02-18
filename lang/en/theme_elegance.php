@@ -27,7 +27,7 @@
 $string['choosereadme'] = '
 <div class="clearfix">
 <div class="well">
-<h2>elegance</h2>
+<h2>Elegance Theme</h2>
 <p><img class=img-polaroid src="elegance/pix/screenshot.jpg" /></p>
 </div>
 <div class="well">
@@ -94,6 +94,11 @@ $string['tilesdesc'] = 'Displayes resources and activities as tiles in a course'
 $string['bootstrapcdn'] = 'FontAwesome from CDN';
 $string['bootstrapcdndesc'] = 'If enabled this will load FontAwesome from the online Bootstrap CDN source. Enable this if you are having issues getting the Font Awesome icons to display in your site.';
 
+$string['alwaysdisplay'] = 'Always Show';
+$string['displaybeforelogin'] = 'Show before login only';
+$string['displayafterlogin'] = 'Show after login only';
+$string['dontdisplay'] = 'Never Show';
+
 /* Banners */
 
 $string['bannersettings'] = 'Slideshow Settings';
@@ -142,6 +147,68 @@ $string['loginbgumberdesc'] = 'How many backgrounds should revolve when the logi
 
 $string['loginimage'] = 'Background Image';
 $string['loginimagedesc'] = 'The ideal size for background images is 1200x800 pixels';
+
+/* Marketing Spots */
+$string['marketingheading'] = 'Marketing Spots';
+$string['marketinginfodesc'] = 'Enter the settings for your marketing spot.';
+$string['marketingheadingsub'] = 'Three locations on the front page to add information and links';
+$string['marketingheight'] = 'Height of Marketing Images';
+$string['marketingheightdesc'] = 'If you want to display images in the Marketing boxes you can specify their hight here.';
+$string['marketingdesc'] = 'This theme provides the option of enabling three "marketing" or "ad" spots just under the slideshow.  These allow you to easily identify core information to your users and provide direct links.';
+
+$string['togglemarketing'] = 'Marketing Spot display';
+$string['togglemarketingdesc'] = 'Choose if you wish to hide or show the three Marketing Spots.';
+
+$string['marketingtitleicon'] = 'Heading Icon';
+$string['marketingtitleicondesc'] = 'Name of the icon you wish to use in the heading for the marketing spots. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+
+
+$string['marketing1'] = 'Marketing Spot One';
+$string['marketing2'] = 'Marketing Spot Two';
+$string['marketing3'] = 'Marketing Spot Three';
+
+$string['marketingtitle'] = 'Title';
+$string['marketingtitledesc'] = 'Title to show in this marketing spot';
+$string['marketingicon'] = 'Icon';
+$string['marketingicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+$string['marketingimage'] = 'Image';
+$string['marketingimagedesc'] = 'This provides the option of displaying an image above the text in the marketing spot';
+$string['marketingcontent'] = 'Content';
+$string['marketingcontentdesc'] = 'Content to display in the marketing box. Keep it short and sweet.';
+$string['marketingbuttontext'] = 'Link Text';
+$string['marketingbuttontextdesc'] = 'Text to appear on the button.';
+$string['marketingbuttonurl'] = 'Link URL';
+$string['marketingbuttonurldesc'] = 'URL the button will point to.';
+
+
+/* Quick Links */
+$string['quicklinksheading'] = 'Quick links';
+$string['quicklinksheadingdesc'] = 'Enter the settings for your front page Quick Links';
+$string['quicklinksheadingsub'] = 'Locations on the front page to add information and links';
+$string['quicklinksdesc'] = 'This theme provides the option of enabling "Quick Link" spots.  These allow you to create locations that link to any URL of your choice.';
+
+$string['togglequicklinks'] = 'Quick Links display';
+$string['togglequicklinksdesc'] = 'Choose if you wish to hide or show the Quick Links area';
+
+$string['quicklinks'] = 'Quick Link Number ';
+
+$string['quicklinksnumber'] = 'Number of Links';
+$string['quicklinksnumberdesc'] = 'How many quick links to you want to display on the front page.';
+
+$string['quicklinkstitle'] = 'Area heading';
+$string['quicklinkstitledesc'] = 'The name associated with the Quick Links area on the front page.';
+
+$string['quicklinkicon'] = 'Icon';
+$string['quicklinkicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+$string['quicklinkiconcolor'] = 'Quick Link Color';
+$string['quicklinkiconcolordesc'] = 'Background color behind the Quick Link icon';
+$string['quicklinkbuttontext'] = 'Link Text';
+$string['quicklinkbuttontextdesc'] = 'Text to appear on the button.';
+$string['quicklinkbuttoncolor'] = 'Button Color';
+$string['quicklinkbuttoncolordesc'] = 'Quick Link Button color';
+$string['quicklinkbuttonurl'] = 'Link URL';
+$string['quicklinkbuttonurldesc'] = 'URL the button will point to.';
+
 
 /* Social Networks */
 $string['socialheading'] = 'Social Networking';

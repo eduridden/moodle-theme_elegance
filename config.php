@@ -77,6 +77,9 @@ $THEME->plugins_exclude_sheets = array(
     'block' => array(
         'html'
     ),
+    'tool' => array(
+        'customlang'
+    ),
 );
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
@@ -196,12 +199,13 @@ $THEME->layouts = array(
 
 $THEME->javascripts = array(
 );
+
 $THEME->javascripts_footer = array(
-    'bootstrap3',
 );
 
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
+    $THEME->javascripts[] = 'respond.min';
 }
 
 $THEME->hidefromselector = false;

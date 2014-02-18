@@ -15,13 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This is built using the Clean template to allow for new theme's using
- * Moodle's new Bootstrap theme engine
+ * The Elegance theme is built upon  Bootstrapbase 3 (non-core).
  *
- *
- * @package   theme_elegance
- * @copyright 2014 Julian Ridden
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme
+ * @subpackage theme_elegance
+ * @author     Julian (@moodleman) Ridden
+ * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
@@ -44,65 +44,83 @@ $haswebsite     = (empty($PAGE->theme->settings->website)) ? false : $PAGE->them
 $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflickr || $hasinstagram || $hasvk || $haslinkedin || $haspinterest || $hasskype || $haslinkedin || $haswebsite || $hasyoutube ) ? true : false;
 
 ?>
-	<div class="container">
+<div class="container">
 	<div class="row">
-		<div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
+		<div id="course-footer">
+			<?php echo $OUTPUT->course_footer(); ?>	
+		</div>
 	</div>
+	
 	<div class="row">
 		<div class="col-lg-6">
 			<?php echo $OUTPUT->home_link(); ?>
    			
 			<?php
 			if ($hascopyright) {
-        	echo '<p class="copy">&copy; Copyright '.date("Y").' by '.$hascopyright.'</p>';
+				echo '<p class="copy">&copy; Copyright '.date("Y").' by '.$hascopyright.'</p>';
    			} ?>
    			
    			<?php if ($hasfootnote) {
-        			echo  '<div class="footnote">'. $hasfootnote. '</div>';
+				echo  '<div class="footnote">'. $hasfootnote. '</div>';
    			} ?>
    			
 		</div>
+		
 		<div class="col-lg-6 pull-right">
-		<?php echo $OUTPUT->login_info(); ?>
-        <?php if ($hassocialnetworks) { ?>
-            <ul class="socials unstyled">
-                <?php if ($hasgoogleplus) { ?>
-                <li><a href="<?php echo $hasgoogleplus; ?>" class="socialicon googleplus"><i class="fa fa-google-plus fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hastwitter) { ?>
-                <li><a href="<?php echo $hastwitter; ?>" class="socialicon twitter"><i class="fa fa-twitter fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasfacebook) { ?>
-                <li><a href="<?php echo $hasfacebook; ?>" class="socialicon facebook"><i class="fa fa-facebook fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($haslinkedin) { ?>
-                <li><a href="<?php echo $haslinkedin; ?>" class="socialicon linkedin"><i class="fa fa-linkedin fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasyoutube) { ?>
-                <li><a href="<?php echo $hasyoutube; ?>" class="socialicon youtube"><i class="fa fa-youtube fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasflickr) { ?>
-                <li><a href="<?php echo $hasflickr; ?>" class="socialicon flickr"><i class="fa fa-flickr fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($haspinterest) { ?>
-                <li><a href="<?php echo $haspinterest; ?>" class="socialicon pinterest"><i class="fa fa-pinterest fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasinstagram) { ?>
-                <li><a href="<?php echo $hasinstagram; ?>" class="socialicon instagram"><i class="fa fa-instagram fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasvk) { ?>
-                <li><a href="<?php echo $hasvk; ?>" class="socialicon vk"><i class="fa fa-vk fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($hasskype) { ?>
-                <li><a href="<?php echo $haskype; ?>" class="socialicon skype"><i class="fa fa-skype fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-                <?php if ($haswebsite) { ?>
-                		<li><a href="<?php echo $haswebsite; ?>" class="socialicon website"><i class="fa fa-globe fa-inverse fa-fw"></i></a></li>
-                <?php } ?>
-	    </ul>
-        <?php } ?>
+			<?php echo $OUTPUT->login_info();
+			if ($hassocialnetworks) {
+				echo '<ul class="socials unstyled">';
+					if ($hasgoogleplus) {
+						echo '<li><a href="'.$hasgoogleplus.'" class="socialicon googleplus"><i class="fa fa-google-plus fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hastwitter) {
+						echo '<li><a href="'.$hastwitter.'" class="socialicon twitter"><i class="fa fa-twitter fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasfacebook) {
+						echo '<li><a href="'.$hasfacebook.'" class="socialicon facebook"><i class="fa fa-facebook fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($haslinkedin) {
+						echo '<li><a href="'.$haslinkedin.'" class="socialicon linkedin"><i class="fa fa-linkedin fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasyoutube) {
+						echo '<li><a href="'.$hasyoutube.'" class="socialicon youtube"><i class="fa fa-youtube fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasflickr) {
+						echo '<li><a href="'.$hasflickr.'" class="socialicon flickr"><i class="fa fa-flickr fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($haspinterest) {
+						echo '<li><a href="'.$haspinterest.'" class="socialicon pinterest"><i class="fa fa-pinterest fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasinstagram) {
+						echo '<li><a href="'.$hasinstagram.'" class="socialicon instagram"><i class="fa fa-instagram fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasvk) {
+						echo '<li><a href="'.$hasvk.'" class="socialicon vk"><i class="fa fa-vk fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($hasskype) {
+						echo '<li><a href="'.$hasskype.'" class="socialicon skype"><i class="fa fa-skype fa-inverse fa-fw"></i></a></li>';
+					}
+					
+					if ($haswebsite) {
+						echo '<li><a href="'.$haswebsite.'" class="socialicon website"><i class="fa fa-globe fa-inverse fa-fw"></i></a></li>';
+					}
+				echo '</ul>';
+			} ?>
 		</div>
 	</div>
-	<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+	
+	<div class="row">
+		<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+		<?php echo $OUTPUT->standard_footer_html(); ?>
 	</div>
-	<?php echo $OUTPUT->standard_footer_html(); ?>
+	
+</div>

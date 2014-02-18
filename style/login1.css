@@ -13,7 +13,7 @@
 #page-login-index #region-main {
 	background: transparent;
 	border: 0px none;
-	margin-bottom: 80px;
+	margin-bottom: 130px;
 }
 
 #page-login-index #page-footer{
@@ -40,12 +40,7 @@ html.login-page{
 }
 
 .loginpanel {
-	max-width: 500px;
-	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	overflow: auto;
-	clear: b;
+	margin-bottom: 20px;
 }
 
 .signuppanel {
@@ -67,8 +62,13 @@ html.login-page{
 	height: auto;
 }
 
+.loginpanel form#guestlogin input[type="submit"] {
+	top: -23px;
+}
+
 .loginpanel form#guestlogin input[type="submit"]:hover {
 	background: green;
+	position: relative;
 }
 
 .guestform {
@@ -218,6 +218,36 @@ html.login-page{
     float: left;
     left: -30px;
     right: auto;
+}
+
+.loginpanel form a {
+	border: 1px solid #b4b4b7;
+	background: #d9534f;
+	color: #fff;
+	padding: 9px 12px 9px;
+	line-height: 22px;
+	text-decoration: none;
+	position: relative;
+	font-size: 14px;
+	text-shadow: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	-webkit-backface-visibility: hidden;
+	font-weight: 500;
+	font-family: "Roboto";
+	display: inline-block;
+}
+
+.loginpanel form a:hover {
+	background: #000;
 }
 
 /* @end */

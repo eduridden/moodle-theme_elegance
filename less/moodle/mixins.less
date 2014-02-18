@@ -1,14 +1,3 @@
-// IE7 inline-block
-// ----------------
-.ie7-inline-block() {
-  *display: inline; /* IE7 inline-block hack */
-  *zoom: 1;
-}
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
-}
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
   tbody {
@@ -21,15 +10,19 @@
 
 .dl-horizontal {
     dt {
-      float: left;
-      width: (@component-offset-horizontal - 20);
-      clear: left;
-      text-align: right;
+      .make-md-column(4);
       .text-overflow();
+      text-align: right;
+      padding: 5px;
     }
     dd {
-      margin-left: @component-offset-horizontal;
-      .clearfix(); // Clear the floated `dt` if an empty `dd` is present
+      .make-md-column(8);
+      padding: 5px;
+
+    }
+    > dt:nth-child(4n-1),
+    > dd:nth-child(4n) {
+      background-color: @table-bg-accent;
     }
 }
 

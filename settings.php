@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
 
 	global $PAGE;
 	
-	$ADMIN->add('themes', new admin_category('theme_elegance', 'elegance'));
+	$ADMIN->add('themes', new admin_category('theme_elegance', 'pluginname'));
 
 	// "geneicsettings" settingpage
 	$temp = new admin_settingpage('theme_elegance_generic',  get_string('geneicsettings', 'theme_elegance'));
@@ -64,7 +64,7 @@ defined('MOODLE_INTERNAL') || die;
     $name = 'theme_elegance/themecolor';
     $title = get_string('themecolor', 'theme_elegance');
     $description = get_string('themecolordesc', 'theme_elegance');
-    $default = '#2d91d0';
+    $default = '#243769';
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -224,6 +224,281 @@ defined('MOODLE_INTERNAL') || die;
 
     }
 
+ 	$ADMIN->add('theme_elegance', $temp);
+ 	
+ 	/* Marketing Spot Settings */
+ 		$temp = new admin_settingpage('theme_elegance_marketing', get_string('marketingheading', 'theme_elegance'));
+ 		$temp->add(new admin_setting_heading('theme_elegance_marketing', get_string('marketingheadingsub', 'theme_elegance'),
+ 				format_text(get_string('marketingdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+ 	
+ 		// Toggle Marketing Spots.
+ 		$name = 'theme_elegance/togglemarketing';
+ 		$title = get_string('togglemarketing' , 'theme_elegance');
+ 		$description = get_string('togglemarketingdesc', 'theme_elegance');
+ 		$alwaysdisplay = get_string('alwaysdisplay', 'theme_elegance');
+ 		$displaybeforelogin = get_string('displaybeforelogin', 'theme_elegance');
+ 		$displayafterlogin = get_string('displayafterlogin', 'theme_elegance');
+ 		$dontdisplay = get_string('dontdisplay', 'theme_elegance');
+ 		$default = 'display';
+ 		$choices = array('1'=>$alwaysdisplay, '2'=>$displaybeforelogin, '3'=>$displayafterlogin, '0'=>$dontdisplay);
+ 		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		$name = 'theme_elegance/marketingtitle';
+ 		$title = get_string('marketingtitle', 'theme_elegance');
+ 		$description = get_string('marketingtitledesc', 'theme_elegance');
+ 		$default = 'More about Us';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		$name = 'theme_elegance/marketingtitleicon';
+ 		$title = get_string('marketingtitleicon', 'theme_elegance');
+ 		$description = get_string('marketingtitleicondesc', 'theme_elegance');
+ 		$default = 'globe';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		//This is the descriptor for Marketing Spot One
+ 		$name = 'theme_elegance/marketing1info';
+ 		$heading = get_string('marketing1', 'theme_elegance');
+ 		$information = get_string('marketinginfodesc', 'theme_elegance');
+ 		$setting = new admin_setting_heading($name, $heading, $information);
+ 		$temp->add($setting);
+ 	
+ 		//Marketing Spot One.
+ 		$name = 'theme_elegance/marketing1';
+ 		$title = get_string('marketingtitle', 'theme_elegance');
+ 		$description = get_string('marketingtitledesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing1icon';
+ 		$title = get_string('marketingicon', 'theme_elegance');
+ 		$description = get_string('marketingicondesc', 'theme_elegance');
+ 		$default = 'star';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing1content';
+ 		$title = get_string('marketingcontent', 'theme_elegance');
+ 		$description = get_string('marketingcontentdesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		//This is the descriptor for Marketing Spot Two
+ 		$name = 'theme_elegance/marketing2info';
+ 		$heading = get_string('marketing2', 'theme_elegance');
+ 		$information = get_string('marketinginfodesc', 'theme_elegance');
+ 		$setting = new admin_setting_heading($name, $heading, $information);
+ 		$temp->add($setting);
+ 	
+ 		//Marketing Spot Two.
+ 		$name = 'theme_elegance/marketing2';
+ 		$title = get_string('marketingtitle', 'theme_elegance');
+ 		$description = get_string('marketingtitledesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing2icon';
+ 		$title = get_string('marketingicon', 'theme_elegance');
+ 		$description = get_string('marketingicondesc', 'theme_elegance');
+ 		$default = 'star';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing2content';
+ 		$title = get_string('marketingcontent', 'theme_elegance');
+ 		$description = get_string('marketingcontentdesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		//This is the descriptor for Marketing Spot Three
+ 		$name = 'theme_elegance/marketing3info';
+ 		$heading = get_string('marketing3', 'theme_elegance');
+ 		$information = get_string('marketinginfodesc', 'theme_elegance');
+ 		$setting = new admin_setting_heading($name, $heading, $information);
+ 		$temp->add($setting);
+ 	
+ 		//Marketing Spot Three.
+ 		$name = 'theme_elegance/marketing3';
+ 		$title = get_string('marketingtitle', 'theme_elegance');
+ 		$description = get_string('marketingtitledesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing3icon';
+ 		$title = get_string('marketingicon', 'theme_elegance');
+ 		$description = get_string('marketingicondesc', 'theme_elegance');
+ 		$default = 'star';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 		$name = 'theme_elegance/marketing3content';
+ 		$title = get_string('marketingcontent', 'theme_elegance');
+ 		$description = get_string('marketingcontentdesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		//Marketing Spot Four.
+ 		$name = 'theme_elegance/marketing4';
+ 		$title = get_string('marketingtitle', 'theme_elegance');
+ 		$description = get_string('marketingtitledesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		$name = 'theme_elegance/marketing4icon';
+ 		$title = get_string('marketingicon', 'theme_elegance');
+ 		$description = get_string('marketingicondesc', 'theme_elegance');
+ 		$default = 'star';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		$name = 'theme_elegance/marketing4content';
+ 		$title = get_string('marketingcontent', 'theme_elegance');
+ 		$description = get_string('marketingcontentdesc', 'theme_elegance');
+ 		$default = '';
+ 		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 	
+ 	$ADMIN->add('theme_elegance', $temp);
+ 	
+ 	/* Quick Link Settings */
+ 		$temp = new admin_settingpage('theme_elegance_quicklinks', get_string('quicklinksheading', 'theme_elegance'));
+ 		$temp->add(new admin_setting_heading('theme_elegance_quicklinks', get_string('quicklinksheadingsub', 'theme_elegance'),
+ 				format_text(get_string('quicklinksdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+ 	
+ 		// Toggle Quick Links.
+ 		$name = 'theme_elegance/togglequicklinks';
+ 		$title = get_string('togglequicklinks' , 'theme_elegance');
+ 		$description = get_string('togglequicklinksdesc', 'theme_elegance');
+ 		$alwaysdisplay = get_string('alwaysdisplay', 'theme_elegance');
+ 		$displaybeforelogin = get_string('displaybeforelogin', 'theme_elegance');
+ 		$displayafterlogin = get_string('displayafterlogin', 'theme_elegance');
+ 		$dontdisplay = get_string('dontdisplay', 'theme_elegance');
+ 		$default = 'display';
+ 		$choices = array('1'=>$alwaysdisplay, '2'=>$displaybeforelogin, '3'=>$displayafterlogin, '0'=>$dontdisplay);
+ 		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		// Set Number of Quick Links.
+ 		$name = 'theme_elegance/quicklinksnumber';
+ 		$title = get_string('quicklinksnumber' , 'theme_elegance');
+ 		$description = get_string('quicklinksnumberdesc', 'theme_elegance');
+ 		$default = '4';
+ 		$choices = array(
+ 			'1'=>'1',
+ 			'2'=>'2',
+ 			'3'=>'3',
+ 			'4'=>'4',
+ 			'5'=>'5',
+ 			'6'=>'6',
+ 			'7'=>'7',
+ 			'8'=>'8',
+ 			'9'=>'9',
+ 			'10'=>'10',
+ 			'11'=>'11',
+ 			'12'=>'12');
+ 		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		$hasquicklinksnum = (!empty($PAGE->theme->settings->quicklinksnumber));
+ 			if ($hasquicklinksnum) {
+ 				$quicklinksnum = $PAGE->theme->settings->quicklinksnumber;
+ 			} else {
+ 				$quicklinksnum = '4';
+ 			}
+ 		
+ 		$name = 'theme_elegance/quicklinkstitle';
+ 		$title = get_string('quicklinkstitle', 'theme_elegance');
+ 		$description = get_string('quicklinkstitledesc', 'theme_elegance');
+ 		$default = 'Site Quick Links';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		foreach (range(1, $quicklinksnum) as $quicklinksnumber) {
+	 		
+ 			//This is the descriptor for Quick Link One
+ 			$name = 'theme_elegance/quicklinkinfo';
+ 			$title = get_string('quicklinks', 'theme_elegance');
+ 			$information = get_string('quicklinksdesc', 'theme_elegance');
+ 			$setting = new admin_setting_heading($name.$quicklinksnumber, $title.$quicklinksnumber, $information);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 			
+ 			//Quick Link Icon.
+ 			$name = 'theme_elegance/quicklinkicon' . $quicklinksnumber;
+ 			$title = get_string('quicklinkicon', 'theme_elegance', $quicklinksnumber);
+ 			$description = get_string('quicklinkicondesc', 'theme_elegance', $quicklinksnumber);
+ 			$default = 'star';
+ 			$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 			
+ 			// Quick Link Icon Color.
+ 			$name = 'theme_elegance/quicklinkicon1color' . $quicklinksnumber;
+ 			$title = get_string('quicklinkiconcolor', 'theme_elegance', $quicklinksnumber);
+ 			$description = get_string('quicklinkiconcolordesc', 'theme_elegance', $quicklinksnumber);
+ 			$default = '#243769';
+ 			$previewconfig = null;
+ 			$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 			
+ 			// Quick Link Button Text.
+ 			$name = 'theme_elegance/quicklink1buttontext' . $quicklinksnumber;
+ 			$title = get_string('quicklinkbuttontext', 'theme_elegance', $quicklinksnumber);
+ 			$description = get_string('quicklinkbuttontextdesc', 'theme_elegance', $quicklinksnumber);
+ 			$default = 'Click Here';
+ 			$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 			
+ 			// Quick Link Button Color.
+ 			$name = 'theme_elegance/quicklinkbutton1color' . $quicklinksnumber;
+ 			$title = get_string('quicklinkbuttoncolor', 'theme_elegance', $quicklinksnumber);
+ 			$description = get_string('quicklinkbuttoncolordesc', 'theme_elegance', $quicklinksnumber);
+ 			$default = '#ecedf0';
+ 			$previewconfig = null;
+ 			$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 			
+ 			// Quick Link Button URL.
+ 			$name = 'theme_elegance/quicklink1buttonurl' . $quicklinksnumber;
+ 			$title = get_string('quicklinkbuttonurl', 'theme_elegance', $quicklinksnumber);
+ 			$description = get_string('quicklinkbuttonurldesc', 'theme_elegance', $quicklinksnumber);
+ 			$default = '';
+ 			$setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+ 			$setting->set_updatedcallback('theme_reset_all_caches');
+ 			$temp->add($setting);
+ 		}
+ 	
+ 	
  	$ADMIN->add('theme_elegance', $temp);
  	
  	/* Login Page Settings */

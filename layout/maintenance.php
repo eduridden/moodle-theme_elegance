@@ -15,17 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This layout file is designed maintenance related tasks such as upgrade and installation of plugins.
+ * The Elegance theme is built upon  Bootstrapbase 3 (non-core).
  *
- * It's ultra important that this layout file makes no use of API's unless it absolutely needs to.
- * Under no circumstances should it use API calls that result in database or cache interaction.
- *
- * If you are modifying this file please be extremely careful, one wrong API call and you could end up
- * breaking installation or upgrade unwittingly.
+ * @package    theme
+ * @subpackage theme_elegance
+ * @author     Julian (@moodleman) Ridden
+ * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
  
- // Get the HTML for the settings bits.
-$html = theme_elegance_get_html_for_settings($OUTPUT, $PAGE);
 
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
 
@@ -48,47 +46,57 @@ echo $OUTPUT->doctype() ?>
 <body <?php echo $OUTPUT->body_attributes(); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
-<nav role="navigation" class="navbar <?php echo $html->navbarclass ?>">
-    <div class="container">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
-    </div>
 
-    <div id="moodle-navbar" class="navbar-collapse collapse">
-        <?php echo $OUTPUT->custom_menu(); ?>
-        <ul class="nav pull-right">
-            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-        </ul>
-    </div>
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        </div>
+
+        <div id="moodle-navbar" class="navbar-collapse collapse">
+            <?php echo $OUTPUT->custom_menu(); ?>
+            <ul class="nav pull-right">
+                <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
-<div id="page" class="container-fluid">
 
-    <header id="page-header" class="clearfix">
-    	<div id="page-navbar" class="container">
-        	<?php echo $OUTPUT->page_heading(); ?>
+<div id="page" class="container">
+    <div id="page-content" class="row">
+        <div id="region-main" class="col-md-12">
+            <div id="heading"><?php echo $OUTPUT->page_heading(); ?></div>
+            <?php
+            echo $OUTPUT->main_content();
+            ?>
         </div>
-    </header>
-
-    <div id="page-content" class="row-fluid">
-        <section id="region-main" class="span12">
-            <?php echo $OUTPUT->main_content(); ?>
-        </section>
     </div>
-
-    <footer id="page-footer">
-	<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
-	</footer>
-
-    <?php echo $OUTPUT->standard_end_of_body_html() ?>
-
 </div>
+
+<footer id="page-footer">
+    <?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
+</footer>
+
+<?php echo $OUTPUT->standard_end_of_body_html() ?>
+
+<script>
+    $('body').show();
+    $('.version').text(NProgress.version);
+    NProgress.start();
+    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+
+    $("#b-0").click(function() { NProgress.start(); });
+    $("#b-40").click(function() { NProgress.set(0.4); });
+    $("#b-inc").click(function() { NProgress.inc(); });
+    $("#b-100").click(function() { NProgress.done(); });
+</script>
+
 </body>
 </html>

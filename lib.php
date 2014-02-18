@@ -1,5 +1,5 @@
 <?php
-// This file is part of the custom Moodle elegance theme
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,20 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Renderers to align Moodle's HTML with that expected by elegance
+ * The Elegance theme is built upon  Bootstrapbase 3 (non-core).
  *
- * @package    theme_elegance
- * @copyright  2014 Julian Ridden http://moodleman.net
- * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
+ * @package    theme
+ * @subpackage theme_elegance
+ * @author     Julian (@moodleman) Ridden
+ * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 function bootstrap3_grid($hassidepost) {
 
-        $regions = array('content' => 'col-sm-11 col-md-12');
-        $regions['post'] = 'col-sm-6 col-md-5';
+        $regions = array('content' => 'col-sm-8 col-md-8 col-lg-9');
+        $regions['pre'] =  'empty';
+        $regions['post'] = 'col-sm-4 col-md-4 col-lg-3';
    
        return $regions;
 }
@@ -207,7 +208,7 @@ function theme_elegance_set_themecolor($css, $themecolor) {
     $tag = '[[setting:themecolor]]';
     $replacement = $themecolor;
     if (is_null($replacement)) {
-        $replacement = '#2d91d0';
+        $replacement = '#243769';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;
@@ -479,6 +480,8 @@ function theme_elegance_set_bannercolor10($css, $bannercolor10) {
 
 function theme_elegance_page_init(moodle_page $page) {
     $page->requires->jquery();
+    $page->requires->jquery_plugin('bootstrap', 'theme_elegance');
+    $page->requires->jquery_plugin('fitvids', 'theme_elegance');
     $page->requires->jquery_plugin('nprogress', 'theme_elegance');
     $page->requires->jquery_plugin('unslider', 'theme_elegance');
     $page->requires->jquery_plugin('eventswipe', 'theme_elegance');
