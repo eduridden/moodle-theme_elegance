@@ -38,7 +38,7 @@
 		$qli = "quicklinkicon$quicklinksnumber";
 		$qlt = "quicklink1buttontext$quicklinksnumber";
 		?>
-		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" id="quicklink">
 			<a href="http://2014.imoot.org/mod/page/view.php?id=19">
 				<div id="circle-highlight">
 					<?php if (!empty($PAGE->theme->settings->$qli)) {
