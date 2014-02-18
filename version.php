@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of the custom Moodle elegance theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,23 +14,20 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
 /**
- * elegance theme with the underlying Bootstrap theme.
+ * Theme settings
  *
- * @package    theme
- * @subpackage elegance
- * @author     Julian (@moodleman) Ridden
- * @author     Based on code originally written by G J Barnard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @package    theme_elegance
+ * @copyright  2014 Julian Ridden http://moodleman.net
+ * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014020500;
-$plugin->release = '1.1 (Build: 20140205)';
+$plugin->version   = 2014021801;
+$plugin->release = '1.2 (Build: 20140218)';
 $plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
 $plugin->requires  = 2013110500;
 $plugin->component = 'theme_elegance';
-$plugin->dependencies = array(
-    'theme_bootstrapbase'  => 2013110500,
-);
