@@ -31,6 +31,7 @@ $hastiles = (!empty($PAGE->theme->settings->tiles));
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
 $hasmarketing = (empty($PAGE->theme->settings->togglemarketing)) ? false : $PAGE->theme->settings->togglemarketing;
 $hasquicklinks = (empty($PAGE->theme->settings->togglequicklinks)) ? false : $PAGE->theme->settings->togglequicklinks;
+$hasfrontpagecontent = (empty($PAGE->theme->settings->frontpagecontent)) ? false : $PAGE->theme->settings->frontpagecontent;
 
 if ($haslogo) {
 	$logo = '<div id="logo"></div>';
@@ -52,6 +53,7 @@ echo $OUTPUT->doctype() ?>
 	<title><?php echo $OUTPUT->page_title(); ?></title>
 	<link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 	<?php echo $OUTPUT->standard_head_html() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -69,7 +71,7 @@ echo $OUTPUT->doctype() ?>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+			<a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
 		</div>
 
 		<div id="moodle-navbar" class="navbar-collapse collapse">
@@ -89,6 +91,14 @@ echo $OUTPUT->doctype() ?>
 	<!-- End Slideshow -->
 	
     <header id="page-header" class="clearfix">
+	    <!-- Start Frontpage Content -->
+
+		    <div id="fontpagecontent" class="container">
+			    <?php echo $hasfrontpagecontent; ?>
+			</div>
+
+	    <!-- End Frontpage Content -->
+	    
         <div id="course-header">
             <?php echo $OUTPUT->course_header(); ?>
         </div>

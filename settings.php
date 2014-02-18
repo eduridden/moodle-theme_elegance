@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
 
 	global $PAGE;
 	
-	$ADMIN->add('themes', new admin_category('theme_elegance', 'pluginname'));
+	$ADMIN->add('themes', new admin_category('theme_elegance', 'Elegance'));
 
 	// "geneicsettings" settingpage
 	$temp = new admin_settingpage('theme_elegance_generic',  get_string('geneicsettings', 'theme_elegance'));
@@ -83,6 +83,15 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('headerbg', 'theme_elegance');
     $description = get_string('headerbgdesc', 'theme_elegance');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbg');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Frontpage Content.
+    $name = 'theme_elegance/frontpagecontent';
+    $title = get_string('frontpagecontent', 'theme_elegance');
+    $description = get_string('frontpagecontentdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
