@@ -401,11 +401,7 @@ top: 0px;
 
 #quicklink {
 	margin-bottom: 10px;
-}
-
-#quicklink {
-	float: left;
-	display: inline-block;
+	text-align: center;
 }
 
 #circle-highlight {
@@ -1166,6 +1162,7 @@ ul.socials {
 	height: 220px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	padding: 0px;
 }
 
 #block-region-side-middle .block_rss_client .list li {
@@ -1173,6 +1170,8 @@ ul.socials {
 	border: 0px none;
 	margin-bottom: 0px;
 	border-bottom: 1px dashed #ddd;
+	height: 52px;
+	overflow: hidden;
 }
 
 #block-region-side-middle .block_rss_client .content li .link {
@@ -1184,7 +1183,7 @@ ul.socials {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	font-size: .8em;
-	width: 410px;
+	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis; 
@@ -1193,7 +1192,6 @@ ul.socials {
 #block-region-side-middle .block_rss_client .header .title h2:before {
     content:"\f086";
 }
-
 /* @end */
 
 /* @end */
@@ -2832,6 +2830,12 @@ table#user-grades th.userreport.c1 {
 #page-admin-setting-theme_elegance_generic .form-description p {
 	font-size: .75em;
 	margin-left: 100px;
+}
+
+.box.message .contactselector,
+.box.message .messagearea,
+.messagesend {
+	width: 100%;
 }
 
 /* @end */
