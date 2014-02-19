@@ -86,6 +86,44 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Body Background Image.
+    $name = 'theme_elegance/bodybg';
+    $title = get_string('bodybg', 'theme_elegance');
+    $description = get_string('bodybgdesc', 'theme_elegance');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'bodybg');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Set Transparency.
+    	$name = 'theme_elegance/transparency';
+    	$title = get_string('transparency' , 'theme_elegance');
+    	$description = get_string('transparencydesc', 'theme_elegance');
+    	$default = '1';
+    	$choices = array(
+    		'.10'=>'10%',
+    		'.15'=>'15%',
+    		'.20'=>'20%',
+    		'.25'=>'25%',
+    		'.30'=>'30%',
+    		'.35'=>'35%',
+    		'.40'=>'40%',
+    		'.45'=>'45%',
+    		'.50'=>'50%',
+    		'.55'=>'55%',
+    		'.60'=>'60%',
+    		'.75'=>'65%',
+    		'.70'=>'70%',
+    		'.75'=>'75%',
+    		'.80'=>'80%',
+    		'.85'=>'85%',
+    		'.90'=>'90%',
+    		'.95'=>'95%',
+    		'1'=>'100%');
+    	$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+
+    
     // Frontpage Content.
     $name = 'theme_elegance/frontpagecontent';
     $title = get_string('frontpagecontent', 'theme_elegance');
@@ -440,11 +478,20 @@ defined('MOODLE_INTERNAL') || die;
  			} else {
  				$quicklinksnum = '4';
  			}
- 		
+ 		//This is the title for the Quick Links area
  		$name = 'theme_elegance/quicklinkstitle';
  		$title = get_string('quicklinkstitle', 'theme_elegance');
  		$description = get_string('quicklinkstitledesc', 'theme_elegance');
  		$default = 'Site Quick Links';
+ 		$setting = new admin_setting_configtext($name, $title, $description, $default);
+ 		$setting->set_updatedcallback('theme_reset_all_caches');
+ 		$temp->add($setting);
+ 		
+ 		//This is the icon for the Quick Links area
+ 		$name = 'theme_elegance/quicklinksicon';
+ 		$title = get_string('quicklinksicon', 'theme_elegance');
+ 		$description = get_string('quicklinksicondesc', 'theme_elegance');
+ 		$default = 'link';
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
@@ -469,7 +516,7 @@ defined('MOODLE_INTERNAL') || die;
  			$temp->add($setting);
  			
  			// Quick Link Icon Color.
- 			$name = 'theme_elegance/quicklinkicon1color' . $quicklinksnumber;
+ 			$name = 'theme_elegance/quicklinkiconcolor' . $quicklinksnumber;
  			$title = get_string('quicklinkiconcolor', 'theme_elegance', $quicklinksnumber);
  			$description = get_string('quicklinkiconcolordesc', 'theme_elegance', $quicklinksnumber);
  			$default = '#243769';
@@ -479,7 +526,7 @@ defined('MOODLE_INTERNAL') || die;
  			$temp->add($setting);
  			
  			// Quick Link Button Text.
- 			$name = 'theme_elegance/quicklink1buttontext' . $quicklinksnumber;
+ 			$name = 'theme_elegance/quicklinkbuttontext' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttontext', 'theme_elegance', $quicklinksnumber);
  			$description = get_string('quicklinkbuttontextdesc', 'theme_elegance', $quicklinksnumber);
  			$default = 'Click Here';
@@ -488,7 +535,7 @@ defined('MOODLE_INTERNAL') || die;
  			$temp->add($setting);
  			
  			// Quick Link Button Color.
- 			$name = 'theme_elegance/quicklinkbutton1color' . $quicklinksnumber;
+ 			$name = 'theme_elegance/quicklinkbuttoncolor' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttoncolor', 'theme_elegance', $quicklinksnumber);
  			$description = get_string('quicklinkbuttoncolordesc', 'theme_elegance', $quicklinksnumber);
  			$default = '#ecedf0';
@@ -498,7 +545,7 @@ defined('MOODLE_INTERNAL') || die;
  			$temp->add($setting);
  			
  			// Quick Link Button URL.
- 			$name = 'theme_elegance/quicklink1buttonurl' . $quicklinksnumber;
+ 			$name = 'theme_elegance/quicklinkbuttonurl' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttonurl', 'theme_elegance', $quicklinksnumber);
  			$description = get_string('quicklinkbuttonurldesc', 'theme_elegance', $quicklinksnumber);
  			$default = '';
