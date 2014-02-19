@@ -494,7 +494,7 @@ h2.quicklinksheader::after {
 }
 
 .navbar-default {
-    background-color: rgb(51, 53, 55);
+    background-color: rgba(51, 53, 55, [[setting:transparency]]);
     background-image: none;
 }
 
@@ -509,19 +509,28 @@ h2.quicklinksheader::after {
 }
 
 .navbar-default .navbar-nav>li>a {
-	border-bottom: 5px solid rgb(51, 53, 55);
+	margin-bottom: 5px;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:hover, 
+.navbar-default .navbar-nav>.open>a:focus {
+	background: [[setting:themecolor]];
 }
 
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
 	background: #000;
 	border-bottom: 5px solid [[setting:themecolor]];
+	margin-bottom: 0px;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>li>a:focus {
 	background: #eee;
 	border-bottom: 5px solid [[setting:themecolor]];
+	margin-bottom: 0px;
 }
 
 .navbar .navbar-nav>.dropdown>a:hover .caret,
@@ -547,6 +556,12 @@ border-bottom-color: #888;
 .navbar-brand {
 	font-weight: 400;
 }
+
+/* @end */
+
+/* @group Dropdown Menu */
+
+
 
 /* @end */
 
@@ -889,7 +904,7 @@ ul.socials {
 .block{
 	background: none;
 	padding: 8px 0;
-	border: 2px solid #ecedf0;
+	border: 2px solid rgba(236, 237, 240, [[setting:transparency]]);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1473,7 +1488,7 @@ blockquote>.icon-quote-left{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	margin-bottom: 20px;
-	border: 2px solid #ecedf0;
+	border: 2px solid rgba(236, 237, 240, [[setting:transparency]]);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1579,7 +1594,7 @@ blockquote>.icon-quote-left{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	margin-bottom: 20px;
-	border: 2px solid #ecedf0;
+	border: 2px solid rgba(236, 237, 240, [[setting:transparency]]);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -2557,7 +2572,7 @@ table#user-grades th.userreport.c1 {
 }
 .view-mycourse {
    margin: 0 30px 30px 0;
-   border: 2px solid #ecedf0;
+   border: 2px solid rgba(236, 237, 240, [[setting:transparency]]);
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
@@ -2849,11 +2864,21 @@ table#user-grades th.userreport.c1 {
 #region-main,
 #page-marketing,
 .view h2,
-.view a.info,
+.view a.info {
+	background: rgba(255,255,255,[[setting:transparency]]);
+}
+
 .path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li,
 .forumpost,
-.coursebox {
-	background: rgba(255,255,255,[[setting:transparency]]);
+.coursebox,
+table#form td.submit, 
+.form-buttons, 
+.path-admin .buttons, 
+#fitem_id_submitbutton, 
+.fp-content-center form+div, 
+div.backup-section+form, 
+#fgroup_id_buttonar { {
+	background: rgba(255,255,255,.15);
 }
 
 .coursebox {
