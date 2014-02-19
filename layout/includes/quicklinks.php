@@ -61,7 +61,7 @@
 					}
 					?></p>
 			<?php if (!empty($PAGE->theme->settings->$qlu)) {
-				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
+				echo '</a>';
 			} ?>
 		</div>
 	<?php } ?>

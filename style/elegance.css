@@ -2272,6 +2272,7 @@ table#user-grades th.userreport.c1 {
 
 .forumpost {
 	background: #fafafa;
+	border-radius: 5px;
 }
 
 .forumpost .header {
@@ -2846,12 +2847,14 @@ table#user-grades th.userreport.c1 {
 #page-marketing,
 .view h2,
 .view a.info,
-.path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li {
+.path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li,
+.forumpost,
+.coursebox {
 	background: rgba(255,255,255,.85);
 }
 
 .coursebox {
-	background: transparent;
+	border-radius: 4px;
 }
 
 #page-my-index .coursebox {
