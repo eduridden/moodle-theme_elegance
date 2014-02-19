@@ -29,17 +29,23 @@
  ?>
  
 <div id="heading">
-	<h1><?php echo $PAGE->theme->settings->quicklinkstitle ?></h1>
+	<h2 class="quicklinksheader">
+		<i class="fa fa-<?php echo $PAGE->theme->settings->quicklinksicon ?>"></i>
+		<?php echo $PAGE->theme->settings->quicklinkstitle ?>
+	</h2>
 </div>
 
 <div class="row" id="quicklinks">
-	
+
 	<?php foreach (range(1, $quicklinksnum) as $quicklinksnumber) { 
 		$qli = "quicklinkicon$quicklinksnumber";
-		$qlt = "quicklink1buttontext$quicklinksnumber";
+		$qlt = "quicklinkbuttontext$quicklinksnumber";
+		$qlu = "quicklinkbuttonurl$quicklinksnumber";
 		?>
-		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" id="quicklink">
-			<a href="http://2014.imoot.org/mod/page/view.php?id=19">
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">
+			<?php if (!empty($PAGE->theme->settings->$qlu)) {
+				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
+			} ?>
 				<div id="circle-highlight">
 					<?php if (!empty($PAGE->theme->settings->$qli)) {
 						echo '<i class="fa fa-'.$PAGE->theme->settings->$qli.'"></i>';
@@ -54,8 +60,10 @@
 						echo 'Click here';
 					}
 					?></p>
-			</a>
+			<?php if (!empty($PAGE->theme->settings->$qlu)) {
+				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
+			} ?>
 		</div>
 	<?php } ?>
-	
+
 </div>
