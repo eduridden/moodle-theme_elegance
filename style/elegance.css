@@ -372,7 +372,8 @@ text-shadow: 0 1px 1px rgba(255,255,255,0.75);
 	font-weight: 400;
 }
 
-h2.marketingheader {
+h2.marketingheader,
+h2.quicklinksheader {
 	color: #27282a;
 	letter-spacing: 0px;
 	font-style: normal;
@@ -380,23 +381,26 @@ h2.marketingheader {
 	font-size: 24px;
 	text-transform: none;
 	padding-left: 0px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
 
-h2.marketingheader .fa {
+h2.marketingheader .fa,
+h2.quicklinksheader .fa {
     color: #999;
 }
 
-h2.marketingheader::after {
-background-color: #0098e0;
-content: "";
-display: block;
-height: 1px;
-width: 100px;
-position: relative;
-top: 0px;
+h2.marketingheader::after,
+h2.quicklinksheader::after {
+	background-color: [[setting:themecolor]];
+	content: "";
+	display: block;
+	height: 1px;
+	width: 100px;
+	position: relative;
+	top: 10px;
 }
 
 #quicklink {
@@ -881,7 +885,6 @@ ul.socials {
 .block{
 	background: none;
 	padding: 8px 0;
-	background: #fff;
 	border: 2px solid #ecedf0;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1466,7 +1469,6 @@ blockquote>.icon-quote-left{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	margin-bottom: 20px;
-	background: #fff;
 	border: 2px solid #ecedf0;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1573,7 +1575,6 @@ blockquote>.icon-quote-left{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	margin-bottom: 20px;
-	background: #fff;
 	border: 2px solid #ecedf0;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -2547,7 +2548,7 @@ table#user-grades th.userreport.c1 {
    position: relative;
    text-align: center;
    cursor: default;
-   background: #fff;
+   background: transparent;
 }
 .view-mycourse {
    margin: 0 30px 30px 0;
@@ -2782,13 +2783,14 @@ table#user-grades th.userreport.c1 {
 	margin-bottom: 21px;
 	text-transform: none;
 	border-bottom: 1px solid rgb(223, 223, 223);
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 }
 
 #site-news-forum h2::before {
     font-family: FontAwesome;
     content:"\f0a1";
     margin-right: 5px;
+    color: #999;
 }
 
 #page-login-index h2::after,
@@ -2803,7 +2805,7 @@ table#user-grades th.userreport.c1 {
 	height: 1px;
 	width: 100px;
 	position: relative;
-	top: 5px;
+	top: 10px;
 }
 
 #frontpage-course-list h2::before,
@@ -2817,7 +2819,8 @@ table#user-grades th.userreport.c1 {
 #frontpage-category-names h2::before {
     font-family: FontAwesome;
     content:"\f07c";
-    margin-right: 5px;
+    margin-right: 10px;
+    color: #999;
 }
 
 #page-admin-setting-theme_elegance_generic .form-description {
@@ -2837,6 +2840,25 @@ table#user-grades th.userreport.c1 {
 .messagesend {
 	width: 100%;
 }
+
+.block,
+#region-main,
+#page-marketing,
+.view h2,
+.view a.info,
+.path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li {
+	background: rgba(255,255,255,.85);
+}
+
+.coursebox {
+	background: transparent;
+}
+
+#page-my-index .coursebox {
+	background: transparent;
+	border: 0px none;
+}
+
 
 /* @end */
 
