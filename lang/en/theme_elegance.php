@@ -73,6 +73,13 @@ $string['headerbgdesc'] = 'If you want to replace the standard background you ca
 Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
 <strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
 
+$string['bodybg'] = 'Page Background';
+$string['bodybgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
+<strong>Cool Tip</strong>: You can use this to show through Moodle content using the transparency option below.';
+
+$string['transparency'] = 'Content trasparency';
+$string['transparencydesc'] = 'Want to see more of your background show through? This setting changes the transparency of Moodle content and blocks';
+
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
@@ -163,7 +170,7 @@ $string['togglemarketing'] = 'Marketing Spot display';
 $string['togglemarketingdesc'] = 'Choose if you wish to hide or show the three Marketing Spots.';
 
 $string['marketingtitleicon'] = 'Heading Icon';
-$string['marketingtitleicondesc'] = 'Name of the icon you wish to use in the heading for the marketing spots. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+$string['marketingtitleicondesc'] = 'Name of the icon you wish to use in the heading for the marketing spots. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
 
 
 $string['marketing1'] = 'Marketing Spot One';
@@ -173,7 +180,7 @@ $string['marketing3'] = 'Marketing Spot Three';
 $string['marketingtitle'] = 'Title';
 $string['marketingtitledesc'] = 'Title to show in this marketing spot';
 $string['marketingicon'] = 'Icon';
-$string['marketingicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+$string['marketingicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
 $string['marketingimage'] = 'Image';
 $string['marketingimagedesc'] = 'This provides the option of displaying an image above the text in the marketing spot';
 $string['marketingcontent'] = 'Content';
@@ -193,6 +200,9 @@ $string['quicklinksdesc'] = 'This theme provides the option of enabling "Quick L
 $string['togglequicklinks'] = 'Quick Links display';
 $string['togglequicklinksdesc'] = 'Choose if you wish to hide or show the Quick Links area';
 
+$string['quicklinksicon'] = 'Heading Icon';
+$string['quicklinksicondesc'] = 'Name of the icon you wish to use in the heading for the Quick Links spots. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
+
 $string['quicklinks'] = 'Quick Link Number ';
 
 $string['quicklinksnumber'] = 'Number of Links';
@@ -202,7 +212,7 @@ $string['quicklinkstitle'] = 'Area heading';
 $string['quicklinkstitledesc'] = 'The name associated with the Quick Links area on the front page.';
 
 $string['quicklinkicon'] = 'Icon';
-$string['quicklinkicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "icon-".';
+$string['quicklinkicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
 $string['quicklinkiconcolor'] = 'Quick Link Color';
 $string['quicklinkiconcolordesc'] = 'Background color behind the Quick Link icon';
 $string['quicklinkbuttontext'] = 'Link Text';
