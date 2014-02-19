@@ -50,79 +50,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-
-    // Custom CSS file.
-    $name = 'theme_elegance/customcss';
-    $title = get_string('customcss', 'theme_elegance');
-    $description = get_string('customcssdesc', 'theme_elegance');
-    $default = '';
-    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    // Main theme colour setting.
-    $name = 'theme_elegance/themecolor';
-    $title = get_string('themecolor', 'theme_elegance');
-    $description = get_string('themecolordesc', 'theme_elegance');
-    $default = '#243769';
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    // Logo Image.
-    $name = 'theme_elegance/logo';
-    $title = get_string('logo', 'theme_elegance');
-    $description = get_string('logodesc', 'theme_elegance');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    	
-    // Header Background Image.
-    $name = 'theme_elegance/headerbg';
-    $title = get_string('headerbg', 'theme_elegance');
-    $description = get_string('headerbgdesc', 'theme_elegance');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbg');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    // Body Background Image.
-    $name = 'theme_elegance/bodybg';
-    $title = get_string('bodybg', 'theme_elegance');
-    $description = get_string('bodybgdesc', 'theme_elegance');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'bodybg');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
-    // Set Transparency.
-    	$name = 'theme_elegance/transparency';
-    	$title = get_string('transparency' , 'theme_elegance');
-    	$description = get_string('transparencydesc', 'theme_elegance');
-    	$default = '1';
-    	$choices = array(
-    		'.10'=>'10%',
-    		'.15'=>'15%',
-    		'.20'=>'20%',
-    		'.25'=>'25%',
-    		'.30'=>'30%',
-    		'.35'=>'35%',
-    		'.40'=>'40%',
-    		'.45'=>'45%',
-    		'.50'=>'50%',
-    		'.55'=>'55%',
-    		'.60'=>'60%',
-    		'.75'=>'65%',
-    		'.70'=>'70%',
-    		'.75'=>'75%',
-    		'.80'=>'80%',
-    		'.85'=>'85%',
-    		'.90'=>'90%',
-    		'.95'=>'95%',
-    		'1'=>'100%');
-    	$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    	$setting->set_updatedcallback('theme_reset_all_caches');
-    	$temp->add($setting);
-
     
     // Frontpage Content.
     $name = 'theme_elegance/frontpagecontent';
@@ -157,6 +84,105 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
+    
+    // Custom CSS file.
+    $name = 'theme_elegance/customcss';
+    $title = get_string('customcss', 'theme_elegance');
+    $description = get_string('customcssdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    $ADMIN->add('theme_elegance', $temp);
+    
+    /* Color and Logo Settings */
+    $temp = new admin_settingpage('theme_elegance_colors', get_string('colorsettings', 'theme_elegance'));
+    $temp->add(new admin_setting_heading('theme_elegance_colors', get_string('colorsettingssub', 'theme_elegance'),
+    		format_text(get_string('colorsettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+    		
+    	// Main theme colour setting.
+    	$name = 'theme_elegance/themecolor';
+    	$title = get_string('themecolor', 'theme_elegance');
+    	$description = get_string('themecolordesc', 'theme_elegance');
+    	$default = '#243769';
+    	$previewconfig = null;
+    	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Main Font colour setting.
+    	$name = 'theme_elegance/fontcolor';
+    	$title = get_string('fontcolor', 'theme_elegance');
+    	$description = get_string('fontcolordesc', 'theme_elegance');
+    	$default = '#666';
+    	$previewconfig = null;
+    	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Heading colour setting.
+    	$name = 'theme_elegance/headingcolor';
+    	$title = get_string('headingcolor', 'theme_elegance');
+    	$description = get_string('headingcolordesc', 'theme_elegance');
+    	$default = '#27282a';
+    	$previewconfig = null;
+    	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+
+    	// Logo Image.
+    	$name = 'theme_elegance/logo';
+    	$title = get_string('logo', 'theme_elegance');
+    	$description = get_string('logodesc', 'theme_elegance');
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    			
+    	// Header Background Image.
+    	$name = 'theme_elegance/headerbg';
+    	$title = get_string('headerbg', 'theme_elegance');
+    	$description = get_string('headerbgdesc', 'theme_elegance');
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbg');
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    		
+    	// Body Background Image.
+    	$name = 'theme_elegance/bodybg';
+    	$title = get_string('bodybg', 'theme_elegance');
+    	$description = get_string('bodybgdesc', 'theme_elegance');
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bodybg');
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    
+    	// Set Transparency.
+    	$name = 'theme_elegance/transparency';
+    	$title = get_string('transparency' , 'theme_elegance');
+    	$description = get_string('transparencydesc', 'theme_elegance');
+    	$default = '1';
+    	$choices = array(
+    		'.10'=>'10%',
+    		'.15'=>'15%',
+    		'.20'=>'20%',
+    		'.25'=>'25%',
+    		'.30'=>'30%',				
+    		'.35'=>'35%',
+    		'.40'=>'40%',
+    		'.45'=>'45%',
+    		'.50'=>'50%',
+    		'.55'=>'55%',
+    		'.60'=>'60%',
+    		'.75'=>'65%',
+    		'.70'=>'70%',
+    		'.75'=>'75%',
+    		'.80'=>'80%',
+    		'.85'=>'85%',
+    		'.90'=>'90%',
+    		'.95'=>'95%',
+   		'1'=>'100%');
+    	$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+   	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
     
     $ADMIN->add('theme_elegance', $temp);
     

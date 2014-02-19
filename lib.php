@@ -64,6 +64,11 @@ function theme_elegance_process_css($css, $theme) {
     $setting = 'headerbg';
     $headerbg = $theme->setting_file_url($setting, $setting);
     $css = theme_elegance_set_headerbg($css, $headerbg, $setting);
+    
+    // Set the background image for the Page.
+    $setting = 'bodybg';
+    $bodybg = $theme->setting_file_url($setting, $setting);
+    $css = theme_elegance_set_bodybg($css, $bodybg, $setting);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -80,6 +85,22 @@ function theme_elegance_process_css($css, $theme) {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
+    
+    // Set the font color.
+    if (!empty($theme->settings->fontcolor)) {
+        $fontcolor = $theme->settings->fontcolor;
+    } else {
+        $fontcolor = null;
+    }
+    $css = theme_elegance_set_fontcolor($css, $fontcolor);
+    
+    // Set the heading color.
+    if (!empty($theme->settings->headingcolor)) {
+        $headingcolor = $theme->settings->headingcolor;
+    } else {
+        $headingcolor = null;
+    }
+    $css = theme_elegance_set_headingcolor($css, $headingcolor);
         
     // Set the Defaut Category Icon.
     if (!empty($theme->settings->defaultcategoryicon)) {
@@ -180,6 +201,14 @@ function theme_elegance_process_css($css, $theme) {
     }
     $css = theme_elegance_set_bannercolor10($css, $bannercolor10);
     
+    // Set the Transparency.
+    if (!empty($theme->settings->transparency)) {
+        $transparency = $theme->settings->transparency;
+    } else {
+        $transparency = null;
+    }
+    $css = theme_elegance_set_transparency($css, $transparency);
+    
     $css = theme_elegance_set_fontwww($css);
     
     return $css;
@@ -214,6 +243,26 @@ function theme_elegance_set_themecolor($css, $themecolor) {
     return $css;
 }
 
+function theme_elegance_set_fontcolor($css, $fontcolor) {
+    $tag = '[[setting:fontcolor]]';
+    $replacement = $fontcolor;
+    if (is_null($replacement)) {
+        $replacement = '#666';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_headingcolor($css, $headingcolor) {
+    $tag = '[[setting:headingcolor]]';
+    $replacement = $headingcolor;
+    if (is_null($replacement)) {
+        $replacement = '#27282a';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 /**
  * Serves any files associated with the theme settings.
  *
@@ -234,6 +283,8 @@ function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $fo
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'headerbg') {
             return $theme->setting_file_serve('headerbg', $args, $forcedownload, $options);
+        } else if ($filearea === 'bodybg') {
+            return $theme->setting_file_serve('bodybg', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage1') {
             return $theme->setting_file_serve('bannerimage1', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage2') {
@@ -356,6 +407,18 @@ function theme_elegance_set_headerbg($css, $headerbg, $setting) {
     return $css;
 }
 
+function theme_elegance_set_bodybg($css, $bodybg, $setting) {
+    global $OUTPUT;
+    $tag = '[[setting:bodybg]]';
+    $replacement = $bodybg;
+    if (is_null($replacement)) {
+        // Get default image from themes 'bg' folder of the name in $setting.
+        $replacement = $OUTPUT->pix_url('', 'theme');
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 function theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon) {
     $tag = '[[setting:defaultcategoryicon]]';
     $replacement = $defaultcategoryicon;
@@ -472,6 +535,16 @@ function theme_elegance_set_bannercolor10($css, $bannercolor10) {
     $replacement = $bannercolor10;
     if (is_null($replacement)) {
         $replacement = '#000000';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_transparency($css, $transparency) {
+    $tag = '[[setting:transparency]]';
+    $replacement = $transparency;
+    if (is_null($replacement)) {
+        $replacement = '1';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;

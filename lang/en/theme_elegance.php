@@ -64,19 +64,6 @@ $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed i
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
 
-$string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
-As space in the navbar is limited, your logo should be no more than 30px high.';
-
-$string['headerbg'] = 'Header Background';
-$string['headerbgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
-Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
-<strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
-
-$string['bodybg'] = 'Page Background';
-$string['bodybgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
-<strong>Cool Tip</strong>: You can use this to show through Moodle content using the transparency option below.';
-
 $string['transparency'] = 'Content trasparency';
 $string['transparencydesc'] = 'Want to see more of your background show through? This setting changes the transparency of Moodle content and blocks';
 
@@ -88,9 +75,6 @@ $string['visibleadminonly'] = 'Blocks moved into the area below will only be see
 $string['backtotop'] = 'Back to top';
 $string['nextsection'] = 'Next Section';
 $string['previoussection'] = 'Previous Section';
-
-$string['themecolor'] = 'Theme Colour';
-$string['themecolordesc'] = 'What colour should your theme be.  This will change mulitple components to produce the colour you wish across the moodle site';
 
 $string['copyright'] = 'Copyright';
 $string['copyrightdesc'] = 'The name of your organisation.';
@@ -108,6 +92,34 @@ $string['alwaysdisplay'] = 'Always Show';
 $string['displaybeforelogin'] = 'Show before login only';
 $string['displayafterlogin'] = 'Show after login only';
 $string['dontdisplay'] = 'Never Show';
+
+/* Colors and Logos */
+
+$string['colorsettings'] = 'Logos & Colors';
+$string['colorsettingssub'] = 'Change your look and feel';
+$string['colorsettingsdesc'] = 'Upload your logos and change the theme colors with these settings.';
+
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
+As space in the navbar is limited, your logo should be no more than 30px high.';
+
+$string['headerbg'] = 'Header Background';
+$string['headerbgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
+Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
+<strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
+
+$string['bodybg'] = 'Page Background';
+$string['bodybgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
+<strong>Cool Tip</strong>: You can use this to show through Moodle content using the transparency option below.';
+
+$string['themecolor'] = 'Theme Colour';
+$string['themecolordesc'] = 'Set your theme "highlght" color. This is also used for links.';
+
+$string['fontcolor'] = 'Font Colour';
+$string['fontcolordesc'] = 'Set the main font color used throughout the site.';
+
+$string['headingcolor'] = 'Heading Colours';
+$string['headingcolordesc'] = 'Set the color used for the majority of Headings throughout the site.';
 
 /* Banners */
 
