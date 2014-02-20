@@ -84,27 +84,25 @@ echo $OUTPUT->doctype() ?>
 	</div>
 </nav>
 
-<div id="page">
+<!-- Start Slideshow -->
+<?php require_once(dirname(__FILE__).'/includes/slideshow.php'); ?>
+<!-- End Slideshow -->
 
-	<!-- Start Slideshow -->
-    <?php require_once(dirname(__FILE__).'/includes/slideshow.php'); ?>
-	<!-- End Slideshow -->
-	
-    <header id="page-header" class="clearfix">
-	    <!-- Start Frontpage Content -->
-		<?php if (!empty($hasfrontpagecontent)) {
-		    echo '<div id="fontpagecontent" class="container">'.$hasfrontpagecontent.'</div>';
-		} ?>
+<header id="page-header" class="clearfix">
+	<!-- Start Frontpage Content -->
+	<?php if (!empty($hasfrontpagecontent)) {
+		echo '<div id="fontpagecontent" class="container">'.$hasfrontpagecontent.'</div>';
+	} ?>
 
-	    <!-- End Frontpage Content -->
-	    
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
-        </div>
-    </header>
-    
-    
-    
+	<!-- End Frontpage Content -->
+
+	<div id="course-header">
+		<?php echo $OUTPUT->course_header(); ?>
+	</div>
+</header>
+
+
+<div id="page" class="container">
     
     <!-- Start Marketing Spots -->
     <?php 
@@ -118,7 +116,7 @@ echo $OUTPUT->doctype() ?>
     ?>
     <!-- End Marketing Spots -->
 
-    <div id="page-content" class="container">
+    <div id="page-content" class="row">
 	    <div id="region-main" class="<?php echo $regions['content']; ?>">
 		    
 		    <!-- Start Quick Links -->

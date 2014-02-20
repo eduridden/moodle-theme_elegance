@@ -271,7 +271,7 @@ class theme_elegance_core_renderer extends core_renderer {
                 }
                 
                 // Add custom links to menu
-                $customlinksnum = $PAGE->theme->settings->usermenulinks;
+                $customlinksnum = (empty($PAGE->theme->settings->usermenulinks)) ? false : $PAGE->theme->settings->usermenulinks;
                 if ($customlinksnum !=0) {
                     foreach (range(1, $customlinksnum) as $customlinksnumber) {
                         $cli = "customlinkicon$customlinksnumber";

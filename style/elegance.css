@@ -137,7 +137,7 @@ a:hover, a:focus{
 }
 
 #page-content {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 #region-main{
@@ -1694,6 +1694,10 @@ blockquote>.icon-quote-left{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	font-family: "Roboto";
+}
+
+#page-marketing {
+	margin-top: 20px;
 }
 
 .path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li:nth-of-type(odd){
