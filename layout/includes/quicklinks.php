@@ -42,8 +42,8 @@
 		$qlt = "quicklinkbuttontext$quicklinksnumber";
 		$qlu = "quicklinkbuttonurl$quicklinksnumber";
 		?>
-		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">
-			<?php 
+		<?php
+		echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">';
 			if (!empty($PAGE->theme->settings->$qlu)) {
 				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
 			}

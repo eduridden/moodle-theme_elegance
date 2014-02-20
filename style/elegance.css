@@ -2649,6 +2649,9 @@ table#user-grades th.userreport.c1 {
 	clear: both;
 }
 
+.mycourseboxes h2 {
+	color: [[setting:fontcolor]] !important;
+}
 #allcourses {
 	float: right;
 	margin-right: 25px;

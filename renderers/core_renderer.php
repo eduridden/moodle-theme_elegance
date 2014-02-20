@@ -156,7 +156,7 @@ class theme_elegance_core_renderer extends core_renderer {
      * This renderer is needed to enable the Bootstrap style navigation.
      */
     protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER, $DB;
+        global $CFG, $USER, $DB, $PAGE;
     
         $addusermenu = true;
         $addlangmenu = true;
@@ -221,29 +221,72 @@ class theme_elegance_core_renderer extends core_renderer {
         if ($addusermenu) {
             if (isloggedin() && !isguestuser()) {
                 $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
-                $usermenu->add(
-                    '<i class="fa fa-briefcase"></i>' . get_string('mydashboard','theme_elegance'),
-                    new moodle_url('/my', array('id'=>$USER->id)),
-                    get_string('mydashboard','theme_elegance')
-                );
-    
-                $usermenu->add(
-                    '<i class="fa fa-user"></i>' . get_string('viewprofile'),
-                    new moodle_url('/user/profile.php', array('id' => $USER->id)),
-                    get_string('viewprofile')
-                );
-    
-                $usermenu->add(
-                    '<i class="fa fa-cog"></i>' . get_string('editmyprofile'),
-                    new moodle_url('/user/edit.php', array('id' => $USER->id)),
-                    get_string('editmyprofile')
-                );
                 
-                $usermenu->add(
-                    '<i class="fa fa-calendar"></i>' . get_string('calendar','calendar'),
-                    new moodle_url('/calendar/view.php?view=month', array('sesskey'=>sesskey(), 'alt'=>'logout')),
-                    get_string('calendar','calendar')
-                );
+                if (!empty($PAGE->theme->settings->enablemy)) {
+                    $usermenu->add(
+                        '<i class="fa fa-briefcase"></i>' . get_string('mydashboard','theme_elegance'),
+                        new moodle_url('/my', array('id'=>$USER->id)),
+                        get_string('mydashboard','theme_elegance')
+                    );
+                }
+    
+                if (!empty($PAGE->theme->settings->enableprofile)) {
+                    $usermenu->add(
+                        '<i class="fa fa-user"></i>' . get_string('viewprofile'),
+                        new moodle_url('/user/profile.php', array('id' => $USER->id)),
+                        get_string('viewprofile')
+                    );
+                }
+                
+                if (!empty($PAGE->theme->settings->enableeditprofile)) {    
+                        $usermenu->add(
+                        '<i class="fa fa-cog"></i>' . get_string('editmyprofile'),
+                        new moodle_url('/user/edit.php', array('id' => $USER->id)),
+                    get_string('editmyprofile')
+                    );
+                }
+                
+                if (!empty($PAGE->theme->settings->enableprivatefiles)) {
+                    $usermenu->add(
+                        '<i class="fa fa-file"></i>' . get_string('privatefiles', 'block_private_files'),
+                        new moodle_url('/user/files.php', array('id' => $USER->id)),
+                        get_string('privatefiles', 'block_private_files')
+                    );
+                }
+                
+                if (!empty($PAGE->theme->settings->enablebadges)) {
+                    $usermenu->add(
+                        '<i class="fa fa-certificate"></i>' . get_string('badges'),
+                        new moodle_url('/badges/mybadges.php', array('id' => $USER->id)),
+                        get_string('badges')
+                    );
+                }
+                
+                if (!empty($PAGE->theme->settings->enablecalendar)) {
+                    $usermenu->add(
+                        '<i class="fa fa-calendar"></i>' . get_string('pluginname', 'block_calendar_month'),
+                        new moodle_url('/calendar/view.php', array('id' => $USER->id)),
+                        get_string('pluginname', 'block_calendar_month')
+                    );
+                }
+                
+                // Add custom links to menu
+                $customlinksnum = $PAGE->theme->settings->usermenulinks;
+                if ($customlinksnum !=0) {
+                    foreach (range(1, $customlinksnum) as $customlinksnumber) {
+                        $cli = "customlinkicon$customlinksnumber";
+                        $cln = "customlinkname$customlinksnumber";
+                        $clu = "customlinkurl$customlinksnumber";
+                        
+                        if (!empty($PAGE->theme->settings->enablecalendar)) {
+                            $usermenu->add(
+                                '<i class="fa fa-'.$PAGE->theme->settings->$cli.'"></i>' .$PAGE->theme->settings->$cln,
+                                new moodle_url($PAGE->theme->settings->$clu, array('id' => $USER->id)),
+                                $PAGE->theme->settings->$cln
+                            );
+                        }
+                    }
+                }
                 
                 $usermenu->add(
                     '<i class="fa fa-lock"></i>' . get_string('logout'),

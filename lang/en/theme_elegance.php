@@ -93,6 +93,46 @@ $string['displaybeforelogin'] = 'Show before login only';
 $string['displayafterlogin'] = 'Show after login only';
 $string['dontdisplay'] = 'Never Show';
 
+/* User Menu */
+
+$string['usermenusettings'] = 'User Menu';
+$string['usermenusettingssub'] = 'Options for logged in users';
+$string['usermenusettingsdesc'] = 'Determine which links show in the logged in user menu';
+
+$string['enablemy'] = 'My Dashboard';
+$string['enablemydesc'] = 'Display a link to the MyMoodle page';
+
+$string['enableprofile'] = 'User Profile';
+$string['enableprofiledesc'] = 'Display a link to the users profile';
+
+$string['enableeditprofile'] = 'Edit Profile';
+$string['enableeditprofiledesc'] = 'Display a link to edit the users profile';
+
+$string['enablebadges'] = 'Badges';
+$string['enablebadgesdesc'] = 'Display a link to the users badges';
+
+$string['enablecalendar'] = 'User Calendar';
+$string['enablecalendardesc'] = 'Display a link to the users calendar';
+
+$string['enableprivatefiles'] = 'Private Files';
+$string['enableprivatefilesdesc'] = 'Display a link to the users private files';
+
+$string['usermenulinks'] = '# of Custom Links';
+$string['usermenulinksdesc'] = 'Set how many extra links you would like to add for your users.<br>You will need to save the settings for the new link options to appear.';
+
+$string['customlinkindicator'] = 'Custom Link Number ';
+$string['customlinkindicatordesc'] = 'Set up this custom link';
+
+$string['customlinkicon'] = 'Link Icon';
+$string['customlinkicondesc'] = 'Name of the icon you wish to use next to your link.<br> List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
+
+$string['customlinkname'] = 'Link Name';
+$string['customlinknamedesc'] = 'Name shown to users for your link';
+
+$string['customlinkurl'] = 'Link Destination URL';
+$string['customlinkurldesc'] = 'The full or relative path for your destination URL.';
+
+
 /* Colors and Logos */
 
 $string['colorsettings'] = 'Logos & Colors';

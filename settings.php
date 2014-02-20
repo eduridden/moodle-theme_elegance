@@ -187,6 +187,135 @@ defined('MOODLE_INTERNAL') || die;
     $ADMIN->add('theme_elegance', $temp);
     
     /* Banner Settings */
+    $temp = new admin_settingpage('theme_elegance_usermenu', get_string('usermenusettings', 'theme_elegance'));
+    $temp->add(new admin_setting_heading('theme_elegance_usermenu', get_string('usermenusettingssub', 'theme_elegance'),
+    		format_text(get_string('usermenusettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
+    		
+    	// Enable My.
+    	$name = 'theme_elegance/enablemy';
+    	$title = get_string('enablemy', 'theme_elegance');
+    	$description = get_string('enablemydesc', 'theme_elegance');
+    	$default = true;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Enable View Profile.
+    	$name = 'theme_elegance/enableprofile';
+    	$title = get_string('enableprofile', 'theme_elegance');
+    	$description = get_string('enableprofiledesc', 'theme_elegance');
+    	$default = true;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Enable Edit Profile.
+    	$name = 'theme_elegance/enableeditprofile';
+    	$title = get_string('enableeditprofile', 'theme_elegance');
+    	$description = get_string('enableeditprofiledesc', 'theme_elegance');
+    	$default = true;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Enable Calendar.
+    	$name = 'theme_elegance/enablecalendar';
+    	$title = get_string('enablecalendar', 'theme_elegance');
+    	$description = get_string('enablecalendardesc', 'theme_elegance');
+    	$default = true;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Enable Private Files.
+    	$name = 'theme_elegance/enableprivatefiles';
+    	$title = get_string('enableprivatefiles', 'theme_elegance');
+    	$description = get_string('enableprivatefilesdesc', 'theme_elegance');
+    	$default = false;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    	
+    	// Enable Badges.
+    	$name = 'theme_elegance/enablebadges';
+    	$title = get_string('enablebadges', 'theme_elegance');
+    	$description = get_string('enablebadgesdesc', 'theme_elegance');
+    	$default = false;
+    	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    		
+    	// Additional number of links.
+    		$name = 'theme_elegance/usermenulinks';
+    		$title = get_string('usermenulinks' , 'theme_elegance');
+    		$description = get_string('usermenulinksdesc', 'theme_elegance');
+    		$default = '0';
+    		$choices = array(
+    			'0'=>'0',
+    			'1'=>'1',
+    			'2'=>'2',
+    			'3'=>'3',
+    			'4'=>'4',
+    			'5'=>'5',
+    			'6'=>'6',
+    			'7'=>'7',
+    			'8'=>'8',
+    			'9'=>'9',
+    			'10'=>'10');
+    		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    		$setting->set_updatedcallback('theme_reset_all_caches');
+    		$temp->add($setting);
+    		
+    		$hascustomlinknum = (!empty($PAGE->theme->settings->usermenulinks));
+    			if ($hascustomlinknum) {
+    				$usermenulinks = $PAGE->theme->settings->usermenulinks;
+    			} else {
+    				$usermenulinks = '0';
+    			}
+    if ($hascustomlinknum !=0) {		
+		foreach (range(1, $usermenulinks) as $customlinknumber) {
+		
+		// This is the descriptor for the Custom Link.
+		$name = 'theme_elegance/customlink';
+		$title = get_string('customlinkindicator', 'theme_elegance');
+		$information = get_string('customlinkindicatordesc', 'theme_elegance');
+		$setting = new admin_setting_heading($name.$customlinknumber, $title.$customlinknumber, $information);
+		$setting->set_updatedcallback('theme_reset_all_caches');
+		$temp->add($setting);
+			
+		// Icon for Custom Link
+		$name = 'theme_elegance/customlinkicon' . $customlinknumber;
+		$title = get_string('customlinkicon', 'theme_elegance', $customlinknumber);
+		$description = get_string('customlinkicondesc', 'theme_elegance', $customlinknumber);
+		$default = 'dot-circle-o';
+		$setting = new admin_setting_configtextarea($name, $title, $description, $default);
+		$setting->set_updatedcallback('theme_reset_all_caches');
+		$temp->add($setting);
+		
+		// Text for Custom Link
+		$name = 'theme_elegance/customlinkname' . $customlinknumber;
+		$title = get_string('customlinkname', 'theme_elegance', $customlinknumber);
+		$description = get_string('customlinknamedesc', 'theme_elegance', $customlinknumber);
+		$default = '';
+		$setting = new admin_setting_configtext($name, $title, $description, $default);
+		$setting->set_updatedcallback('theme_reset_all_caches');
+		$temp->add($setting);
+		
+		// Destination URL for Custom Link
+		$name = 'theme_elegance/customlinkurl' . $customlinknumber;
+		$title = get_string('customlinkurl', 'theme_elegance', $customlinknumber);
+		$description = get_string('customlinkurldesc', 'theme_elegance', $customlinknumber);
+		$default = '';
+		$previewconfig = null;
+		$setting = new admin_setting_configtext($name, $title, $description, $default);
+		$setting->set_updatedcallback('theme_reset_all_caches');
+		$temp->add($setting);
+		}
+	}
+    		
+    	$ADMIN->add('theme_elegance', $temp);
+    
+    /* Banner Settings */
     $temp = new admin_settingpage('theme_elegance_banner', get_string('bannersettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_banner', get_string('bannersettingssub', 'theme_elegance'),
             format_text(get_string('bannersettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
@@ -214,7 +343,7 @@ defined('MOODLE_INTERNAL') || die;
     
     $hasslidenum = (!empty($PAGE->theme->settings->slidenumber));
     if ($hasslidenum) {
-    	$slidenum = $PAGE->theme->settings->slidenumber;
+    		$slidenum = $PAGE->theme->settings->slidenumber;
 	} else {
 		$slidenum = '1';
 	}
@@ -620,7 +749,7 @@ defined('MOODLE_INTERNAL') || die;
 
     foreach (range(1, $loginbgnum) as $loginbgnumber) {
         
-        // Login Background Image.
+    // Login Background Image.
     	$name = 'theme_elegance/loginimage' . $loginbgnumber;
     	$title = get_string('loginimage', 'theme_elegance');
     	$description = get_string('loginimagedesc', 'theme_elegance');
