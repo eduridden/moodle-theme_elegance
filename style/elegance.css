@@ -491,6 +491,50 @@ h2.quicklinksheader::after {
 	background: [[setting:quicklinkbuttoncolor1]] !important;
 }
 
+.quicklinkbuttoncolor2 {
+	background: [[setting:quicklinkbuttoncolor2]] !important;
+}
+
+.quicklinkbuttoncolor3 {
+	background: [[setting:quicklinkbuttoncolor3]] !important;
+}
+
+.quicklinkbuttoncolor4 {
+	background: [[setting:quicklinkbuttoncolor4]] !important;
+}
+
+.quicklinkbuttoncolor5 {
+	background: [[setting:quicklinkbuttoncolor5]] !important;
+}
+
+.quicklinkbuttoncolor6 {
+	background: [[setting:quicklinkbuttoncolor6]] !important;
+}
+
+.quicklinkbuttoncolor7 {
+	background: [[setting:quicklinkbuttoncolor7]] !important;
+}
+
+.quicklinkbuttoncolor8 {
+	background: [[setting:quicklinkbuttoncolor8]] !important;
+}
+
+.quicklinkbuttoncolor9 {
+	background: [[setting:quicklinkbuttoncolor9]] !important;
+}
+
+.quicklinkbuttoncolor10 {
+	background: [[setting:quicklinkbuttoncolor10]] !important;
+}
+
+.quicklinkbuttoncolor1 {
+	background: [[setting:quicklinkbuttoncolor11]] !important;
+}
+
+.quicklinkbuttoncolor12 {
+	background: [[setting:quicklinkbuttoncolor12]] !important;
+}
+
 #circle-highlight .fa {
 	font-size: 3.5em;
 	margin-top: 18px;

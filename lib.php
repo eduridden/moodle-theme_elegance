@@ -140,7 +140,7 @@ function theme_elegance_process_css($css, $theme) {
     
     // Set Quicklink Button Color.
     foreach (range(1, 12) as $quicklinksnumber) {
-        $quicklinkbuttoncolor = $theme->settings->themecolor;
+        $quicklinkbuttoncolor = '#ecedf0';
             if (!empty($theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber})) {
                 $quicklinkbuttoncolor = $theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber};
             }
