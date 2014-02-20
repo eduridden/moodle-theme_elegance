@@ -1,5 +1,5 @@
 <?php
-// This file is part of the custom Moodle elegance theme
+// This file is part of The Bootstrap 3 Moodle theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,19 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Renderers to align Moodle's HTML with that expected by elegance
+ * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_elegance
- * @copyright  2014 Julian Ridden http://moodleman.net
- * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
+ * @package    theme_bootstrap
+ * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once($CFG->dirroot . "/admin/renderer.php");
 
-class theme_elegance_core_admin_renderer extends core_admin_renderer {
+class theme_bootstrap_core_admin_renderer extends core_admin_renderer {
 
     protected function maturity_info($maturity) {
         if ($maturity == MATURITY_STABLE) {
@@ -34,16 +32,16 @@ class theme_elegance_core_admin_renderer extends core_admin_renderer {
         }
 
         if ($maturity == MATURITY_ALPHA) {
-            $notify_level = 'notifyproblem';
+            $level = 'notifyproblem';
         } else {
-            $notify_level = 'notifywarning';
+            $level = 'notifywarning';
         }
 
         $maturitylevel = get_string('maturity' . $maturity, 'admin');
         $warningtext = get_string('maturitycoreinfo', 'admin', $maturitylevel);
-        $doc_link = $this->doc_link('admin/versions', get_string('morehelp'));
+        $doclink = $this->doc_link('admin/versions', get_string('morehelp'));
 
-        return $this->notification($warningtext . ' ' . $doc_link, $notify_level);
+        return $this->notification($warningtext . ' ' . $doclink, $level);
     }
 
     protected function maturity_warning($maturity) {
@@ -52,10 +50,10 @@ class theme_elegance_core_admin_renderer extends core_admin_renderer {
         }
 
         $maturitylevel = get_string('maturity' . $maturity, 'admin');
-        $maturity_warning = get_string('maturitycorewarning', 'admin', $maturitylevel);
-        $maturity_warning .= $this->doc_link('admin/versions', get_string('morehelp'));
+        $maturitywarning = get_string('maturitycorewarning', 'admin', $maturitylevel);
+        $maturitywarning .= $this->doc_link('admin/versions', get_string('morehelp'));
 
-        return $this->notification($maturity_warning, 'notifyproblem');
+        return $this->notification($maturitywarning, 'notifyproblem');
     }
 
     /**
