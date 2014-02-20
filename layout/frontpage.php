@@ -92,10 +92,9 @@ echo $OUTPUT->doctype() ?>
 	
     <header id="page-header" class="clearfix">
 	    <!-- Start Frontpage Content -->
-
-		    <div id="fontpagecontent" class="container">
-			    <?php echo $hasfrontpagecontent; ?>
-			</div>
+		<?php if (!empty($hasfrontpagecontent)) {
+		    echo '<div id="fontpagecontent" class="container">'.$hasfrontpagecontent.'</div>';
+		} ?>
 
 	    <!-- End Frontpage Content -->
 	    
