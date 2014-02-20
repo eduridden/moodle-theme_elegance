@@ -50,6 +50,9 @@ Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 $string['pluginname'] = 'Elegance';
 $string['configtitle'] = 'Elegance';
 
+$string['region-side-middle'] = 'Homepage Middle';
+$string['region-hidden-dock'] = 'Admin Only';
+
 $string['mydashboard'] = 'My Dashboard';
 
 $string['customcss'] = 'Custom CSS';
