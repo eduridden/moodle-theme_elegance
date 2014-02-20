@@ -105,7 +105,7 @@ defined('MOODLE_INTERNAL') || die;
     	$name = 'theme_elegance/themecolor';
     	$title = get_string('themecolor', 'theme_elegance');
     	$description = get_string('themecolordesc', 'theme_elegance');
-    	$default = '#243769';
+    	$default = '#0098e0';
     	$previewconfig = null;
     	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     	$setting->set_updatedcallback('theme_reset_all_caches');

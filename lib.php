@@ -256,7 +256,7 @@ function theme_elegance_set_themecolor($css, $themecolor) {
     $tag = '[[setting:themecolor]]';
     $replacement = $themecolor;
     if (is_null($replacement)) {
-        $replacement = '#243769';
+        $replacement = '#0098e0';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;
