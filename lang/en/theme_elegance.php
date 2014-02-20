@@ -148,9 +148,12 @@ $string['headerbgdesc'] = 'If you want to replace the standard background you ca
 Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
 <strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
 
-$string['bodybg'] = 'Page Background';
+$string['bodybg'] = 'Background Image';
 $string['bodybgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
 <strong>Cool Tip</strong>: You can use this to show through Moodle content using the transparency option below.';
+
+$string['bodycolor'] = 'Background Color';
+$string['bodycolordesc'] = 'If no image is uploaded Moodle will then default to this color';
 
 $string['themecolor'] = 'Theme Colour';
 $string['themecolordesc'] = 'Set your theme "highlght" color. This is also used for links.';

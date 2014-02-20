@@ -78,13 +78,21 @@ function theme_elegance_process_css($css, $theme) {
     }
     $css = theme_elegance_set_customcss($css, $customcss);
     
-    // Set the theme color.
+    // Set the theme main color.
     if (!empty($theme->settings->themecolor)) {
         $themecolor = $theme->settings->themecolor;
     } else {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
+    
+    // Set the theme backgroundcolor.
+    if (!empty($theme->settings->bodycolor)) {
+        $bodycolor = $theme->settings->bodycolor;
+    } else {
+        $bodycolor = null;
+    }
+    $css = theme_elegance_set_bodycolor($css, $bodycolor);
     
     // Set the font color.
     if (!empty($theme->settings->fontcolor)) {
@@ -257,6 +265,16 @@ function theme_elegance_set_themecolor($css, $themecolor) {
     $replacement = $themecolor;
     if (is_null($replacement)) {
         $replacement = '#0098e0';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_bodycolor($css, $bodycolor) {
+    $tag = '[[setting:bodycolor]]';
+    $replacement = $bodycolor;
+    if (is_null($replacement)) {
+        $replacement = '#f1f1f4';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;

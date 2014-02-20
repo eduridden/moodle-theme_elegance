@@ -154,6 +154,16 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bodybg');
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
+    	
+    	// Main theme colour setting.
+    	$name = 'theme_elegance/bodycolor';
+    	$title = get_string('bodycolor', 'theme_elegance');
+    	$description = get_string('bodycolordesc', 'theme_elegance');
+    	$default = '#f1f1f4';
+    	$previewconfig = null;
+    	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
     
     	// Set Transparency.
     	$name = 'theme_elegance/transparency';
