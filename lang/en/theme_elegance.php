@@ -44,6 +44,11 @@ Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 </p>
 <h3>Report a bug:</h3>
 <p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
+<h3>Donate if you can</h3>
+<p>Elegance, and all my themes, will always be free to the Moodle community. However the time it is taking to ceate and maintain these is inscreasing with every release. If you like this theme and the support I provide in the forums I would like to encourage you to donate with the button below. This is in no way required to use this theme.</p>
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KNV2ZPHCYTB8E" class="btn btn-lrg btn-info">Donate AUD$15</a>
+
 </div></div>';
 
 $string['pluginname'] = 'Elegance';
