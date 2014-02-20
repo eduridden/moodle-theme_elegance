@@ -34,7 +34,11 @@ $string['choosereadme'] = '
 <h3>About</h3>
 <p>Elegance is a 2 column, clean and highly customisable theme built on the Bootstrap 3 framework.</p>
 <h3>Theme Credits</h3>
-<p>Authors: Bas Brands (for the Bootstrap 3 work)<br>
+<p>Author: Julian (Moodleman) Ridden<br>
+Contact: julian@moodleman.net<br>
+Website: <a href="http://moodleman.net">www.moodleman.net</a>
+</p>
+<p>Supportng Author: Bas Brands (for the Bootstrap 3 work)<br>
 Contact: bas@sonsbeekmedia.nl<br>
 Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 </p>
