@@ -646,6 +646,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Blog url setting.
+    $name = 'theme_elegance/blog';
+    $title = get_string('blog', 'theme_elegance');
+    $description = get_string('blogdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
     // Facebook url setting.
     $name = 'theme_elegance/facebook';
     $title = get_string(    	'facebook', 'theme_elegance');
@@ -691,6 +700,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Tumblr url setting.
+    $name = 'theme_elegance/tumblr';
+    $title = get_string('tumblr', 'theme_elegance');
+    $description = get_string('tumblrdesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
     // Pinterest url setting.
     $name = 'theme_elegance/pinterest';
     $title = get_string('pinterest', 'theme_elegance');
@@ -713,6 +731,15 @@ defined('MOODLE_INTERNAL') || die;
     $name = 'theme_elegance/youtube';
     $title = get_string('youtube', 'theme_elegance');
     $description = get_string('youtubedesc', 'theme_elegance');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Vimeo url setting.
+    $name = 'theme_elegance/vimeo';
+    $title = get_string('vimeo', 'theme_elegance');
+    $description = get_string('vimeodesc', 'theme_elegance');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');

@@ -240,20 +240,27 @@ $string['socialheading'] = 'Social Networking';
 $string['socialheadingsub'] = 'Engage your users with Social Networking';
 $string['socialdesc'] = 'Provide direct links to the core social networks that promote your brand.  These will appear in the header of every page.';
 $string['socialnetworks'] = 'Social Networks';
+
 $string['facebook'] = 'Facebook URL';
-$string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/mycollege)';
+$string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/pukunui)';
 
 $string['twitter'] = 'Twitter URL';
-$string['twitterdesc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/mycollege)';
+$string['twitterdesc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/pukunui)';
 
 $string['googleplus'] = 'Google+ URL';
-$string['googleplusdesc'] = 'Enter the URL of your Google+ profile. (i.e http://plus.google.com/107817105228930159735)';
+$string['googleplusdesc'] = 'Enter the URL of your Google+ profile. (i.e https://google.com/+Pukunui/)';
 
 $string['linkedin'] = 'LinkedIn URL';
-$string['linkedindesc'] = 'Enter the URL of your LinkedIn profile. (i.e http://www.linkedin.com/company/mycollege)';
+$string['linkedindesc'] = 'Enter the URL of your LinkedIn profile. (i.e http://www.linkedin.com/company/pukunui-technology)';
 
 $string['youtube'] = 'YouTube URL';
-$string['youtubedesc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/mycollege)';
+$string['youtubedesc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/moodleman)';
+
+$string['tumblr'] = 'Tumblr URL';
+$string['tumblrdesc'] = 'Enter the URL of your Tumblr. (i.e http://moodleman.tumblr.com)';
+
+$string['vimeo'] = 'Vimeo URL';
+$string['vimeodesc'] = 'Enter the URL of your Vimeo channel. (i.e http://vimeo.com/moodleman)';
 
 $string['flickr'] = 'Flickr URL';
 $string['flickrdesc'] = 'Enter the URL of your Flickr page. (i.e http://www.flickr.com/mycollege)';
@@ -272,6 +279,9 @@ $string['instagramdesc'] = 'Enter the URL of your Instagram page. (i.e http://in
 
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Enter the URL of your own website. (i.e http://www.pukunui.com)';
+
+$string['blog'] = 'Blog URL';
+$string['blogdesc'] = 'Enter the URL of your institution blog. (i.e http://www.moodleman.net)';
 
 
 /* Category Icons */
