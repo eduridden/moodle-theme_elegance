@@ -62,6 +62,12 @@ Author: Bas Brands
 URL: https://github.com/bmbrands/theme_bootstrap
 License: MIT/GPL2 Licensedc
 
+Course Tiles idea and initial coding
+------------
+Author: Jason La Greca
+URL: http://beenlearning.com/
+License: MIT/GPL2 Licensedc
+
 Html5shiv.js
 ------------
 Author: Sjoerd Visscher
