@@ -1120,6 +1120,74 @@ ul.socials {
 	margin-bottom: 10px;
 }
 
+/* @group Login Block */
+
+.block_login div.c1.btn:hover {
+	background: transparent !important;
+}
+
+.block_login .content form input[type="submit"],
+.block_login .content .footer a {
+    background-color: [[setting:themecolor]];
+    background-image: none;
+    border-color: #30ADD1;
+    border-image: none;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    margin: 10px 0;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+
+.block_login .content .footer a {
+    margin-left: -5px;
+    margin-top: 0px;
+    padding: 3px 12px;
+    font-family: FontAwesome;
+}
+.block_login input#login_username,
+.block_login input#login_password {
+    width: 95%;
+}
+
+.block_login .content .footer div:nth-child(1) a {
+	background: green;
+	border: 1px solid #b4b4b7;
+}
+
+.block_login .content .footer div:nth-child(2) a {
+	background: red;
+	border: 1px solid #b4b4b7;
+}
+
+.block_login .content .footer a:hover {
+	background: [[setting:themecolor]] !important;
+}
+
+.block_login .content .footer div:nth-child(1) a:before {
+	content:"\f090";
+	margin-right: 5px;
+}
+
+.block_login .content .footer div:nth-child(2) a:before {
+	content:"  \f09c";
+	margin-right: 5px;
+}
+
+/* @end */
+
 /* @group Block Icons */
 
 .block .header .title h2:before {
