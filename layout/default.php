@@ -84,7 +84,6 @@ echo $OUTPUT->doctype() ?>
     <div id="page-navbar" class="container">
         <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
         <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
-        <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
     </div>
 
     <div id="course-header">
