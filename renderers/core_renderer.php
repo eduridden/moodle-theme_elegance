@@ -219,7 +219,7 @@ class theme_elegance_core_renderer extends core_renderer {
         }
     
         if ($addusermenu) {
-            if (isloggedin()) {
+            if (isloggedin() && !isguestuser()) {
                 $usermenu = $menu->add('<i class="fa fa-user"></i>' .fullname($USER), new moodle_url('#'), fullname($USER), 10001);
                 $usermenu->add(
                     '<i class="fa fa-briefcase"></i>' . get_string('mydashboard','theme_elegance'),
@@ -229,13 +229,13 @@ class theme_elegance_core_renderer extends core_renderer {
     
                 $usermenu->add(
                     '<i class="fa fa-user"></i>' . get_string('viewprofile'),
-                    new moodle_url('/user/profile.php', array('id'=>$USER->id)),
+                    new moodle_url('/user/profile.php', array('id' => $USER->id)),
                     get_string('viewprofile')
                 );
     
                 $usermenu->add(
                     '<i class="fa fa-cog"></i>' . get_string('editmyprofile'),
-                    new moodle_url('/user/edit.php', array('id'=>$USER->id)),
+                    new moodle_url('/user/edit.php', array('id' => $USER->id)),
                     get_string('editmyprofile')
                 );
                 
@@ -247,7 +247,7 @@ class theme_elegance_core_renderer extends core_renderer {
                 
                 $usermenu->add(
                     '<i class="fa fa-lock"></i>' . get_string('logout'),
-                    new moodle_url('/login/logout.php', array('sesskey'=>sesskey(), 'alt'=>'logout')),
+                    new moodle_url('/login/logout.php', array('sesskey' => sesskey(), 'alt' => 'logout')),
                     get_string('logout')
                 );
             } else {
@@ -358,7 +358,7 @@ class theme_elegance_core_renderer extends core_renderer {
                 $dropdowntype = 'dropdown-submenu';
             }
     
-            $content = html_writer::start_tag('li', array('class'=>$dropdowntype));
+            $content = html_writer::start_tag('li', array('class' => $dropdowntype));
             // If the child has menus render it as a sub menu.
             $submenucount++;
             if ($menunode->get_url() !== null) {
@@ -366,13 +366,13 @@ class theme_elegance_core_renderer extends core_renderer {
             } else {
                 $url = '#cm_submenu_'.$submenucount;
             }
-            $link_attributes = array(
+            $linkattributes = array(
                 'href'=>$url,
                 'class'=>'dropdown-toggle',
                 'data-toggle'=>'dropdown',
                 'title'=>$menunode->get_title(),
             );
-            $content .= html_writer::start_tag('a', $link_attributes);
+            $content .= html_writer::start_tag('a', $linkattributes);
             $content .= $menunode->get_text();
             if ($level == 1) {
                 $content .= '<b class="caret"></b>';
