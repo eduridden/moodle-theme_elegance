@@ -1371,17 +1371,18 @@ ul.socials {
 
 #block-region-side-middle .block .header .title h2 {
 	padding: 0px;
+	padding-bottom: 10px;
 }
 
 #block-region-side-middle .block .header .title h2::after {
-	top: 0px;
+	top: 10px;
 }
 
 #block-region-side-middle .block .content {
 	height: 220px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding: 0px;
+	padding: 5px 0px;
 }
 
 #block-region-side-middle .block_rss_client .list li {
