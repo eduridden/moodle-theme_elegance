@@ -335,16 +335,32 @@ a:hover, a:focus{
 	box-shadow: none;
 }
 
+#fontpagecontent {
+	padding: 20px 0px;
+}
+
 #fontpagecontent,
+#fontpagecontent h4,
 #fontpagecontent h3,
+#fontpagecontent h2,
+#fontpagecontent h1 {
+	color: #fff;
+	font-family: 'Bree Serif', serif;
+}
+
 #fontpagecontent p {
 	color: #fff;
+}
+
+#fontpagecontent h2 {
+	font-size: 1.8em;
+	margin-bottom: 15px;
+	font-weight: 300;
 }
 
 #fontpagecontent h3 {
 	font-size: 1.6em;
 	margin-bottom: 5px;
-	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 }
 
