@@ -1,5 +1,5 @@
 <?php
-// This file is part of the custom Moodle elegance theme
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,20 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Renderers to align Moodle's HTML with that expected by elegance
+ * The Elegance theme is built upon  Bootstrapbase 3 (non-core).
  *
- * @package    theme_elegance
- * @copyright  2014 Julian Ridden http://moodleman.net
- * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
+ * @package    theme
+ * @subpackage theme_elegance
+ * @author     Julian (@moodleman) Ridden
+ * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 function bootstrap3_grid($hassidepost) {
 
-        $regions = array('content' => 'col-sm-11 col-md-12');
-        $regions['post'] = 'col-sm-6 col-md-5';
+        $regions = array('content' => 'col-sm-8 col-md-8 col-lg-9');
+        $regions['pre'] =  'empty';
+        $regions['post'] = 'col-sm-4 col-md-4 col-lg-3';
    
        return $regions;
 }
@@ -63,6 +64,11 @@ function theme_elegance_process_css($css, $theme) {
     $setting = 'headerbg';
     $headerbg = $theme->setting_file_url($setting, $setting);
     $css = theme_elegance_set_headerbg($css, $headerbg, $setting);
+    
+    // Set the background image for the Page.
+    $setting = 'bodybg';
+    $bodybg = $theme->setting_file_url($setting, $setting);
+    $css = theme_elegance_set_bodybg($css, $bodybg, $setting);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -72,13 +78,37 @@ function theme_elegance_process_css($css, $theme) {
     }
     $css = theme_elegance_set_customcss($css, $customcss);
     
-    // Set the theme color.
+    // Set the theme main color.
     if (!empty($theme->settings->themecolor)) {
         $themecolor = $theme->settings->themecolor;
     } else {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
+    
+    // Set the theme backgroundcolor.
+    if (!empty($theme->settings->bodycolor)) {
+        $bodycolor = $theme->settings->bodycolor;
+    } else {
+        $bodycolor = null;
+    }
+    $css = theme_elegance_set_bodycolor($css, $bodycolor);
+    
+    // Set the font color.
+    if (!empty($theme->settings->fontcolor)) {
+        $fontcolor = $theme->settings->fontcolor;
+    } else {
+        $fontcolor = null;
+    }
+    $css = theme_elegance_set_fontcolor($css, $fontcolor);
+    
+    // Set the heading color.
+    if (!empty($theme->settings->headingcolor)) {
+        $headingcolor = $theme->settings->headingcolor;
+    } else {
+        $headingcolor = null;
+    }
+    $css = theme_elegance_set_headingcolor($css, $headingcolor);
         
     // Set the Defaut Category Icon.
     if (!empty($theme->settings->defaultcategoryicon)) {
@@ -98,6 +128,25 @@ function theme_elegance_process_css($css, $theme) {
         }
         $css = theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber);
     }
+    
+    // Set Quicklink Icon Color.
+    foreach (range(1, 12) as $quicklinksnumber) {
+        $quicklinkiconcolor = $theme->settings->themecolor;
+            if (!empty($theme->settings->{'quicklinkiconcolor' . $quicklinksnumber})) {
+                $quicklinkiconcolor = $theme->settings->{'quicklinkiconcolor' . $quicklinksnumber};
+            }
+        $css = theme_elegance_set_quicklinkiconcolor($css, $quicklinkiconcolor, $quicklinksnumber);
+    }
+    
+    // Set Quicklink Button Color.
+    foreach (range(1, 12) as $quicklinksnumber) {
+        $quicklinkbuttoncolor = '#ecedf0';
+            if (!empty($theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber})) {
+                $quicklinkbuttoncolor = $theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber};
+            }
+        $css = theme_elegance_set_quicklinkbuttoncolor($css, $quicklinkbuttoncolor, $quicklinksnumber);
+    }
+    
     
     // Set the Slide 1 color.
     if (!empty($theme->settings->bannercolor1)) {
@@ -179,6 +228,14 @@ function theme_elegance_process_css($css, $theme) {
     }
     $css = theme_elegance_set_bannercolor10($css, $bannercolor10);
     
+    // Set the Transparency.
+    if (!empty($theme->settings->transparency)) {
+        $transparency = $theme->settings->transparency;
+    } else {
+        $transparency = null;
+    }
+    $css = theme_elegance_set_transparency($css, $transparency);
+    
     $css = theme_elegance_set_fontwww($css);
     
     return $css;
@@ -207,7 +264,37 @@ function theme_elegance_set_themecolor($css, $themecolor) {
     $tag = '[[setting:themecolor]]';
     $replacement = $themecolor;
     if (is_null($replacement)) {
-        $replacement = '#2d91d0';
+        $replacement = '#0098e0';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_bodycolor($css, $bodycolor) {
+    $tag = '[[setting:bodycolor]]';
+    $replacement = $bodycolor;
+    if (is_null($replacement)) {
+        $replacement = '#f1f1f4';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_fontcolor($css, $fontcolor) {
+    $tag = '[[setting:fontcolor]]';
+    $replacement = $fontcolor;
+    if (is_null($replacement)) {
+        $replacement = '#666';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_headingcolor($css, $headingcolor) {
+    $tag = '[[setting:headingcolor]]';
+    $replacement = $headingcolor;
+    if (is_null($replacement)) {
+        $replacement = '#27282a';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;
@@ -233,6 +320,8 @@ function theme_elegance_pluginfile($course, $cm, $context, $filearea, $args, $fo
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'headerbg') {
             return $theme->setting_file_serve('headerbg', $args, $forcedownload, $options);
+        } else if ($filearea === 'bodybg') {
+            return $theme->setting_file_serve('bodybg', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage1') {
             return $theme->setting_file_serve('bannerimage1', $args, $forcedownload, $options);
         } else if ($filearea === 'bannerimage2') {
@@ -355,6 +444,18 @@ function theme_elegance_set_headerbg($css, $headerbg, $setting) {
     return $css;
 }
 
+function theme_elegance_set_bodybg($css, $bodybg, $setting) {
+    global $OUTPUT;
+    $tag = '[[setting:bodybg]]';
+    $replacement = $bodybg;
+    if (is_null($replacement)) {
+        // Get default image from themes 'bg' folder of the name in $setting.
+        $replacement = $OUTPUT->pix_url('', 'theme');
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 function theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon) {
     $tag = '[[setting:defaultcategoryicon]]';
     $replacement = $defaultcategoryicon;
@@ -371,6 +472,28 @@ function theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber) {
     
     if (is_null($replacement)) {
         $replacement = 'f07c';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_quicklinkiconcolor($css, $quicklinkiconcolor, $quicklinksnumber) {
+    $tag = '[[setting:quicklinkiconcolor' . $quicklinksnumber . ']]';
+    $replacement = $quicklinkiconcolor;
+
+    if (is_null($replacement)) {
+        $replacement = $theme->settings->themecolor;
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_quicklinkbuttoncolor($css, $quicklinkbuttoncolor, $quicklinksnumber) {
+    $tag = '[[setting:quicklinkbuttoncolor' . $quicklinksnumber . ']]';
+    $replacement = $quicklinkbuttoncolor;
+
+    if (is_null($replacement)) {
+        $replacement = '#ecedf0';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;
@@ -476,9 +599,21 @@ function theme_elegance_set_bannercolor10($css, $bannercolor10) {
     return $css;
 }
 
+function theme_elegance_set_transparency($css, $transparency) {
+    $tag = '[[setting:transparency]]';
+    $replacement = $transparency;
+    if (is_null($replacement)) {
+        $replacement = '1';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 
 function theme_elegance_page_init(moodle_page $page) {
     $page->requires->jquery();
+    $page->requires->jquery_plugin('bootstrap', 'theme_elegance');
+    $page->requires->jquery_plugin('fitvids', 'theme_elegance');
     $page->requires->jquery_plugin('nprogress', 'theme_elegance');
     $page->requires->jquery_plugin('unslider', 'theme_elegance');
     $page->requires->jquery_plugin('eventswipe', 'theme_elegance');

@@ -14,8 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-// Get the HTML for the settings bits.
-$html = theme_elegance_get_html_for_settings($OUTPUT, $PAGE);
+/**
+ * The Elegance theme is built upon  Bootstrapbase 3 (non-core).
+ *
+ * @package    theme
+ * @subpackage theme_elegance
+ * @author     Julian (@moodleman) Ridden
+ * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 
 /// Check for timed out sessions
 if (!empty($SESSION->has_timed_out)) {
@@ -73,8 +81,8 @@ $regions = bootstrap3_grid($hassidepost);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 
-if (isloggedin()) {
-redirect ($CFG->wwwroot);
+if (isloggedin() and !isguestuser()) {
+    redirect ($CFG->wwwroot);
 }
 
 /// Check if the user has actually submitted login data to us
@@ -235,34 +243,32 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar <?php echo $html->navbarclass ?>">
+<nav role="navigation" class="navbar navbar-default">
     <div class="container">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
-    </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
+        </div>
 
-    <div id="moodle-navbar" class="navbar-collapse collapse">
-        <?php echo $OUTPUT->custom_menu(); ?>
-        <?php echo $OUTPUT->user_menu(); ?>
-        <ul class="nav pull-right">
-            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-        </ul>
-    </div>
+        <div id="moodle-navbar" class="navbar-collapse collapse">
+            <?php echo $OUTPUT->custom_menu(); ?>
+            <?php echo $OUTPUT->user_menu(); ?>
+            <ul class="nav pull-right">
+                <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+            </ul>
+        </div>
     </div>
 </nav>
-
-
 
 <div id="page">
     <div id="page-content" class="container">
         <div id="region-main" class="row">
-            <div class="loginpanel col-md-6 col-md-offset-1">
+            <div class="loginpanel col-md-4 col-md-offset-1 col-sd-6 col-sd-offset-0">
                 <?php
                 if(isset($_POST['username']) || isset($_POST['password'])){
                     echo get_string("invalidlogin");
@@ -303,7 +309,7 @@ echo $OUTPUT->doctype() ?>
                         </div>
                     <?php } ?>
                     
-                    <a href="forgot_password.php"><?php echo get_string('passwordforgotten'); ?></a>
+                    <a href="forgot_password.php" id="forgotten"><?php echo get_string('passwordforgotten'); ?></a>
                 </form>
                 
                 <?php if ($CFG->guestloginbutton and !isguestuser()) {  ?>
@@ -326,7 +332,7 @@ echo $OUTPUT->doctype() ?>
             
             
             <?php if ($show_instructions) { ?>
-                <div class="signuppanel col-md-7 col-md-offset-1">
+                <div class="signuppanel col-md-6 col-md-offset-1 col-sd-6 col-sd-offset-0">
                     <h2><i class="fa fa-question-circle"></i> <?php print_string("firsttime") ?></h2>
                     <div class="subcontent">
                         <?php if (is_enabled_auth('none')) { // instructions override the rest for security reasons
@@ -400,7 +406,7 @@ echo $OUTPUT->doctype() ?>
       <?php if ($hasloginbg4image) { echo '"'.$loginbg4.'",'; } ?>
       <?php if ($hasloginbg5image) { echo '"'.$loginbg5.'"'; } ?>
   ], {duration: 3000, fade: 750});
-  
 </script>
+
 </body>
 </html>
