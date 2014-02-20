@@ -54,9 +54,7 @@
  
  ?>
 
-<div id="page-content" class="container">
-	<div id="page-marketing">
-		<div class="row">
+	<div id="page-marketing" class="row">
 			<div id="sp-position1" class="col-md-5">	
 				<?php echo $OUTPUT->blocks('side-middle'); ?>
 			</div>
@@ -137,5 +135,3 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
