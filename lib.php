@@ -121,6 +121,25 @@ function theme_elegance_process_css($css, $theme) {
         $css = theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber);
     }
     
+    // Set Quicklink Icon Color.
+    foreach (range(1, 12) as $quicklinksnumber) {
+        $quicklinkiconcolor = $theme->settings->themecolor;
+            if (!empty($theme->settings->{'quicklinkiconcolor' . $quicklinksnumber})) {
+                $quicklinkiconcolor = $theme->settings->{'quicklinkiconcolor' . $quicklinksnumber};
+            }
+        $css = theme_elegance_set_quicklinkiconcolor($css, $quicklinkiconcolor, $quicklinksnumber);
+    }
+    
+    // Set Quicklink Button Color.
+    foreach (range(1, 12) as $quicklinksnumber) {
+        $quicklinkbuttoncolor = $theme->settings->themecolor;
+            if (!empty($theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber})) {
+                $quicklinkbuttoncolor = $theme->settings->{'quicklinkbuttoncolor' . $quicklinksnumber};
+            }
+        $css = theme_elegance_set_quicklinkbuttoncolor($css, $quicklinkbuttoncolor, $quicklinksnumber);
+    }
+    
+    
     // Set the Slide 1 color.
     if (!empty($theme->settings->bannercolor1)) {
         $bannercolor1 = $theme->settings->bannercolor1;
@@ -435,6 +454,28 @@ function theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber) {
     
     if (is_null($replacement)) {
         $replacement = 'f07c';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_quicklinkiconcolor($css, $quicklinkiconcolor, $quicklinksnumber) {
+    $tag = '[[setting:quicklinkiconcolor' . $quicklinksnumber . ']]';
+    $replacement = $quicklinkiconcolor;
+
+    if (is_null($replacement)) {
+        $replacement = $theme->settings->themecolor;
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_elegance_set_quicklinkbuttoncolor($css, $quicklinkbuttoncolor, $quicklinksnumber) {
+    $tag = '[[setting:quicklinkbuttoncolor' . $quicklinksnumber . ']]';
+    $replacement = $quicklinkbuttoncolor;
+
+    if (is_null($replacement)) {
+        $replacement = '#ecedf0';
     }
     $css = str_replace($tag, $replacement, $css);
     return $css;

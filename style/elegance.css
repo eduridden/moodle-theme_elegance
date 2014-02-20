@@ -56,6 +56,7 @@ body, html {
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	color: [[setting:fontcolor]];
 }
 
 #page {
@@ -131,7 +132,7 @@ a {
 
 a:hover, a:focus{
 	outline: none;
-	color: #999;
+	color: [[setting:fontcolor]];
 	text-decoration: none;
 }
 
@@ -407,10 +408,7 @@ h2.quicklinksheader::after {
 	top: 10px;
 }
 
-#quicklink {
-	margin-bottom: 10px;
-	text-align: center;
-}
+/* @group Quick Links */
 
 #circle-highlight {
 	border: 1px solid #ddd;
@@ -426,10 +424,69 @@ h2.quicklinksheader::after {
 	color: #fff;
 }
 
+.quicklinkiconcolor1 {
+	background: [[setting:quicklinkiconcolor1]] !important;
+}
+
+.quicklinkiconcolor2 {
+	background: [[setting:quicklinkiconcolor2]] !important;
+}
+
+.quicklinkiconcolor3 {
+	background: [[setting:quicklinkiconcolor3]] !important;
+}
+
+.quicklinkiconcolor4 {
+	background: [[setting:quicklinkiconcolor4]] !important;
+}
+
+.quicklinkiconcolor5 {
+	background: [[setting:quicklinkiconcolor5]] !important;
+}
+
+.quicklinkiconcolor6 {
+	background: [[setting:quicklinkiconcolor6]] !important;
+}
+
+.quicklinkiconcolor7 {
+	background: [[setting:quicklinkiconcolor7]] !important;
+}
+
+.quicklinkiconcolor8 {
+	background: [[setting:quicklinkiconcolor8]] !important;
+}
+
+.quicklinkiconcolor9 {
+	background: [[setting:quicklinkiconcolor9]] !important;
+}
+
+.quicklinkiconcolor10 {
+	background: [[setting:quicklinkiconcolor10]] !important;
+}
+
+.quicklinkiconcolor11 {
+	background: [[setting:quicklinkiconcolor11]] !important;
+}
+
+.quicklinkiconcolor12 {
+	background: [[setting:quicklinkiconcolor12]] !important;
+}
+
+.quicklinkbuttoncolor1 {
+	background: [[setting:quicklinkbuttoncolor1]] !important;
+}
+
 #circle-highlight .fa {
 	font-size: 3.5em;
 	margin-top: 18px;
 }
+
+#quicklink {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+/* @end */
 
 /* @group Hidden Blocks */
 
@@ -1335,7 +1392,8 @@ button,
 input.form-submit,
 input[type="button"],
 input[type="submit"],
-input[type="reset"]  {
+input[type="reset"],
+button.disabled, input.form-submit.disabled, input[type="button"].disabled, input[type="submit"].disabled, input[type="reset"].disabled, button[disabled], input.form-submit[disabled], input[type="button"][disabled], input[type="submit"][disabled], input[type="reset"][disabled], fieldset[disabled] button, fieldset[disabled] input.form-submit, fieldset[disabled] input[type="button"], fieldset[disabled] input[type="submit"], fieldset[disabled] input[type="reset"], button.disabled:hover, input.form-submit.disabled:hover, input[type="button"].disabled:hover, input[type="submit"].disabled:hover, input[type="reset"].disabled:hover, button[disabled]:hover, input.form-submit[disabled]:hover, input[type="button"][disabled]:hover, input[type="submit"][disabled]:hover, input[type="reset"][disabled]:hover, fieldset[disabled] button:hover, fieldset[disabled] input.form-submit:hover, fieldset[disabled] input[type="button"]:hover, fieldset[disabled] input[type="submit"]:hover, fieldset[disabled] input[type="reset"]:hover, button.disabled:focus, input.form-submit.disabled:focus, input[type="button"].disabled:focus, input[type="submit"].disabled:focus, input[type="reset"].disabled:focus, button[disabled]:focus, input.form-submit[disabled]:focus, input[type="button"][disabled]:focus, input[type="submit"][disabled]:focus, input[type="reset"][disabled]:focus, fieldset[disabled] button:focus, fieldset[disabled] input.form-submit:focus, fieldset[disabled] input[type="button"]:focus, fieldset[disabled] input[type="submit"]:focus, fieldset[disabled] input[type="reset"]:focus, button.disabled:active, input.form-submit.disabled:active, input[type="button"].disabled:active, input[type="submit"].disabled:active, input[type="reset"].disabled:active, button[disabled]:active, input.form-submit[disabled]:active, input[type="button"][disabled]:active, input[type="submit"][disabled]:active, input[type="reset"][disabled]:active, fieldset[disabled] button:active, fieldset[disabled] input.form-submit:active, fieldset[disabled] input[type="button"]:active, fieldset[disabled] input[type="submit"]:active, fieldset[disabled] input[type="reset"]:active, button.disabled.active, input.form-submit.disabled.active, input[type="button"].disabled.active, input[type="submit"].disabled.active, input[type="reset"].disabled.active, button[disabled].active, input.form-submit[disabled].active, input[type="button"][disabled].active, input[type="submit"][disabled].active, input[type="reset"][disabled].active, fieldset[disabled] button.active, fieldset[disabled] input.form-submit.active, fieldset[disabled] input[type="button"].active, fieldset[disabled] input[type="submit"].active, fieldset[disabled] input[type="reset"].active  {
 	border: 1px solid #b4b4b7;
 	background: #ecedf0;
 	color: #333537;
@@ -1650,11 +1708,11 @@ div.section-navigation.navigationtitle .mdl-right{
 	border-bottom: 1px dotted #eee;
 }
 #section_footer {
-	padding:0;
+	padding:5px 0px;
 	color: [[setting:themecolor]];
 	line-height:1.5; 
 	clear:both;
-	margin-top: -10px;
+	margin-top: -20px;
 }
 
 #section_footer a{
@@ -1678,7 +1736,7 @@ div.section-navigation.navigationtitle .mdl-right{
 letter-spacing:0.1em;
 	text-transform:uppercase;
 	font-style:normal;
-	color:#e4a82a;
+	color: [[setting:headingcolor]];
 }
 .nav_icon {
 	color: [[setting:themecolor]];
@@ -1687,7 +1745,7 @@ letter-spacing:0.1em;
 }
 
 .nav_icon:hover {
-	color: #999;
+	color: [[setting:fontcolor]];
 }
 
 #next_section .nav_icon {
@@ -2877,6 +2935,15 @@ table#user-grades th.userreport.c1 {
 	width: 100%;
 }
 
+table.flexible, .generaltable {
+	font-size: .9em;
+}
+
+.userenrolment {
+	font-size: .8em;
+}
+
+
 .block,
 #region-main,
 #page-marketing,
@@ -2886,7 +2953,6 @@ table#user-grades th.userreport.c1 {
 }
 
 .path-course.pagelayout-coursecategory #region-main .courseboxes>ul>li,
-.forumpost,
 .coursebox,
 table#form td.submit, 
 .form-buttons, 
@@ -2894,10 +2960,29 @@ table#form td.submit,
 #fitem_id_submitbutton, 
 .fp-content-center form+div, 
 div.backup-section+form, 
-#fgroup_id_buttonar { {
+#fgroup_id_buttonar,
+.userprofile,
+.userprofile dl.list>dt:nth-child(4n-1),
+.userprofile dl.list>dd:nth-child(4n) {
 	background: rgba(255,255,255,.15);
 }
 
+.userprofile h2,
+.forumpost,
+.box.message .messagearea,
+.box.message .contactselector,
+#section_footer {
+	background: rgba(255,255,255,.40);
+}
+
+#categoryquestions .r1,
+table#explaincaps>tbody>tr:nth-child(odd)>td, table#defineroletable>tbody>tr:nth-child(odd)>td, table.grading-report>tbody>tr:nth-child(odd)>td, table#listdirectories>tbody>tr:nth-child(odd)>td, table.rolecaps>tbody>tr:nth-child(odd)>td, table.userenrolment>tbody>tr:nth-child(odd)>td, table#form>tbody>tr:nth-child(odd)>td, form#movecourses table>tbody>tr:nth-child(odd)>td, #page-admin-course-index .editcourse>tbody>tr:nth-child(odd)>td, .forumheaderlist>tbody>tr:nth-child(odd)>td, table.flexible>tbody>tr:nth-child(odd)>td, .generaltable>tbody>tr:nth-child(odd)>td, table#explaincaps>tbody>tr:nth-child(odd)>th, table#defineroletable>tbody>tr:nth-child(odd)>th, table.grading-report>tbody>tr:nth-child(odd)>th, table#listdirectories>tbody>tr:nth-child(odd)>th, table.rolecaps>tbody>tr:nth-child(odd)>th, table.userenrolment>tbody>tr:nth-child(odd)>th, table#form>tbody>tr:nth-child(odd)>th, form#movecourses table>tbody>tr:nth-child(odd)>th, #page-admin-course-index .editcourse>tbody>tr:nth-child(odd)>th, .forumheaderlist>tbody>tr:nth-child(odd)>th, table.flexible>tbody>tr:nth-child(odd)>th, .generaltable>tbody>tr:nth-child(odd)>th {
+	background: rgba(228,228,228,.50);
+}
+
+.box.message table tr:nth-child(odd)>td, .box.message table tr:nth-child(odd)>th {
+	background: transparent;
+}
 .coursebox {
 	border-radius: 4px;
 }

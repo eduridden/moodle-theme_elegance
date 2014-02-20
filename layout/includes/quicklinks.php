@@ -43,24 +43,25 @@
 		$qlu = "quicklinkbuttonurl$quicklinksnumber";
 		?>
 		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">
-			<?php if (!empty($PAGE->theme->settings->$qlu)) {
+			<?php 
+			if (!empty($PAGE->theme->settings->$qlu)) {
 				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
-			} ?>
-				<div id="circle-highlight">
-					<?php if (!empty($PAGE->theme->settings->$qli)) {
-						echo '<i class="fa fa-'.$PAGE->theme->settings->$qli.'"></i>';
-					} else {
-						echo '<i class="fa fa-check"></i>';
-					} ?>
-				</div>
-				<p class="btn">
-					<?php if (!empty($PAGE->theme->settings->$qlt)) {
-						echo $PAGE->theme->settings->$qlt;
-					} else {
-						echo 'Click here';
-					}
-					?></p>
-			<?php if (!empty($PAGE->theme->settings->$qlu)) {
+			}
+			echo '<div id="circle-highlight" class="quicklinkiconcolor'.$quicklinksnumber.'">';
+			if (!empty($PAGE->theme->settings->$qli)) {
+				echo '<i class="fa fa-'.$PAGE->theme->settings->$qli.'"></i>';
+			} else {
+				echo '<i class="fa fa-check"></i>';
+			} 
+			echo '</div>';
+			echo '<p class="btn quicklinkbuttoncolor'.$quicklinksnumber.'">';
+				if (!empty($PAGE->theme->settings->$qlt)) {
+					echo $PAGE->theme->settings->$qlt;
+				} else {
+					echo 'Click here';
+				}
+			echo '</p>';
+			if (!empty($PAGE->theme->settings->$qlu)) {
 				echo '</a>';
 			} ?>
 		</div>
