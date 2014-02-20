@@ -32,19 +32,14 @@ $string['choosereadme'] = '
 </div>
 <div class="well">
 <h3>About</h3>
-<p>Elegance is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>
-<h3>Parents</h3>
-<p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.5, with the help of:<br>
-Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans.</p>
+<p>Elegance is a 2 column, clean and highly customisable theme built on the Bootstrap 3 framework.</p>
 <h3>Theme Credits</h3>
-<p>Authors: Bas Brands, David Scotson, Mary Evans<br>
+<p>Authors: Bas Brands (for the Bootstrap 3 work)<br>
 Contact: bas@sonsbeekmedia.nl<br>
 Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 </p>
 <h3>Report a bug:</h3>
 <p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
-<h3>More information</h3>
-<p><a href="elegance/README.txt">How to copy and customise this theme.</a></p>
 </div></div>';
 
 $string['pluginname'] = 'Elegance';
