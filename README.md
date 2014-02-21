@@ -17,6 +17,7 @@ Cool things to know about the theme.
  - The theme has a customised MyMoodle page to look more visually appealing.
  - The frontpage consists of spaces to create quick links and Marketing info all set through theme settings
  - Social Network icons appear at the footer of the page dynamically based on theme settings
+ - Videos are resized dynamically to fit available screen space. A max-width can be set in the settings if needed.
  
 See the theme in Action
 ========================
@@ -80,6 +81,12 @@ Author: Rico Sta. Cruz
 URL: http://ricostacruz.com/nprogress
 License: MIT/GPL2 Licensedc
 
+FitVid.js
+------------
+Authors: Chris Coyier and Paravel
+URL: http://fitvidsjs.com/
+License: MIT/GPL2 Licensedc
+
 Backstretch.js
 ------------
 Author: Scott Robbin
@@ -88,7 +95,7 @@ License: MIT/GPL2 Licensedc
 
 UnSlider.js
 ------------
-Author: @idiot and @damirfoy
+Authors: @idiot and @damirfoy
 URL: http://unslider.com
 License: MIT/GPL2 Licensedc
 
