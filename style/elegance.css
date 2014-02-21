@@ -404,7 +404,7 @@ h2.quicklinksheader {
 	text-transform: none;
 	padding-left: 0px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 4px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -419,10 +419,10 @@ h2.quicklinksheader::after {
 	background-color: [[setting:themecolor]];
 	content: "";
 	display: block;
-	height: 1px;
-	width: 100px;
+	height: 3px;
+	width: 150px;
 	position: relative;
-	top: 10px;
+	top: 13px;
 }
 
 /* @group Quick Links */
@@ -1079,7 +1079,7 @@ ul.socials {
 	font-size: 24px;
 	text-transform: none;
 	padding-left: 0px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 4px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -1088,10 +1088,10 @@ ul.socials {
 	background-color: [[setting:themecolor]];
 	content: "";
 	display: block;
-	height: 1px;
+	height: 3px;
 	width: 100px;
 	position: relative;
-	top: 10px;
+	top: 13px;
 }
 
 .block_section .header .block_action {
@@ -1377,7 +1377,8 @@ ul.socials {
 }
 
 #block-region-side-middle .block .header .title h2::after {
-	top: 10px;
+	top: 13px;
+	width: 150px;
 }
 
 #block-region-side-middle .block .content {
@@ -2510,17 +2511,18 @@ table#user-grades th.userreport.c1 {
 }
 
 .forumpost .header {
-	border-bottom: 1px solid rgb(223, 223, 223);
+	border-bottom: 4px solid rgb(223, 223, 223);
 	margin-bottom: 10px;
 }
 
 .forumpost .header::after {
-	background-color: #1fbaeb;
+	background-color: [[setting:themecolor]];
 	content: "";
 	display: block;
-	height: 1px;
-	width: 80px;
+	height: 3px;
+	width: 120px;
 	position: relative;
+	top: 3px;
 }
 
 #page-mod-forum-discuss .forumpost{
@@ -2535,6 +2537,10 @@ table#user-grades th.userreport.c1 {
 #page-mod-forum-discuss .forumpost .row .left{
 	width:80px;
 	padding:0;
+}
+
+.forumpost .row .left.picture img {
+	margin-right: 10px;
 }
 
 #page-mod-forum-discuss .forumpost .row .left.picture img{
@@ -3027,7 +3033,7 @@ table#user-grades th.userreport.c1 {
 	margin-top: 0px;
 	margin-bottom: 21px;
 	text-transform: none;
-	border-bottom: 1px solid rgb(223, 223, 223);
+	border-bottom: 4px solid rgb(223, 223, 223);
 	padding-bottom: 10px;
 }
 
@@ -3047,10 +3053,10 @@ table#user-grades th.userreport.c1 {
 	background-color: [[setting:themecolor]];
 	content: "";
 	display: block;
-	height: 1px;
-	width: 100px;
+	height: 3px;
+	width: 150px;
 	position: relative;
-	top: 10px;
+	top: 13px;
 }
 
 #frontpage-course-list h2::before,
