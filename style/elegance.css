@@ -3142,6 +3142,12 @@ table#explaincaps>tbody>tr:nth-child(odd)>td, table#defineroletable>tbody>tr:nth
 	border: 0px none;
 }
 
+.player .video-wrapper,
+#player {
+	width: 100%;
+	max-width: [[setting:videowidth]];
+}
+
 
 /* @end */
 

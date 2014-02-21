@@ -85,6 +85,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
+    // Embedded Video Max Width.
+    $name = 'theme_elegance/videowidth';
+    $title = get_string('videowidth', 'theme_elegance');
+    $description = get_string('videowidthdesc', 'theme_elegance');
+    $default = '100%';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $temp->add($setting);
+    
     // Custom CSS file.
     $name = 'theme_elegance/customcss';
     $title = get_string('customcss', 'theme_elegance');
