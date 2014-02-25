@@ -36,35 +36,24 @@ function bootstrap3_grid($hassidepost) {
 /**
  * Include the Awesome Font.
  */
-function theme_elegance_set_fontwww($css) {
+ function theme_elegance_set_fontwww($css) {
     global $CFG, $PAGE;
-    
-    if(empty($CFG->themewww)){
-        $themewww = $CFG->wwwroot."/theme";
-    } else {
-        $themewww = $CFG->themewww;
-    }
-    
     $tag = '[[setting:fontwww]]';
-    
-    //$css = str_replace($tag, $CFG->wwwroot . '/theme/elegance/style/fonts/', $css);
+ 
     $syscontext = context_system::instance();
     $itemid = theme_get_revision();
     $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_elegance/fonts/$itemid/");
-    
     // Now this is tricky because the we can not hard code http or https here, lets use the relative link.
     // Note: unfortunately moodle_url does not support //urls yet.
     $url = preg_replace('|^https?://|i', '//', $url->out(false));
     
-    $theme = theme_config::load('elegance');
     if (!empty($theme->settings->bootstrapcdn)) {
-        	$css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
+        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
     } else {
         $css = str_replace($tag, $url, $css);
-        	$css = str_replace($tag, $themewww.'/elegance/fonts/', $css);
     }
     return $css;
-}
+ }
 
 function theme_elegance_process_css($css, $theme) {
 
