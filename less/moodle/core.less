@@ -69,7 +69,7 @@ a.dimmed_text:visited,
     .text-muted
 }
 .activity.label .dimmed_text {
-    .opacity(50)
+    .opacity(.5)
 }
 .unlist,
 .unlist li,
@@ -207,10 +207,10 @@ img.iconsmall {
     vertical-align: middle;
     width: 12px;
 }
-img.iconhelp, .helplink img {
+img.iconhelp,
+.helplink img {
     height: 16px;
     padding-left: 3px;
-    vertical-align: text-bottom;
     width: 16px;
 }
 h1 img.iconhelp, h1 img.icon,
@@ -412,14 +412,6 @@ a.skip:active {
     min-width: 80%;
     margin: 0 auto;
 }
-.groupmanagementtable #removeselect_wrapper,
-.groupmanagementtable #addselect_wrapper {
-    width: 100%;
-}
-.groupmanagementtable #removeselect_wrapper label,
-.groupmanagementtable #addselect_wrapper label {
-    font-weight: normal;
-}
 .dir-rtl .groupmanagementtable p {
     text-align: right;
 }
@@ -442,7 +434,7 @@ a.skip:active {
     .form-group;
 
     &.onecolumn  {
-        .make-md-column(3);
+        .make-sm-column(3);
         .well;
     }
 
@@ -1530,7 +1522,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     padding-bottom: 4px;
 }
 .moodle-dialogue .moodle-dialogue-bd .content-lightbox {
-    .opacity(75);
+    .opacity(.75);
     width: 100%;
     height: 100%;
     top: 0;
@@ -1860,7 +1852,7 @@ div.badge .expireimage {
     top: 0px;
 }
 .expireimage {
-    .opacity(85);
+    .opacity(.85);
     width: 90px; height: 90px;
     left: 30px;
     top: 0px;
@@ -1961,7 +1953,7 @@ img#persona_signin {
         }
         .toggle-display {
             display: inline; /** JS is enabled, we'll be using it so return display to normal **/
-            .opacity(50);
+            .opacity(.5);
         }
         .toggle-display.textmenu {
             display: block;
@@ -1988,7 +1980,7 @@ img#persona_signin {
     }
     .moodle-actionmenu[data-enhanced] {
         .toggle-display {
-            .opacity(100);
+            .opacity(1);
         }
         .menu-action-text  {
             display:inline;

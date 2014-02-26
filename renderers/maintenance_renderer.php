@@ -17,12 +17,14 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrap
+ * @package    theme_elegance
  * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class theme_bootstrap_core_renderer_maintenance extends core_renderer_maintenance {
+defined('MOODLE_INTERNAL') || die();
+
+class theme_elegance_core_renderer_maintenance extends core_renderer_maintenance {
 
     /*
      * This renders a notification message.

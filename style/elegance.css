@@ -813,37 +813,21 @@ border-bottom-color: #888;
 	margin-bottom: 10px;
 }
 
-#page-footer .helplink a {
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px solid #b4b4b7;
-	background: #ecedf0;
-	color: #333537;
-	padding: 5px 8px 5px;
-	line-height: 18px;
-	text-decoration: none;
+#page-footer .helplink {
 	position: relative;
-	font-size: 14px;
-	text-shadow: none;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	-webkit-transition: 0.25s;
-	-moz-transition: 0.25s;
-	-o-transition: 0.25s;
-	transition: 0.25s;
-	-webkit-backface-visibility: hidden;
-	font-weight: 500;
-	font-size: .85em;
+	float: left;
+	margin-top: -60px;
+	margin-left: 20px;	
 }
 
-#page-footer .helplink a:hover {
-	color: white;
-	background: orange;
-	font-weight: bold;
+#page-footer .purgecaches {
+	margin-top: -50px;
+}
+
+#page-footer .purgecaches a {
+	padding: 11px 12px 11px;
+	margin-left: 10px;
+	line-height: 22px;
 }
 
 #page-footer .purgecaches a:hover  {

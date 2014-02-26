@@ -17,14 +17,16 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrap
+ * @package    theme_elegance
  * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->dirroot . "/course/renderer.php");
 
-class theme_bootstrap_core_course_renderer extends core_course_renderer {
+class theme_elegance_core_course_renderer extends core_course_renderer {
 
     /**
      * Renders html to display a course search form
