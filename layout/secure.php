@@ -25,12 +25,19 @@
  */
 
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+$invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
 
  if ($haslogo) {
  	$logo = '<div id="logo"></div>';
  } else {
  	$logo = $SITE->shortname;
  }
+ 
+ if ($invert) {
+	$navbartype = 'inverse';
+} else {
+	$navbartype = 'default';
+}
  
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -46,7 +53,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
