@@ -80,7 +80,9 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4 ) ? true :
 		<li id="slide1" style="background-image: url(<?php echo $slide1image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide1title ?></h1>
 			<p><?php echo $slide1caption ?></p>
-			<a class="btn" href="<?php echo $slide1url ?>"><?php echo $slide1linktext ?></a>
+			<?php if ($slide1linktext) { ?>
+				<a class="btn" href="<?php echo $slide1url ?>"><?php echo $slide1linktext ?></a>
+			<?php } ?>
 		</li>
 		<?php } ?>
 		
@@ -88,7 +90,9 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4 ) ? true :
 		<li id="slide2" style="background-image: url(<?php echo $slide2image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide2title ?></h1>
 			<p><?php echo $slide2caption ?></p>
-			<a class="btn" href="<?php echo $slide2url ?>"><?php echo $slide2linktext ?></a>
+			<?php if ($slide2linktext) { ?>
+				<a class="btn" href="<?php echo $slide2url ?>"><?php echo $slide2linktext ?></a>
+			<?php } ?>
 		</li>
 		<?php } ?>
 
@@ -97,7 +101,9 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4 ) ? true :
 		<li id="slide3" style="background-image: url(<?php echo $slide3image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide3title ?></h1>
 			<p><?php echo $slide3caption ?></p>
-			<a class="btn" href="<?php echo $slide3url ?>"><?php echo $slide3linktext ?></a>
+			<?php if ($slide3linktext) { ?>
+				<a class="btn" href="<?php echo $slide3url ?>"><?php echo $slide3linktext ?></a>
+			<?php } ?>
 		</li>
 		<?php } ?>
 
@@ -106,7 +112,9 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4 ) ? true :
 		<li id="slide4" style="background-image: url(<?php echo $slide4image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide4title ?></h1>
 			<p><?php echo $slide4caption ?></p>
-			<a class="btn" href="<?php echo $slide4url ?>"><?php echo $slide4linktext ?></a>
+			<?php if ($slide4linktext) { ?>
+				<a class="btn" href="<?php echo $slide4url ?>"><?php echo $slide4linktext ?></a>
+			<?php } ?>
 		</li>
 		<?php } ?>
 
