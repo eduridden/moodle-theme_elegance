@@ -177,7 +177,7 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
 	</div>
 	
 	<div class="row">
-		<p class="helplink btn btn-warning"><?php echo $OUTPUT->page_doc_link(); ?></p>
+		<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
 		<?php echo $OUTPUT->standard_footer_html(); ?>
 	</div>
 	
