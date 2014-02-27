@@ -51,7 +51,7 @@ if ((!empty($THEME->settings->tiles)) && ($THEME->settings->tiles == '1')) {
 	$tilessheet ='';
 }
 	
-$THEME->sheets = array('moodle', 'font-awesome.min', 'elegance', $categorysheet , $tilessheet, $loginsheet, ' nprogress');
+$THEME->sheets = array('moodle', 'font-awesome.min', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
 
 $THEME->supportscssoptimisation = false;
 
