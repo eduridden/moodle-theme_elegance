@@ -1134,11 +1134,8 @@ ul.socials {
 
 /* @group Login Block */
 
-.block_login div.c1.btn:hover {
-	background: transparent !important;
-}
 
-.block_login .content form input[type="submit"],
+.block_login .btn,
 .block_login .content .footer a {
     background-color: [[setting:themecolor]];
     background-image: none;
@@ -1161,6 +1158,21 @@ ul.socials {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     transition: 0.25s;
+}
+
+.block_login .content input[type="submit"] {
+	background: transparent;
+	border: 0px none;
+	padding: 0px;
+	margin: 0px;
+	color: #fff;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.block_login .content input[type="submit"]:before {
+	content:"\f090";
+	font-family: FontAwesome;
 }
 
 .block_login .content .footer a {
