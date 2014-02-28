@@ -74,101 +74,101 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
 			if ($hassocialnetworks) {
 				echo '<ul class="socials unstyled">';
 					if ($hasblog) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasblog.'" class="socialicon blog">';
+						echo '<a href="'.$hasblog.'" class="socialicon blog">';
 						echo '<i class="fa fa-bookmark fa-inverse"></i>';
 							echo '<span class="sr-only">Read our Blog</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($haswebsite) {
-						echo '<button type="button" ONCLICK="window.location.href='.$haswebsite.'" class="socialicon website">';
+						echo '<a href="'.$haswebsite.'" class="socialicon website">';
 						echo '<i class="fa fa-globe fa-inverse"></i>';
 							echo '<span class="sr-only">Visit our Website</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasgoogleplus) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasgoogleplus.'" class="socialicon googleplus">';
+						echo '<a href="'.$hasgoogleplus.'" class="socialicon googleplus">';
 						echo '<i class="fa fa-google-plus fa-inverse"></i>';
 							echo '<span class="sr-only">Follow us on Google Plus</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hastwitter) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hastwitter.'" class="socialicon twiiter">';
+						echo '<a href="'.$hastwitter.'" class="socialicon twitter">';
 						echo '<i class="fa fa-twitter fa-inverse"></i>';
 							echo '<span class="sr-only">Follow us on Twitter</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasfacebook) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasfacebook.'" class="socialicon facebook">';
+						echo '<a href="'.$hasfacebook.'" class="socialicon facebook">';
 						echo '<i class="fa fa-facebook fa-inverse"></i>';
 							echo '<span class="sr-only">Like us on Facebook</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($haslinkedin) {
-						echo '<button type="button" ONCLICK="window.location.href='.$haslinkedin.'" class="socialicon linkedin">';
+						echo '<a href="'.$haslinkedin.'" class="socialicon linkedin">';
 						echo '<i class="fa fa-linkedin fa-inverse"></i>';
 							echo '<span class="sr-only">Connect with us on LinkedIn</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasyoutube) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasyoutube.'" class="socialicon youtube">';
+						echo '<a href="'.$hasyoutube.'" class="socialicon youtube">';
 						echo '<i class="fa fa-youtube fa-inverse"></i>';
 							echo '<span class="sr-only">Watch us on Youtube</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasvimeo) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasvimeo.'" class="socialicon vimeo">';
+						echo '<a href="'.$hasvimeo.'" class="socialicon vimeo">';
 						echo '<i class="fa fa-vimeo-square fa-inverse"></i>';
 							echo '<span class="sr-only">Watch us on Vimeo</span>';
 						echo '</button>';
 					}
 					
 					if ($hasflickr) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasflickr.'" class="socialicon flickr">';
+						echo '<a href="'.$hasflickr.'" class="socialicon flickr">';
 						echo '<i class="fa fa-flickr fa-inverse"></i>';
 							echo '<span class="sr-only">View us on Flickr</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($haspinterest) {
-						echo '<button type="button" ONCLICK="window.location.href='.$haspinterest.'" class="socialicon pinterest">';
+						echo '<a href="'.$haspinterest.'" class="socialicon pinterest">';
 						echo '<i class="fa fa-pinterest fa-inverse"></i>';
 							echo '<span class="sr-only">Pin us on Pinterest</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hastumblr) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hastumblr.'" class="socialicon tumblr">';
+						echo '<a href="'.$hastumblr.'" class="socialicon tumblr">';
 						echo '<i class="fa fa-tumblr fa-inverse"></i>';
 							echo '<span class="sr-only">Find us on Tumblr</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasinstagram) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasinstagram.'" class="socialicon instagram">';
+						echo '<a href="'.$hasinstagram.'" class="socialicon instagram">';
 						echo '<i class="fa fa-instagram fa-inverse"></i>';
 							echo '<span class="sr-only">Find us on Instagram</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasvk) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasvk.'" class="socialicon vk">';
+						echo '<a href="'.$hasvk.'" class="socialicon vk">';
 						echo '<i class="fa fa-vk fa-inverse"></i>';
 							echo '<span class="sr-only">Like us on VK</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 					if ($hasskype) {
-						echo '<button type="button" ONCLICK="window.location.href='.$hasskype.'" class="socialicon skype">';
+						echo '<a href="'.$hasskype.'" class="socialicon skype">';
 						echo '<i class="fa fa-skype fa-inverse"></i>';
 							echo '<span class="sr-only">Call us on Skype</span>';
-						echo '</button>';
+						echo '</a>';
 					}
 					
 				echo '</ul>';
