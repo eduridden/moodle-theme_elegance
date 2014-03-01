@@ -2467,6 +2467,10 @@ table#user-grades th.userreport.c1 {
     height: 5em;
 }
 
+.pagelayout-report .no-overflow {
+	overflow: auto;
+}
+
 /* @end */
 
 /* @group Forums */
