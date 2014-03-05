@@ -394,6 +394,10 @@ text-shadow: 0 1px 1px rgba(255,255,255,0.75);
 	font-weight: 400;
 }
 
+#quicklinks.row {
+	margin-bottom: 10px;
+}
+
 h2.marketingheader,
 h2.quicklinksheader {
 	color: [[setting:headingcolor]];
@@ -404,7 +408,7 @@ h2.quicklinksheader {
 	text-transform: none;
 	padding-left: 0px;
 	padding-bottom: 10px;
-	border-bottom: 4px solid #ddd;
+	border-bottom: 3px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -1083,7 +1087,7 @@ ul.socials {
 	font-size: 24px;
 	text-transform: none;
 	padding-left: 0px;
-	border-bottom: 4px solid #ddd;
+	border-bottom: 3px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -1095,7 +1099,7 @@ ul.socials {
 	height: 3px;
 	width: 100px;
 	position: relative;
-	top: 13px;
+	top: 3px;
 }
 
 .block_section .header .block_action {
@@ -2760,6 +2764,11 @@ table#user-grades th.userreport.c1 {
 	float: right;
 	width: 240px;
 	padding: 10px;
+}
+
+.coursebox .content .coursecat {
+	font-size: .85em;
+	padding-right: 10px;
 }
 
 .coursebox .info {

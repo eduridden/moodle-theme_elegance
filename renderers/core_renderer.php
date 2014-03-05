@@ -114,11 +114,11 @@ class theme_elegance_core_renderer extends core_renderer {
         global $CFG;
     
         if (!empty($CFG->custommenuitems)) {
-            $custommenuitems .= $CFG->custommenuitems;
+                $custommenuitems .= $CFG->custommenuitems;
+            }
+            $custommenu = new custom_menu($custommenuitems, current_language());
+            return $this->render_custom_menu($custommenu);
         }
-        $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_custom_menu($custommenu);
-    }
     
     /*
      * This renders the bootstrap top menu.
@@ -176,11 +176,14 @@ class theme_elegance_core_renderer extends core_renderer {
             9999
         );
         foreach ($messages as $message) {
-    
+        
+            if (!$message->from) { // Workaround for issue #103.
+                continue;
+            }
             $senderpicture = new user_picture($message->from);
             $senderpicture->link = false;
             $senderpicture = $this->render($senderpicture);
-    
+        
             $messagecontent = $senderpicture;
             $messagecontent .= html_writer::start_span('msg-body');
             $messagecontent .= html_writer::start_span('msg-title');
@@ -191,7 +194,7 @@ class theme_elegance_core_renderer extends core_renderer {
             $messagecontent .= html_writer::tag('i', '', array('class' => 'icon-time'));
             $messagecontent .= html_writer::span($message->date);
             $messagecontent .= html_writer::end_span();
-    
+        
             $messageurl = new moodle_url('/message/index.php', array('user1' => $USER->id, 'user2' => $message->from->id));
             $messagemenu->add($messagecontent, $messageurl, $message->state);
         }
@@ -292,11 +295,11 @@ class theme_elegance_core_renderer extends core_renderer {
         }
     
         $content = '<ul class="nav navbar-nav navbar-right">';
-            foreach ($menu->get_children() as $item) {
-                $content .= $this->render_custom_menu_item($item, 1);
-            }
+        foreach ($menu->get_children() as $item) {
+            $content .= $this->render_custom_menu_item($item, 1);
+        }
         
-            return $content.'</ul>';
+        return $content.'</ul>';
         }
 
    protected function process_user_messages() {
@@ -375,8 +378,7 @@ class theme_elegance_core_renderer extends core_renderer {
        $messagecontent->from = $DB->get_record('user', array('id' => $message->useridfrom));
        $messagecontent->state = $state;
        return $messagecontent;
-   }
-   
+   }   
    
    
    /*

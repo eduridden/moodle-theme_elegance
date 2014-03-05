@@ -1,25 +1,4 @@
 /* admin.less  */
-.environmenttable {
-    p.warn {
-        background-color : @state-warning-bg;
-        color: @state-warning-text;
-    }
-    .error,
-    span.warn,
-    .ok {
-        .label;
-    }
-    .error {
-        background-color : @label-danger-bg;
-    }
-    span.warn {
-        background-color : @label-warning-bg;
-    }
-    .ok {
-        background-color: @label-success-bg;
-    }
-}
-
 .path-admin .incompatibleblockstable td.c0 {
     font-weight: bold;
 }
@@ -41,23 +20,23 @@
 .timewarninghidden {
     display: none;
 }
+
+// These status classes are only used on /report/security/ page
 .statusok,
 .statuswarning,
 .statusserious,
 .statuscritical {
-    .label;
+    &:extend(.label);
 }
 .statusok {
-    background-color: @label-success-bg;
+    &:extend(.label-success);
 }
 .statuswarning {
-    background-color: @label-warning-bg;
+    &:extend(.label-warning);
 }
-.statusserious {
-    background-color: @label-danger-bg;
-}
+.statusserious,
 .statuscritical {
-    background-color: @label-danger-bg;
+    &:extend(.label-danger);
 }
 
 #page-admin-report-capability-index #capabilitysearch {
@@ -327,66 +306,6 @@ img.iconsmall {
 .dir-rtl .adminsettingsflags label {
     margin-left: 7px;
 }
-/*
-.form-description {
-    clear: right;
-}
-
-.dir-rtl .form-description {
-    clear: left;
-}
-
-.form-item .form-setting .form-htmlarea {
-    width: 640px;
-    display: inline;
-}
-
-.form-item .form-setting .form-htmlarea .htmlarea {
-    width: 640px;
-    display: block;
-}
-
-.form-item .form-setting .form-multicheckbox ul {
-    list-style: none;
-    padding: 0;
-    margin: 7px 0 0 0;
-}
-
-.form-item .form-setting .defaultsnext {
-    margin-right: 0.5em;
-    display: inline;
-}
-.dir-rtl .form-item .form-setting .defaultsnext {
-    margin-left: 0.5em;
-    margin-right: 0;
-}
-.form-item .form-setting .locked-checkbox {
-    margin-right: 0.2em;
-    margin-left: 0.5em;
-    display: inline;
-}
-
-.dir-rtl .form-item .form-setting .locked-checkbox {
-    margin-right: 0.5em;
-    margin-left: 0.2em;
-    display: inline;
-}
-
-.form-item .form-setting .form-password .unmask,
-.form-item .form-setting .form-defaultinfo {
-    display: inline-block;
-}
-
-.form-item .pathok,
-.form-item .patherror {
-    margin-left: 0.5em;
-}
-*/
-#admin-devicedetectregex table {
-    border: none;
-    // Override a table border=1 in the HTML.
-    // MDL-44168
-}
 
 #admin-emoticons td input {
     width: 8em;
@@ -451,58 +370,30 @@ img.iconsmall {
     width: 16px;
 }
 
-#plugins-check .status-new .status {
-    background-color: @state-success-bg;
+.pluginicon.noicon {
+    display: none;
 }
 
-#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity200 .info.release,
-#plugins-check .status-upgrade .status,
-#plugins-check .status-delete .status {
+#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity200 .info.release {
     background-color: @state-info-bg;
 }
 
 #plugins-control-panel .extension .source,
+#plugins-check .extension .source {
+    font-weight: bold;
+}
+
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity100 .info.release,
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity150 .info.release,
 .pluginupdateinfo.maturity100,
-.pluginupdateinfo.maturity150,
-#plugins-check .extension .source {
+.pluginupdateinfo.maturity150 {
     background-color: @state-warning-bg;
 }
 
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity50 .info.release,
 .pluginupdateinfo.maturity50,
-#plugins-check .requires-failed,
-#plugins-check .missingfromdisk .displayname,
-#plugins-check .status-missing .status,
-#plugins-check .status-downgrade .status {
+#plugins-check .requires-failed {
     background-color: @state-danger-bg;
-}
-
-#plugins-control-panel .statusmsg {
-    background-color: @gray-lighter;
-    padding: 3px;
-    border-radius: 5px;
-}
-
-#plugins-control-panel .status-missing .pluginname {
-    background-color: @state-danger-bg;
-}
-
-#plugins-control-panel .status-missing .statusmsg {
-    color: @state-danger-text;
-}
-
-#plugins-control-panel .status-new .pluginname {
-    background-color: @state-success-bg;
-}
-
-#plugins-control-panel .status-new .statusmsg {
-    color: @state-success-text;
-}
-
-#plugins-control-panel .disabled .availability {
-    background-color: @input-bg-disabled;
 }
 
 #plugins-check .standard .source,
@@ -529,6 +420,68 @@ img.iconsmall {
     padding-right: 1em;
 }
 
+.dir-rtl {
+    #plugins-check .pluginupdateinfo {
+        text-align: center;
+        direction: ltr;
+    }
+
+    #plugins-check .rootdir,
+    #plugins-check .requires-ok {
+        text-align: left;
+        direction: ltr;
+    }
+}
+#plugins-control-panel .pluginicon.noicon {
+    display: none;
+}
+
+#plugins-control-panel .status-missing .pluginname {
+    background-color: @state-danger-bg;
+}
+
+#plugins-control-panel .status-new .pluginname {
+    background-color: @state-success-bg;
+}
+
+#plugins-control-panel .statusmsg {
+    &:extend(.label);
+}
+
+#plugins-control-panel .status-missing .statusmsg {
+    &:extend(.label-danger);
+}
+
+#plugins-control-panel .status-new .statusmsg {
+    &:extend(.label-success);
+}
+
+#plugins-control-panel .disabled .availability {
+    background-color: @input-bg-disabled;
+}
+
+
+#plugins-control-panel .requiredby,
+#plugins-control-panel .pluginname .componentname {
+    font-size: @font-size-small;
+    .text-muted;
+}
+
+#plugins-control-panel .msg td {
+    text-align: center;
+}
+
+#plugins-control-panel .notes .pluginupdateinfo {
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: @state-info-bg;
+    border-radius: 10px;
+}
+
+#plugins-control-panel .notes .pluginupdateinfo span,
+#plugins-control-panel .notes .pluginupdateinfo a {
+    padding-right: 1em;
+}
 
 #page-admin-index .upgradepluginsinfo {
     text-align: center;
@@ -537,16 +490,6 @@ img.iconsmall {
 #page-admin-plugins .checkforupdates {
     margin: 0 auto 1em;
     text-align: center;
-}
-
-#plugins-control-panel .requiredby,
-#plugins-control-panel .pluginname .componentname {
-    font-size: @font-size-small;
-    .text-muted;
-}
-
-#plugins-control-panel .pluginname .componentname {
-    margin-left: 22px;
 }
 
 #plugins-overview-filter .filter-item,
@@ -558,10 +501,6 @@ img.iconsmall {
 #plugins-check .status .pluginupdateinfo .separator,
 #page-admin-plugins .separator {
     border-left: 1px dotted #999;
-}
-
-#plugins-control-panel .msg td {
-    text-align: center;
 }
 
 #plugins-overview-filter,
@@ -581,40 +520,6 @@ img.iconsmall {
     font-weight: bold;
 }
 
-#plugins-control-panel .displayname img.icon {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-#plugins-control-panel .uninstall a {
-    color: @state-danger-text;
-}
-
-#plugins-control-panel .notes .pluginupdateinfo {
-    padding: 5px 10px;
-    margin: 10px;
-    background-color: @state-info-bg;
-    border-radius: 10px;
-}
-
-
-#plugins-control-panel .notes .pluginupdateinfo span,
-#plugins-control-panel .notes .pluginupdateinfo a {
-    padding-right: 1em;
-}
-
-.dir-rtl {
-    #plugins-check .pluginupdateinfo {
-        text-align: center;
-        direction: ltr;
-    }
-
-    #plugins-check .rootdir,
-    #plugins-check .requires-ok {
-        text-align: left;
-        direction: ltr;
-    }
-}
 
 /** MNet networking */
 #page-admin-mnet-peers .box.deletedhosts {
