@@ -43,14 +43,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
-    // Include Awesome Font from Bootstrapcdn
-    $name = 'theme_elegance/bootstrapcdn';
-    $title = get_string('bootstrapcdn', 'theme_elegance');
-    $description = get_string('bootstrapcdndesc', 'theme_elegance');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
     // Frontpage Content.
     $name = 'theme_elegance/frontpagecontent';
     $title = get_string('frontpagecontent', 'theme_elegance');
