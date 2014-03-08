@@ -83,7 +83,7 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
 					if ($haswebsite) {
 						echo '<a href="'.$haswebsite.'" class="socialicon website">';
 						echo '<i class="fa fa-globe fa-inverse"></i>';
-							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptiowebsite','theme_elegance').'</span>';
+							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionwebsite','theme_elegance').'</span>';
 						echo '</a>';
 					}
 					
