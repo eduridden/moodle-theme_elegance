@@ -3045,6 +3045,25 @@ table#user-grades th.userreport.c1 {
 
 /* @end */
 
+/* @group Messages */
+
+#newmessageoverlay a {
+	text-decoration: none;
+	font-size: .8em;
+	color: #fff;
+	background: #0098e0;
+	padding: 5px;
+	border: 1px solid #b4b4b7;
+	border-radius: 3px;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	font-family: "Roboto";
+}
+
+/* @end */
+
 /* @group Misc */
 
 #page-login-index h2,
@@ -3112,6 +3131,10 @@ table#user-grades th.userreport.c1 {
 #page-admin-setting-theme_elegance_generic .form-description p {
 	font-size: .75em;
 	margin-left: 100px;
+}
+
+.guestform {
+	border-top: 0px none;
 }
 
 .box.message .contactselector,
