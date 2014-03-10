@@ -569,6 +569,13 @@ defined('MOODLE_INTERNAL') || die;
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
  		
+ 		//This is the descriptor for Marketing Spot Four
+ 		$name = 'theme_elegance/marketing4info';
+ 		$heading = get_string('marketing4', 'theme_elegance');
+ 		$information = get_string('marketinginfodesc', 'theme_elegance');
+ 		$setting = new admin_setting_heading($name, $heading, $information);
+ 		$temp->add($setting);
+ 		
  		//Marketing Spot Four.
  		$name = 'theme_elegance/marketing4';
  		$title = get_string('marketingtitle', 'theme_elegance');
