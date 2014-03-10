@@ -156,6 +156,10 @@ li.activity.label:hover {
 	top: -5px;
 }
 
+.editing .section .activity .mod-indent-outer {
+	padding-left: 0px;
+}
+
 .moodle-actionmenu[data-enhanced].show .menu {
 	box-shadow: none;
 	background: #f1f1f4;
@@ -164,6 +168,12 @@ li.activity.label:hover {
 .section .activity .editing_move {
 	top: -15px;
 	left: -15px;
+}
+
+.section .editing_title .iconsmall {
+	top: -182px;
+	left: 10px;
+	position: relative;
 }
 
 .section .activity .availabilityinfo, 
@@ -305,8 +315,8 @@ img.iconlarge {
 
 .section .activity .actions {
 	position: relative;
-	top:  -175px;
-	left: 156px;
+	top:  -185px;
+	left: 130px;
 }
 .section .activity .actions a {
 	color: #999;

@@ -29,6 +29,7 @@ $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->them
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 $hastiles = (!empty($PAGE->theme->settings->tiles));
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+$invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
 $hasmarketing = (empty($PAGE->theme->settings->togglemarketing)) ? false : $PAGE->theme->settings->togglemarketing;
 $hasquicklinks = (empty($PAGE->theme->settings->togglequicklinks)) ? false : $PAGE->theme->settings->togglequicklinks;
 $hasfrontpagecontent = (empty($PAGE->theme->settings->frontpagecontent)) ? false : $PAGE->theme->settings->frontpagecontent;
@@ -37,6 +38,12 @@ if ($haslogo) {
 	$logo = '<div id="logo"></div>';
 } else {
 	$logo = $SITE->shortname;
+}
+
+if ($invert) {
+	$navbartype = 'inverse';
+} else {
+	$navbartype = 'default';
 }
 
 
@@ -52,8 +59,8 @@ echo $OUTPUT->doctype() ?>
 <head>
 	<title><?php echo $OUTPUT->page_title(); ?></title>
 	<link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 	<?php echo $OUTPUT->standard_head_html() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -62,7 +69,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
@@ -185,71 +192,6 @@ echo $OUTPUT->doctype() ?>
 	});	
 </script>
 
-<script type="application/javascript">
-function init() {
-
-	var width = window.innerWidth;
-	var height = window.innerHeight;
-
-	// resize the canvas to fill browser window dynamically
-	window.addEventListener('resize', function(event){
-		width = window.innerWidth;
-		height = window.innerHeight;
-
-		sCtx.canvas.width = width;
-		sCtx.canvas.height = height;
-	});
-//    window.addEventListener('focus', function(event){
-//	    window.requestAnimationFrame(renderGame);
-//    });
-
-	var vX = 0.0;
-
-	var statCanvas = document.getElementById("clouds");
-
-	if (statCanvas.getContext)
-	{
-		var sCtx = statCanvas.getContext("2d");
-
-		sCtx.canvas.width = width;
-		sCtx.canvas.height = height;
-
-		// Draw Gradient
-		var grd=sCtx.createLinearGradient(0,0,0,height);
-		grd.addColorStop(0,"#243769");
-		grd.addColorStop(1,"#BBBDF3");
-		sCtx.fillStyle=grd;
-
-		// Draw Stars
-		var starsImg = new Image();
-		starsImg.src = '<?php echo $CFG->wwwroot;?>/theme/elegance/pix/bg/frontpage/stars.png';
-
-		// Draw Clouds
-		var cloudsImg = new Image();
-		cloudsImg.src = '<?php echo $CFG->wwwroot;?>/theme/elegance/pix/bg/frontpage/clouds.png';
-
-		(function renderGame() {
-			window.requestAnimationFrame(renderGame);
-
-			sCtx.clearRect(0, 0, width*2, height);
-
-			sCtx.fillStyle=grd;
-			sCtx.fillRect(0,0,width, height);
-
-			sCtx.drawImage(starsImg, 0, 0, width, height);
-
-			sCtx.drawImage(cloudsImg, vX, 0, width, height);
-			sCtx.drawImage(cloudsImg, width+vX, 0, width, height);
-
-			if (Math.abs(vX) > width) {
-				vX = 0;
-			}
-
-			vX -= 0.1;
-		}());
-	}
-}
-</script>
 <canvas id="clouds" style="position:absolute; bottom:0px; left: 0px; z-index:-1; width: 100%; height: 100%;"></canvas>
 </body>
 </html>

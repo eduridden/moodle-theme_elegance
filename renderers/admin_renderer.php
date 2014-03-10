@@ -17,14 +17,17 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrap
+ * @package    theme_elegance
  * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->dirroot . "/admin/renderer.php");
 
-class theme_bootstrap_core_admin_renderer extends core_admin_renderer {
+
+class theme_elegance_core_admin_renderer extends core_admin_renderer {
 
     protected function maturity_info($maturity) {
         if ($maturity == MATURITY_STABLE) {
@@ -56,12 +59,6 @@ class theme_bootstrap_core_admin_renderer extends core_admin_renderer {
         return $this->notification($maturitywarning, 'notifyproblem');
     }
 
-    /**
-     * Output a warning message, of the type that appears on the admin notifications page.
-     * @param string $message the message to display.
-     * @param string $type type class
-     * @return string HTML to output.
-     */
     protected function warning($message, $type = 'warning') {
         if ($type == 'warning') {
             return $this->notification($message, 'notifywarning');
@@ -81,5 +78,25 @@ class theme_bootstrap_core_admin_renderer extends core_admin_renderer {
     protected function release_notes_link() {
         $releasenoteslink = get_string('releasenoteslink', 'admin', 'http://docs.moodle.org/dev/Releases');
         return $this->notification($releasenoteslink, 'notifymessage');
+    }
+
+    public function plugins_check_table(core_plugin_manager $pluginman, $version, array $options = array()) {
+        $html = parent::plugins_check_table($pluginman, $version, $options);
+
+        $replacements = array(
+            'generaltable' => 'table table-striped',
+            'status-missing' => 'danger',
+            'status-downgrade' => 'danger',
+            'status-upgrade' => 'info',
+            'status-delete' => 'info',
+            'status-new' => 'success',
+
+        );
+
+        $find = array_keys($replacements);
+        $replace = array_values($replacements);
+
+        return str_replace($find, $replace, $html);
+
     }
 }

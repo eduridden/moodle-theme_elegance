@@ -52,12 +52,19 @@ $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme-
 $hasltiles = (!empty($PAGE->theme->settings->tiles));
 
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+$invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
 
  if ($haslogo) {
  	$logo = '<div id="logo"></div>';
  } else {
  	$logo = $SITE->shortname;
  }
+ 
+ if ($invert) {
+	$navbartype = 'inverse';
+} else {
+	$navbartype = 'default';
+}
  
  if (!empty($CFG->loginpasswordautocomplete)) {
     $autocomplete = 'autocomplete="off"';
@@ -234,7 +241,7 @@ echo $OUTPUT->doctype() ?>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <?php echo $OUTPUT->standard_head_html() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -243,7 +250,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">

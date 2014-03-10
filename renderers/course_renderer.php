@@ -17,22 +17,17 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrap
+ * @package    theme_elegance
  * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->dirroot . "/course/renderer.php");
 
-class theme_bootstrap_core_course_renderer extends core_course_renderer {
+class theme_elegance_core_course_renderer extends core_course_renderer {
 
-    /**
-     * Renders html to display a course search form
-     *
-     * @param string $value default value to populate the search field
-     * @param string $format display format - 'plain' (default), 'short' or 'navbar'
-     * @return string
-     */
     public function course_search_form($value = '', $format = 'plain') {
         static $count = 0;
         $formid = 'coursesearch';

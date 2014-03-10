@@ -31,14 +31,14 @@
 /* @end */
 
 @font-face {
-    font-family: 'FontAwesome'; 
-    font-weight: normal;
-    font-style: normal;
-    src: url('[[setting:fontwww]]fontawesome-webfont.eot?v=4.0.0');
-    src: url('[[setting:fontwww]]fontawesome-webfont.eot?#iefix&v=4.0.0') format('embedded-opentype'), 
-      			url('[[setting:fontwww]]fontawesome-webfont.woff?v=4.0.0') format('woff'), 
-      			url('[[setting:fontwww]]fontawesome-webfont.ttf?v=4.0.0') format('truetype'), 
-      			url('[[setting:fontwww]]fontawesome-webfont.svg#fontawesomeregular?v=4.0.0') format('svg');
+	font-family: 'FontAwesome';
+	src: url('[[font:theme|FontAwesome.otf]]');
+	src: url('[[font:theme|fontawesome.eot]]') format('embedded-opentype'),
+       url('[[font:theme|fontawesome.woff]]') format('woff'),
+       url('[[font:theme|fontawesome.ttf]]') format('truetype'),
+       url('[[font:theme|fontawesome.svg]]#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 body, html {
@@ -394,6 +394,10 @@ text-shadow: 0 1px 1px rgba(255,255,255,0.75);
 	font-weight: 400;
 }
 
+#quicklinks.row {
+	margin-bottom: 10px;
+}
+
 h2.marketingheader,
 h2.quicklinksheader {
 	color: [[setting:headingcolor]];
@@ -404,7 +408,7 @@ h2.quicklinksheader {
 	text-transform: none;
 	padding-left: 0px;
 	padding-bottom: 10px;
-	border-bottom: 4px solid #ddd;
+	border-bottom: 3px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -776,7 +780,6 @@ border-bottom-color: #888;
 	font-size: .9em;
 }
 
-.sitelink,
 .homelink a {
 	float: left;
 	margin-right: 15px;
@@ -813,14 +816,16 @@ border-bottom-color: #888;
 	margin-bottom: 10px;
 }
 
-#page-footer .helplink a {
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px solid #b4b4b7;
-	background: #ecedf0;
-	color: #333537;
-	padding: 5px 8px 5px;
-	line-height: 18px;
+#page-footer .helplink a{
+	position: relative;
+	float: left;
+	margin-top: -55px;
+	margin-left: 20px;
+	
+	border: 1px solid #f0ad4e;
+	background-color: #f0ad4e;
+	color: #fff;
+	padding: 5px 10px;
 	text-decoration: none;
 	position: relative;
 	font-size: 14px;
@@ -837,13 +842,21 @@ border-bottom-color: #888;
 	transition: 0.25s;
 	-webkit-backface-visibility: hidden;
 	font-weight: 500;
-	font-size: .85em;
+	font-family: "Roboto";
 }
 
 #page-footer .helplink a:hover {
-	color: white;
-	background: orange;
-	font-weight: bold;
+	background: #000;
+}
+
+#page-footer .purgecaches {
+	margin-top: -50px;
+}
+
+#page-footer .purgecaches a {
+	padding: 11px 12px 11px;
+	margin-left: 10px;
+	line-height: 22px;
 }
 
 #page-footer .purgecaches a:hover  {
@@ -910,95 +923,90 @@ border-bottom-color: #888;
     font-size: 1.1em;
 }
 
-
-.socials a,
-.socials a:visited {
-    display: block;
+.socialicon,
+.socialicon:visited {
+    display: inline-block;
     font-family: FontAwesome;
     color: #bbb;
-    font-size: 2.5em;
     line-height: 25px;
-    padding-left: 5px;
     text-decoration: none;
-}
-
-button.socialicon {
     background-color: rgba(0,0,0,.2);
     border-radius: 270px;
     border: 0px none;
     font-size: 1.6em;
     padding: 8px;
+    margin-left: 8px;
     text-align: center;
     background-image: none;
     width: 39px;
-
+    height: 39px;
 }
 
-button.facebook:hover, button.facebook:focus {
+.facebook:hover, button.facebook:focus {
     background: #4a6ea9;
 }
 
-button.skype:hover, button.skype:focus {
+.skype:hover, button.skype:focus {
     background: #00adf7;
 }
 
-button.instagram:hover, button.instagram:focus {
+.instagram:hover, button.instagram:focus {
     background: #a5674a;
 }
 
-button.ios:hover, button.ios:focus {
+.ios:hover, button.ios:focus {
     background: #000;
 }
 
-button.android:hover, button.android:focus {
+.android:hover, button.android:focus {
     background: #98cd32;
 }
 
-button.vk:hover, button.vk:focus {
+.vk:hover, button.vk:focus {
     background: #4a6ea9;
 }
 
-button.twitter:hover, button.twitter:focus {
+.twitter:hover, button.twitter:focus {
     background: #00aced;
 }
 
-button.googleplus:hover, button.googleplus:focus {
+.googleplus:hover, button.googleplus:focus {
     background: #f42941;
 }
 
-button.flickr:hover, button.flickr:focus {
+.flickr:hover, button.flickr:focus {
     background: #ff3096;
 }
 
-button.instagram:hover, a.instagram:focus {
+.instagram:hover, a.instagram:focus {
     background: #b99c6b;
 }
 
-button.youtube:hover, button.youtube:focus {
+.youtube:hover, button.youtube:focus {
     background: #f42941;
 }
 
-button.pinterest:hover, button.pinterest:focus {
+.pinterest:hover, button.pinterest:focus {
     background: #f42941;
 }
 
-button.linkedin:hover, button.linkedin:focus {
+.linkedin:hover, button.linkedin:focus {
     background: #4A9CC9;
 }
 
-button.website:hover, button.website:focus {
+.website:hover, button.website:focus {
     background: [[setting:themecolor]];
 }
 
-button.vimeo:hover, button.vimeo:focus {
+.vimeo:hover, button.vimeo:focus {
     background: #38b7eb;
 }
 
-button.tumblr:hover, button.tumblr:focus {
+.tumblr:hover, button.tumblr:focus {
     background: #405a71;
 }
 
-button.blog:hover, button.blog:focus {
+.blog:hover, button.blog:focus {
     background: #ff9900;
 }
 
@@ -1079,7 +1087,7 @@ ul.socials {
 	font-size: 24px;
 	text-transform: none;
 	padding-left: 0px;
-	border-bottom: 4px solid #ddd;
+	border-bottom: 3px solid #ddd;
 	margin: 0 0 10px 0;
 	line-height: normal;
 }
@@ -1091,7 +1099,7 @@ ul.socials {
 	height: 3px;
 	width: 100px;
 	position: relative;
-	top: 13px;
+	top: 3px;
 }
 
 .block_section .header .block_action {
@@ -1124,11 +1132,8 @@ ul.socials {
 
 /* @group Login Block */
 
-.block_login div.c1.btn:hover {
-	background: transparent !important;
-}
 
-.block_login .content form input[type="submit"],
+.block_login .btn,
 .block_login .content .footer a {
     background-color: [[setting:themecolor]];
     background-image: none;
@@ -1151,6 +1156,21 @@ ul.socials {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     transition: 0.25s;
+}
+
+.block_login .content input[type="submit"] {
+	background: transparent;
+	border: 0px none;
+	padding: 0px;
+	margin: 0px;
+	color: #fff;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.block_login .content input[type="submit"]:before {
+	content:"\f090";
+	font-family: FontAwesome;
 }
 
 .block_login .content .footer a {
@@ -1784,10 +1804,6 @@ blockquote>.icon-quote-left{
 	position: relative;
 }
 
-.path-course.pagelayout-coursecategory #region-main{
-	width: 100%;
-}
-
 .box.courseboxes{
 	clear: both;
 	float: left;
@@ -2197,6 +2213,10 @@ input#id_submitbutton{
 	margin-right: 10px;
 }
 
+.form-description {
+	clear: left
+}
+
 
 /* @end */
 
@@ -2453,6 +2473,10 @@ table#user-grades th.userreport.c1 {
 
 .path-grade-report-grader .right_scroller table#user-grades td.grade{
     height: 5em;
+}
+
+.pagelayout-report .no-overflow {
+	overflow: auto;
 }
 
 /* @end */
@@ -2744,6 +2768,11 @@ table#user-grades th.userreport.c1 {
 	float: right;
 	width: 240px;
 	padding: 10px;
+}
+
+.coursebox .content .coursecat {
+	font-size: .85em;
+	padding-right: 10px;
 }
 
 .coursebox .info {

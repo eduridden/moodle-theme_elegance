@@ -18,7 +18,7 @@ Cool things to know about the theme.
  - The frontpage consists of spaces to create quick links and Marketing info all set through theme settings
  - Social Network icons appear at the footer of the page dynamically based on theme settings
  - Videos are resized dynamically to fit available screen space. A max-width can be set in the settings if needed.
- 
+
 See the theme in Action
 ========================
 

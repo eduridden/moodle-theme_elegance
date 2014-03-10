@@ -213,7 +213,7 @@ $string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background 
 /* Login Screen */
 $string['loginsettings'] = 'Login Screen';
 $string['loginsettingssub'] = 'Custom Login Screen Settings';
-$string['loginsettingsdesc'] = 'Thhe custom version has a background slideshow you can customise images for as well as a cleaner look.';
+$string['loginsettingsdesc'] = 'The custom version has a background slideshow you can customise images for as well as a cleaner look.';
 
 $string['enablecustomlogin'] = 'Use Custom Login';
 $string['enablecustomlogindesc'] = 'When enabled this will use the theme augmented version of the login screen. Removing the tick wil revert to the Moodle default version.<br>The augmented version allows you to upload backgrund slides to really add pizzaz to your page design.';
@@ -361,4 +361,21 @@ $string['categoryicondesc'] = 'categoryid=';
 
 $string['subtitle'] = 'Subtitle';
 $string['subtitle_desc'] = 'Optionally select a subtitle for the Moodle homepage';
+
+/* Social Networks Icon Descriptions */
+$string['socialnetworksicondescriptionblog'] = 'Read our Blog';
+$string['socialnetworksicondescriptionwebsite'] = 'Visit our Website';
+$string['socialnetworksicondescriptiongoogleplus'] = 'Follow us on Google Plus';
+$string['socialnetworksicondescriptiontwitter'] = 'Follow us on Twitter';
+$string['socialnetworksicondescriptionfacebook'] = 'Like us on Facebook';
+$string['socialnetworksicondescriptionlinkedin'] = 'Connect with us on LinkedIn';
+$string['socialnetworksicondescriptionyoutube'] = 'Watch us on Youtube';
+$string['socialnetworksicondescriptionvimeo'] = 'Watch us on Vimeo';
+$string['socialnetworksicondescriptionflickr'] = 'View us on Flickr';
+$string['socialnetworksicondescriptionpinterest'] = 'Pin us on Pinterest';
+$string['socialnetworksicondescriptiontumblr'] = 'Find us on Tumblr';
+$string['socialnetworksicondescriptioninstagram'] = 'Find us on Instagram';
+$string['socialnetworksicondescriptionvk'] = 'Like us on VK';
+$string['socialnetworksicondescriptionskype'] = 'Call us on Skype';
+
 

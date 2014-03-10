@@ -1,4 +1,4 @@
-/* core.less */
+/** core.less */
 
 /** Page layout CSS starts **/
 .layout-option-noheader #page-header,
@@ -10,26 +10,25 @@
 }
 
 
-.editing.used-region-side-post.used-region-side-pre #region-main {
-    .make-sm-column(4);
-    .make-md-column(6);
-    .make-sm-column-push(4);
-    .make-md-column-push(3);
-}
-
-
-.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
-    .make-sm-column(4);
-    .make-md-column(3);
-    min-height: 100px;
-}
-
-.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
-    .make-sm-column(4);
-    .make-md-column(3);
-    .make-sm-column-pull(4);
-    .make-md-column-pull(6);
-     min-height: 100px;
+.editing.used-region-side-post.used-region-side-pre {
+    #region-main {
+        .make-sm-column(4);
+        .make-md-column(6);
+        .make-sm-column-push(4);
+        .make-md-column-push(3);
+    }
+    #block-region-side-post {
+        .make-sm-column(4);
+        .make-md-column(3);
+        min-height: 100px;
+    }
+    #block-region-side-pre {
+        .make-sm-column(4);
+        .make-md-column(3);
+        .make-sm-column-pull(4);
+        .make-md-column-pull(6);
+        min-height: 100px;
+    }
 }
 
 /** Page layout CSS ends **/
@@ -69,7 +68,7 @@ a.dimmed_text:visited,
     .text-muted
 }
 .activity.label .dimmed_text {
-    .opacity(50)
+    .opacity(.5)
 }
 .unlist,
 .unlist li,
@@ -80,9 +79,7 @@ a.dimmed_text:visited,
 .section li.activity,
 .section li.movehere,
 .tabtree li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    &:extend(.list-unstyled);
 }
 .inline,
 .inline-list li {
@@ -95,14 +92,6 @@ a.dimmed_text:visited,
 .notifytiny td {
     font-size: 100%;
 }
-.red,
-.notifyproblem {
-    color: @alert-danger-text;
-}
-.green,
-.notifysuccess {
-    color: @alert-success-text;
-}
 .reportlink {
     text-align: right;
 }
@@ -112,58 +101,65 @@ a.autolink.glossary:hover {
 /* Block which is hidden if javascript enabled, prevents fickering visible when JS from footer used! */
 .collapsibleregioncaption {
     white-space: nowrap;
+    img {
+        vertical-align: middle;
+    }
 }
-.collapsibleregioncaption img {
-    vertical-align: middle;
-}
-.jsenabled .hiddenifjs {
-    display: none;
+.jsenabled {
+    .hiddenifjs {
+        display: none;
+    }
+    .visibleifjs {
+        display: inline;
+    }
+    .collapsibleregion {
+        overflow: hidden;
+    }
+    .collapsed {
+        .collapsibleregioninner {
+            visibility: hidden;
+        }
+    }
+    .collapsible-actions {
+        display: block;
+    }
 }
 .visibleifjs {
     display: none;
 }
-.jsenabled .visibleifjs {
-    display: inline;
-}
-.jsenabled .collapsibleregion {
-    overflow: hidden;
-}
-.jsenabled .collapsed .collapsibleregioninner {
-    visibility: hidden;
-}
 .collapsible-actions {
     display: none;
     text-align: right;
+    .collapseexpand {
+        padding-left: 20px;
+        background: url([[pix:t/collapsed]]) 2px center no-repeat;
+    }
 }
-.dir-rtl .collapsible-actions {
-    text-align: left;
+.dir-rtl {
+    .collapsible-actions {
+        text-align: left;
+        .collapseexpand {
+            padding-right: 20px;
+            padding-left: 0;
+            background: url([[pix:t/collapsed_rtl]]) right center no-repeat;
+        }
+    }
 }
-.jsenabled .collapsible-actions {
-    display: block;
-}
-.collapsible-actions .collapseexpand {
-    padding-left: 20px;
-    background: url([[pix:t/collapsed]]) 2px center no-repeat;
-}
-.dir-rtl .collapsible-actions .collapseexpand {
-    padding-right: 20px;
-    padding-left: 0;
-    background: url([[pix:t/collapsed_rtl]]) right center no-repeat;
-}
-.collapsible-actions .collapse-all,
-.dir-rtl .collapsible-actions .collapse-all {
+.collapsible-actions .collapse-all,.dir-rtl .collapsible-actions .collapse-all {
     background-image: url([[pix:t/expanded]]);
 }
-.yui-overlay .yui-widget-bd {
-    background-color: #FFEE69;
-    border: 1px solid #A6982B;
-    border-top-color: #D4C237;
-    color: #000000;
-    left: 0;
-    padding: 2px 5px;
-    position: relative;
-    top: 0;
-    z-index: 1;
+.yui-overlay {
+    .yui-widget-bd {
+        background-color: #FFEE69;
+        border: 1px solid #A6982B;
+        border-top-color: #D4C237;
+        color: #000000;
+        left: 0;
+        padding: 2px 5px;
+        position: relative;
+        top: 0;
+        z-index: 1;
+    }
 }
 .clearer {
     background: transparent;
@@ -174,19 +170,14 @@ a.autolink.glossary:hover {
     margin: 0;
     padding: 0;
 }
-.bold,
-.warning,
-.errorbox .title,
-.pagingbar .title,
-.pagingbar .thispage {
+.bold,.errorbox .title,.pagingbar .title,.pagingbar .thispage {
     font-weight: bold;
 }
 img.resize {
     height: 1em;
     width: 1em;
 }
-.block img.resize,
-.breadcrumb img.resize {
+.block img.resize,.breadcrumb img.resize {
     height: 0.9em;
     width: 0.8em;
 }
@@ -195,11 +186,11 @@ img.icon {
     height: 16px;
     vertical-align: text-bottom;
     width: 16px;
-    padding-right: 6px;
+    margin-right: 6px;
 }
 .dir-rtl img.icon {
-    padding-left: 6px;
-    padding-right: 0;
+    margin-left: 6px;
+    margin-right: 0;
 }
 img.iconsmall {
     height: 12px;
@@ -207,11 +198,16 @@ img.iconsmall {
     vertical-align: middle;
     width: 12px;
 }
-img.iconhelp, .helplink img {
+img.iconhelp,
+.helplink img {
     height: 16px;
-    padding-left: 3px;
-    vertical-align: text-bottom;
+    margin-left: 3px;
     width: 16px;
+}
+.dir-rtl img.iconhelp,
+.dir-rtl .helplink img {
+    margin-right: 3px;
+    margin-left: 0;
 }
 h1 img.iconhelp, h1 img.icon,
 h2 img.iconhelp, h2 img.icon,
@@ -220,11 +216,7 @@ h4 img.iconhelp, h4 img.icon,
 h5 img.iconhelp, h5 img.icon,
 h6 img.iconhelp, h6 img.icon {
   vertical-align: middle;
-  padding: 4px;
-}
-.dir-rtl img.iconhelp, .dir-rtl .helplink img {
-    padding-right: 3px;
-    padding-left: 0;
+  margin: 4px;
 }
 img.iconlarge {
     height: 24px;
@@ -327,9 +319,10 @@ form.popupform div {
 .no-overflow > .generaltable {
     margin-bottom: 0;
 }
-// Accessibility features
+/** Accessibility features
 
-// Accessibility: text 'seen' by screen readers but not visual users.
+    Accessibility: text 'seen' by screen readers but not visual users.
+**/
 .accesshide {
     position: absolute;
     left: -10000px;
@@ -344,7 +337,7 @@ span.hide,
 div.hide {
     display: none;
 }
-// Accessibility: Skip block link, for keyboard-only users.
+/** Accessibility: Skip block link, for keyboard-only users. **/
 a.skip-block,
 a.skip {
     position: absolute;
@@ -364,7 +357,7 @@ a.skip:active {
     height: 1px;
     overflow: hidden;
 }
-// Blogs
+/** Blogs **/
 .addbloglink {
     text-align: center;
 }
@@ -382,7 +375,7 @@ a.skip:active {
 .blog_entry .content {
     margin-left: 43px;
 }
-// Group
+/** Group **/
 #page-group-index #groupeditform {
     text-align: center;
 }
@@ -412,14 +405,6 @@ a.skip:active {
     min-width: 80%;
     margin: 0 auto;
 }
-.groupmanagementtable #removeselect_wrapper,
-.groupmanagementtable #addselect_wrapper {
-    width: 100%;
-}
-.groupmanagementtable #removeselect_wrapper label,
-.groupmanagementtable #addselect_wrapper label {
-    font-weight: normal;
-}
 .dir-rtl .groupmanagementtable p {
     text-align: right;
 }
@@ -434,74 +419,8 @@ a.skip:active {
 .groupselector label {
     display: inline-block;
 }
-.loginbox {
-    border-radius: 3px;
 
-    .make-row();
-    margin-right: 0px;
-    .form-group;
-
-    &.onecolumn  {
-        .make-md-column(3);
-        .well;
-    }
-
-    &.twocolumns .loginpanel {
-        .make-sm-column(4);
-        .make-lg-column(3);
-        .well;
-    }
-
-    &.twocolumns .signuppanel {
-        .make-sm-column(7);
-        .make-sm-column-push(1);
-        .make-lg-column(8);
-        .make-lg-column-push(1);
-    }
-
-    .loginform {
-        .form-label {
-            width: 100%;
-            margin-bottom: 5px;
-        }
-        .form-input {
-            width: 100%;
-            margin-bottom: 5px;
-            input[type="text"],
-            input[type="password"] {
-                .form-control;
-                width: 100%;
-            }
-            input[type="submit"] {
-                margin: 10px 0 0;
-            }
-        }
-    }
-    input[type="submit"] {
-        margin: 10px 0 0;
-    }
-    .desc {
-        font-size: 30px;
-        line-height: 30px;
-        font-weight: 300;
-        color: #333333;
-    }
-
-    .subcontent {
-        text-align: left;
-        padding: 0;
-        margin: 0;
-        .desc {
-            display: none;
-        }
-    }
-    .rememberpass label,
-    .forgetpass a {
-        color: #111;
-        text-decoration: none;
-    }
-}
-// Notes
+/** Notes **/
 .notepost {
     margin-bottom: 1em;
 }
@@ -517,7 +436,7 @@ a.skip:active {
     margin-left: 20px;
 }
 
-// My Moodle
+/** My Moodle **/
 .path-my .coursebox .overview {
     margin: 15px 30px 10px 30px;
 }
@@ -526,7 +445,7 @@ a.skip:active {
     margin: 0;
 }
 
-// Modules
+/** Modules **/
 .mod_introbox {
     padding: 10px;
 }
@@ -534,7 +453,7 @@ table.mod_index {
     width: 100%;
 }
 
-// Comments
+/** Comments **/
 .comment-ctrl {
     font-size: 12px;
     display: none;
@@ -661,9 +580,7 @@ table.mod_index {
 .completion-expired .completion-expected {
     font-weight: bold;
 }
-/**
-* Tags
-*/
+/** Tags **/
 #page-tag-coursetags_edit .coursetag_edit_centered {
     position: relative;
     width: 600px;
@@ -1092,22 +1009,14 @@ body.tag .managelink {
 #page-enrol-users .user-enroller-panel .uep-search-results .user .details {
     width: 237px;
 }
-/**
-* Overide for RTL layout
-**/
+/** Overide for RTL layout **/
 .dir-rtl .headermain {
     float: right;
 }
 .dir-rtl .headermenu {
     float: left;
 }
-.dir-rtl .loginbox .loginform .form-label {
-    float: right;
-    text-align: left;
-}
-.dir-rtl .loginbox .loginform .form-input {
-    text-align: right;
-}
+
 .dir-rtl .yui3-menu-hidden {
     left: 0;
 }
@@ -1375,7 +1284,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
-    .box-shadow(5px 5px 20px 0 #666);
+    box-shadow: 5px 5px 20px 0 #666;
 }
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
@@ -1530,7 +1439,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     padding-bottom: 4px;
 }
 .moodle-dialogue .moodle-dialogue-bd .content-lightbox {
-    .opacity(75);
+    .opacity(.75);
     width: 100%;
     height: 100%;
     top: 0;
@@ -1814,12 +1723,12 @@ table.badgeissuedinfo .bfield {
     text-align: left;
     font-style: italic;
 }
-.dir-rtl {
-    table.badgeissuedinfo .bvalue,
-    table.badgeissuedinfo .bfield {
+
+.dir-rtl table.badgeissuedinfo .bvalue,
+.dir-rtl table.badgeissuedinfo .bfield {
         text-align: right;
-    }
 }
+
 ul.badges {
     margin: 0;
     list-style: none;
@@ -1860,7 +1769,7 @@ div.badge .expireimage {
     top: 0px;
 }
 .expireimage {
-    .opacity(85);
+    .opacity(.85);
     width: 90px; height: 90px;
     left: 30px;
     top: 0px;
@@ -1961,7 +1870,7 @@ img#persona_signin {
         }
         .toggle-display {
             display: inline; /** JS is enabled, we'll be using it so return display to normal **/
-            .opacity(50);
+            .opacity(.5);
         }
         .toggle-display.textmenu {
             display: block;
@@ -1988,7 +1897,7 @@ img#persona_signin {
     }
     .moodle-actionmenu[data-enhanced] {
         .toggle-display {
-            .opacity(100);
+            .opacity(1);
         }
         .menu-action-text  {
             display:inline;
@@ -2023,7 +1932,7 @@ img#persona_signin {
         border: 1px solid @dropdown-border;
         z-index:1000;
         border-radius: 5px;
-        .box-shadow(5px 5px 20px 0 #666);
+        box-shadow: 5px 5px 20px 0 #666;
 
         a {
             display: block;
