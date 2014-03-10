@@ -242,6 +242,7 @@ $string['marketingtitleicondesc'] = 'Name of the icon you wish to use in the hea
 $string['marketing1'] = 'Marketing Spot One';
 $string['marketing2'] = 'Marketing Spot Two';
 $string['marketing3'] = 'Marketing Spot Three';
+$string['marketing4'] = 'Marketing Spot Four';
 
 $string['marketingtitle'] = 'Title';
 $string['marketingtitledesc'] = 'Title to show in this marketing spot';
