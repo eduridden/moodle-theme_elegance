@@ -26,8 +26,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014030400;
-$plugin->release = '2.6.1 (Build: 20140304)';
+$plugin->version   = 2014031100;
+$plugin->release = '2.6.1 (Build: 20140311)';
 $plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
 $plugin->requires  = 2013110500;
 $plugin->component = 'theme_elegance';
