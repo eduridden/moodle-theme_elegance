@@ -333,7 +333,10 @@ echo $OUTPUT->doctype() ?>
                             </div>
                         </form>
                     </div>
-                <?php } ?>
+                <?php } 
+                /// Uncomment the line below if you are using the oAuth plugin
+                // require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons(); 
+                ?>
             </div>
             
             
