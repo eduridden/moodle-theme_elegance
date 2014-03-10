@@ -22,9 +22,17 @@ Cool things to know about the theme.
 See the theme in Action
 ========================
 
-A video showing many of the core features is available for viewing at https://vimeo.com/channels/moodleman
+A video showing many of the core features is available for viewing at [https://vimeo.com/channels/moodleman/87749717](https://vimeo.com/channels/moodleman/87749717)
 
 If you would like to see it in action, head to this year's iMoot site at [http://2014.imoot.org](http://2014.imoot.org)
+
+New in 2.6.1
+========================
+- FIX: Navbar on mobile devices
+- FIX: Formatting of coursetiles when editing is turned on
+- FIX: FontAwesome display
+- FIX: Slideshow when using more than 3 slides
+- FIX: Logon page formatting
 
 
 Documentation
