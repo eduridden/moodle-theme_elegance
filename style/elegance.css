@@ -2213,6 +2213,10 @@ input#id_submitbutton{
 	margin-right: 10px;
 }
 
+.form-description {
+	clear: left
+}
+
 
 /* @end */
 
