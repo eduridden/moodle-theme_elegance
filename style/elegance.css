@@ -194,6 +194,7 @@ a:hover, a:focus{
 .banner ul {
 	list-style: none;
 	width: 300%;
+	margin-left: 0px;
 }
 
 .banner ul li {
