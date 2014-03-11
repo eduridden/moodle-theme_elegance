@@ -818,16 +818,15 @@ border-bottom-color: #888;
 }
 
 #page-footer .helplink a{
+	float: left;
 	position: relative;
-	margin-top: -55px;
-	margin-left: 20px;
-	
+	top: -20px;
+	display: inline-block;
 	border: 1px solid #f0ad4e;
 	background-color: #f0ad4e;
 	color: #fff;
 	padding: 5px 10px;
 	text-decoration: none;
-	position: relative;
 	font-size: 14px;
 	text-shadow: none;
 	-webkit-border-radius: 3px;
