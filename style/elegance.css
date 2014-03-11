@@ -194,6 +194,7 @@ a:hover, a:focus{
 .banner ul {
 	list-style: none;
 	width: 300%;
+	margin-left: 0px;
 }
 
 .banner ul li {
@@ -1206,6 +1207,14 @@ ul.socials {
 .block_login .content .footer div:nth-child(2) a:before {
 	content:"  \f09c";
 	margin-right: 5px;
+}
+
+/* @end */
+
+/* @group Calendar Block */
+
+ul, ol{
+	margin-left: 20px;
 }
 
 /* @end */
@@ -2938,6 +2947,55 @@ table#user-grades th.userreport.c1 {
 	-o-transition: 0.25s;
 	transition: 0.25s;
 	font-family: "Roboto";
+}
+
+/* @end */
+
+/* @group Fixes */
+
+/* to lower the checkbox so it is completely visible */
+radio input[type="radio"], 
+.radio-inline input[type="radio"], 
+.checkbox input[type="checkbox"], 
+.checkbox-inline input[type="checkbox"] {
+    margin-top: 5px;
+}
+
+/* to left-adjust the table columns and content*/
+table#categoryquestions {
+    display: inline;
+}
+
+#categoryquestions .header {
+  text-align: left;
+}
+
+/* to correct the repository list width for the earlier inline statement */
+#page-mod-quiz-edit div.container div.generalbox {
+    overflow: auto;
+}
+
+/* to correct table width of grade report */
+.gradetreebox {
+    overflow:auto;
+}
+
+/* to correct the repository list width  */
+#page-mod-quiz-edit div.container div.generalbox {
+    overflow: hidden;
+}
+
+/* to reposition question bank */
+#page-mod-quiz-edit div.quizcontents {
+	width: 100%;
+}
+
+.questionbankwindow.block {
+ 	width: 100%;
+}
+
+#page-mod-quiz-edit .modulespecificbuttonscontainer {
+    width: 400px;
 }
 
 /* @end */
