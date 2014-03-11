@@ -33,6 +33,7 @@ New in 2.6.1
 - FIX: FontAwesome display
 - FIX: Slideshow when using more than 3 slides
 - FIX: Logon page formatting
+- NEW: Click on block title to toggle hide and show
 
 
 Documentation
