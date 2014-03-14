@@ -1694,6 +1694,10 @@ blockquote>.icon-quote-left{
 
 /* @group Course */
 
+.enrolmenticons {
+	float: right;	
+}
+
 .course-content {
 	margin-top: 0;
 }
@@ -2655,6 +2659,18 @@ table#user-grades th.userreport.c1 {
 /* @end */
 
 /* @group Course Listing */
+
+#page-site-index .mdl-align {
+	width: 100%;
+}
+
+.coursebox {
+	background: rgba(255,255,255,.15);
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+}
+
 .coursebox .content {
 	display: table;
 }
@@ -2687,6 +2703,22 @@ table#user-grades th.userreport.c1 {
 
 .coursebox .info {
 	white-space: nowrap;
+	color: #555;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+.coursebox .info .enrolmenticons {
+	margin-top: -20px;
+}
+
+.coursebox .info h3 {
+	padding: 0px;
+	margin: 0px;
+	-webkit-font-smoothing: antialiased;
+	font: 100%/1.5em 'Roboto', sans-serif;
 }
 
 .coursebox .content .teachers {
@@ -3064,6 +3096,36 @@ table#categoryquestions {
 	width: 150px;
 	position: relative;
 	top: 4px;
+}
+
+.frontpage-course-list-enrolled .paging-morelink a {
+	background: #ecedf0;
+	border: 1px solid #b4b4b7;
+	color: #333537;
+	padding: 9px 12px 9px;
+	line-height: 22px;
+	text-decoration: none;
+	position: relative;
+	font-size: 14px;
+	text-shadow: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	-webkit-backface-visibility: hidden;
+	font-weight: 500;
+	font-family: "Roboto";
+}
+
+.frontpage-course-list-enrolled .paging-morelink a:hover {
+	background: [[setting:themecolor]];
+	color: #fff;
 }
 
 #frontpage-course-list h2::before,
