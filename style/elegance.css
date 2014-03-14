@@ -331,7 +331,7 @@ a:hover, a:focus{
 	background: [[setting:slide10color]];
 }
 		
-#page-site-index #page-header {
+#page-site-index #moodleheader {
 	background: [[setting:themecolor]];
 	-webkit-box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.5);
 	    -moz-box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.5);
@@ -585,7 +585,7 @@ h2.quicklinksheader::after {
 
 /* @group Header */
 
-#page-header {
+#moodleheader {
 	padding-top: 0px;
 	margin-top: 0px;
 	-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);

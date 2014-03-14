@@ -26,10 +26,10 @@
 
 function bootstrap3_grid($hassidepost) {
 
-        $regions = array('content' => 'col-sm-8 col-md-8 col-lg-9');
-        $regions['pre'] =  'empty';
-        $regions['post'] = 'col-sm-4 col-md-4 col-lg-3';
-   
+        $regions = array('content' => 'col-sm-8 col-md-9');
+        $regions['pre'] = 'empty';
+        $regions['post'] = 'col-sm-4 col-md-3';
+
        return $regions;
 }
 
@@ -38,12 +38,12 @@ function theme_elegance_process_css($css, $theme) {
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
     $css = theme_elegance_set_logo($css, $logo);
-    
+
     // Set the background image for the header.
     $setting = 'headerbg';
     $headerbg = $theme->setting_file_url($setting, $setting);
     $css = theme_elegance_set_headerbg($css, $headerbg, $setting);
-    
+
     // Set the background image for the Page.
     $setting = 'bodybg';
     $bodybg = $theme->setting_file_url($setting, $setting);
@@ -56,7 +56,7 @@ function theme_elegance_process_css($css, $theme) {
         $customcss = null;
     }
     $css = theme_elegance_set_customcss($css, $customcss);
-    
+
     // Set the theme main color.
     if (!empty($theme->settings->themecolor)) {
         $themecolor = $theme->settings->themecolor;
@@ -64,7 +64,7 @@ function theme_elegance_process_css($css, $theme) {
         $themecolor = null;
     }
     $css = theme_elegance_set_themecolor($css, $themecolor);
-    
+
     // Set the theme backgroundcolor.
     if (!empty($theme->settings->bodycolor)) {
         $bodycolor = $theme->settings->bodycolor;
@@ -72,7 +72,7 @@ function theme_elegance_process_css($css, $theme) {
         $bodycolor = null;
     }
     $css = theme_elegance_set_bodycolor($css, $bodycolor);
-    
+
     // Set the font color.
     if (!empty($theme->settings->fontcolor)) {
         $fontcolor = $theme->settings->fontcolor;
@@ -80,7 +80,7 @@ function theme_elegance_process_css($css, $theme) {
         $fontcolor = null;
     }
     $css = theme_elegance_set_fontcolor($css, $fontcolor);
-    
+
     // Set the heading color.
     if (!empty($theme->settings->headingcolor)) {
         $headingcolor = $theme->settings->headingcolor;
@@ -88,7 +88,7 @@ function theme_elegance_process_css($css, $theme) {
         $headingcolor = null;
     }
     $css = theme_elegance_set_headingcolor($css, $headingcolor);
-        
+
     // Set the Defaut Category Icon.
     if (!empty($theme->settings->defaultcategoryicon)) {
         $defaultcategoryicon = $theme->settings->defaultcategoryicon;
@@ -96,7 +96,7 @@ function theme_elegance_process_css($css, $theme) {
         $defaultcategoryicon = null;
     }
     $css = theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon);
-    
+
     // Set Category Icons.
     foreach (range(1, 20) as $categorynumber) {
         $categoryicon = $defaultcategoryicon;
@@ -107,7 +107,7 @@ function theme_elegance_process_css($css, $theme) {
         }
         $css = theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber);
     }
-    
+
     // Set the Video Max width.
     if (!empty($theme->settings->videowidth)) {
         $videowidth = $theme->settings->videowidth;
@@ -115,7 +115,7 @@ function theme_elegance_process_css($css, $theme) {
         $videowidth = null;
     }
     $css = theme_elegance_set_videowidth($css, $videowidth);
-    
+
     // Set Quicklink Icon Color.
     foreach (range(1, 12) as $quicklinksnumber) {
         $quicklinkiconcolor = $theme->settings->themecolor;
@@ -124,7 +124,7 @@ function theme_elegance_process_css($css, $theme) {
             }
         $css = theme_elegance_set_quicklinkiconcolor($css, $quicklinkiconcolor, $quicklinksnumber);
     }
-    
+
     // Set Quicklink Button Color.
     foreach (range(1, 12) as $quicklinksnumber) {
         $quicklinkbuttoncolor = '#ecedf0';
@@ -133,8 +133,8 @@ function theme_elegance_process_css($css, $theme) {
             }
         $css = theme_elegance_set_quicklinkbuttoncolor($css, $quicklinkbuttoncolor, $quicklinksnumber);
     }
-    
-    
+
+
     // Set the Slide 1 color.
     if (!empty($theme->settings->bannercolor1)) {
         $bannercolor1 = $theme->settings->bannercolor1;
@@ -142,7 +142,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor1 = null;
     }
     $css = theme_elegance_set_bannercolor1($css, $bannercolor1);
-    
+
     // Set the Slide 2 color.
     if (!empty($theme->settings->bannercolor2)) {
         $bannercolor2 = $theme->settings->bannercolor2;
@@ -150,7 +150,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor2 = null;
     }
     $css = theme_elegance_set_bannercolor2($css, $bannercolor2);
-    
+
     // Set the Slide 3 color.
     if (!empty($theme->settings->bannercolor3)) {
         $bannercolor3 = $theme->settings->bannercolor3;
@@ -158,7 +158,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor3 = null;
     }
     $css = theme_elegance_set_bannercolor3($css, $bannercolor3);
-    
+
     // Set the Slide 4 color.
     if (!empty($theme->settings->bannercolor4)) {
         $bannercolor4 = $theme->settings->bannercolor4;
@@ -166,7 +166,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor4 = null;
     }
     $css = theme_elegance_set_bannercolor4($css, $bannercolor4);
-    
+
     // Set the Slide 5 color.
     if (!empty($theme->settings->bannercolor5)) {
         $bannercolor5 = $theme->settings->bannercolor5;
@@ -174,7 +174,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor5 = null;
     }
     $css = theme_elegance_set_bannercolor5($css, $bannercolor5);
-    
+
     // Set the Slide 6 color.
     if (!empty($theme->settings->bannercolor6)) {
         $bannercolor6 = $theme->settings->bannercolor6;
@@ -182,7 +182,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor6 = null;
     }
     $css = theme_elegance_set_bannercolor6($css, $bannercolor6);
-    
+
     // Set the Slide 7 color.
     if (!empty($theme->settings->bannercolor7)) {
         $bannercolor7 = $theme->settings->bannercolor7;
@@ -190,7 +190,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor7 = null;
     }
     $css = theme_elegance_set_bannercolor7($css, $bannercolor7);
-    
+
     // Set the Slide 8 color.
     if (!empty($theme->settings->bannercolor8)) {
         $bannercolor8 = $theme->settings->bannercolor8;
@@ -198,7 +198,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor8 = null;
     }
     $css = theme_elegance_set_bannercolor8($css, $bannercolor8);
-    
+
     // Set the Slide 9 color.
     if (!empty($theme->settings->bannercolor9)) {
         $bannercolor9 = $theme->settings->bannercolor9;
@@ -206,7 +206,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor9 = null;
     }
     $css = theme_elegance_set_bannercolor9($css, $bannercolor9);
-    
+
     // Set the Slide 10 color.
     if (!empty($theme->settings->bannercolor10)) {
         $bannercolor10 = $theme->settings->bannercolor10;
@@ -214,7 +214,7 @@ function theme_elegance_process_css($css, $theme) {
         $bannercolor10 = null;
     }
     $css = theme_elegance_set_bannercolor10($css, $bannercolor10);
-    
+
     // Set the Transparency.
     if (!empty($theme->settings->transparency)) {
         $transparency = $theme->settings->transparency;
@@ -222,7 +222,7 @@ function theme_elegance_process_css($css, $theme) {
         $transparency = null;
     }
     $css = theme_elegance_set_transparency($css, $transparency);
-    
+
     return $css;
 }
 
@@ -382,7 +382,7 @@ function theme_elegance_get_html_for_settings(renderer_base $output, moodle_page
     if (!empty($page->theme->settings->invert)) {
         $return->navbarclass .= 'navbar-inverse';
     } else {
-    	$return->navbarclass .= 'navbar-default';	
+    	$return->navbarclass .= 'navbar-default';
     }
 
     $return->footnote = '';
@@ -454,7 +454,7 @@ function theme_elegance_set_defaultcategoryicon($css, $defaultcategoryicon) {
 function theme_elegance_set_categoryicon($css, $categoryicon, $categorynumber) {
     $tag = '[[setting:categoryicon' . $categorynumber . ']]';
     $replacement = $categoryicon;
-    
+
     if (is_null($replacement)) {
         $replacement = 'f07c';
     }
@@ -621,5 +621,5 @@ function theme_elegance_page_init(moodle_page $page) {
     $page->requires->jquery_plugin('tab', 'theme_elegance');
     $page->requires->jquery_plugin('tooltip', 'theme_elegance');
     $page->requires->jquery_plugin('transition', 'theme_elegance');
-    $page->requires->jquery_plugin('modernizr', 'theme_elegance');  
+    $page->requires->jquery_plugin('modernizr', 'theme_elegance');
 }

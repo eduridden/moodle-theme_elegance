@@ -6,7 +6,7 @@
 .layout-option-nofooter #page-footer,
 .layout-option-nocourseheader .course-content-header,
 .layout-option-nocoursefooter .course-content-footer {
-    display:none;
+    display: none;
 }
 
 
@@ -33,16 +33,14 @@
 
 /** Page layout CSS ends **/
 
-.dir-ltr,
-.mdl-left,
-.dir-rtl .mdl-right {
+.mdl-left {
     text-align: left;
 }
-.dir-rtl,
-.mdl-right,
-.dir-rtl .mdl-left {
+
+.mdl-right {
     text-align: right;
 }
+
 #add,
 #remove,
 .centerpara,
@@ -66,6 +64,13 @@ a.dimmed_text:visited,
 .dimmed_category,
 .dimmed_category a {
     .text-muted
+}
+a.disabled:hover,
+a.disabled {
+    text-decoration: none;
+    cursor: default;
+    font-style: italic;
+    .text-muted;
 }
 .activity.label .dimmed_text {
     .opacity(.5)
@@ -129,25 +134,22 @@ a.autolink.glossary:hover {
 }
 .collapsible-actions {
     display: none;
+}
+
+.collapsible-actions {
     text-align: right;
     .collapseexpand {
         padding-left: 20px;
-        background: url([[pix:t/collapsed]]) 2px center no-repeat;
+        background-image: url([[pix:t/collapsed]]);
+        background-position: left;
+        background-repeat: no-repeat;
     }
 }
-.dir-rtl {
-    .collapsible-actions {
-        text-align: left;
-        .collapseexpand {
-            padding-right: 20px;
-            padding-left: 0;
-            background: url([[pix:t/collapsed_rtl]]) right center no-repeat;
-        }
-    }
-}
-.collapsible-actions .collapse-all,.dir-rtl .collapsible-actions .collapse-all {
+
+.collapsible-actions .collapse-all {
     background-image: url([[pix:t/expanded]]);
 }
+
 .yui-overlay {
     .yui-widget-bd {
         background-color: #FFEE69;
@@ -188,27 +190,21 @@ img.icon {
     width: 16px;
     margin-right: 6px;
 }
-.dir-rtl img.icon {
-    margin-left: 6px;
-    margin-right: 0;
-}
+
 img.iconsmall {
     height: 12px;
     margin-right: 3px;
     vertical-align: middle;
     width: 12px;
 }
+
 img.iconhelp,
 .helplink img {
     height: 16px;
     margin-left: 3px;
     width: 16px;
 }
-.dir-rtl img.iconhelp,
-.dir-rtl .helplink img {
-    margin-right: 3px;
-    margin-left: 0;
-}
+
 h1 img.iconhelp, h1 img.icon,
 h2 img.iconhelp, h2 img.icon,
 h3 img.iconhelp, h3 img.icon,
@@ -228,10 +224,7 @@ img.iconsort {
     padding-left: .3em;
     margin-bottom: .15em;
 }
-.dir-rtl img.iconsort {
-    padding-right: .3em;
-    padding-left: 0;
-}
+
 img.icontoggle {
     height: 17px;
     vertical-align: middle;
@@ -241,11 +234,11 @@ img.iconkbhelp {
     height: 17px;
     width: 49px;
 }
-img.icon-pre, .dir-rtl img.icon-post {
+img.icon-pre {
     padding-right: 3px;
     padding-left: 0;
 }
-img.icon-post, .dir-rtl img.icon-pre {
+img.icon-post {
     padding-left: 3px;
     padding-right: 0;
 }
@@ -281,16 +274,6 @@ img.icon-post, .dir-rtl img.icon-pre {
 img.uihint {
     cursor: help;
 }
-#addmembersform table {
-    margin-left: auto;
-    margin-right: auto;
-}
-.flexible th {
-    white-space: nowrap;
-}
-table.flexible .emptyrow {
-    display: none;
-}
 img.emoticon {
     vertical-align: middle;
     width: 15px;
@@ -319,31 +302,15 @@ form.popupform div {
 .no-overflow > .generaltable {
     margin-bottom: 0;
 }
-/** Accessibility features
-
-    Accessibility: text 'seen' by screen readers but not visual users.
-**/
-.accesshide {
-    position: absolute;
-    left: -10000px;
-    font-weight: normal;
-    font-size: 1em;
-}
-.dir-rtl .accesshide {
-    top: -30000px;
-    left: auto;
-}
+/** Accessibility features **/
 span.hide,
 div.hide {
     display: none;
 }
-/** Accessibility: Skip block link, for keyboard-only users. **/
+.accesshide,
 a.skip-block,
 a.skip {
-    position: absolute;
-    top: -1000em;
-    font-size: 0.85em;
-    text-decoration: none;
+    &:extend(.sr-only); // screen-reader-only
 }
 a.skip-block:focus,
 a.skip-block:active,
@@ -405,9 +372,6 @@ a.skip:active {
     min-width: 80%;
     margin: 0 auto;
 }
-.dir-rtl .groupmanagementtable p {
-    text-align: right;
-}
 #group-usersummary {
     width: 14em;
 }
@@ -448,9 +412,6 @@ a.skip:active {
 /** Modules **/
 .mod_introbox {
     padding: 10px;
-}
-table.mod_index {
-    width: 100%;
 }
 
 /** Comments **/
@@ -512,9 +473,6 @@ table.mod_index {
     width: 20px;
     float: left;
 }
-.dir-rtl .comment-message .picture {
-    float: right;
-}
 .comment-message .text {
     margin: 0;
     padding: 0;
@@ -527,12 +485,6 @@ table.mod_index {
     position: absolute;
     top: 0;
     right: 0;
-    margin: .3em;
-}
-.dir-rtl .comment-delete {
-    position: absolute;
-    left: 0;
-    right: auto;
     margin: .3em;
 }
 .comment-delete-confirm {
@@ -579,228 +531,6 @@ table.mod_index {
 }
 .completion-expired .completion-expected {
     font-weight: bold;
-}
-/** Tags **/
-#page-tag-coursetags_edit .coursetag_edit_centered {
-    position: relative;
-    width: 600px;
-    margin: 20px auto;
-}
-#page-tag-coursetags_edit .coursetag_edit_row {
-    clear: both;
-}
-#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_left {
-    float: left;
-    width: 50%;
-    text-align: right;
-}
-#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_right {
-    margin-left: 50%;
-}
-#page-tag-coursetags_edit .coursetag_edit_input3 {
-    display: none;
-}
-#page-tag-coursetags_more .coursetag_more_large {
-    font-size: 120%;
-}
-#page-tag-coursetags_more .coursetag_more_small {
-    font-size: 80%;
-}
-#page-tag-coursetags_more .coursetag_more_link {
-    font-size: 80%;
-}
-#tag-description,
-#tag-blogs {
-    width: 100%;
-}
-#tag-management-box {
-    margin-bottom: 10px;
-    line-height: 20px;
-}
-#tag-user-table {
-    padding: 3px;
-    clear: both;
-    width: 100%;
-}
-#tag-user-table {
-    .clearfix
-}
-img.user-image {
-    height: 100px;
-    width: 100px;
-}
-#small-tag-cloud-box {
-    width: 300px;
-    margin: 0 auto;
-}
-#big-tag-cloud-box {
-    width: 600px;
-    margin: 0 auto;
-    float: none;
-}
-ul#tag-cloud-list {
-    list-style: none;
-    padding: 5px;
-    margin: 0;
-}
-ul#tag-cloud-list li {
-    margin: 0;
-    display: inline;
-    list-style-type: none;
-}
-#tag-search-box {
-    text-align: center;
-    margin: 10px auto;
-}
-#tag-search-results-container {
-    padding: 0;
-    width: 100%;
-}
-#tag-search-results {
-    padding: 0;
-    margin: 15px 20% 0 20%;
-    float: left;
-    width: 60%;
-    display: block;
-}
-#tag-search-results li {
-    width: 30%;
-    float: left;
-    padding-left: 1%;
-    text-align: left;
-    line-height: 20px;
-    padding-right: 1%;
-    list-style: none;
-}
-span.flagged-tag,
-span.flagged-tag a {
-    color: @alert-danger-text;
-}
-table#tag-management-list {
-    text-align: left;
-    width: 100%;
-}
-table#tag-management-list td,
-table#tag-management-list th {
-    vertical-align: middle;
-    text-align: left;
-    padding: 4px;
-}
-.tag-management-form {
-    text-align: center;
-}
-#relatedtags-autocomplete-container {
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 4.6em;
-    width: 100%;
-}
-#relatedtags-autocomplete {
-    position: relative;
-    display: block;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-#relatedtags-autocomplete .yui-ac-content {
-    position: absolute;
-    width: 420px;
-    left: 20%;
-    border: 1px solid #404040;
-    background: #fff;
-    overflow: hidden;
-    z-index: 9050;
-}
-#relatedtags-autocomplete .ysearchquery {
-    position: absolute;
-    right: 10px;
-    color: #808080;
-    z-index: 10;
-}
-#relatedtags-autocomplete .yui-ac-shadow {
-    position: absolute;
-    margin: .3em;
-    width: 100%;
-    background: #a0a0a0;
-    z-index: 9049;
-}
-#relatedtags-autocomplete ul {
-    padding: 0;
-    width: 100%;
-    margin: 0;
-    list-style-type: none;
-}
-#relatedtags-autocomplete li {
-    padding: 0 5px;
-    cursor: default;
-    white-space: nowrap;
-}
-#relatedtags-autocomplete li.yui-ac-highlight{
-    background: #FFFFCC;
-}
-h2.tag-heading,
-div#tag-description,
-div#tag-blogs,
-body.tag .managelink {
-    padding: 5px;
-}
-.tag_cloud .s20 {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-.tag_cloud .s19 {
-    font-size: 1.5em;
-}
-.tag_cloud .s18 {
-    font-size: 1.4em;
-    font-weight: bold;
-}
-.tag_cloud .s17 {
-    font-size: 1.4em;
-}
-.tag_cloud .s16 {
-    font-size: 1.3em;
-    font-weight: bold;
-}
-.tag_cloud .s15 {
-    font-size: 1.3em;
-}
-.tag_cloud .s14 {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.tag_cloud .s13 {
-    font-size: 1.2em;
-}
-.tag_cloud .s12,
-.tag_cloud .s11 {
-    font-size: 1.1em;
-    font-weight: bold;
-}
-.tag_cloud .s10,
-.tag_cloud .s9 {
-    font-size: 1.1em;
-}
-.tag_cloud .s8,
-.tag_cloud .s7 {
-    font-size: 1em;
-    font-weight: bold;
-}
-.tag_cloud .s6,
-.tag_cloud .s5 {
-    font-size: 1em;
-}
-.tag_cloud .s4,
-.tag_cloud .s3 {
-    font-size: 0.9em;
-    font-weight: bold;
-}
-.tag_cloud .s2,
-.tag_cloud .s1 {
-    font-size: 0.9em;
-}
-.tag_cloud .s0 {
-    font-size: 0.8em;
 }
 /**
 * Web Service
@@ -853,7 +583,7 @@ body.tag .managelink {
     color: inherit;
 }
 .smartselect .smartselect_submenuitem {
-    background-image: url([[pix:moodle|t/collapsed]]);
+    background-image: url([[pix:t/collapsed]]);
     background-repeat: no-repeat;
     background-position: 100%;
 }
@@ -892,140 +622,7 @@ body.tag .managelink {
 .smartselect.compactmenu .smartselect_submenuitem:hover > .smartselect_menuitem_label {
     font-weight: bold;
 }
-/**
-* Registration
-*/
-#page-admin-registration-register .registration_textfield {
-    width: 300px;
-}
-/**
-* Enrol
-*/
-.userenrolment {
-    width: 100%;
-    border-collapse: collapse;
-}
-.userenrolment td {
-    padding: 0;
-    height: 41px;
-}
-.userenrolment .subfield {
-    margin-right: 5px;
-}
-.userenrolment .col_userdetails .subfield_picture {
-    float: left;
-}
-.userenrolment .col_lastseen {
-    width: 150px;
-}
-.userenrolment .col_role {
-    width: 262px;
-}
-.userenrolment .col_role .roles {
-    margin-right: 30px;
-}
-.userenrolment .col_role .role {
-    float: left;
-    padding: 3px;
-    margin: 3px;
-}
-.dir-rtl .userenrolment .col_role .role {
-    float: right;
-}
-.userenrolment .col_role .role a {
-    margin-left: 3px;
-    cursor: pointer;
-}
-.userenrolment .col_role .addrole {
-    float: right;
-    width: 18px;
-    height: 18px;
-    margin: 8px 15px 8px 0px;
-    text-align: center;
-    background-color: @gray-dark;
-    border: 1px solid @gray-dark;
-}
-.userenrolment .col_role .addrole img {
-    vertical-align: baseline;
-}
-.userenrolment .hasAllRoles .col_role .addrole {
-    display: none;
-}
-.userenrolment .col_group .groups {
-    margin-right: 30px;
-}
-.userenrolment .col_group .group {
-    float: left;
-    padding: 3px;
-    white-space: nowrap;
-}
-.userenrolment .col_group .group a {
-    margin-left: 3px;
-    cursor: pointer;
-}
-.userenrolment .col_group .addgroup {
-    width: 18px;
-    height: 18px;
-    margin: 8px 15px 8px 0px;
-    text-align: center;
-    background-color: @gray-dark;
-    border: 1px solid @gray-dark;
-    float: right;
-    text-align: center;
-}
-.userenrolment .col_group .addgroup a img {
-    vertical-align: baseline;
-}
-.userenrolment .col_enrol .enrolment {
-    float: left;
-    padding: 3px;
-    margin: 3px;
-}
-.userenrolment .col_enrol .enrolment a {
-    float: right;
-    margin-left: 3px;
-}
-#page-enrol-users .enrol_user_buttons {
-    float: right;
-}
-#page-enrol-users.dir-rtl .enrol_user_buttons {
-    float: left;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton {
-    margin-left: 1em;
-    display: inline;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton div,
-#page-enrol-users .enrol_user_buttons .enrolusersbutton form {
-    display: inline;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton input {
-    padding-left: 6px;
-    padding-right: 6px;
-}
-#page-enrol-users.dir-rtl .col_userdetails .subfield_picture {
-    float: right;
-}
-#page-enrol-users .user-enroller-panel .uep-search-results .user .details {
-    width: 237px;
-}
-/** Overide for RTL layout **/
-.dir-rtl .headermain {
-    float: right;
-}
-.dir-rtl .headermenu {
-    float: left;
-}
 
-.dir-rtl .yui3-menu-hidden {
-    left: 0;
-}
-#page-admin-roles-define.dir-rtl #rolesform .felement {
-    margin-right: 180px;
-}
-#page-message-edit.dir-rtl table.generaltable th.c0 {
-    text-align: right;
-}
 .corelightbox {
     background-color: #CCC;
     position: absolute;
@@ -1127,117 +724,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     min-width: 0;
     background: none;
 }
-/** Fix YUI 2 Treeview for Right to left languages **/
-.dir-rtl .ygtvtn,
-.dir-rtl .ygtvtm,
-.dir-rtl .ygtvtmh,
-.dir-rtl .ygtvtmhh,
-.dir-rtl .ygtvtp,
-.dir-rtl .ygtvtph,
-.dir-rtl .ygtvtphh,
-.dir-rtl .ygtvln,
-.dir-rtl .ygtvlm,
-.dir-rtl .ygtvlmh,
-.dir-rtl .ygtvlmhh,
-.dir-rtl .ygtvlp,
-.dir-rtl .ygtvlph,
-.dir-rtl .ygtvlphh,
-.dir-rtl .ygtvdepthcell,
-.dir-rtl .ygtvok,
-.dir-rtl .ygtvok:hover,
-.dir-rtl .ygtvcancel,
-.dir-rtl .ygtvcancel:hover {
-    width: 18px;
-    height: 22px;
-    background-image: url([[pix:theme|yui2-treeview-sprite-rtl]]);
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-.dir-rtl .ygtvtn {
-    background-position: 0 -5600px;
-}
-.dir-rtl .ygtvtm {
-    background-position: 0 -4000px;
-}
-.dir-rtl .ygtvtmh,
-.dir-rtl .ygtvtmhh {
-    background-position: 0 -4800px;
-}
-.dir-rtl .ygtvtp {
-    background-position: 0 -6400px;
-}
-.dir-rtl .ygtvtph,
-.dir-rtl .ygtvtphh {
-    background-position: 0 -7200px;
-}
-.dir-rtl .ygtvln {
-    background-position: 0 -1600px;
-}
-.dir-rtl .ygtvlm {
-    background-position: 0 0;
-}
-.dir-rtl .ygtvlmh,
-.dir-rtl .ygtvlmhh {
-    background-position: 0 -800px;
-}
-.dir-rtl .ygtvlp {
-    background-position: 0 -2400px;
-}
-.dir-rtl .ygtvlph,
-.dir-rtl .ygtvlphh {
-    background-position: 0 -3200px
-}
-.dir-rtl .ygtvdepthcell {
-    background-position: 0 -8000px;
-}
-.dir-rtl .ygtvok {
-    background-position: 0 -8800px;
-}
-.dir-rtl .ygtvok:hover {
-    background-position: 0 -8844px;
-}
-.dir-rtl .ygtvcancel {
-    background-position: 0 -8822px;
-}
-.dir-rtl .ygtvcancel:hover {
-    background-position: 0 -8866px;
-}
-.dir-rtl.yui-skin-sam .yui-panel .hd {
-    text-align: right;
-}
-.dir-rtl .yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd {
-    text-align: right;
-}
-/** Fix TinyMCE editor right to left **/
-.dir-rtl .clearlooks2.ie9 .mceAlert .mceMiddle span,.dir-rtl .clearlooks2 .mceConfirm .mceMiddle span {
-    top: 44px;
-}
-.dir-rtl .o2k7Skin table,
-.dir-rtl .o2k7Skin tbody,
-.dir-rtl .o2k7Skin a,
-.dir-rtl .o2k7Skin img,
-.dir-rtl .o2k7Skin tr,
-.dir-rtl .o2k7Skin div,
-.dir-rtl .o2k7Skin td,
-.dir-rtl .o2k7Skin iframe,
-.dir-rtl .o2k7Skin span,
-.dir-rtl .o2k7Skin *,
-.dir-rtl .o2k7Skin .mceText,
-.dir-rtl .o2k7Skin .mceListBox .mceText {
-    text-align: right;
-}
-.path-rating .ratingtable {
-    width: 100%;
-    margin-bottom: 1em;
-}
-.path-rating .ratingtable th.rating {
-    width: 100%;
-}
-.path-rating .ratingtable td.rating,
-.path-rating .ratingtable td.time {
-    white-space: nowrap;
-    text-align: center;
-}
+
 .initialbar {
     a, strong {
         padding-left: 3px;
@@ -1323,10 +810,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     background-image: url([[pix:theme|sprite]]);
     background-repeat: no-repeat;
     border-style: none;
-}
-.dir-rtl .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
-    left: 0;
-    right: auto;
 }
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
     padding: 1em;
@@ -1461,11 +944,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     }
 }
 
-/* Question Bank - Question Chooser "Close" button */
-#page-question-edit.dir-rtl a.container-close {
-    right: auto;
-    left: 6px;
-}
 /**
 * Chooser Dialogues (moodle-core-chooserdialogue)
 *
@@ -1506,9 +984,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     max-width: 20.3em;
     box-shadow: inset 0 0 30px 0px #ccc;
 }
-.dir-rtl.jsenabled .choosercontainer #chooseform .alloptions {
-    max-width: 18.3em;
-}
 /* Settings for option rows and option subtypes */
 .choosercontainer #chooseform .moduletypetitle,
 .choosercontainer #chooseform .option,
@@ -1526,12 +1001,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 .choosercontainer #chooseform .nonoption .typename,
 .choosercontainer #chooseform .nonoption span.modicon img.icon {
     padding: 0 0 0 0.5em;
-}
-.dir-rtl .choosercontainer #chooseform .option .typename,
-.dir-rtl .choosercontainer #chooseform .option span.modicon img.icon,
-.dir-rtl .choosercontainer #chooseform .nonoption .typename,
-.dir-rtl .choosercontainer #chooseform .nonoption span.modicon img.icon {
-    padding: 0 0.5em 0 0;
 }
 .choosercontainer #chooseform .option span.modicon img.icon,
 .choosercontainer #chooseform .nonoption span.modicon img.icon {
@@ -1553,22 +1022,12 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     padding-top: 0.3em;
     padding-bottom: 0.1em;
 }
-.dir-rtl .choosercontainer #chooseform .nonoption {
-    padding-right: 2.7em;
-    padding-left: 0;
-}
 .choosercontainer #chooseform .subtype {
     margin-bottom: 0;
     padding: 0 1.6em 0 3.2em;
 }
-.dir-rtl .choosercontainer #chooseform .subtype {
-    padding: 0 3.2em 0 1.6em;
-}
 .choosercontainer #chooseform .subtype .typename {
     margin: 0 0 0 0.2em;
-}
-.dir-rtl .choosercontainer #chooseform .subtype .typename {
-    margin: 0 0.2em 0 0;
 }
 /* The instruction/help area */
 .jsenabled .choosercontainer #chooseform .instruction,
@@ -1586,12 +1045,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     overflow-y: auto;
     line-height: 2em;
 }
-.dir-rtl.jsenabled .choosercontainer #chooseform .instruction,
-.dir-rtl.jsenabled .choosercontainer #chooseform .typesummary {
-    left: 0;
-    right: 18.5em;
-    border-right: 1px solid grey;
-}
+
 /* Selected option settings */
 .jsenabled .choosercontainer #chooseform .instruction,
 .choosercontainer #chooseform .selected .typesummary {
@@ -1663,179 +1117,9 @@ body.jsenabled .formlisting {
     display: block;
 }
 
-/* Badges styles */
-table.collection {
-    .table;
-    .table-bordered;
-    .table-striped;
-}
-table.collection .name {
-    text-align: left;
-    vertical-align: middle;
-}
-table.collection .awards {
-    width: 10%;
-    text-align: center;
-    vertical-align: middle;
-}
-table.collection .criteria {
-    width: 40%;
-    text-align: left;
-    vertical-align: top;
-}
-table.collection .badgeimage,
-table.collection .status {
-    width: 15%;
-    text-align: center;
-    vertical-align: middle;
-}
-table.collection .description {
-    width: 25%;
-    text-align: left;
-}
-table.collection .actions {
-    width: 11em;
-    text-align: center;
-    vertical-align: middle;
-}
-
-a.criteria-action {
-    padding: 0px 3px;
-    float: right;
-}
-table.issuedbadgebox {
-    width: 750px;
-    background-color: #FFFFFF;
-}
-table.badgeissuedimage {
-    width: 150px;
-    text-align: center;
-}
-table.badgeissuedinfo {
-    width: 600px;
-}
-table.badgeissuedinfo .bvalue {
-    text-align: left;
-    vertical-align: middle;
-}
-table.badgeissuedinfo .bfield {
-    width: 125px;
-    text-align: left;
-    font-style: italic;
-}
-
-.dir-rtl table.badgeissuedinfo .bvalue,
-.dir-rtl table.badgeissuedinfo .bfield {
-        text-align: right;
-}
-
-ul.badges {
-    margin: 0;
-    list-style: none;
-}
-.badges li {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 2em;
-    text-align: center;
-    vertical-align: top;
-    width: 150px;
-}
-.badges li .badge-name {
-    display: block;
-    padding: 5px;
-}
-.badges li > img {
-    position: absolute;
-}
-.badges li .badge-image {
-    width: 90px;
-    height: 90px;
-    left: 10px;
-    top: 0px;
-    z-index: 1;
-}
-.badges li .badge-actions {
-    position: relative;
-}
-div.badge {
-    position: relative;
-    display: block;
-}
-div.badge .expireimage {
-    width: 100px;
-    height: 100px;
-    left: 20px;
-    top: 0px;
-}
-.expireimage {
-    .opacity(.85);
-    width: 90px; height: 90px;
-    left: 30px;
-    top: 0px;
-    position: absolute;
-    z-index:10;
-}
-.badge-profile {
-    vertical-align: top;
-}
-.connected {
-    color: @alert-success-text;
-}
-.notconnected {
-    color: @alert-danger-text;
-}
-.connecting {
-    color: @alert-warning-text;
-}
-#page-badges-award .recipienttable tr td {
-    vertical-align: top;
-}
-#page-badges-award .recipienttable tr td.actions .actionbutton {
-    margin: 0.3em 0;
-    padding: 0.5em 0;
-    width: 100%;
-}
-#page-badges-award .recipienttable tr td.existing,
-#page-badges-award .recipienttable tr td.potential {
-    width: 42%;
-}
-
-.statustable {
-    margin-bottom: 0px;
-}
-.statusbox.active {
-    background-color: @alert-success-bg;
-}
-.statusbox.inactive {
-    background-color: @alert-warning-bg;
-}
-.activatebadge {
-    margin: 0px;
-    text-align: left;
-    vertical-align: middle;
-}
-.dir-rtl .activatebadge {
-    text-align: right;
-}
-img#persona_signin {
-    cursor: pointer;
-}
-.addcourse {
-    float: right;
-}
-.invisiblefieldset {
-    display: inline;
-    margin: 0;
-    padding: 0;
-    border-width: 0;
-}
 .breadcrumb-nav {
     float: left;
     margin-bottom: 10px;
-}
-.dir-rtl .breadcrumb-nav {
-    float: right;
 }
 .breadcrumb-button .singlebutton div {
     margin-right: 0;
@@ -1901,20 +1185,6 @@ img#persona_signin {
         }
         .menu-action-text  {
             display:inline;
-        }
-    }
-
-    &.dir-rtl {
-        .moodle-actionmenu[data-enhance] {
-            .toggle-display.textmenu {
-                margin-left: initial;
-                margin-right: 4px;
-
-                .caret {
-                    margin-left: initial;
-                    margin-right: 2px;
-                }
-            }
         }
     }
 }
@@ -1989,44 +1259,6 @@ img#persona_signin {
     text-align: right;
 }
 
-.dir-rtl {
-    .moodle-actionmenu[data-enhanced].show  {
-        .menu {
-            text-align: right;
-            left: 0;
-            right: auto;
-            .iconsmall {
-                margin-right:0;
-                margin-left:8px;
-            }
-
-            /** bottom left of button **/
-            &.align-tl-bl {left: auto; right: 0;}
-            &.align-tr-bl {right: auto; left: 100%;}
-            &.align-bl-bl {left: auto; right: 0;}
-            &.align-br-bl {right: auto; left: 100%;}
-            /** bottom right of button **/
-            &.align-tl-br {left: auto; right: 100%;}
-            &.align-tr-br {right: auto; left: 0;}
-            &.align-bl-br {left: auto; right: 100%;}
-            &.align-br-br {right: auto; left: 0;}
-            /** top left of button **/
-            &.align-tl-tl {left: auto; right: 0;}
-            &.align-tr-tl {right: auto; left: 100%;}
-            &.align-bl-tl {left: auto; right: 0;}
-            &.align-br-tl {right: auto; left: 100%;}
-            /** top right of button **/
-            &.align-tl-tr {left: auto; right: 100%;}
-            &.align-tr-tr {right: auto; left: 0;}
-            &.align-bl-tr {left: auto; right: 100%;}
-            &.align-br-tr {right: auto; left: 0;}
-        }
-    }
-    .block .moodle-actionmenu {
-        text-align: right;
-    }
-}
-
 ul.dragdrop-keyboard-drag li {
     list-style-type: none;
 }
@@ -2036,10 +1268,3 @@ ul.dragdrop-keyboard-drag li {
     height: 12px;
 }
 
-a.disabled:hover,
-a.disabled {
-    text-decoration: none;
-    cursor: default;
-    font-style: italic;
-    color: #808080;
-}

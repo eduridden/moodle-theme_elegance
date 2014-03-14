@@ -71,6 +71,9 @@ $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed i
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
 
+$string['fluidwidth'] = 'Fluid width theme';
+$string['fluidwidth_desc'] = 'Enable this option to allow using your full screen';
+
 $string['transparency'] = 'Content trasparency';
 $string['transparencydesc'] = 'Want to see more of your background show through? This setting changes the transparency of Moodle content and blocks';
 
@@ -378,5 +381,3 @@ $string['socialnetworksicondescriptiontumblr'] = 'Find us on Tumblr';
 $string['socialnetworksicondescriptioninstagram'] = 'Find us on Instagram';
 $string['socialnetworksicondescriptionvk'] = 'Like us on VK';
 $string['socialnetworksicondescriptionskype'] = 'Call us on Skype';
-
-
