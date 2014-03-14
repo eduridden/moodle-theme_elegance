@@ -7,6 +7,14 @@
  
  /* @group Core */
  
+ .collapsible-actions {
+ 	display: none !important;
+ }
+ 
+.course_category_tree .category.with_children.collapsed>.info>.categoryname {
+	background: none;
+}
+ 
  * Set the position on the frontpage */ 
  
 #frontpage-category-names, 
