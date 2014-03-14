@@ -1130,7 +1130,7 @@ ul.socials {
 
 .block_login .btn,
 .block_login .content .footer a {
-    background-color: [[setting:themecolor]];
+    background-color: #5cb85c;
     background-image: none;
     border-color: #30ADD1;
     border-image: none;
@@ -1153,25 +1153,37 @@ ul.socials {
     transition: 0.25s;
 }
 
+.block_login .btn:hover {
+	background: #000 !important;
+}
+
 .block_login .content input[type="submit"] {
 	background: transparent;
 	border: 0px none;
 	padding: 0px;
+	padding-left: 10px;
 	margin: 0px;
 	color: #fff;
-	font-weight: 300;
 	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
 }
 
-.block_login .content input[type="submit"]:before {
-	content:"\f090";
+.block_login .content input:before {
+	content:"\f084";
 	font-family: FontAwesome;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	top: 38px;
+	left: 5px;
+	z-index: 1000;
+	color: #fff;
+	font-size: .8em;
 }
 
 .block_login .content .footer a {
-    margin-left: -5px;
     margin-top: 0px;
-    padding: 3px 12px;
+    padding: 4px 5px;
+    line-height: 23px;
     font-family: FontAwesome;
 }
 .block_login input#login_username,
@@ -1180,17 +1192,19 @@ ul.socials {
 }
 
 .block_login .content .footer div:nth-child(1) a {
-	background: green;
-	border: 1px solid #b4b4b7;
+	color: #fff;
+	background-color: [[setting:themecolor]];
+	border-color: #4cae4c;
 }
 
 .block_login .content .footer div:nth-child(2) a {
-	background: red;
 	border: 1px solid #b4b4b7;
+	background: #d9534f;
+	color: #fff;
 }
 
 .block_login .content .footer a:hover {
-	background: [[setting:themecolor]] !important;
+	background: #000 !important;
 }
 
 .block_login .content .footer div:nth-child(1) a:before {
