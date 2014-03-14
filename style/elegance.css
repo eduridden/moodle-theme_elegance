@@ -1127,6 +1127,28 @@ ul.socials {
 
 /* @group Login Block */
 
+.block_login label {
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	color: [[setting:themecolor]];
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-weight: 400;
+}
+
+.block_login .username label:before {
+	content:"\f007";
+	font-family: FontAwesome;
+	margin-right: 5px;
+	color: #999;
+}
+
+.block_login .password label:before {
+	content:"\f084";
+	font-family: FontAwesome;
+	margin-right: 5px;
+	color: #999;
+}
 
 .block_login .btn,
 .block_login .content .footer a {
@@ -1151,6 +1173,7 @@ ul.socials {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     transition: 0.25s;
+    width: 100%;
 }
 
 .block_login .btn:hover {
@@ -1168,18 +1191,6 @@ ul.socials {
 	-webkit-font-smoothing: antialiased;
 }
 
-.block_login .content input:before {
-	content:"\f084";
-	font-family: FontAwesome;
-	-webkit-font-smoothing: antialiased;
-	position: relative;
-	top: 38px;
-	left: 5px;
-	z-index: 1000;
-	color: #fff;
-	font-size: .8em;
-}
-
 .block_login .content .footer a {
     margin-top: 0px;
     padding: 4px 5px;
@@ -1188,7 +1199,21 @@ ul.socials {
 }
 .block_login input#login_username,
 .block_login input#login_password {
-    width: 95%;
+    width: 100%;
+    border-radius: 3px;
+    height: 35px;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.block_login input:focus {
+	background: #fff;
+	outline: none;
+}
+
+.block_login input:-webkit-autofill {
+	background: #fff !important;
 }
 
 .block_login .content .footer div:nth-child(1) a {
@@ -1205,16 +1230,6 @@ ul.socials {
 
 .block_login .content .footer a:hover {
 	background: #000 !important;
-}
-
-.block_login .content .footer div:nth-child(1) a:before {
-	content:"\f090";
-	margin-right: 5px;
-}
-
-.block_login .content .footer div:nth-child(2) a:before {
-	content:"  \f09c";
-	margin-right: 5px;
 }
 
 /* @end */
