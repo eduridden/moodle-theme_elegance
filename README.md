@@ -26,6 +26,16 @@ A video showing many of the core features is available for viewing at [https://v
 
 If you would like to see it in action, head to this year's iMoot site at [http://2014.imoot.org](http://2014.imoot.org)
 
+New in 2.6.2
+========================
+- FIX: Invert Navbar setting now works
+- FIX: Disable custom login screen setting ow works
+- FIX: Better formatting of reporting screens
+- FIX: Properly formatted Moodle logo in footer of frontpage
+- FIX: Custom logo now shows in the header
+- FIX: Numerous (by that I mean A LOT) of minor formatting fixes
+- NEW: Can now set how long frontpage slides display
+
 New in 2.6.1
 ========================
 - FIX: Navbar on mobile devices
