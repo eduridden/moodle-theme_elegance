@@ -184,16 +184,18 @@ li.activity.label:hover {
 	width: 175px;
 }
 
-.section .activity .instancename {
-	font-weight: bold;
-}
-
-.section .activity .contentafterlink p {
-	font-size: .85em !important;
+.section .activity .contentafterlink {
+	font-size: .85em;
+	height: 48px;
+	text-overflow: ellipsis;
 	overflow:hidden;
 	text-overflow: clip ellipsis;
-	height: 70px !important;
+	line-height: 1.25em;
 	padding-top: 5px;
+}
+
+.section .activity .instancename {
+	font-weight: bold;
 }
 
 .editing .section .activity .contentafterlink {

@@ -26,9 +26,28 @@
  */
 
 $THEME->doctype = 'html5';
+
 $THEME->yuicssmodules = array();
+
 $THEME->name = 'elegance';
+
 $THEME->parents = array();
+
+$THEME->supportscssoptimisation = false;
+
+$THEME->editor_sheets = array('editor');
+
+$THEME->plugins_exclude_sheets = array(
+    'block' => array(
+        'html',
+        'search_forums'
+    ),
+    'tool' => array(
+        'customlang'
+    ),
+);
+
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
 if ((!empty($THEME->settings->enablecategoryicon)) && ($THEME->settings->enablecategoryicon == '1')) {
 	$categorysheet='categories';
@@ -56,24 +75,6 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
 } else {
     $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl', 'font-awesome.min', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
 }
-
-$THEME->supportscssoptimisation = false;
-
-$THEME->editor_sheets = array('editor');
-
-$THEME->plugins_exclude_sheets = array(
-    'block' => array(
-        'html',
-        'search_forums'
-    ),
-    'tool' => array(
-        'customlang'
-    ),
-);
-
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-$THEME->csspostprocess = 'theme_elegance_process_css';
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
@@ -185,6 +186,8 @@ $THEME->layouts = array(
         'defaultregion' => 'side-post'
     ),
 );
+
+$THEME->csspostprocess = 'theme_elegance_process_css';
 
 $THEME->javascripts = array(
 );
