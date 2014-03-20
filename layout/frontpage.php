@@ -29,6 +29,7 @@ $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->them
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 $hastiles = (!empty($PAGE->theme->settings->tiles));
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+$hasslidespeed = (empty($PAGE->theme->settings->slidespeed)) ? false : $PAGE->theme->settings->slidespeed;
 $invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
 $fluid = (!empty($PAGE->layout_options['fluid']));
 $hasmarketing = (empty($PAGE->theme->settings->togglemarketing)) ? false : $PAGE->theme->settings->togglemarketing;
@@ -41,10 +42,16 @@ if ($haslogo) {
 	$logo = $SITE->shortname;
 }
 
-if ($invert) {
-	$navbartype = 'navbar-inverse';
+if ($hasslidespeed) {
+	$slidespeed = $hasslidespeed;
 } else {
-	$navbartype = 'navbar-default';
+	$slidespeed = '600';
+}
+
+if ($invert) {
+  $navbartype = 'navbar-inverse';
+} else {
+  $navbartype = 'navbar-default';
 }
 
 $container = 'container';
@@ -190,8 +197,8 @@ echo $OUTPUT->doctype() ?>
 
     $('.banner').unslider({
 				fluid: true,
-				dots: true,
-				speed: 600,
+        dots: true,
+        speed: <?php echo $slidespeed; ?>,
 				keys: true,
 				arrows: true,
     			prev: '<',
@@ -199,6 +206,5 @@ echo $OUTPUT->doctype() ?>
 	});
 </script>
 
-<canvas id="clouds" style="position:absolute; bottom:0px; left: 0px; z-index:-1; width: 100%; height: 100%;"></canvas>
 </body>
 </html>

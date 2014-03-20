@@ -193,6 +193,9 @@ $string['bannersettingsdesc'] = 'Enable and determine settings for each slide be
 $string['bannerindicator'] = 'Slide Number ';
 $string['bannerindicatordesc'] = 'Set up this slide';
 
+$string['slidespeed'] = 'Slide Duration ';
+$string['slidespeeddesc'] = 'Set how long the slide appears in milliseconds';
+
 
 $string['slidenumber'] = 'Number of slides ';
 $string['slidenumberdesc'] = 'Number of slide options will not change until you hit save after changing this number';

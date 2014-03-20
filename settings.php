@@ -367,6 +367,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Set the Slide Speed.
+    $name = 'theme_elegance/slidespeed';
+    $title = get_string('slidespeed' , 'theme_elegance');
+    $description = get_string('slidespeeddesc', 'theme_elegance');
+    $default = '600';
+    $setting = new admin_setting_configtext($name, $title, $description, $default );
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $hasslidenum = (!empty($PAGE->theme->settings->slidenumber));
     if ($hasslidenum) {
     		$slidenum = $PAGE->theme->settings->slidenumber;
