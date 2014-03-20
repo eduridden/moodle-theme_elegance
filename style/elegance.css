@@ -643,7 +643,8 @@ h2.quicklinksheader::after {
 .navbar-default .navbar-nav>.open>a, 
 .navbar-default .navbar-nav>.open>a:hover, 
 .navbar-default .navbar-nav>.open>a:focus {
-	background: [[setting:themecolor]];
+	background: #000;
+	border-bottom-color: [[setting:themecolor]];
 }
 
 .navbar-default .navbar-nav>li>a:hover,
@@ -658,6 +659,13 @@ h2.quicklinksheader::after {
 	background: #eee;
 	border-bottom: 5px solid [[setting:themecolor]];
 	margin-bottom: 0px;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: [[setting:themecolor]];
 }
 
 .navbar .navbar-nav>.dropdown>a:hover .caret,
@@ -688,7 +696,9 @@ border-bottom-color: #888;
 
 /* @group Dropdown Menu */
 
-
+.dropdown-menu .msg-sender {
+	color: inherit;
+}
 
 /* @end */
 
