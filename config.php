@@ -55,13 +55,12 @@ if ((!empty($THEME->settings->enablecategoryicon)) && ($THEME->settings->enablec
 	$categorysheet='';
 }
 
-if ((!empty($THEME->settings->enablecustomlogin)) && ($THEME->settings->enablecustomlogin == '0')) {
-	$loginlayout='default.php';
-	$loginsheet='login2';
-} else {
-    // Default is custom login so have even when the setting is not known.
+if ((!empty($THEME->settings->enablecustomlogin)) && ($THEME->settings->enablecustomlogin == '1')) {
 	$loginlayout='login.php';
-	$loginsheet='login1';
+  $loginsheet='login1';
+} else {
+  $loginlayout='default.php';
+  $loginsheet='login2';
 }
 
 if ((!empty($THEME->settings->tiles)) && ($THEME->settings->tiles == '1')) {

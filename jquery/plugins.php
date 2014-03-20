@@ -43,7 +43,7 @@ $plugins = array(
     'unslider'     => array('files' => array('unslider_1.0.1.js')),
     'eventswipe'     => array('files' => array('eventswipe_0.5.js')),
     'nprogress'     => array('files' => array('nprogress.js')),
-    'backstretch'     => array('files' => array('backstretch_2.0.4.js')),
+    'backstretch'     => array('files' => array('backstretch_2.0.6.js')),
     'alert'     => array('files' => array('bootstrap_plugins/alert_3.0.3.js')),
     'carousel'     => array('files' => array('bootstrap_plugins/carousel_3.0.3.js')),
     'collapse'     => array('files' => array('bootstrap_plugins/collapse_3.0.3.js')),
