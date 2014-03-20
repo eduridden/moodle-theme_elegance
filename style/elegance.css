@@ -777,8 +777,8 @@ border-bottom-color: #888;
 /* @group Footer */
 
 #page-footer {
-	border-top: 10px solid rgba(0,0,0,.2);
-	background: rgba(0,0,0,.1);
+	border-top: 10px solid #acacae !important;
+	background: #d8d8db;
 	font-size: .8em;
 	padding: 30px 0px 0px 0px;
 	font-family: "Roboto" !important;
@@ -1182,7 +1182,7 @@ ul.socials {
 }
 
 .block_login .btn:hover {
-	background: #000 !important;
+	background: #388f9d !important;
 }
 
 .block_login .content input[type="submit"] {
@@ -1210,6 +1210,7 @@ ul.socials {
     -webkit-font-smoothing: antialiased;
     outline: none;
     margin-bottom: 5px;
+    font-size: .85em;
 }
 
 .block_login input:focus {
@@ -1223,19 +1224,26 @@ ul.socials {
 
 .block_login .content .footer div:nth-child(1) a {
 	color: #fff;
-	background-color: [[setting:themecolor]];
-	border-color: #4cae4c;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+}
+
+.block_login .content .footer div:nth-child(1) a:hover {
+	background-color: #1b77a2;
+	border-color: #eea236;
 }
 
 .block_login .content .footer div:nth-child(2) a {
-	border: 1px solid #b4b4b7;
+	border: 1px solid #ac543d;
 	background: #d9534f;
 	color: #fff;
 }
 
-.block_login .content .footer a:hover {
-	background: #000 !important;
+.block_login .content .footer div:nth-child(2) a:hover {
+	border: 1px solid #ac543d;
+	background: #1b77a2;
 }
+
 
 /* @end */
 
