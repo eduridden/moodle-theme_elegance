@@ -33,6 +33,10 @@ function bootstrap3_grid($hassidepost) {
        return $regions;
 }
 
+function theme_elegance_initialise_reader(moodle_page $page) {
+    $page->requires->yui_module('moodle-theme_elegance-reader', 'M.theme_elegance.initreader', array());
+}
+
 function theme_elegance_process_css($css, $theme) {
 
     // Set the background image for the logo.

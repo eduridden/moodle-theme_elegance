@@ -89,13 +89,18 @@ class theme_elegance_core_renderer extends core_renderer {
         if ($classes == 'redirectmessage') {
             return html_writer::div($message, 'alert alert-block alert-info');
         }
+        if ($classes == 'notifytiny') {
+            // Not an appropriate semantic alert class!
+            return $this->debug_listing($message);
+        }
         return html_writer::div($message, $classes);
     }
 
-    /*
-     * This renders the navbar.
-     * Uses bootstrap compatible html.
-     */
+    private function debug_listing($message) {
+        $message = str_replace('<ul style', '<ul class="list-unstyled" style', $message);
+        return html_writer::tag('pre', $message, array('class' => 'alert alert-info'));
+    }
+
     public function navbar() {
         $breadcrumbs = '';
         foreach ($this->page->navbar->get_items() as $item) {
@@ -105,11 +110,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return "<ol class=breadcrumb>$breadcrumbs</ol>";
     }
 
-    /*
-     * Overriding the custom_menu function ensures the custom menu is
-     * always shown, even if no menu items are configured in the global
-     * theme settings page.
-     */
     public function custom_menu($custommenuitems = '') {
     // The custom menu is always shown, even if no menu items
     // are configured in the global theme settings page.
@@ -122,12 +122,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return $this->render_custom_menu($custommenu);
     }
 
-
-    /*
-     * This renders the bootstrap top menu.
-     *
-     * This renderer is needed to enable the Bootstrap style navigation.
-     */
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG, $USER;
 
@@ -149,7 +143,7 @@ class theme_elegance_core_renderer extends core_renderer {
     }
 
     protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER, $DB, $PAGE;
+        global $CFG, $USER, $DB, $PAGE; //Elegance add $PAGE
 
         $addusermenu = true;
         $addlangmenu = true;
@@ -162,9 +156,11 @@ class theme_elegance_core_renderer extends core_renderer {
         if ($addmessagemenu) {
             $messages = $this->get_user_messages();
             $messagecount = count($messages);
-            $messagemenu = $menu->add('<i class="fa fa-envelope"></i>' .
+            //Elegance custom line start
+            $messagemenu = $menu->add('<i class="fa fa-envelope"></i>'.
+            //Elegance custom line end
                 $messagecount . ' ' . get_string('messages', 'message'),
-                new moodle_url('#'),
+                new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
                 get_string('messages', 'message'),
                 9999
             );
@@ -295,11 +291,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return $content.'</ul>';
     }
 
-
-
-
-
-
    protected function process_user_messages() {
 
         $messagelist = array();
@@ -378,11 +369,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return $messagecontent;
     }
 
-
-   /*
-    * This code renders the custom menu items for the
-    * bootstrap dropdown menu.
-    */
    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0 ) {
         static $submenucount = 0;
 
@@ -432,12 +418,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return $content;
     }
 
-   /**
-    * Renders tabtree
-    *
-    * @param tabtree $tabtree
-    * @return string
-    */
    protected function render_tabtree(tabtree $tabtree) {
         if (empty($tabtree->subtree)) {
             return '';
@@ -452,15 +432,6 @@ class theme_elegance_core_renderer extends core_renderer {
         return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs nav-justified')) . $secondrow;
     }
 
-   /**
-    * Renders tabobject (part of tabtree)
-    *
-    * This function is called from {@link core_renderer::render_tabtree()}
-    * and also it calls itself when printing the $tabobject subtree recursively.
-    *
-    * @param tabobject $tabobject
-    * @return string HTML fragment
-    */
    protected function render_tabobject(tabobject $tab) {
         if ($tab->selected or $tab->activated) {
             return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'active'));
@@ -475,6 +446,15 @@ class theme_elegance_core_renderer extends core_renderer {
             }
             return html_writer::tag('li', $link);
         }
+    }
+
+    protected function render_pix_icon(pix_icon $icon) {
+        if ($this->page->theme->settings->fonticons === '1'
+            && $icon->attributes["alt"] === ''
+            && $this->replace_moodle_icon($icon->pix) !== false) {
+            return $this->replace_moodle_icon($icon->pix);
+        }
+        return parent::render_pix_icon($icon);
     }
 
 
@@ -532,10 +512,20 @@ class theme_elegance_core_renderer extends core_renderer {
         }
     }
 
-    /*
-     * This renders a notification message.
-     * Uses bootstrap compatible html.
-    */
+    public function navbar_button_reader($dataid = '#region-main', $class = null) {
+        $icon = html_writer::tag('span', '' , array('class' => 'glyphicon glyphicon-zoom-in'));
+        $content = html_writer::link('#', $icon . ' ' . get_string('reader','theme_elegance'),
+            array('class' => 'btn btn-default navbar-btn btn-sm moodlereader pull-right ' . $class,
+                'dataid' => $dataid));
+        return $content;
+    }
+
+    public function box($contents, $classes = 'generalbox', $id = null, $attributes = array()) {
+        if (isset($attributes['data-rel']) && $attributes['data-rel'] === 'fatalerror') {
+            return html_writer::div($contents, 'alert alert-danger', $attributes);
+        }
+        return parent::box($contents, $classes, $id, $attributes);
+    }
 
 }
 

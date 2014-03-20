@@ -1406,7 +1406,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   left: 100%;
 }
 .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
-  top: 100%;
+  top: 100% !important;
   right: 0;
   margin-top: 4px;
 }
@@ -2523,7 +2523,7 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
 }
 .section .activity .commands {
   white-space: nowrap;
-  display: inline;
+  display: inline !important;
 }
 .section .activity .activityinstance .groupinglabel {
   padding-left: 30px;
@@ -2841,6 +2841,9 @@ span.editinstructions {
 .coursebox .boxfooter {
   clear: both;
   margin-bottom: 30px;
+}
+.coursebox .enrolmenticons {
+  float: right;
 }
 .coursebox.remotehost > .info > .categoryname a {
   background-image: url([[pix:moodle|i/mnethost]]);
@@ -4324,6 +4327,65 @@ a.ygtvspacer:hover {
   margin: 5px 10px;
   padding: 5px 10px;
 }
+.box.message tbody {
+  display: table;
+  margin: 5px 0;
+  padding: 5px 0;
+  width: 100%;
+}
+.box.message .message_form {
+  width: 100%;
+}
+.box.message .message_form tr {
+  border: 0;
+}
+.box.message .message_form td {
+  background-color: inherit !important;
+}
+.box.message .message_form input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  display: inline-block;
+}
+.box.message .message_form input[type="text"]:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.box.message .message_form input[type="text"]::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.box.message .message_form input[type="text"]:-ms-input-placeholder {
+  color: #999999;
+}
+.box.message .message_form input[type="text"]::-webkit-input-placeholder {
+  color: #999999;
+}
+.box.message .message_form input[type="text"][disabled],
+.box.message .message_form input[type="text"][readonly],
+fieldset[disabled] .box.message .message_form input[type="text"] {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textarea.box.message .message_form input[type="text"] {
+  height: auto;
+}
 .box.message .contactselector {
   margin-bottom: 20px;
   background-color: #ffffff;
@@ -4760,7 +4822,10 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
   font-size: 14px;
 }
 .box.message .messagearea .mdl-left .messagesearchresults {
-  margin: 10px 15px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0px 15px;
+  display: block;
 }
 .box.message .messagearea .mdl-left .messagesearchresults td.pix {
   padding: 10px;
@@ -5070,6 +5135,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
 }
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified {
   width: 100%;
+  padding: 10px 0 0 0;
   border-bottom: 0;
 }
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li {
@@ -5084,6 +5150,30 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
   left: auto;
 }
 @media (min-width: 768px) {
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li {
+    display: block;
+    width: 100%;
+    float: none;
+  }
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
+@media (min-width: 992px) {
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified {
+    border: 0;
+    border-radius: 0;
+  }
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li {
     display: table-cell;
     width: 1%;
@@ -5112,6 +5202,32 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
     border-bottom-color: #ffffff;
   }
 }
+.box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
+  margin-right: 1px;
+  border-radius: 4px;
+}
+.box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
+.box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:hover,
+.box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+@media (min-width: 768px) {
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+  }
+}
+@media (min-width: 992px) {
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:hover,
+  .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+}
 .box.message .messagearea .messagehistory .messagehistorytype .hiddenelement {
   display: none;
 }
@@ -5120,6 +5236,41 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
 }
 .box.message .messagearea .messagehistory .messagehistorytype a.visible {
   color: #2fa4e7;
+}
+.box.message .messagearea .messagesend .mform {
+  margin: 0 20px;
+}
+.box.message .messagearea .messagesend .mform fieldset .fitem .felement,
+.box.message .messagearea .messagesend .mform fieldset.hidden > div {
+  margin-left: 0;
+  float: none;
+  width: 100%;
+}
+.box.message .messagearea .messagesend .mform .fitemtitle,
+.box.message .messagearea .messagesend .mform .form-label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #317eac;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  float: none;
+  text-align: left;
+}
+.box.message .messagearea .messagesend .mform .fitemtitle small,
+.box.message .messagearea .messagesend .mform .form-label small,
+.box.message .messagearea .messagesend .mform .fitemtitle .small,
+.box.message .messagearea .messagesend .mform .form-label .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.box.message .messagearea .messagesend .mform .fitemtitle small,
+.box.message .messagearea .messagesend .mform .form-label small,
+.box.message .messagearea .messagesend .mform .fitemtitle .small,
+.box.message .messagearea .messagesend .mform .form-label .small {
+  font-size: 65%;
 }
 .box.message .messagearea .messagesend .mform fieldset .fitem {
   margin-left: 0;
@@ -9288,8 +9439,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('[[font:theme|glyphicons-halflings-regular.eot]]');
+  src: url('[[font:theme|glyphicons-halflings-regular.eot]]?#iefix') format('embedded-opentype'), url('[[font:theme|glyphicons-halflings-regular.woff]]') format('woff'), url('[[font:theme|glyphicons-halflings-regular.ttf]]') format('truetype'), url('[[font:theme|glyphicons-halflings-regular.svg]]#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -10437,6 +10588,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs.nav-justified {
   width: 100%;
+  padding: 10px 0 0 0;
   border-bottom: 0;
 }
 .nav-tabs.nav-justified > li {
@@ -10459,6 +10611,30 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-bottom: 0;
   }
 }
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li {
+    display: block;
+    width: 100%;
+    float: none;
+  }
+  .nav-tabs.nav-justified > li > a {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
+@media (min-width: 992px) {
+  .nav-tabs.nav-justified {
+    border: 0;
+    border-radius: 0;
+  }
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
 .nav-tabs.nav-justified > li > a {
   margin-right: 0;
   border-radius: 4px;
@@ -10469,6 +10645,32 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid #dddddd;
 }
 @media (min-width: 768px) {
+  .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+}
+.nav-tabs.nav-justified > li > a {
+  margin-right: 1px;
+  border-radius: 4px;
+}
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li > a {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+  }
+}
+@media (min-width: 992px) {
   .nav-tabs.nav-justified > li > a {
     border-bottom: 1px solid #dddddd;
     border-radius: 4px 4px 0 0;
@@ -12757,11 +12959,6 @@ button.close {
     content: "";
   }
 }
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('[[font:theme|glyphicons-halflings-regular.eot]]');
-  src: url('[[font:theme|glyphicons-halflings-regular.eot]]') format('embedded-opentype'), url('[[font:theme|glyphicons-halflings-regular.woff]]') format('woff'), url('[[font:theme|glyphicons-halflings-regular.ttf]]') format('truetype'), url('[[font:theme|glyphicons-halflings-regular.svg]]#glyphicons_halflingsregular') format('svg');
-}
 .moodleSkin .mceIcon img.mceIcon {
   display: block;
   height: auto;
@@ -13564,6 +13761,10 @@ textarea.form-item .form-setting input[type="password"] {
   margin: 0;
   padding: 0;
   border-width: 0;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px;
 }
 /*
 .mform .fitem fieldset.fgroup label {
@@ -15009,6 +15210,169 @@ input.fp-btn-choose {
   line-height: 1.5;
   border-radius: 3px;
 }
+.nav-justified > li > a {
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-right: 1px;
+  white-space: nowrap;
+}
+.nav-justified {
+  padding: 10px 0 0 0;
+}
+@media (min-width: 768px) {
+  .nav-justified > li {
+    display: block;
+    width: 100%;
+    float: none;
+  }
+  .nav-justified > li > a {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
+@media (min-width: 992px) {
+  .nav-justified {
+    border: 0;
+    border-radius: 0;
+  }
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+.nav-tabs-justified > li > a {
+  margin-right: 1px;
+  border-radius: 4px;
+}
+.nav-tabs-justified > .active > a,
+.nav-tabs-justified > .active > a:hover,
+.nav-tabs-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+@media (min-width: 768px) {
+  .nav-tabs-justified > li > a {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+  }
+}
+@media (min-width: 992px) {
+  .nav-tabs-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .nav-tabs-justified > .active > a,
+  .nav-tabs-justified > .active > a:hover,
+  .nav-tabs-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+}
+.yui3-panel .readerpanel .yui3-widget-hd {
+  padding: 15px;
+  background: #2fa4e7;
+  height: 50px;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #555555;
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  width: auto;
+  height: auto;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:focus,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active:focus,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:hover,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:focus {
+  color: #555555;
+  text-decoration: none;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled],
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:hover,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:focus,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active,
+.open .dropdown-toggle.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
+  color: #555555;
+  background-color: #ebebeb;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active,
+.open .dropdown-toggle.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
+  background-image: none;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled],
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled:hover,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled]:hover,
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:hover,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled:focus,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled]:focus,
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:focus,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled:active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled]:active,
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.disabled.active,
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled].active,
+fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close .badge {
+  color: #ffffff;
+  background-color: #555555;
+}
+.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:before {
+  content: inherit;
+}
+.yui3-panel .readerpanel div[role=main] {
+  padding: 0 10px;
+}
 /* responsive.less */
 @media (max-width: 873px) {
   .file-picker .fp-repo-area {
@@ -15086,6 +15450,11 @@ input.fp-btn-choose {
   }
   .path-mod-forum .forumheaderlist .picture {
     display: none;
+  }
+  .panel .courseimage img {
+    margin-right: 5px;
+    float: none;
+    max-width: 100%;
   }
 }
 @media (max-width: 768px) {

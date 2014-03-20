@@ -140,8 +140,22 @@
  *                           that require flipping for use with RTL
  *                           languages.
  *
- * grunt cssflip   Create moodle-rtl.css by flipping the direction styles
- *                 in moodle.css.
+ * grunt replace:font_fix    Correct the format for the Moodle font
+ *                           loader to pick up the Glyphicon font.
+ *
+ * grunt replace:svg_colors  Change the color of the SVGs in pix_core by
+ *                           text replacing #999 with a new hex color.
+ *                           Note this requires the SVGs to be #999 to
+ *                           start with or the replace will do nothing
+ *                           so should usually be preceded by copying
+ *                           a fresh set of the original SVGs.
+ *
+ *                           Options:
+ *
+ *                           --svgcolor=<hexcolor> Hex color to use for SVGs
+ *
+ * grunt cssflip    Create moodle-rtl.css by flipping the direction styles
+ *                  in moodle.css.
  *
  *
  * @package theme
@@ -166,7 +180,7 @@ module.exports = function(grunt) {
     var moodleroot = path.dirname(path.dirname(__dirname)),
         configfile = '',
         decachephp = '',
-        dirrootopt = grunt.option('dirroot') || '';
+        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
@@ -179,6 +193,30 @@ module.exports = function(grunt) {
     decachephp += 'require(\'' + configfile  + '\');';
     decachephp += 'theme_reset_all_caches();';
 
+    var swatchname = grunt.option('name') || '';
+    var defaultsvgcolor = {
+        amelia: '#e8d069',
+        bootstrap: '#428bca',
+        classic: '#428bca',
+        cerulean: '#2fa4e7',
+        classic: '#428bca',
+        cosmo: '#007fff',
+        cupid: '#56caef',
+        cyborg: '#2a9fd6',
+        flatly: '#18bc9c',
+        journal: '#eb6864',
+        lumen: '#158cba',
+        readable: '#4582ec',
+        shamrock: '#f8e33c',
+        simplex: '#d9230f',
+        slate: '#fff',
+        spacelab: '#446e9b',
+        superhero: '#df691a',
+        united: '#dd4814',
+        yeti: '#008cba',
+    };
+    var svgcolor = grunt.option('svgcolor') || defaultsvgcolor[swatchname] || '#999';
+
     grunt.initConfig({
         less: {
             // Compile moodle styles.
@@ -189,9 +227,8 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'
                 },
-                files: {
-                    "style/moodle.css": "less/moodle.less",
-                }
+                src: 'less/moodle.less',
+                dest: 'style/moodle.css'
             },
             // Compile editor styles.
             editor: {
@@ -201,9 +238,8 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-editor.json'
                 },
-                files: {
-                    "style/editor.css": "less/editor.less"
-                }
+                src: 'less/editor.less',
+                dest: 'style/editor.css'
             }
         },
         exec: {
@@ -228,14 +264,21 @@ module.exports = function(grunt) {
         },
         cssflip: {
             rtl: {
-                files: {
-                    'style/moodle-rtl.css': 'style/moodle.css'
-                }
+                src: 'style/moodle.css',
+                dest: 'style/moodle-rtl.css'
+            }
+        },
+        copy: {
+            svg: {
+                 expand: true,
+                 cwd: 'pix_core_originals/',
+                 src: '**',
+                 dest: 'pix_core/',
             }
         },
         replace: {
             rtl_images: {
-                src: ['style/moodle-rtl.css'],
+                src: 'style/moodle-rtl.css',
                     overwrite: true,
                     replacements: [{
                         from: '[[pix:theme|fp/path_folder]]',
@@ -259,17 +302,42 @@ module.exports = function(grunt) {
                         from: '[[pix:y/lp]]',
                         to: '[[pix:y/lp_rtl]]'
                     }]
+            },
+            svg_colors: {
+                src: 'pix_core/**/*.svg',
+                    overwrite: true,
+                    replacements: [{
+                        from: '#999',
+                        to: svgcolor
+                    }]
+            },
+            font_fix: {
+                src: 'style/moodle.css',
+                    overwrite: true,
+                    replacements: [{
+                        from: 'glyphicons-halflings-regular.eot',
+                        to: 'glyphicons-halflings-regular.eot]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.svg',
+                        to: 'glyphicons-halflings-regular.svg]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.ttf',
+                        to: 'glyphicons-halflings-regular.ttf]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.woff',
+                        to: 'glyphicons-halflings-regular.woff]]',
+                    }]
             }
         }
     });
 
     // Local task functions.
     var _bootswatch = function() {
-
         var swatchname = grunt.option('name') || '',
             swatchroot = grunt.option('swatches-dir') || '',
             varsonly   = grunt.option('vars-only'),
             noswatch   = grunt.option('none');
+
 
         // Reset bootwatches for default boootstrap.
         if (noswatch) {
@@ -336,12 +404,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks("grunt-text-replace");
     grunt.loadNpmTasks("grunt-css-flip");
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
     grunt.registerTask("bootswatch", _bootswatch);
-    grunt.registerTask("compile", ["less", "cssflip", "replace:rtl_images", "decache"]);
-    grunt.registerTask("swatch", ["bootswatch", "compile"]);
+    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", "decache"]);
+    grunt.registerTask("swatch", ["bootswatch", "svg", "compile"]);
+    grunt.registerTask("svg", ["copy:svg", "replace:svg_colors"]);
 };

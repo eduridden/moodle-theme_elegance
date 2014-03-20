@@ -57,6 +57,8 @@ $string['configtitle'] = 'Elegance';
 $string['region-side-middle'] = 'Homepage Middle';
 $string['region-hidden-dock'] = 'Admin Only';
 
+$string['reader'] = 'Reader';
+
 $string['mydashboard'] = 'My Dashboard';
 
 $string['customcss'] = 'Custom CSS';
@@ -73,6 +75,9 @@ $string['invertdesc'] = 'Swaps text and background for the navbar at the top of 
 
 $string['fluidwidth'] = 'Fluid width theme';
 $string['fluidwidth_desc'] = 'Enable this option to allow using your full screen';
+
+$string['fonticons'] = 'Use Icon Font';
+$string['fonticonsdesc'] = 'Enable this option to use the Glyphicon Icon Font';
 
 $string['transparency'] = 'Content trasparency';
 $string['transparencydesc'] = 'Want to see more of your background show through? This setting changes the transparency of Moodle content and blocks';

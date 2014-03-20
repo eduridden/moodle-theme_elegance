@@ -51,6 +51,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $temp->add($setting);
 
+    // Font Icons
+    $name = 'theme_elegance/fonticons';
+    $title = get_string('fonticons', 'theme_elegance');
+    $description = get_string('fonticonsdesc', 'theme_elegance');
+    $default = '0';
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $temp->add($setting);
+
     // Frontpage Content.
     $name = 'theme_elegance/frontpagecontent';
     $title = get_string('frontpagecontent', 'theme_elegance');
