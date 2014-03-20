@@ -47,9 +47,9 @@ if ($haslogo) {
 }
 
 if ($invert) {
-	$navbartype = 'inverse';
+  $navbartype = 'navbar-inverse';
 } else {
-	$navbartype = 'default';
+  $navbartype = 'navbar-default';
 }
 
 $container = 'container';
@@ -81,7 +81,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar <?php echo $navbartype; ?>">
     <div class="<?php echo $container; ?>">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">

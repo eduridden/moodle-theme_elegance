@@ -61,10 +61,10 @@ $fluid = (!empty($PAGE->layout_options['fluid']));
  	$logo = $SITE->shortname;
  }
 
- if ($invert) {
-	$navbartype = 'inverse';
+if ($invert) {
+  $navbartype = 'navbar-inverse';
 } else {
-	$navbartype = 'default';
+  $navbartype = 'navbar-default';
 }
 
 $container = 'container';
@@ -259,7 +259,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
+<nav role="navigation" class="navbar <?php echo $navbartype; ?>">
     <div class="<?php echo $container; ?>">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">

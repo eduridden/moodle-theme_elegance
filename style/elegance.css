@@ -632,10 +632,15 @@ h2.quicklinksheader::after {
 }
 
 .navbar-inverse a {
-    color: rgb(51, 53, 55) !important;
+    color: rgb(51, 53, 55);
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-inverse .navbar-nav > li > a {
+	color: #333;
+}
+
+.navbar-default .navbar-nav>li>a,
+.navbar-inverse .navbar-nav>li>a {
 	margin-bottom: 5px;
 }
 
@@ -645,6 +650,14 @@ h2.quicklinksheader::after {
 .navbar-default .navbar-nav>.open>a:focus {
 	background: #000;
 	border-bottom-color: [[setting:themecolor]];
+}
+
+.navbar-inverse .navbar-nav>.open>a, 
+.navbar-inverse .navbar-nav>.open>a:hover, 
+.navbar-inverse .navbar-nav>.open>a:focus {
+	background: #eee;
+	border-bottom-color: [[setting:themecolor]];
+	color: #333;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
@@ -659,6 +672,7 @@ h2.quicklinksheader::after {
 	background: #eee;
 	border-bottom: 5px solid [[setting:themecolor]];
 	margin-bottom: 0px;
+	color: #333;
 }
 
 .dropdown-menu > li > a:hover,
