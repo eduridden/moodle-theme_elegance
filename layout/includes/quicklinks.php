@@ -23,11 +23,18 @@
  * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
+
  $quicklinksnum = $PAGE->theme->settings->quicklinksnumber;
- 
+
+// make use of $quicklinksnum for better behaviour
+// set lg size to be 12/$quicklinksnum if $quicklinksnum is less than 4
+// so with 1 link you get lg-12, 2 links you get lg-6, 3 links you get lg-4 and 4+ links you get lg-3
+// set md size to be 12/$quicklinksnum if $quicklinsnum is less than 3
+$lg = ( $quicklinksnum <4 ? 12/$quicklinksnum : 3 );
+$md = ( $quicklinksnum <3 ? 12/$quicklinksnum : 4 );
+
  ?>
- 
+
 <div id="heading">
 	<h2 class="quicklinksheader">
 		<i class="fa fa-<?php echo $PAGE->theme->settings->quicklinksicon ?>"></i>
@@ -37,13 +44,13 @@
 
 <div class="row" id="quicklinks">
 
-	<?php foreach (range(1, $quicklinksnum) as $quicklinksnumber) { 
+	<?php foreach (range(1, $quicklinksnum) as $quicklinksnumber) {
 		$qli = "quicklinkicon$quicklinksnumber";
 		$qlt = "quicklinkbuttontext$quicklinksnumber";
 		$qlu = "quicklinkbuttonurl$quicklinksnumber";
 		?>
 		<?php
-		echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="quicklink">';
+		echo "<div class='col-lg-$lg col-md-$md col-sm-4 col-xs-6' id='quicklink'>";
 			if (!empty($PAGE->theme->settings->$qlu)) {
 				echo '<a href="'.$PAGE->theme->settings->$qlu.'">';
 			}
@@ -52,7 +59,7 @@
 				echo '<i class="fa fa-'.$PAGE->theme->settings->$qli.'"></i>';
 			} else {
 				echo '<i class="fa fa-check"></i>';
-			} 
+			}
 			echo '</div>';
 			echo '<p class="btn quicklinkbuttoncolor'.$quicklinksnumber.'">';
 				if (!empty($PAGE->theme->settings->$qlt)) {

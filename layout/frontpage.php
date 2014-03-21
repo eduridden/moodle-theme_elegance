@@ -29,7 +29,9 @@ $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->them
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 $hastiles = (!empty($PAGE->theme->settings->tiles));
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
+$hasslidespeed = (empty($PAGE->theme->settings->slidespeed)) ? false : $PAGE->theme->settings->slidespeed;
 $invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
+$fluid = (!empty($PAGE->layout_options['fluid']));
 $hasmarketing = (empty($PAGE->theme->settings->togglemarketing)) ? false : $PAGE->theme->settings->togglemarketing;
 $hasquicklinks = (empty($PAGE->theme->settings->togglequicklinks)) ? false : $PAGE->theme->settings->togglequicklinks;
 $hasfrontpagecontent = (empty($PAGE->theme->settings->frontpagecontent)) ? false : $PAGE->theme->settings->frontpagecontent;
@@ -40,10 +42,24 @@ if ($haslogo) {
 	$logo = $SITE->shortname;
 }
 
-if ($invert) {
-	$navbartype = 'inverse';
+if ($hasslidespeed) {
+	$slidespeed = $hasslidespeed;
 } else {
-	$navbartype = 'default';
+	$slidespeed = '600';
+}
+
+if ($invert) {
+  $navbartype = 'navbar-inverse';
+} else {
+  $navbartype = 'navbar-default';
+}
+
+$container = 'container';
+if (isset($PAGE->theme->settings->fluidwidth) && ($PAGE->theme->settings->fluidwidth == true)) {
+    $container = 'container-fluid';
+}
+if ($fluid) {
+    $container = 'container-fluid';
 }
 
 
@@ -53,88 +69,86 @@ $regions = bootstrap3_grid($hassidepost);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 
-
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
-	<title><?php echo $OUTPUT->page_title(); ?></title>
-	<link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
-	<?php echo $OUTPUT->standard_head_html() ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <?php echo $OUTPUT->standard_head_html() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body <?php echo $OUTPUT->body_attributes(); ?> onload="init()">
+<body <?php echo $OUTPUT->body_attributes(); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
-		</div>
+<nav role="navigation" class="navbar <?php echo $navbartype; ?>">
+    <div class="<?php echo $container; ?>">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
+    </div>
 
-		<div id="moodle-navbar" class="navbar-collapse collapse">
-			<?php echo $OUTPUT->custom_menu(); ?>
-			<?php echo $OUTPUT->user_menu(); ?>
-			<ul class="nav pull-right">
-				<li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-			</ul>
-		</div>
-	</div>
+    <div id="moodle-navbar" class="navbar-collapse collapse">
+        <?php echo $OUTPUT->custom_menu(); ?>
+        <?php echo $OUTPUT->user_menu(); ?>
+        <ul class="nav pull-right">
+            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+        </ul>
+    </div>
+    </div>
 </nav>
 
 <!-- Start Slideshow -->
 <?php require_once(dirname(__FILE__).'/includes/slideshow.php'); ?>
 <!-- End Slideshow -->
+<header id="moodleheader" class="clearfix">
 
-<header id="page-header" class="clearfix">
-	<!-- Start Frontpage Content -->
-	<?php if (!empty($hasfrontpagecontent)) {
-		echo '<div id="fontpagecontent" class="container">'.$hasfrontpagecontent.'</div>';
-	} ?>
+    <!-- Start Frontpage Content -->
+    <?php if (!empty($hasfrontpagecontent)) {
+      echo '<div id="fontpagecontent" class="container">'.$hasfrontpagecontent.'</div>';
+    } ?>
+    <!-- End Frontpage Content -->
 
-	<!-- End Frontpage Content -->
-
-	<div id="course-header">
-		<?php echo $OUTPUT->course_header(); ?>
-	</div>
+    <div id="course-header">
+        <?php echo $OUTPUT->course_header(); ?>
+    </div>
 </header>
 
 
-<div id="page" class="container">
-    
+<div id="page" class="<?php echo $container; ?>">
+
     <!-- Start Marketing Spots -->
-    <?php 
+    <?php
     	if($hasmarketing==1) {
     		require_once(dirname(__FILE__).'/includes/marketing.php');
     	} else if($hasmarketing==2 && !isloggedin()) {
     		require_once(dirname(__FILE__).'/includes/marketing.php');
     	} else if($hasmarketing==3 && isloggedin()) {
     		require_once(dirname(__FILE__).'/includes/marketing.php');
-    	} 
+    	}
     ?>
     <!-- End Marketing Spots -->
 
     <div id="page-content" class="row">
-	    <div id="region-main" class="<?php echo $regions['content']; ?>">
-		    
+        <div id="region-main" class="<?php echo $regions['content']; ?>">
+
 		    <!-- Start Quick Links -->
-		    <?php 
+		    <?php
 		    	if($hasquicklinks==1) {
 		    		require_once(dirname(__FILE__).'/includes/quicklinks.php');
 		    	} else if($hasquicklinks==2 && !isloggedin()) {
 		    		require_once(dirname(__FILE__).'/includes/quicklinks.php');
 		    	} else if($hasquicklinks==3 && isloggedin()) {
 		    		require_once(dirname(__FILE__).'/includes/quicklinks.php');
-		    	} 
+		    	}
 		    ?>
 		    <!-- End Quick Links -->
 
@@ -176,22 +190,21 @@ echo $OUTPUT->doctype() ?>
     $("#b-40").click(function() { NProgress.set(0.4); });
     $("#b-inc").click(function() { NProgress.inc(); });
     $("#b-100").click(function() { NProgress.done(); });
-    
+
     if(window.chrome) {
 				$('.banner li').css('background-size', '100% 100%');
 	}
-	
+
     $('.banner').unslider({
 				fluid: true,
-				dots: true,
-				speed: 600,
+        dots: true,
+        speed: <?php echo $slidespeed; ?>,
 				keys: true,
 				arrows: true,
     			prev: '<',
     			next: '>'
-	});	
+	});
 </script>
 
-<canvas id="clouds" style="position:absolute; bottom:0px; left: 0px; z-index:-1; width: 100%; height: 100%;"></canvas>
 </body>
 </html>

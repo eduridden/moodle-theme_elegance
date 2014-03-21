@@ -53,19 +53,28 @@ $hasltiles = (!empty($PAGE->theme->settings->tiles));
 
 $haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
 $invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
+$fluid = (!empty($PAGE->layout_options['fluid']));
 
  if ($haslogo) {
  	$logo = '<div id="logo"></div>';
  } else {
  	$logo = $SITE->shortname;
  }
- 
- if ($invert) {
-	$navbartype = 'inverse';
+
+if ($invert) {
+  $navbartype = 'navbar-inverse';
 } else {
-	$navbartype = 'default';
+  $navbartype = 'navbar-default';
 }
- 
+
+$container = 'container';
+if (isset($PAGE->theme->settings->fluidwidth) && ($PAGE->theme->settings->fluidwidth == true)) {
+    $container = 'container-fluid';
+}
+if ($fluid) {
+    $container = 'container-fluid';
+}
+
  if (!empty($CFG->loginpasswordautocomplete)) {
     $autocomplete = 'autocomplete="off"';
 } else {
@@ -250,8 +259,8 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
-    <div class="container">
+<nav role="navigation" class="navbar <?php echo $navbartype; ?>">
+    <div class="<?php echo $container; ?>">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -273,7 +282,7 @@ echo $OUTPUT->doctype() ?>
 </nav>
 
 <div id="page">
-    <div id="page-content" class="container">
+    <div id="page-content" class="<?php echo $container; ?>">
         <div id="region-main" class="row">
             <div class="loginpanel col-md-4 col-md-offset-1 col-sd-6 col-sd-offset-0">
                 <?php
@@ -282,7 +291,7 @@ echo $OUTPUT->doctype() ?>
                 }else{
                     echo '<h2><i class="fa fa-key"></i> '.get_string("login").'</h2>';
                 }
-                
+
                 if (!empty($errormsg)) {
                     echo html_writer::start_tag('div', array('class' => 'loginerrors'));
                     echo html_writer::link('#', $errormsg, array('id' => 'loginerrormessage', 'class' => 'accesshide'));
@@ -290,7 +299,7 @@ echo $OUTPUT->doctype() ?>
                     echo html_writer::end_tag('div');
                 }
                 ?>
-                
+
                 <form action="<?php echo $CFG->httpswwwroot; ?>/login/index.php" method="post" id="login" <?php echo $autocomplete; ?> >
                     <div class="inputarea">
                         <div>
@@ -299,32 +308,32 @@ echo $OUTPUT->doctype() ?>
                         <div>
                             <input type="password" name="password" id="password" placeholder="<?php echo get_string('password'); ?>"  value="" <?php echo $autocomplete; ?> />
                         </div>
-                        <?php 
+                        <?php
                         if (!right_to_left()) { ?>
                             <button class="icon-submit fa fa-angle-right"></button>
                             <?php
                         } else { ?>
                             <button class="icon-submit fa fa-angle-left"></button>
-                            <?php 
+                            <?php
                         } ?>
                     </div>
-                    
+
                     <?php if (isset($CFG->rememberusername) and $CFG->rememberusername == 2) { ?>
                         <div class="remember">
                             <input type="checkbox" name="rememberusername" value="1"/>
                             <label><?php echo get_string('rememberusername', 'admin'); ?></label>
                         </div>
                     <?php } ?>
-                    
+
                     <a href="forgot_password.php" id="forgotten"><?php echo get_string('passwordforgotten'); ?></a>
                 </form>
-                
+
                 <?php if ($CFG->guestloginbutton and !isguestuser()) {  ?>
                     <div class="subcontent guestsub">
                         <div class="desc">
                             <?php print_string("someallowguest") ?>
                         </div>
-                        
+
                         <form action="index.php" method="post" id="guestlogin">
                             <div class="guestform">
                                 <input type="hidden" name="username" value="guest" />
@@ -333,14 +342,14 @@ echo $OUTPUT->doctype() ?>
                             </div>
                         </form>
                     </div>
-                <?php } 
+                <?php }
                 /// Uncomment the line below if you are using the oAuth plugin
-                // require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons(); 
+                // require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons();
                 ?>
             </div>
-            
-            
-            
+
+
+
             <?php if ($show_instructions) { ?>
                 <div class="signuppanel col-md-6 col-md-offset-1 col-sd-6 col-sd-offset-0">
                     <h2><i class="fa fa-question-circle"></i> <?php print_string("firsttime") ?></h2>
@@ -348,13 +357,13 @@ echo $OUTPUT->doctype() ?>
                         <?php if (is_enabled_auth('none')) { // instructions override the rest for security reasons
                             print_string("loginstepsnone");
                         } else if ($CFG->registerauth == 'email') {
-                        
+
                             if (!empty($CFG->auth_instructions)) {
                                 echo format_text($CFG->auth_instructions);
                             } else {
                                 print_string("loginsteps", "", "signup.php");
                             } ?>
-                        
+
                             <div class="signupform">
                                 <form action="signup.php" method="get" id="signup">
                                     <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
@@ -373,10 +382,10 @@ echo $OUTPUT->doctype() ?>
                     </div>
                 </div>
             <?php } ?>
-            
+
             <?php echo "<div style='display: none;'>".$OUTPUT->main_content()."</div>"; ?>
             <?php echo $OUTPUT->standard_end_of_body_html() ?>
-        
+
         </div>
     </div>
 </div>
@@ -407,10 +416,10 @@ echo $OUTPUT->doctype() ?>
     $("#b-40").click(function() { NProgress.set(0.4); });
     $("#b-inc").click(function() { NProgress.inc(); });
     $("#b-100").click(function() { NProgress.done(); });
-    
-    
+
+
     $.backstretch([
-      <?php if ($hasloginbg1image) { echo '"'.$loginbg1.'",'; } ?> 
+      <?php if ($hasloginbg1image) { echo '"'.$loginbg1.'",'; } ?>
       <?php if ($hasloginbg2image) { echo '"'.$loginbg2.'",'; } ?>
       <?php if ($hasloginbg3image) { echo '"'.$loginbg3.'",'; } ?>
       <?php if ($hasloginbg4image) { echo '"'.$loginbg4.'",'; } ?>

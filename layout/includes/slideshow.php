@@ -140,7 +140,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 <?php if ($hasslideshow) { ?>
 <div class="banner has-dots" style="overflow: hidden; width: 100%; height: 415px;">
 	<ul style="width: 400%; position: relative; left: -200%; height: 415px;">
-		
+
 		<?php if ($hasslide1) { ?>
 		<li id="slide1" style="background-image: url(<?php echo $slide1image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide1title ?></h1>
@@ -150,7 +150,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide2) { ?>
 		<li id="slide2" style="background-image: url(<?php echo $slide2image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide2title ?></h1>
@@ -161,7 +161,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 		</li>
 		<?php } ?>
 
-		
+
 		<?php if ($hasslide3) { ?>
 		<li id="slide3" style="background-image: url(<?php echo $slide3image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide3title ?></h1>
@@ -172,7 +172,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 		</li>
 		<?php } ?>
 
-		
+
 		<?php if ($hasslide4) { ?>
 		<li id="slide4" style="background-image: url(<?php echo $slide4image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide4title ?></h1>
@@ -182,7 +182,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide5) { ?>
 		<li id="slide5" style="background-image: url(<?php echo $slide5image ?>); background-size: 100%; width: 25%;">
 			<h1><?php echo $slide5title ?></h1>
@@ -192,7 +192,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide6) { ?>
 		<li id="slide6" style="background-image: url(<?php echo $slide6image ?>); background-size: 100%; width: 26%;">
 			<h1><?php echo $slide6title ?></h1>
@@ -202,7 +202,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide7) { ?>
 		<li id="slide7" style="background-image: url(<?php echo $slide7image ?>); background-size: 100%; width: 27%;">
 			<h1><?php echo $slide7title ?></h1>
@@ -212,7 +212,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide8) { ?>
 		<li id="slide8" style="background-image: url(<?php echo $slide8image ?>); background-size: 100%; width: 28%;">
 			<h1><?php echo $slide8title ?></h1>
@@ -222,7 +222,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide9) { ?>
 		<li id="slide9" style="background-image: url(<?php echo $slide9image ?>); background-size: 100%; width: 29%;">
 			<h1><?php echo $slide9title ?></h1>
@@ -232,7 +232,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-		
+
 		<?php if ($hasslide10) { ?>
 		<li id="slide10" style="background-image: url(<?php echo $slide10image ?>); background-size: 100%; width: 210%;">
 			<h1><?php echo $slide10title ?></h1>
@@ -242,7 +242,7 @@ $hasslideshow = ($hasslide1 || $hasslide2 || $hasslide3 || $hasslide4|| $hasslid
 			<?php } ?>
 		</li>
 		<?php } ?>
-	
+
 	</ul>
 </div>
 <?php } ?>

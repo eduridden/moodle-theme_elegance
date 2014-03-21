@@ -57,6 +57,8 @@ $string['configtitle'] = 'Elegance';
 $string['region-side-middle'] = 'Homepage Middle';
 $string['region-hidden-dock'] = 'Admin Only';
 
+$string['reader'] = 'Reader';
+
 $string['mydashboard'] = 'My Dashboard';
 
 $string['customcss'] = 'Custom CSS';
@@ -70,6 +72,12 @@ $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed i
 
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
+
+$string['fluidwidth'] = 'Fluid width theme';
+$string['fluidwidth_desc'] = 'Enable this option to allow using your full screen';
+
+$string['fonticons'] = 'Use Icon Font';
+$string['fonticonsdesc'] = 'Enable this option to use the Glyphicon Icon Font';
 
 $string['transparency'] = 'Content trasparency';
 $string['transparencydesc'] = 'Want to see more of your background show through? This setting changes the transparency of Moodle content and blocks';
@@ -184,6 +192,9 @@ $string['bannersettingsdesc'] = 'Enable and determine settings for each slide be
 
 $string['bannerindicator'] = 'Slide Number ';
 $string['bannerindicatordesc'] = 'Set up this slide';
+
+$string['slidespeed'] = 'Slide Duration ';
+$string['slidespeeddesc'] = 'Set how long the slide appears in milliseconds';
 
 
 $string['slidenumber'] = 'Number of slides ';
@@ -378,5 +389,3 @@ $string['socialnetworksicondescriptiontumblr'] = 'Find us on Tumblr';
 $string['socialnetworksicondescriptioninstagram'] = 'Find us on Instagram';
 $string['socialnetworksicondescriptionvk'] = 'Like us on VK';
 $string['socialnetworksicondescriptionskype'] = 'Call us on Skype';
-
-

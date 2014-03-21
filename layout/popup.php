@@ -1,5 +1,5 @@
 <?php
-// This file is part of the custom Moodle elegance theme
+// This file is part of The Bootstrap 3 Moodle theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,19 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
-/**
- * Theme settings
- *
- * @package    theme_elegance
- * @copyright  2014 Julian Ridden http://moodleman.net
- * @authors    Julian Ridden -  Bootstrap 3 work by Bas Brands, David Scotson
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+echo $OUTPUT->doctype() ?>
+<html <?php echo $OUTPUT->htmlattributes(); ?>>
+<head>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <?php echo $OUTPUT->standard_head_html() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-defined('MOODLE_INTERNAL') || die;
+<body <?php echo $OUTPUT->body_attributes(); ?>>
 
-$plugin->version   = 2014032102;
-$plugin->release = '2.6.2 (Build: 20140321)';
-$plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
-$plugin->requires  = 2013110500;
-$plugin->component = 'theme_elegance';
+<?php
+echo $OUTPUT->standard_top_of_body_html();
+echo $OUTPUT->main_content();
+echo $OUTPUT->standard_footer_html();
+echo $OUTPUT->standard_end_of_body_html();
+?>
+
+</div>
+</body>
+</html>

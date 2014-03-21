@@ -11,7 +11,7 @@ YUI().use("node-base","node-event-simulate", function(Y) {
         if (targetBlock.hasClass('block_with_controls')) {
             return false;
         }
-
+        
         var hiderShow = targetBlock.one('.block-hider-show');
         var hiderHide = targetBlock.one('.block-hider-hide');
 

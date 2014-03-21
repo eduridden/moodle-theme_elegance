@@ -16,30 +16,20 @@
     .file-picker .fp-login-form .fp-login-input label {
         text-align: left;
     }
-    .dir-rtl .file-picker .fp-login-form .fp-login-input label {
-        text-align: right;
-    }
     .file-picker .fp-content form td {
         display: block;
         width: 100%;
         text-align: left;
     }
-    .dir-rtl .file-picker .fp-content form td {
-        text-align: right;
-    }
     .fp-content .mdl-right {
         text-align: left;
     }
-    .dir-rtl .fp-content .mdl-right {
-        text-align: right;
-    }
-
     .fp-repo-items .fp-navbar {
         border-top: 1px solid rgb(187, 187, 187);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: @screen-xs) {
     .fp-content-center {
         display: block;
         vertical-align: top;
@@ -88,10 +78,19 @@
     .path-mod-forum .forumheaderlist .picture {
         display: none;
     }
+    .panel {
+        .courseimage {
+            img {
+                margin-right: 5px;
+                float: none;
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: @screen-sm) {
 // Resize, reflow file-picker on small devices
    #filesskin .yui3-panel,
    #filesskin .file-picker.fp-generallayout {

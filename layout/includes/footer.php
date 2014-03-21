@@ -50,25 +50,25 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
 <div class="container">
 	<div class="row">
 		<div id="course-footer">
-			<?php echo $OUTPUT->course_footer(); ?>	
+			<?php echo $OUTPUT->course_footer(); ?>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-lg-6">
-			<?php echo $OUTPUT->home_link(); ?>
-   			
+      <?php echo $OUTPUT->home_link(); ?>
+
 			<?php
 			if ($hascopyright) {
 				echo '<p class="copy">&copy; Copyright '.date("Y").' by '.$hascopyright.'</p>';
    			} ?>
-   			
+
    			<?php if ($hasfootnote) {
 				echo  '<div class="footnote">'. $hasfootnote. '</div>';
    			} ?>
-   			
+
 		</div>
-		
+
 		<div class="col-lg-6 pull-right">
 			<?php echo $OUTPUT->login_info();
 			if ($hassocialnetworks) {
@@ -79,106 +79,106 @@ $hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflick
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionblog','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($haswebsite) {
 						echo '<a href="'.$haswebsite.'" class="socialicon website">';
 						echo '<i class="fa fa-globe fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionwebsite','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasgoogleplus) {
 						echo '<a href="'.$hasgoogleplus.'" class="socialicon googleplus">';
 						echo '<i class="fa fa-google-plus fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptiongoogleplus','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hastwitter) {
 						echo '<a href="'.$hastwitter.'" class="socialicon twitter">';
 						echo '<i class="fa fa-twitter fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptiontwitter','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasfacebook) {
 						echo '<a href="'.$hasfacebook.'" class="socialicon facebook">';
 						echo '<i class="fa fa-facebook fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionfacebook','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($haslinkedin) {
 						echo '<a href="'.$haslinkedin.'" class="socialicon linkedin">';
 						echo '<i class="fa fa-linkedin fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionlinkedin','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasyoutube) {
 						echo '<a href="'.$hasyoutube.'" class="socialicon youtube">';
 						echo '<i class="fa fa-youtube fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionyoutube','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasvimeo) {
 						echo '<a href="'.$hasvimeo.'" class="socialicon vimeo">';
 						echo '<i class="fa fa-vimeo-square fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionvimeo','theme_elegance').'</span>';
 						echo '</button>';
 					}
-					
+
 					if ($hasflickr) {
 						echo '<a href="'.$hasflickr.'" class="socialicon flickr">';
 						echo '<i class="fa fa-flickr fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionflickr','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($haspinterest) {
 						echo '<a href="'.$haspinterest.'" class="socialicon pinterest">';
 						echo '<i class="fa fa-pinterest fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionpinterest','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hastumblr) {
 						echo '<a href="'.$hastumblr.'" class="socialicon tumblr">';
 						echo '<i class="fa fa-tumblr fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptiontumblr','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasinstagram) {
 						echo '<a href="'.$hasinstagram.'" class="socialicon instagram">';
 						echo '<i class="fa fa-instagram fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptioninstagram','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasvk) {
 						echo '<a href="'.$hasvk.'" class="socialicon vk">';
 						echo '<i class="fa fa-vk fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionvk','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 					if ($hasskype) {
 						echo '<a href="skype:'.$hasskype.'?call" class="socialicon skype">';
 						echo '<i class="fa fa-skype fa-inverse"></i>';
 							echo '<span class="sr-only">'.get_string('socialnetworksicondescriptionskype','theme_elegance').'</span>';
 						echo '</a>';
 					}
-					
+
 				echo '</ul>';
 			} ?>
 		</div>
 	</div>
-	
+
 	<div class="row">
-		<p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+    <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
 		<?php echo $OUTPUT->standard_footer_html(); ?>
 	</div>
-	
+
 </div>

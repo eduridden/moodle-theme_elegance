@@ -67,8 +67,8 @@ html.login-page{
 }
 
 .loginpanel form#guestlogin input[type="submit"]:hover {
-	background: green;
-	position: relative;
+	background: #388f9d;
+	color: #fff;
 }
 
 .guestform {
@@ -112,7 +112,7 @@ html.login-page{
     transition: all 0.5s ease-out;
 }
 .loginpanel .icon-submit:hover{
-    background-color: [[setting:themecolor]];
+    background-color: #388f9d;
 }
 .loginpanel form .inputarea{
     height: 95px;
@@ -244,10 +244,11 @@ html.login-page{
 	font-weight: 500;
 	font-family: "Roboto";
 	display: inline-block;
+	margin-top: 4px;
 }
 
 .loginpanel form a:hover {
-	background: #000;
+	background: #388f9d;
 }
 
 /* @end */

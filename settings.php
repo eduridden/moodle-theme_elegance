@@ -29,12 +29,12 @@ $settings = null;
 defined('MOODLE_INTERNAL') || die;
 
 	global $PAGE;
-	
+
 	$ADMIN->add('themes', new admin_category('theme_elegance', 'Elegance'));
 
 	// "geneicsettings" settingpage
 	$temp = new admin_settingpage('theme_elegance_generic',  get_string('geneicsettings', 'theme_elegance'));
-	
+
     // Invert Navbar to dark background.
     $name = 'theme_elegance/invert';
     $title = get_string('invert', 'theme_elegance');
@@ -42,7 +42,23 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
+    // Turn on fluid width
+    $name = 'theme_elegance/fluidwidth';
+    $title = get_string('fluidwidth', 'theme_elegance');
+    $description = get_string('fluidwidth_desc', 'theme_elegance');
+    $default = '0';
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $temp->add($setting);
+
+    // Font Icons
+    $name = 'theme_elegance/fonticons';
+    $title = get_string('fonticons', 'theme_elegance');
+    $description = get_string('fonticonsdesc', 'theme_elegance');
+    $default = '0';
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $temp->add($setting);
+
     // Frontpage Content.
     $name = 'theme_elegance/frontpagecontent';
     $title = get_string('frontpagecontent', 'theme_elegance');
@@ -51,7 +67,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
      // Copyright setting.
     $name = 'theme_elegance/copyright';
     $title = get_string('copyright', 'theme_elegance');
@@ -68,7 +84,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Course Tiles.
     $name = 'theme_elegance/tiles';
     $title = get_string('tiles', 'theme_elegance');
@@ -76,7 +92,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Embedded Video Max Width.
     $name = 'theme_elegance/videowidth';
     $title = get_string('videowidth', 'theme_elegance');
@@ -84,7 +100,7 @@ defined('MOODLE_INTERNAL') || die;
     $default = '100%';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
-    
+
     // Custom CSS file.
     $name = 'theme_elegance/customcss';
     $title = get_string('customcss', 'theme_elegance');
@@ -93,14 +109,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     $ADMIN->add('theme_elegance', $temp);
-    
+
     /* Color and Logo Settings */
     $temp = new admin_settingpage('theme_elegance_colors', get_string('colorsettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_colors', get_string('colorsettingssub', 'theme_elegance'),
     		format_text(get_string('colorsettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
-    		
+
     	// Main theme colour setting.
     	$name = 'theme_elegance/themecolor';
     	$title = get_string('themecolor', 'theme_elegance');
@@ -110,7 +126,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Main Font colour setting.
     	$name = 'theme_elegance/fontcolor';
     	$title = get_string('fontcolor', 'theme_elegance');
@@ -120,7 +136,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Heading colour setting.
     	$name = 'theme_elegance/headingcolor';
     	$title = get_string('headingcolor', 'theme_elegance');
@@ -138,7 +154,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    			
+
     	// Header Background Image.
     	$name = 'theme_elegance/headerbg';
     	$title = get_string('headerbg', 'theme_elegance');
@@ -146,7 +162,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbg');
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    		
+
     	// Body Background Image.
     	$name = 'theme_elegance/bodybg';
     	$title = get_string('bodybg', 'theme_elegance');
@@ -154,7 +170,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bodybg');
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Main theme colour setting.
     	$name = 'theme_elegance/bodycolor';
     	$title = get_string('bodycolor', 'theme_elegance');
@@ -164,7 +180,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    
+
     	// Set Transparency.
     	$name = 'theme_elegance/transparency';
     	$title = get_string('transparency' , 'theme_elegance');
@@ -175,7 +191,7 @@ defined('MOODLE_INTERNAL') || die;
     		'.15'=>'15%',
     		'.20'=>'20%',
     		'.25'=>'25%',
-    		'.30'=>'30%',				
+    		'.30'=>'30%',
     		'.35'=>'35%',
     		'.40'=>'40%',
     		'.45'=>'45%',
@@ -193,14 +209,14 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
    	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    
+
     $ADMIN->add('theme_elegance', $temp);
-    
+
     /* Banner Settings */
     $temp = new admin_settingpage('theme_elegance_usermenu', get_string('usermenusettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_usermenu', get_string('usermenusettingssub', 'theme_elegance'),
     		format_text(get_string('usermenusettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
-    		
+
     	// Enable My.
     	$name = 'theme_elegance/enablemy';
     	$title = get_string('enablemy', 'theme_elegance');
@@ -209,7 +225,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Enable View Profile.
     	$name = 'theme_elegance/enableprofile';
     	$title = get_string('enableprofile', 'theme_elegance');
@@ -218,7 +234,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Enable Edit Profile.
     	$name = 'theme_elegance/enableeditprofile';
     	$title = get_string('enableeditprofile', 'theme_elegance');
@@ -227,7 +243,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Enable Calendar.
     	$name = 'theme_elegance/enablecalendar';
     	$title = get_string('enablecalendar', 'theme_elegance');
@@ -236,7 +252,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Enable Private Files.
     	$name = 'theme_elegance/enableprivatefiles';
     	$title = get_string('enableprivatefiles', 'theme_elegance');
@@ -245,7 +261,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Enable Badges.
     	$name = 'theme_elegance/enablebadges';
     	$title = get_string('enablebadges', 'theme_elegance');
@@ -254,7 +270,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    		
+
     	// Additional number of links.
     		$name = 'theme_elegance/usermenulinks';
     		$title = get_string('usermenulinks' , 'theme_elegance');
@@ -275,16 +291,16 @@ defined('MOODLE_INTERNAL') || die;
     		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     		$setting->set_updatedcallback('theme_reset_all_caches');
     		$temp->add($setting);
-    		
+
     		$hascustomlinknum = (!empty($PAGE->theme->settings->usermenulinks));
     			if ($hascustomlinknum) {
     				$usermenulinks = $PAGE->theme->settings->usermenulinks;
     			} else {
     				$usermenulinks = '0';
     			}
-    if ($hascustomlinknum !=0) {		
+    if ($hascustomlinknum !=0) {
 		foreach (range(1, $usermenulinks) as $customlinknumber) {
-		
+
 		// This is the descriptor for the Custom Link.
 		$name = 'theme_elegance/customlink';
 		$title = get_string('customlinkindicator', 'theme_elegance');
@@ -292,7 +308,7 @@ defined('MOODLE_INTERNAL') || die;
 		$setting = new admin_setting_heading($name.$customlinknumber, $title.$customlinknumber, $information);
 		$setting->set_updatedcallback('theme_reset_all_caches');
 		$temp->add($setting);
-			
+
 		// Icon for Custom Link
 		$name = 'theme_elegance/customlinkicon' . $customlinknumber;
 		$title = get_string('customlinkicon', 'theme_elegance', $customlinknumber);
@@ -301,7 +317,7 @@ defined('MOODLE_INTERNAL') || die;
 		$setting = new admin_setting_configtextarea($name, $title, $description, $default);
 		$setting->set_updatedcallback('theme_reset_all_caches');
 		$temp->add($setting);
-		
+
 		// Text for Custom Link
 		$name = 'theme_elegance/customlinkname' . $customlinknumber;
 		$title = get_string('customlinkname', 'theme_elegance', $customlinknumber);
@@ -310,7 +326,7 @@ defined('MOODLE_INTERNAL') || die;
 		$setting = new admin_setting_configtext($name, $title, $description, $default);
 		$setting->set_updatedcallback('theme_reset_all_caches');
 		$temp->add($setting);
-		
+
 		// Destination URL for Custom Link
 		$name = 'theme_elegance/customlinkurl' . $customlinknumber;
 		$title = get_string('customlinkurl', 'theme_elegance', $customlinknumber);
@@ -322,14 +338,14 @@ defined('MOODLE_INTERNAL') || die;
 		$temp->add($setting);
 		}
 	}
-    		
+
     	$ADMIN->add('theme_elegance', $temp);
-    
+
     /* Banner Settings */
     $temp = new admin_settingpage('theme_elegance_banner', get_string('bannersettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_banner', get_string('bannersettingssub', 'theme_elegance'),
             format_text(get_string('bannersettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
-            
+
     // Set Number of Slides.
     $name = 'theme_elegance/slidenumber';
     $title = get_string('slidenumber' , 'theme_elegance');
@@ -350,7 +366,16 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
+    // Set the Slide Speed.
+    $name = 'theme_elegance/slidespeed';
+    $title = get_string('slidespeed' , 'theme_elegance');
+    $description = get_string('slidespeeddesc', 'theme_elegance');
+    $default = '600';
+    $setting = new admin_setting_configtext($name, $title, $description, $default );
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $hasslidenum = (!empty($PAGE->theme->settings->slidenumber));
     if ($hasslidenum) {
     		$slidenum = $PAGE->theme->settings->slidenumber;
@@ -361,7 +386,7 @@ defined('MOODLE_INTERNAL') || die;
 	$bannertitle = array('Slide One', 'Slide Two', 'Slide Three','Slide Four','Slide Five','Slide Six','Slide Seven', 'Slide Eight', 'Slide Nine', 'Slide Ten');
 
     foreach (range(1, $slidenum) as $bannernumber) {
-    	
+
     	// This is the descriptor for the Banner Settings.
     	$name = 'theme_elegance/banner';
         $title = get_string('bannerindicator', 'theme_elegance');
@@ -378,7 +403,7 @@ defined('MOODLE_INTERNAL') || die;
         $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
-  
+
         // Slide Title.
         $name = 'theme_elegance/bannertitle' . $bannernumber;
         $title = get_string('bannertitle', 'theme_elegance', $bannernumber);
@@ -396,7 +421,7 @@ defined('MOODLE_INTERNAL') || die;
         $setting = new admin_setting_configtextarea($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
-        
+
         // Text for Slide Link.
         $name = 'theme_elegance/bannerlinktext' . $bannernumber;
         $title = get_string('bannerlinktext', 'theme_elegance', $bannernumber);
@@ -415,7 +440,7 @@ defined('MOODLE_INTERNAL') || die;
         $setting = new admin_setting_configtext($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
-        
+
         // Slide Image.
     	$name = 'theme_elegance/bannerimage' . $bannernumber;
     	$title = get_string('bannerimage', 'theme_elegance', $bannernumber);
@@ -423,7 +448,7 @@ defined('MOODLE_INTERNAL') || die;
     	$setting = new admin_setting_configstoredfile($name, $title, $description, 'bannerimage'.$bannernumber);
     	$setting->set_updatedcallback('theme_reset_all_caches');
     	$temp->add($setting);
-    	
+
     	// Slide Background Color.
     	$name = 'theme_elegance/bannercolor' . $bannernumber;
     	$title = get_string('bannercolor', 'theme_elegance', $bannernumber);
@@ -437,12 +462,12 @@ defined('MOODLE_INTERNAL') || die;
     }
 
  	$ADMIN->add('theme_elegance', $temp);
- 	
+
  	/* Marketing Spot Settings */
  		$temp = new admin_settingpage('theme_elegance_marketing', get_string('marketingheading', 'theme_elegance'));
  		$temp->add(new admin_setting_heading('theme_elegance_marketing', get_string('marketingheadingsub', 'theme_elegance'),
  				format_text(get_string('marketingdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
- 	
+
  		// Toggle Marketing Spots.
  		$name = 'theme_elegance/togglemarketing';
  		$title = get_string('togglemarketing' , 'theme_elegance');
@@ -456,7 +481,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		$name = 'theme_elegance/marketingtitle';
  		$title = get_string('marketingtitle', 'theme_elegance');
  		$description = get_string('marketingtitledesc', 'theme_elegance');
@@ -464,7 +489,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		$name = 'theme_elegance/marketingtitleicon';
  		$title = get_string('marketingtitleicon', 'theme_elegance');
  		$description = get_string('marketingtitleicondesc', 'theme_elegance');
@@ -472,14 +497,14 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		//This is the descriptor for Marketing Spot One
  		$name = 'theme_elegance/marketing1info';
  		$heading = get_string('marketing1', 'theme_elegance');
  		$information = get_string('marketinginfodesc', 'theme_elegance');
  		$setting = new admin_setting_heading($name, $heading, $information);
  		$temp->add($setting);
- 	
+
  		//Marketing Spot One.
  		$name = 'theme_elegance/marketing1';
  		$title = get_string('marketingtitle', 'theme_elegance');
@@ -488,7 +513,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing1icon';
  		$title = get_string('marketingicon', 'theme_elegance');
  		$description = get_string('marketingicondesc', 'theme_elegance');
@@ -496,7 +521,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing1content';
  		$title = get_string('marketingcontent', 'theme_elegance');
  		$description = get_string('marketingcontentdesc', 'theme_elegance');
@@ -504,14 +529,14 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		//This is the descriptor for Marketing Spot Two
  		$name = 'theme_elegance/marketing2info';
  		$heading = get_string('marketing2', 'theme_elegance');
  		$information = get_string('marketinginfodesc', 'theme_elegance');
  		$setting = new admin_setting_heading($name, $heading, $information);
  		$temp->add($setting);
- 	
+
  		//Marketing Spot Two.
  		$name = 'theme_elegance/marketing2';
  		$title = get_string('marketingtitle', 'theme_elegance');
@@ -520,7 +545,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing2icon';
  		$title = get_string('marketingicon', 'theme_elegance');
  		$description = get_string('marketingicondesc', 'theme_elegance');
@@ -528,7 +553,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing2content';
  		$title = get_string('marketingcontent', 'theme_elegance');
  		$description = get_string('marketingcontentdesc', 'theme_elegance');
@@ -536,14 +561,14 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		//This is the descriptor for Marketing Spot Three
  		$name = 'theme_elegance/marketing3info';
  		$heading = get_string('marketing3', 'theme_elegance');
  		$information = get_string('marketinginfodesc', 'theme_elegance');
  		$setting = new admin_setting_heading($name, $heading, $information);
  		$temp->add($setting);
- 	
+
  		//Marketing Spot Three.
  		$name = 'theme_elegance/marketing3';
  		$title = get_string('marketingtitle', 'theme_elegance');
@@ -552,7 +577,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing3icon';
  		$title = get_string('marketingicon', 'theme_elegance');
  		$description = get_string('marketingicondesc', 'theme_elegance');
@@ -560,7 +585,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  		$name = 'theme_elegance/marketing3content';
  		$title = get_string('marketingcontent', 'theme_elegance');
  		$description = get_string('marketingcontentdesc', 'theme_elegance');
@@ -568,14 +593,14 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		//This is the descriptor for Marketing Spot Four
  		$name = 'theme_elegance/marketing4info';
  		$heading = get_string('marketing4', 'theme_elegance');
  		$information = get_string('marketinginfodesc', 'theme_elegance');
  		$setting = new admin_setting_heading($name, $heading, $information);
  		$temp->add($setting);
- 		
+
  		//Marketing Spot Four.
  		$name = 'theme_elegance/marketing4';
  		$title = get_string('marketingtitle', 'theme_elegance');
@@ -584,7 +609,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		$name = 'theme_elegance/marketing4icon';
  		$title = get_string('marketingicon', 'theme_elegance');
  		$description = get_string('marketingicondesc', 'theme_elegance');
@@ -592,7 +617,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		$name = 'theme_elegance/marketing4content';
  		$title = get_string('marketingcontent', 'theme_elegance');
  		$description = get_string('marketingcontentdesc', 'theme_elegance');
@@ -600,14 +625,14 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_confightmleditor($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 	
+
  	$ADMIN->add('theme_elegance', $temp);
- 	
+
  	/* Quick Link Settings */
  		$temp = new admin_settingpage('theme_elegance_quicklinks', get_string('quicklinksheading', 'theme_elegance'));
  		$temp->add(new admin_setting_heading('theme_elegance_quicklinks', get_string('quicklinksheadingsub', 'theme_elegance'),
  				format_text(get_string('quicklinksdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
- 	
+
  		// Toggle Quick Links.
  		$name = 'theme_elegance/togglequicklinks';
  		$title = get_string('togglequicklinks' , 'theme_elegance');
@@ -621,7 +646,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		// Set Number of Quick Links.
  		$name = 'theme_elegance/quicklinksnumber';
  		$title = get_string('quicklinksnumber' , 'theme_elegance');
@@ -643,7 +668,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		$hasquicklinksnum = (!empty($PAGE->theme->settings->quicklinksnumber));
  			if ($hasquicklinksnum) {
  				$quicklinksnum = $PAGE->theme->settings->quicklinksnumber;
@@ -658,7 +683,7 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		//This is the icon for the Quick Links area
  		$name = 'theme_elegance/quicklinksicon';
  		$title = get_string('quicklinksicon', 'theme_elegance');
@@ -667,9 +692,9 @@ defined('MOODLE_INTERNAL') || die;
  		$setting = new admin_setting_configtext($name, $title, $description, $default);
  		$setting->set_updatedcallback('theme_reset_all_caches');
  		$temp->add($setting);
- 		
+
  		foreach (range(1, $quicklinksnum) as $quicklinksnumber) {
-	 		
+
  			//This is the descriptor for Quick Link One
  			$name = 'theme_elegance/quicklinkinfo';
  			$title = get_string('quicklinks', 'theme_elegance');
@@ -677,7 +702,7 @@ defined('MOODLE_INTERNAL') || die;
  			$setting = new admin_setting_heading($name.$quicklinksnumber, $title.$quicklinksnumber, $information);
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
- 			
+
  			//Quick Link Icon.
  			$name = 'theme_elegance/quicklinkicon' . $quicklinksnumber;
  			$title = get_string('quicklinkicon', 'theme_elegance', $quicklinksnumber);
@@ -686,7 +711,7 @@ defined('MOODLE_INTERNAL') || die;
  			$setting = new admin_setting_configtext($name, $title, $description, $default);
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
- 			
+
  			// Quick Link Icon Color.
  			$name = 'theme_elegance/quicklinkiconcolor' . $quicklinksnumber;
  			$title = get_string('quicklinkiconcolor', 'theme_elegance', $quicklinksnumber);
@@ -696,7 +721,7 @@ defined('MOODLE_INTERNAL') || die;
  			$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
- 			
+
  			// Quick Link Button Text.
  			$name = 'theme_elegance/quicklinkbuttontext' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttontext', 'theme_elegance', $quicklinksnumber);
@@ -705,7 +730,7 @@ defined('MOODLE_INTERNAL') || die;
  			$setting = new admin_setting_configtext($name, $title, $description, $default);
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
- 			
+
  			// Quick Link Button Color.
  			$name = 'theme_elegance/quicklinkbuttoncolor' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttoncolor', 'theme_elegance', $quicklinksnumber);
@@ -715,7 +740,7 @@ defined('MOODLE_INTERNAL') || die;
  			$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
- 			
+
  			// Quick Link Button URL.
  			$name = 'theme_elegance/quicklinkbuttonurl' . $quicklinksnumber;
  			$title = get_string('quicklinkbuttonurl', 'theme_elegance', $quicklinksnumber);
@@ -725,15 +750,15 @@ defined('MOODLE_INTERNAL') || die;
  			$setting->set_updatedcallback('theme_reset_all_caches');
  			$temp->add($setting);
  		}
- 	
- 	
+
+
  	$ADMIN->add('theme_elegance', $temp);
- 	
+
  	/* Login Page Settings */
     $temp = new admin_settingpage('theme_elegance_loginsettings', get_string('loginsettings', 'theme_elegance'));
     $temp->add(new admin_setting_heading('theme_elegance_loginsettings', get_string('loginsettingssub', 'theme_elegance'),
             format_text(get_string('loginsettingsdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
-            
+
     // Enable Custom Login Page.
     $name = 'theme_elegance/enablecustomlogin';
     $title = get_string('enablecustomlogin', 'theme_elegance');
@@ -741,7 +766,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-            
+
     // Set Number of Slides.
     $name = 'theme_elegance/loginbgumber';
     $title = get_string('loginbgumber' , 'theme_elegance');
@@ -756,7 +781,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     $hasloginbgnum = (!empty($PAGE->theme->settings->loginbgumber));
     if ($hasloginbgnum) {
     	$loginbgnum = $PAGE->theme->settings->loginbgumber;
@@ -765,7 +790,7 @@ defined('MOODLE_INTERNAL') || die;
 	}
 
     foreach (range(1, $loginbgnum) as $loginbgnumber) {
-        
+
     // Login Background Image.
     	$name = 'theme_elegance/loginimage' . $loginbgnumber;
     	$title = get_string('loginimage', 'theme_elegance');
@@ -777,12 +802,12 @@ defined('MOODLE_INTERNAL') || die;
     }
 
  	$ADMIN->add('theme_elegance', $temp);
- 	
+
  	/* Social Network Settings */
 	$temp = new admin_settingpage('theme_elegance_social', get_string('socialheading', 'theme_elegance'));
 	$temp->add(new admin_setting_heading('theme_elegance_social', get_string('socialheadingsub', 'theme_elegance'),
             format_text(get_string('socialdesc' , 'theme_elegance'), FORMAT_MARKDOWN)));
-	
+
     // Website url setting.
     $name = 'theme_elegance/website';
     $title = get_string('website', 'theme_elegance');
@@ -791,7 +816,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Blog url setting.
     $name = 'theme_elegance/blog';
     $title = get_string('blog', 'theme_elegance');
@@ -800,7 +825,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Facebook url setting.
     $name = 'theme_elegance/facebook';
     $title = get_string(    	'facebook', 'theme_elegance');
@@ -809,7 +834,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Flickr url setting.
     $name = 'theme_elegance/flickr';
     $title = get_string('flickr', 'theme_elegance');
@@ -845,7 +870,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Tumblr url setting.
     $name = 'theme_elegance/tumblr';
     $title = get_string('tumblr', 'theme_elegance');
@@ -854,7 +879,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Pinterest url setting.
     $name = 'theme_elegance/pinterest';
     $title = get_string('pinterest', 'theme_elegance');
@@ -863,7 +888,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Instagram url setting.
     $name = 'theme_elegance/instagram';
     $title = get_string('instagram', 'theme_elegance');
@@ -872,7 +897,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // YouTube url setting.
     $name = 'theme_elegance/youtube';
     $title = get_string('youtube', 'theme_elegance');
@@ -881,7 +906,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Vimeo url setting.
     $name = 'theme_elegance/vimeo';
     $title = get_string('vimeo', 'theme_elegance');
@@ -890,7 +915,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Skype url setting.
     $name = 'theme_elegance/skype';
     $title = get_string('skype', 'theme_elegance');
@@ -899,7 +924,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
- 
+
     // VKontakte url setting.
     $name = 'theme_elegance/vk';
     $title = get_string('vk', 'theme_elegance');
@@ -907,10 +932,10 @@ defined('MOODLE_INTERNAL') || die;
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting); 
-    
+    $temp->add($setting);
+
     $ADMIN->add('theme_elegance', $temp);
-    
+
     /* Category Settings */
     $temp = new admin_settingpage('theme_elegance_categoryicon', get_string('categoryiconheading', 'theme_elegance'));
 	$temp->add(new admin_setting_heading('theme_elegance_categoryicon', get_string('categoryiconheadingsub', 'theme_elegance'),
@@ -922,7 +947,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Default Icon Selector.
     $name = 'theme_elegance/defaultcategoryicon';
     $title = get_string('defaultcategoryicon' , 'theme_elegance');
@@ -1299,7 +1324,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Set Number of Categories.
     $name = 'theme_elegance/categorynumber';
     $title = get_string('categorynumber' , 'theme_elegance');
@@ -1331,24 +1356,24 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    
+
     //This is the descriptor for Category Icons
     $name = 'theme_elegance/categoryiconinfo';
     $heading = get_string('categoryiconinfo', 'theme_elegance');
     $information = get_string('categoryiconinfodesc', 'theme_elegance');
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
-    
+
     $hascatnum = (!empty($PAGE->theme->settings->categorynumber));
-    
+
     if ($hascatnum) {
     	$catnum = $PAGE->theme->settings->categorynumber;
 	} else {
 		$catnum = '1';
 	}
-	    
+
     foreach (range(1, $catnum) as $categorynumber) {
-    
+
     // Category 1 Icon.
     $name = 'theme_elegance/categoryicon';
     $title = get_string('categoryicon' , 'theme_elegance');
@@ -1727,5 +1752,5 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     }
-            
+
     $ADMIN->add('theme_elegance', $temp);

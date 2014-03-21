@@ -23,29 +23,14 @@
  * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
 
-$haslogo = (empty($PAGE->theme->settings->logo)) ? false : $PAGE->theme->settings->logo;
-$invert = (!empty($PAGE->theme->settings->invert)) ? true : $PAGE->theme->settings->invert;
+$regions = bootstrap3_grid(false, false);
 
- if ($haslogo) {
- 	$logo = '<div id="logo"></div>';
- } else {
- 	$logo = $SITE->shortname;
- }
- 
-if ($invert) {
-	$navbartype = 'inverse';
-} else {
-	$navbartype = 'default';
-}
- 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <?php echo $OUTPUT->standard_head_html() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -54,44 +39,28 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-<?php echo $navbartype; ?>">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $logo; ?></a>
-        </div>
+<div id="page" class="container-fluid">
 
-        <div id="moodle-navbar" class="navbar-collapse collapse">
-            <?php echo $OUTPUT->custom_menu(); ?>
-            <ul class="nav pull-right">
-                <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    <header id="page-header" class="clearfix">
+        <?php echo $OUTPUT->page_heading(); ?>
+    </header>
 
-
-<div id="page" class="container">
     <div id="page-content" class="row">
-        <div id="region-main" class="col-md-12">
-            <div id="heading"><?php echo $OUTPUT->page_heading(); ?></div>
-            <?php
-            echo $OUTPUT->main_content();
-            ?>
-        </div>
+        <section id="region-main" class="col-sm-11 col-md-12">
+            <?php echo $OUTPUT->main_content(); ?>
+        </section>
     </div>
+
+    <footer id="page-footer">
+        <?php
+        echo $OUTPUT->standard_footer_html();
+        ?>
+    </footer>
+
+    <?php echo $OUTPUT->standard_end_of_body_html() ?>
+
 </div>
 
-<footer id="page-footer">
-    <?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
-</footer>
-
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 <script>
     $('body').show();
@@ -104,6 +73,5 @@ echo $OUTPUT->doctype() ?>
     $("#b-inc").click(function() { NProgress.inc(); });
     $("#b-100").click(function() { NProgress.done(); });
 </script>
-
 </body>
 </html>
