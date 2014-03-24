@@ -763,6 +763,12 @@ border-bottom-color: #888;
     border-radius:6px 0 6px 6px;
 }
 
+@media (max-width: @screen-sm-min) {
+    .dropdown-submenu > .dropdown-menu {
+        margin-left: 10px;
+    }
+}
+
 /* @end */
 
 /* @group Breadcrumb */
