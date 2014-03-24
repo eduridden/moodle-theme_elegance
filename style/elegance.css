@@ -1342,6 +1342,10 @@ ul, ol{
     content: " \f053";
 }
 
+.dir-rtl .glyphicon-chevron-right:before {
+content: "\e079";
+}
+
 .block_news_items .header .title h2:before {
     content:"\f0a1";
 }
