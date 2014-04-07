@@ -70,9 +70,9 @@ if ((!empty($THEME->settings->tiles)) && ($THEME->settings->tiles == '1')) {
 }
 
 if ('ltr' === get_string('thisdirection', 'langconfig')) {
-    $THEME->sheets = array('moodle', 'font-awesome.min', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
+    $THEME->sheets = array('moodle', 'font-awesome', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
 } else {
-    $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl', 'font-awesome.min', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
+    $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl', 'font-awesome', $categorysheet , $tilessheet, $loginsheet, ' nprogress', 'elegance');
 }
 
 $THEME->layouts = array(
