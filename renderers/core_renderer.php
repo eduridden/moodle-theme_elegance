@@ -149,6 +149,7 @@ class theme_elegance_core_renderer extends core_renderer {
         $addlangmenu = true;
         $addmessagemenu = true;
         
+<<<<<<< HEAD
         // Check if messaging is enabled on the site
         if (!$CFG->messaging) {
             $addmessagemenu = false;
@@ -159,6 +160,10 @@ class theme_elegance_core_renderer extends core_renderer {
             if(!$popup) {
                 $addmessagemenu = false;
             }
+=======
+        if (!$CFG->messaging) {
+            $addmessagemenu = false;
+>>>>>>> 101f9c5967e041cfc12f454de159ad24f58d9560
         }
 
         if (!isloggedin() || isguestuser()) {
