@@ -148,6 +148,10 @@ class theme_elegance_core_renderer extends core_renderer {
         $addusermenu = true;
         $addlangmenu = true;
         $addmessagemenu = true;
+        
+        if (!$CFG->messaging) {
+            $addmessagemenu = false;
+        }
 
         if (!isloggedin() || isguestuser()) {
             $addmessagemenu = false;
