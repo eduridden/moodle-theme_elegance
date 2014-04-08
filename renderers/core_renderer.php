@@ -159,6 +159,7 @@ class theme_elegance_core_renderer extends core_renderer {
             if(!$popup) {
                 $addmessagemenu = false;
             }
+        }
 
         if (!isloggedin() || isguestuser()) {
             $addmessagemenu = false;
