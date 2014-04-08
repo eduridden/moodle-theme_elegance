@@ -156,7 +156,7 @@ class theme_elegance_core_renderer extends core_renderer {
             // Check whether or not the "popup" message output is enabled
             // This is after we check if messaging is enabled to possibly save a DB query
             $popup = $DB->get_record('message_processors', array('name'=>'popup'));
-            if(!$popup) {
+            if(!$popup->enabled) {
                 $addmessagemenu = false;
             }
         }
