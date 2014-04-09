@@ -663,11 +663,10 @@ class theme_elegance_format_topics_renderer extends format_topics_renderer {
 
         // Display section bottom navigation.
         $sectionbottomnav = '';
-        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
         $sectionbottomnav .= $sectionnavlinks['previous'];
         $sectionbottomnav .= $sectionnavlinks['next'];
         // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-        $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
         $sectionbottomnav .= html_writer::end_tag('nav');
         echo $sectionbottomnav;
 
