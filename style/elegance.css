@@ -2004,11 +2004,11 @@ div.section-navigation.navigationtitle .mdl-right{
 	border-bottom: 1px dotted #eee;
 }
 #section_footer {
-	padding:5px 0px;
+	padding:0px;
 	color: [[setting:themecolor]];
 	line-height:1.5; 
 	clear:both;
-	margin-top: -20px;
+	margin-top: -8px;
 }
 
 #section_footer a{
