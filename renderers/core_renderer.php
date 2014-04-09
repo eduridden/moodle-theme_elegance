@@ -544,7 +544,7 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
             if ($canviewhidden || $sections[$back]->uservisible) {
                 $params = array('id' => 'previous_section');
                 if (!$sections[$back]->visible) {
-                    $params = array('class' => 'dimmed_text');
+                    $params = array('id' => 'previous_section', 'class' => 'dimmed_text');
                 }
                 $previouslink = $previousarrow;
                 $previouslink .= html_writer::start_tag('span', array('class' => 'text'));
@@ -564,7 +564,7 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
             if ($canviewhidden || $sections[$forward]->uservisible) {
                 $params = array('id' => 'next_section');
                 if (!$sections[$forward]->visible) {
-                    $params = array('class' => 'dimmed_text');
+                    $params = array('id' => 'next_section', 'class' => 'dimmed_text');
                 }
                 $nextlink = $nextarrow;
                 $nextlink .= html_writer::start_tag('span', array('class' => 'text'));
