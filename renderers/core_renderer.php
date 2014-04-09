@@ -533,8 +533,8 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
         // FIXME: This is really evil and should by using the navigation API.
         $courseformat = course_get_format($course);
         $course = $courseformat->get_course();
-        $previousarrow= '<i class="fa fa-chevron-circle-left"></i>';
-        $nextarrow= '<i class="fa fa-chevron-circle-right"></i>';
+        $previousarrow= '<i class="nav_icon fa fa-chevron-circle-left"></i>';
+        $nextarrow= '<i class="nav_icon fa fa-chevron-circle-right"></i>';
         $canviewhidden = has_capability('moodle/course:viewhiddensections', context_course::instance($course->id))
             or !$course->hiddensections;
 
@@ -546,9 +546,7 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
                 if (!$sections[$back]->visible) {
                     $params = array('class' => 'dimmed_text');
                 }
-                $previouslink = html_writer::start_tag('div', array('class' => 'nav_icon'));
-                $previouslink .= $previousarrow;
-                $previouslink .= html_writer::end_tag('div');
+                $previouslink = $previousarrow;
                 $previouslink .= html_writer::start_tag('span', array('class' => 'text'));
                 $previouslink .= html_writer::start_tag('span', array('class' => 'nav_guide'));
                 $previouslink .= get_string('previoussection', 'theme_elegance');
@@ -568,9 +566,7 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
                 if (!$sections[$forward]->visible) {
                     $params = array('class' => 'dimmed_text');
                 }
-                $nextlink = html_writer::start_tag('div', array('class' => 'nav_icon'));
-                $nextlink .= $nextarrow;
-                $nextlink .= html_writer::end_tag('div');
+                $nextlink = $nextarrow;
                 $nextlink .= html_writer::start_tag('span', array('class' => 'text'));
                 $nextlink .= html_writer::start_tag('span', array('class' => 'nav_guide'));
                 $nextlink .= get_string('nextsection', 'theme_elegance');
