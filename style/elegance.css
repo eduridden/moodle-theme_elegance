@@ -2019,7 +2019,6 @@ div.section-navigation.navigationtitle .mdl-right{
 #next_section {
 	text-align:right;
 	font-weight: 300;
-	display: inline-block;
 	float: right;
 }
 
@@ -2052,20 +2051,11 @@ letter-spacing:0.1em;
 	float: right;
 }
 
-#next_section .text{
-	width:74.05%;
-}
-
 #previous_section .nav_icon {
 	float:left;
 	margin-right:0.3em;
 	border-right:1px solid #eee;
 	font-size:2em;
-}
-
-#previous_section .text{
-	width:74.05%;
-	float:lef;
 }
 
 /* @end */
