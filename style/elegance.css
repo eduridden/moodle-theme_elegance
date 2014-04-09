@@ -2020,11 +2020,13 @@ div.section-navigation.navigationtitle .mdl-right{
 	text-align:right;
 	font-weight: 300;
 	float: right;
+	width: 50%;
 }
 
 #previous_section {
 	font-weight: 300;
 	float: left;
+	width: 50%;
 }
 
 .nav_guide { 
