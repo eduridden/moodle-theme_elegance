@@ -2009,6 +2009,7 @@ div.section-navigation.navigationtitle .mdl-right{
 	line-height:1.5; 
 	clear:both;
 	margin-top: -8px;
+	background: transparent;
 }
 
 #section_footer a{
@@ -3287,8 +3288,7 @@ div.backup-section+form,
 .userprofile h2,
 .forumpost,
 .box.message .messagearea,
-.box.message .contactselector,
-#section_footer {
+.box.message .contactselector {
 	background: rgba(255,255,255,.40);
 }
 
