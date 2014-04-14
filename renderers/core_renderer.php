@@ -104,6 +104,19 @@ class theme_elegance_core_renderer extends core_renderer {
         $addlangmenu = true;
         $addmessagemenu = true;
 
+        //Elegance add Check for messaging start
+        if (!$CFG->messaging) {
+          $addmessagemenu = false;
+        } else {
+          // Check whether or not the "popup" message output is enabled
+          // This is after we check if messaging is enabled to possibly save a DB query
+          $popup = $DB->get_record('message_processors', array('name'=>'popup'));
+          if(!$popup) {
+            $addmessagemenu = false;
+          }
+        }
+        //Elegance add Check for messaging end
+
         if (!isloggedin() || isguestuser()) {
             $addmessagemenu = false;
         }
