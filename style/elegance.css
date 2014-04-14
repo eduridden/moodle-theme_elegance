@@ -2004,11 +2004,11 @@ div.section-navigation.navigationtitle .mdl-right{
 	border-bottom: 1px dotted #eee;
 }
 #section_footer {
-	padding:5px 0px;
+	padding:0px;
 	color: [[setting:themecolor]];
 	line-height:1.5; 
 	clear:both;
-	margin-top: -20px;
+	margin-top: -8px;
 }
 
 #section_footer a{
@@ -2019,13 +2019,14 @@ div.section-navigation.navigationtitle .mdl-right{
 #next_section {
 	text-align:right;
 	font-weight: 300;
-	display: inline-block;
 	float: right;
+	width: 50%;
 }
 
 #previous_section {
 	font-weight: 300;
 	float: left;
+	width: 50%;
 }
 
 .nav_guide { 
@@ -2052,20 +2053,11 @@ letter-spacing:0.1em;
 	float: right;
 }
 
-#next_section .text{
-	width:74.05%;
-}
-
 #previous_section .nav_icon {
 	float:left;
 	margin-right:0.3em;
 	border-right:1px solid #eee;
 	font-size:2em;
-}
-
-#previous_section .text{
-	width:74.05%;
-	float:lef;
 }
 
 /* @end */

@@ -533,8 +533,8 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
         // FIXME: This is really evil and should by using the navigation API.
         $courseformat = course_get_format($course);
         $course = $courseformat->get_course();
-        $previousarrow= '<i class="fa fa-chevron-circle-left"></i>';
-        $nextarrow= '<i class="fa fa-chevron-circle-right"></i>';
+        $previousarrow= '<i class="nav_icon fa fa-chevron-circle-left"></i>';
+        $nextarrow= '<i class="nav_icon fa fa-chevron-circle-right"></i>';
         $canviewhidden = has_capability('moodle/course:viewhiddensections', context_course::instance($course->id))
             or !$course->hiddensections;
 
@@ -544,11 +544,9 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
             if ($canviewhidden || $sections[$back]->uservisible) {
                 $params = array('id' => 'previous_section');
                 if (!$sections[$back]->visible) {
-                    $params = array('class' => 'dimmed_text');
+                    $params = array('id' => 'previous_section', 'class' => 'dimmed_text');
                 }
-                $previouslink = html_writer::start_tag('div', array('class' => 'nav_icon'));
-                $previouslink .= $previousarrow;
-                $previouslink .= html_writer::end_tag('div');
+                $previouslink = $previousarrow;
                 $previouslink .= html_writer::start_tag('span', array('class' => 'text'));
                 $previouslink .= html_writer::start_tag('span', array('class' => 'nav_guide'));
                 $previouslink .= get_string('previoussection', 'theme_elegance');
@@ -566,11 +564,9 @@ function theme_elegance_get_nav_links($course, $sections, $sectionno) {
             if ($canviewhidden || $sections[$forward]->uservisible) {
                 $params = array('id' => 'next_section');
                 if (!$sections[$forward]->visible) {
-                    $params = array('class' => 'dimmed_text');
+                    $params = array('id' => 'next_section', 'class' => 'dimmed_text');
                 }
-                $nextlink = html_writer::start_tag('div', array('class' => 'nav_icon'));
-                $nextlink .= $nextarrow;
-                $nextlink .= html_writer::end_tag('div');
+                $nextlink = $nextarrow;
                 $nextlink .= html_writer::start_tag('span', array('class' => 'text'));
                 $nextlink .= html_writer::start_tag('span', array('class' => 'nav_guide'));
                 $nextlink .= get_string('nextsection', 'theme_elegance');
@@ -663,11 +659,10 @@ class theme_elegance_format_topics_renderer extends format_topics_renderer {
 
         // Display section bottom navigation.
         $sectionbottomnav = '';
-        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
         $sectionbottomnav .= $sectionnavlinks['previous'];
         $sectionbottomnav .= $sectionnavlinks['next'];
         // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-        $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
         $sectionbottomnav .= html_writer::end_tag('nav');
         echo $sectionbottomnav;
 
@@ -752,11 +747,10 @@ class theme_elegance_format_weeks_renderer extends format_weeks_renderer {
 
         // Display section bottom navigation.
         $sectionbottomnav = '';
-        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+        $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
         $sectionbottomnav .= $sectionnavlinks['previous'];
         $sectionbottomnav .= $sectionnavlinks['next'];
         // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-        $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
         $sectionbottomnav .= html_writer::end_tag('nav');
         echo $sectionbottomnav;
 
@@ -843,11 +837,10 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
 
             // Display section bottom navigation.
             $sectionbottomnav = '';
-            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
             $sectionbottomnav .= $sectionnavlinks['previous'];
             $sectionbottomnav .= $sectionnavlinks['next'];
             // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
             $sectionbottomnav .= html_writer::end_tag('nav');
             echo $sectionbottomnav;
 
@@ -934,11 +927,10 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
 
             // Display section bottom navigation.
             $sectionbottomnav = '';
-            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
             $sectionbottomnav .= $sectionnavlinks['previous'];
             $sectionbottomnav .= $sectionnavlinks['next'];
             // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
             $sectionbottomnav .= html_writer::end_tag('nav');
             echo $sectionbottomnav;
 
@@ -1030,11 +1022,10 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
 
             // Display section bottom navigation.
             $sectionbottomnav = '';
-            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
             $sectionbottomnav .= $sectionnavlinks['previous'];
             $sectionbottomnav .= $sectionnavlinks['next'];
             // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
             $sectionbottomnav .= html_writer::end_tag('nav');
             echo $sectionbottomnav;
 
@@ -1122,11 +1113,10 @@ if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
 
             // Display section bottom navigation.
             $sectionbottomnav = '';
-            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer'));
+            $sectionbottomnav .= html_writer::start_tag('nav', array('id' => 'section_footer', 'class'=>'clearfix'));
             $sectionbottomnav .= $sectionnavlinks['previous'];
             $sectionbottomnav .= $sectionnavlinks['next'];
             // $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection), array('class' => 'mdl-align'));
-            $sectionbottomnav .= html_writer::empty_tag('br', array('style'=>'clear:both'));
             $sectionbottomnav .= html_writer::end_tag('nav');
             echo $sectionbottomnav;
 
