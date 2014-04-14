@@ -25,6 +25,12 @@
             select[multiple], select[size] {
                 height: auto;
             }
+            .felement.fduration input[type="text"] {
+                min-width: 0;
+                width: 5em;
+                display: inline-block;
+            }
+            .felement.fduration,
             .felement.fdate_selector,
             .felement.fdate_time_selector {
                 select {
@@ -42,20 +48,16 @@
             }
         }
     }
-    fieldset.hidden {
-            &:extend(.form-group);
-            &:extend(.form-horizontal .form-group);
-            > div {
+    .fitem_actionbuttons {
+            .form-group;
+            .form-horizontal .form-group;
+            > div.felement {
                 .make-md-column(8);
                 .make-md-column-offset(4);
                 .make-lg-column(9);
                 .make-lg-column-offset(3);
             }
     }
-}
-
-.mform fieldset.hidden .fitem_actionbuttons .felement {
-    padding-left: 10px;
 }
 
 .mform fieldset .advancedbutton {
@@ -181,6 +183,7 @@
 
 // Shared styles
 
+.fcheckbox > span > label,
 .form-checkbox + label,
 .form-multicheckbox label,
 .unmask label {
@@ -202,22 +205,39 @@
     .fitem_fcheckbox .fcheckbox {
         padding-top: 8px;
     }
-    fieldset.hidden > div {
-        margin-left: -20px;
+    .mform .fitem_actionbuttons > div.felement {
+        padding-left: 10px;
     }
     .form-buttons .form-submit {
         margin-left: -5px;
     }
-    .form-item .form-setting input[type="text"],
-    .form-item .form-setting input[type="password"],
-    .form-item .form-setting select,
-    .mform .fcontainer .fitem .felement input[type="text"],
-    .mform .fcontainer .fitem .felement input[type="password"],
-    .mform .fcontainer .fitem .felement select {
-        width: auto;
-        min-width: 500px;
+    .form-item .form-setting,
+    .mform .fcontainer .fitem .felement {
+        > input[type="text"],
+        > input[type="password"],
+        > select {
+            width: auto;
+            min-width: 480px;
+        }
+    }
+    #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup {
+        font-size: @font-size-small;
+        .fitemtitle {
+            min-height: 3.5em;
+        }
+    }
+
+}
+
+@media (max-width: @screen-sm-max) {
+
+    // Fake a responsive grid for the quiz review options section.
+    #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup {
+        float: none;
+        width: 100%;
     }
 }
+
 
 .mform .felement.fstatic,
 .form-item .form-description {
