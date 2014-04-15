@@ -1,7 +1,7 @@
 The "Elegance" Moodle Theme
 ======================
 
-The idea of this theme, as usual with my themes, is to make the site look as little like Moodle as possible. In this specific instance, it would be used on sites where Moodle would potentially serve as a company homepage rather than just a course list.
+The idea of this theme, as usual with my themes, is to make the site look as little like Moodle as possible. Based on the original theme design by Aaron Marr at Falmouth University I’ve created a clean and minimal theme built on Bootstrap3 with many options to allow users to customise the theme to meet their branding needs without changing code.
 
 Cool things to know about the theme.
  - It is a 2 column theme. (please don't ask for it to be made into 3)
@@ -82,6 +82,11 @@ Bootstrap 3 for Moodle conversion
 Author: Bas Brands
 URL: https://github.com/bmbrands/theme_bootstrap
 License: MIT/GPL2 Licensedc
+
+Original Design Reference
+------------
+Author: Aaron Marr 
+URL: http://learningspace.falmouth.ac.uk/
 
 Course Tiles idea and initial coding
 ------------
