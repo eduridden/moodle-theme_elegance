@@ -101,6 +101,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
 
+    // Show old messages.
+    $name = 'theme_elegance/showoldmessages';
+    $title = get_string('showoldmessages', 'theme_elegance');
+    $description = get_string('showoldmessagesdesc', 'theme_elegance');
+    $default = '0';
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $temp->add($setting);
+
     // Custom CSS file.
     $name = 'theme_elegance/customcss';
     $title = get_string('customcss', 'theme_elegance');
