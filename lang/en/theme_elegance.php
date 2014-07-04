@@ -85,6 +85,9 @@ $string['transparencydesc'] = 'Want to see more of your background show through?
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
+$string['showoldmessages'] = 'Show old messages';
+$string['showoldmessagesdesc'] = 'Show old messages on the message menu';
+
 $string['visibleadminonly'] = 'Blocks moved into the area below will only be seen by admins';
 
 $string['backtotop'] = 'Back to top';
@@ -154,9 +157,9 @@ $string['customlinkurldesc'] = 'The full or relative path for your destination U
 
 /* Colors and Logos */
 
-$string['colorsettings'] = 'Logos & Colors';
+$string['colorsettings'] = 'Logos & Colours';
 $string['colorsettingssub'] = 'Change your look and feel';
-$string['colorsettingsdesc'] = 'Upload your logos and change the theme colors with these settings.';
+$string['colorsettingsdesc'] = 'Upload your logos and change the theme colours with these settings.';
 
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
@@ -165,23 +168,23 @@ As space in the navbar is limited, your logo should be no more than 30px high.';
 $string['headerbg'] = 'Header Background';
 $string['headerbgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
 Recomended size is 110px high by 1600 wide. The image will tile if smaller.<br>
-<strong>Cool Tip</strong>: If your image uses transparency the theme color will show through.';
+<strong>Cool Tip</strong>: If your image uses transparency the theme colour will show through.';
 
 $string['bodybg'] = 'Background Image';
 $string['bodybgdesc'] = 'If you want to replace the standard background you can upload your own here.<br>
 <strong>Cool Tip</strong>: You can use this to show through Moodle content using the transparency option below.';
 
-$string['bodycolor'] = 'Background Color';
-$string['bodycolordesc'] = 'If no image is uploaded Moodle will then default to this color';
+$string['bodycolor'] = 'Background Colour';
+$string['bodycolordesc'] = 'If no image is uploaded Moodle will then default to this colour';
 
 $string['themecolor'] = 'Theme Colour';
-$string['themecolordesc'] = 'Set your theme "highlght" color. This is also used for links.';
+$string['themecolordesc'] = 'Set your theme "highlght" colour. This is also used for links.';
 
 $string['fontcolor'] = 'Font Colour';
-$string['fontcolordesc'] = 'Set the main font color used throughout the site.';
+$string['fontcolordesc'] = 'Set the main font colour used throughout the site.';
 
 $string['headingcolor'] = 'Heading Colours';
-$string['headingcolordesc'] = 'Set the color used for the majority of Headings throughout the site.';
+$string['headingcolordesc'] = 'Set the colour used for the majority of Headings throughout the site.';
 
 /* Banners */
 
@@ -218,8 +221,8 @@ $string['bannerlinkurldesc'] = 'Address slide links to';
 $string['bannerimage'] = 'Slide Image';
 $string['bannerimagedesc'] = 'Large image to go behind the slide text';
 
-$string['bannercolor'] = 'Slide Color';
-$string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background color instead';
+$string['bannercolor'] = 'Slide Colour';
+$string['bannercolordesc'] = 'Don\'t want to use an image? Specify a background colour instead';
 
 /* Login Screen */
 $string['loginsettings'] = 'Login Screen';
@@ -291,12 +294,12 @@ $string['quicklinkstitledesc'] = 'The name associated with the Quick Links area 
 
 $string['quicklinkicon'] = 'Icon';
 $string['quicklinkicondesc'] = 'Name of the icon you wish to use. List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
-$string['quicklinkiconcolor'] = 'Quick Link Color';
-$string['quicklinkiconcolordesc'] = 'Background color behind the Quick Link icon';
+$string['quicklinkiconcolor'] = 'Quick Link Colour';
+$string['quicklinkiconcolordesc'] = 'Background colour behind the Quick Link icon';
 $string['quicklinkbuttontext'] = 'Link Text';
 $string['quicklinkbuttontextdesc'] = 'Text to appear on the button.';
-$string['quicklinkbuttoncolor'] = 'Button Color';
-$string['quicklinkbuttoncolordesc'] = 'Quick Link Button color';
+$string['quicklinkbuttoncolor'] = 'Button Colour';
+$string['quicklinkbuttoncolordesc'] = 'Quick Link Button colour';
 $string['quicklinkbuttonurl'] = 'Link URL';
 $string['quicklinkbuttonurldesc'] = 'URL the button will point to.';
 

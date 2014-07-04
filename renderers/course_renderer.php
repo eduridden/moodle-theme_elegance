@@ -25,7 +25,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . "/course/renderer.php");
 
-class theme_bootstrap_core_course_renderer extends core_course_renderer {
+class theme_elegance_core_course_renderer extends core_course_renderer {
 
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG, $OUTPUT;
